@@ -1,11 +1,11 @@
 import dynamic from "next/dynamic";
 
-const HomeSection = dynamic(() => import("@/components/section/home-section"));
-const ChatSection = dynamic(() => import("@/components/section/chat-section"));
+const HomeSection = dynamic(() => import("@/app/_section/home-section"));
+const ChatSection = dynamic(() => import("@/app/_section/chat-section"));
 const ProjectSection = dynamic(
-  () => import("@/components/section/project-section")
+  () => import("@/app/_section/project-section")
 );
-const ActionSection = dynamic(() => import("@/components/section/cta-section"));
+const ActionSection = dynamic(() => import("@/app/_section/cta-section"));
 
 export default function Page() {
   return (

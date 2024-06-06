@@ -9,7 +9,7 @@ import { motion } from "framer-motion";
 
 import { Sparkle, ArrowUpRight } from "lucide-react";
 
-import Marquee from "./marquee";
+import Marquee from "@/components/shared/marquee";
 
 const ProjectCard = ({
   title,

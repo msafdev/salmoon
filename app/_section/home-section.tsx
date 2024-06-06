@@ -5,8 +5,8 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { Plus_Jakarta_Sans } from "next/font/google";
 
-import Badge from "../shared/badge";
-import CopyButton from "../shared/copy-button";
+import Badge from "@/components/shared/badge";
+import CopyButton from "@/components/shared/copy-button";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
