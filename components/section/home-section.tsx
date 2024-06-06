@@ -28,9 +28,10 @@ const HomeSection = () => {
       <Badge />
 
       <h1
-        className={`${plusJakartaSans.className} text-balance text-3xl md:text-5xl font-bold leading-9 md:leading-[52px]`}
+        className={`${plusJakartaSans.className} text-balance text-3xl md:text-5xl font-bold leading-9 md:leading-[52px] group`}
       >
         creative mind for a more unique perspective
+        <span className="group-hover:text-pink-500 anim">.</span>
       </h1>
 
       <CopyButton />
