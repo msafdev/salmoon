@@ -18,12 +18,12 @@ const ProfileSection = () => {
       </div>
 
       <p className="text-sm md:text-base text-foreground w-full">
-        I help humans shape new ideas thru icons, illustrations and logos. I
+        I help <strong>humans</strong> shape new ideas thru icons, illustrations and logos. I
         also enjoy crafting websites and bring them to life as a no-code
         enthusiast.
       </p>
 
-      <div className="w-full h-auto aspect-[16/12] xs:aspect-[16/9] md:aspect-[16/7] border"></div>
+      <div className="w-full h-auto aspect-square xs:aspect-video md:aspect-[16/7] border"></div>
     </div>
   );
 };

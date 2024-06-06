@@ -61,9 +61,9 @@ const MenuButton = () => {
       {/* Desktop Menu Bar */}
       <div
         ref={menuRef}
-        className={`absolute w-[calc(100vw-40px)] xs:w-full rounded-2xl xs:max-w-xs overflow-hidden anim ease-linear -top-1 xs:top-1/2 -right-1 z-10 xs:-translate-y-1/2 ${
+        className={`absolute w-full rounded-2xl xs:max-w-xs overflow-hidden anim ease-linear -top-1 xs:top-1/2 -right-1 z-10 xs:-translate-y-1/2 ${
           open
-            ? "w-full xs:h-12 bg-primary xs:bg-popover border pl-6 pr-16 opacity-100"
+            ? "w-full xs:h-12 bg-primary xs:bg-popover border pl-4 sm:pl-6 pr-16 opacity-100"
             : "w-0 xs:h-12 opacity-0"
         }`}
       >
