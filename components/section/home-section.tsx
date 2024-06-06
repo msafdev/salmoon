@@ -2,13 +2,13 @@
 
 import React, { useRef } from "react";
 
-import { Plus_Jakarta_Sans } from "next/font/google";
+import dynamic from "next/dynamic";
 
 import { motion, useInView } from "framer-motion";
-
-import ShinyText from "../shared/shiny-text";
-
 import { ArrowUpRight } from "lucide-react";
+import { Plus_Jakarta_Sans } from "next/font/google";
+
+const ShinyText = dynamic(() => import("../shared/shiny-text"));
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -19,9 +19,9 @@ const HomeSection = () => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true });
 
-  function copyText(entryText: string) {
+  const copyText = (entryText: string) => {
     navigator.clipboard.writeText(entryText);
-  }
+  };
 
   return (
     <motion.div
