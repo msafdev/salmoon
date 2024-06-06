@@ -11,7 +11,7 @@ const container = {
   show: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.4,
+      staggerChildren: 0.3,
       ease: "easeInOut",
     },
   },

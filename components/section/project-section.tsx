@@ -45,7 +45,7 @@ const ProjectSection = () => {
           className="relative"
         >
           <Avatar className="border overflow-hidden">
-            <AvatarImage src="./ava.png" alt="Avatar"/>
+            <AvatarImage src="./ava.png" alt="Avatar" />
             <AvatarFallback>CN</AvatarFallback>
           </Avatar>
 
