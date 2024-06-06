@@ -63,11 +63,11 @@ const MenuButton = () => {
         ref={menuRef}
         className={`absolute w-full rounded-2xl xs:max-w-xs overflow-hidden anim ease-linear -top-1 xs:top-1/2 -right-1 z-10 xs:-translate-y-1/2 ${
           open
-            ? "w-full xs:h-12 bg-primary xs:bg-popover border pl-4 sm:pl-6 pr-16 opacity-100"
+            ? "w-full xs:h-12 bg-popover border pl-4 sm:pl-6 pr-16 opacity-100"
             : "w-0 xs:h-12 opacity-0"
         }`}
       >
-        <div className="flex flex-col text-background xs:text-foreground xs:flex-row items-center justify-center gap-x-8 h-fit xs:h-full gap-y-3 py-4 xs:py-0 w-full">
+        <div className="flex flex-col text-popover-foreground xs:flex-row items-center justify-center gap-x-8 h-fit xs:h-full gap-y-3 py-4 xs:py-0 w-full">
           <Link
             href="/about"
             className={`text-sm font-semibold font-mono anim ease-in-out flex items-center w-full xs:w-fit gap-x-3 xs:gap-x-2 group ${
