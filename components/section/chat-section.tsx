@@ -1,11 +1,20 @@
 "use client";
 
 import React, { useRef } from "react";
-
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import dynamic from "next/dynamic";
 import { motion, useInView } from "framer-motion";
-
 import { CheckCheck, ThumbsDown, Heart } from "lucide-react";
+
+// Dynamic import for Avatar components
+const Avatar = dynamic(() =>
+  import("@/components/ui/avatar").then((mod) => mod.Avatar)
+);
+const AvatarFallback = dynamic(() =>
+  import("@/components/ui/avatar").then((mod) => mod.AvatarFallback)
+);
+const AvatarImage = dynamic(() =>
+  import("@/components/ui/avatar").then((mod) => mod.AvatarImage)
+);
 
 const container = {
   hidden: { opacity: 0 },
@@ -44,7 +53,7 @@ const ChatSection = () => {
           className="relative"
         >
           <Avatar className="border overflow-hidden">
-            <AvatarImage src="./ava.png" />
+            <AvatarImage src="./ava.png" alt="Avatar" />
             <AvatarFallback>CN</AvatarFallback>
           </Avatar>
 
