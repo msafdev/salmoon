@@ -9,7 +9,7 @@ const ActionSection = dynamic(() => import("@/app/_section/cta-section"));
 
 export default function Page() {
   return (
-    <section className="flex flex-col items-center gap-y-16 md:gap-y-20 lg:gap-y-24 px-4">
+    <section id="home" className="flex flex-col items-center gap-y-16 md:gap-y-20 lg:gap-y-24 px-4">
       <HomeSection />
       <ChatSection />
       <ProjectSection />

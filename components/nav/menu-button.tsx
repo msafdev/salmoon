@@ -61,41 +61,41 @@ const MenuButton = () => {
       {/* Desktop Menu Bar */}
       <div
         ref={menuRef}
-        className={`absolute w-[calc(100svw-32px)] translate-y-[calc(100%-16px)] md:w-full md:max-w-xs overflow-hidden anim ease-linear top-1/2 -right-1 z-10 md:-translate-y-1/2 ${
+        className={`absolute w-[calc(100vw-40px)] xs:w-full rounded-2xl xs:max-w-xs overflow-hidden anim ease-linear -top-1 xs:top-1/2 -right-1 z-10 xs:-translate-y-1/2 ${
           open
-            ? "w-full h-12 bg-popover border rounded-2xl pl-6 pr-14 opacity-100"
-            : "w-0 h-12 opacity-0"
+            ? "w-full xs:h-12 bg-primary xs:bg-popover border pl-6 pr-16 opacity-100"
+            : "w-0 xs:h-12 opacity-0"
         }`}
       >
-        <div className="flex items-center justify-center gap-x-8 h-full w-full">
+        <div className="flex flex-col text-background xs:text-foreground xs:flex-row items-center justify-center gap-x-8 h-fit xs:h-full gap-y-3 py-4 xs:py-0 w-full">
           <Link
-            href="/"
-            className={`text-sm font-semibold font-mono anim ease-in-out flex items-center gap-x-2 group ${
+            href="/about"
+            className={`text-sm font-semibold font-mono anim ease-in-out flex items-center w-full xs:w-fit gap-x-3 xs:gap-x-2 group ${
               open ? "opacity-100" : "opacity-0"
             }`}
             aria-label="About Page"
           >
-            <div className="w-1 h-1 bg-foreground rounded-full group-hover:w-4 anim ease-in-out group-hover:bg-orange-400" />
+            <div className="w-4 xs:w-1 h-1 bg-orange-400 xs:bg-primary rounded-full group-hover:w-4 anim ease-in-out group-hover:bg-orange-400" />
             <span>About</span>
           </Link>
           <Link
             href="/"
-            className={`text-sm font-semibold font-mono anim ease-in-out flex items-center gap-x-2 group ${
+            className={`text-sm font-semibold font-mono anim ease-in-out flex items-center w-full xs:w-fit gap-x-3 xs:gap-x-2 group ${
               open ? "opacity-100" : "opacity-0"
             }`}
             aria-label="Blog Page"
           >
-            <div className="w-1 h-1 bg-foreground rounded-full group-hover:w-4 anim ease-in-out group-hover:bg-orange-400" />
+            <div className="w-4 xs:w-1 h-1 bg-orange-400 xs:bg-primary rounded-full group-hover:w-4 anim ease-in-out group-hover:bg-orange-400" />
             <span>Blog</span>
           </Link>
           <Link
-            href="/experience"
-            className={`text-sm font-semibold font-mono anim ease-in-out flex items-center gap-x-2 group ${
+            href="/work"
+            className={`text-sm font-semibold font-mono anim ease-in-out flex items-center w-full xs:w-fit gap-x-3 xs:gap-x-2 group ${
               open ? "opacity-100" : "opacity-0"
             }`}
             aria-label="Work Page"
           >
-            <div className="w-1 h-1 bg-foreground rounded-full group-hover:w-4 anim ease-in-out group-hover:bg-orange-400" />
+            <div className="w-4 xs:w-1 h-1 bg-orange-400 xs:bg-primary rounded-full group-hover:w-4 anim ease-in-out group-hover:bg-orange-400" />
             <span>Work</span>
           </Link>
         </div>

@@ -53,7 +53,7 @@ const ProjectSection = () => {
         <motion.div variants={item} className="relative">
           <Avatar className="border overflow-hidden">
             <AvatarImage src="./ava.png" alt="Avatar" />
-            <AvatarFallback>CN</AvatarFallback>
+            <AvatarFallback>M</AvatarFallback>
           </Avatar>
 
           {/* Status */}

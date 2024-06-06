@@ -17,7 +17,7 @@ const licorice = Licorice({
 
 const Footer = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
+  const isInView = useInView(ref, { once: false });
 
   return (
     <footer

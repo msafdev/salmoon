@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef } from "react";
+import { useRef } from "react";
 
 import Link from "next/link";
 import { motion, useInView } from "framer-motion";
@@ -48,7 +48,7 @@ const ActionSection = () => {
         >
           <Avatar className="border overflow-hidden">
             <AvatarImage src="./ava.png" alt="Avatar" />
-            <AvatarFallback>CN</AvatarFallback>
+            <AvatarFallback>M</AvatarFallback>
           </Avatar>
 
           {/* Status */}
