@@ -55,6 +55,7 @@ const ProjectCard = ({
         alt="Macintosh"
         fill
         className="object-contain anim bg-gradient-to-br from-background to-sky-100 p-3 shadow"
+        placeholder="blur"
       />
     </motion.div>
   );
