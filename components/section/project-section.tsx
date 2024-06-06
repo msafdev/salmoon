@@ -1,41 +1,19 @@
 "use client";
 
-import React, { useRef } from "react";
+import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
+
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
-import ProjectCard from "../shared/project-card";
-import Macintosh from "@/public/project/macintosh.webp";
-
-const projectItems = [
-  {
-    title: "Macfolio",
-    stack: ["Next", "Tailwind"],
-    image: Macintosh,
-  },
-  {
-    title: "Compactfolio",
-    stack: ["Next", "Tailwind"],
-    image: Macintosh,
-  },
-  {
-    title: "Nextbase",
-    stack: ["Next", "Tailwind", "Supabase"],
-    image: Macintosh,
-  },
-  {
-    title: "Linkify",
-    stack: ["Next", "Tailwind", "Figma"],
-    image: Macintosh,
-  },
-];
+import { projectItems } from "@/lib/constants";
+import ProjectCard from "@/components/shared/project-card";
 
 const container = {
   hidden: { opacity: 0 },
   show: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.2,
+      staggerChildren: 0.4,
       ease: "easeInOut",
     },
   },

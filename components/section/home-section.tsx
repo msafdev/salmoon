@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef } from "react";
+import { useRef } from "react";
 
 import dynamic from "next/dynamic";
 
@@ -8,7 +8,7 @@ import { motion, useInView } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { Plus_Jakarta_Sans } from "next/font/google";
 
-const ShinyText = dynamic(() => import("../shared/shiny-text"));
+const ShinyText = dynamic(() => import("@/components/shared/shiny-text"));
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],

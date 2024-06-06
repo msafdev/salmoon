@@ -1,27 +1,17 @@
 "use client";
 
-import React, { useRef } from "react";
-import dynamic from "next/dynamic";
+import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { CheckCheck, ThumbsDown, Heart } from "lucide-react";
 
-// Dynamic import for Avatar components
-const Avatar = dynamic(() =>
-  import("@/components/ui/avatar").then((mod) => mod.Avatar)
-);
-const AvatarFallback = dynamic(() =>
-  import("@/components/ui/avatar").then((mod) => mod.AvatarFallback)
-);
-const AvatarImage = dynamic(() =>
-  import("@/components/ui/avatar").then((mod) => mod.AvatarImage)
-);
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import ChatFooter from "@/components/shared/chat-footer";
 
 const container = {
   hidden: { opacity: 0 },
   show: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.3,
+      staggerChildren: 0.4,
       ease: "easeInOut",
     },
   },
@@ -80,26 +70,7 @@ const ChatSection = () => {
           </p>
         </div>
 
-        <div className="flex w-full items-center gap-x-4 justify-between">
-          <div className="flex gap-x-1 items-center">
-            <p className="text-muted-foreground text-xs md:text-sm">4m ago</p>
-            <CheckCheck className="text-blue-500 md:w-3 md:h-3 h-2.5 w-2.5" />
-          </div>
-
-          <div className="flex gap-x-4 items-center">
-            <div className="flex gap-x-2 items-center">
-              <ThumbsDown className="text-muted-foreground md:w-3 md:h-3 h-2.5 w-2.5" />
-              <p className="text-muted-foreground text-xs md:text-sm">Report</p>
-            </div>
-
-            <div className="flex gap-x-2 items-center">
-              <Heart className="text-muted-foreground md:w-3 md:h-3 h-2.5 w-2.5" />
-              <p className="text-muted-foreground text-xs md:text-sm">
-                Favorite
-              </p>
-            </div>
-          </div>
-        </div>
+        <ChatFooter />
       </motion.div>
     </motion.div>
   );
