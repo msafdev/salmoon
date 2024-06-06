@@ -38,7 +38,7 @@ const HomeSection = () => {
       </div>
 
       <h1
-        className={`${plusJakartaSans.className} text-balance text-4xl md:text-5xl font-bold leading-10 md:leading-[52px]`}
+        className={`${plusJakartaSans.className} text-balance text-3xl md:text-5xl font-bold leading-9 md:leading-[52px]`}
       >
         creative mind for a more unique perspective
       </h1>
