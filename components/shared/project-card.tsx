@@ -24,7 +24,7 @@ const ProjectCard = ({
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1, ease: "easeInOut" }}
-      className="flex w-full aspect-[16/10] relative group border rounded-xl overflow-hidden shadow bg-gradient-to-br from-background to-sky-100"
+      className="flex w-full aspect-[16/10] relative group border rounded-xl overflow-hidden shadow bg-gradient-to-br from-background to-muted"
     >
       <div className="z-10 flex flex-col justify-between anim-slow w-full p-3 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 absolute aspect-[16/10]">
         <p className="text-sm text-accent-foreground font-semibold font-mono px-2 py-1 bg-accent backdrop-blur-sm border w-fit rounded-md">
