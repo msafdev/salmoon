@@ -28,21 +28,37 @@ const Footer = () => {
         }`}
       >
         <div className="flex flex-col md:flex-row items-center gap-x-4 gap-y-3 justify-between text-primary-foreground w-full">
-          <h1 className={`text-3xl ${licorice.className}`}>Salman</h1>
+          <span className={`text-3xl ${licorice.className}`}>Salman</span>
           <div className="flex flex-wrap justify-center items-center text-primary-foreground/80 text-sm gap-x-3">
-            <Link className="anim hover:text-primary-foreground" href="">
+            <Link
+              className="anim hover:text-primary-foreground"
+              href=""
+              aria-label="Twitter / X.com"
+            >
               x.com
             </Link>
             <Dot size={12} />
-            <Link className="anim hover:text-primary-foreground" href="">
+            <Link
+              className="anim hover:text-primary-foreground"
+              href=""
+              aria-label="Dribbble"
+            >
               dribbble
             </Link>
             <Dot size={12} />
-            <Link className="anim hover:text-primary-foreground" href="">
+            <Link
+              className="anim hover:text-primary-foreground"
+              href=""
+              aria-label="Instagram"
+            >
               insta
             </Link>
             <Dot size={12} />
-            <Link className="anim hover:text-primary-foreground" href="">
+            <Link
+              className="anim hover:text-primary-foreground"
+              href=""
+              aria-label="Free Reusable Components"
+            >
               free components
             </Link>
           </div>
@@ -55,9 +71,9 @@ const Footer = () => {
           </p>
 
           <div className="flex flex-col gap-y-3 md:ml-auto">
-            <h3 className="text-primary-foreground font-semibold text-center md:text-right font-mono uppercase">
+            <h4 className="text-primary-foreground font-semibold text-center md:text-right font-mono uppercase">
               Actions
-            </h3>
+            </h4>
             <div className="flex flex-col gap-y-1 text-primary-foreground/80 text-sm font-mono text-center md:text-right">
               <p>Back to top</p>
               <p>Copy my email</p>
@@ -65,9 +81,9 @@ const Footer = () => {
           </div>
 
           <div className="flex flex-col gap-y-3">
-            <h3 className="text-primary-foreground font-semibold text-center md:text-right font-mono uppercase">
+            <h4 className="text-primary-foreground font-semibold text-center md:text-right font-mono uppercase">
               Credits
-            </h3>
+            </h4>
             <div className="flex flex-col gap-y-1 text-primary-foreground/80 text-sm font-mono text-center md:text-right">
               <p>Darius Dan</p>
               <p>Transhumans</p>

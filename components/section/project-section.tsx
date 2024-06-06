@@ -45,7 +45,7 @@ const ProjectSection = () => {
           className="relative"
         >
           <Avatar className="border overflow-hidden">
-            <AvatarImage src="./ava.png" />
+            <AvatarImage src="./ava.png" alt="Avatar"/>
             <AvatarFallback>CN</AvatarFallback>
           </Avatar>
 
@@ -56,9 +56,9 @@ const ProjectSection = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, ease: "easeInOut" }}
-          className="flex px-6 py-3 bg-muted rounded-3xl rounded-bl-md border"
+          className="flex px-6 py-3 bg-accent rounded-3xl rounded-bl-md border"
         >
-          <p className="text-muted-foreground text-sm">
+          <p className="text-accent-foreground text-sm">
             These are some of the projects I've worked on.
           </p>
         </motion.div>

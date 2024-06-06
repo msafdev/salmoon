@@ -54,16 +54,16 @@ const ChatSection = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, ease: "easeInOut" }}
-          className="flex px-6 py-3 bg-muted rounded-3xl rounded-bl-md border"
+          className="flex px-6 py-3 bg-accent rounded-3xl rounded-bl-md border"
         >
-          <p className="text-muted-foreground text-sm">Hi there, I'm Salman.</p>
+          <p className="text-accent-foreground text-sm">Hi there, I'm Salman.</p>
         </motion.div>
       </motion.div>
 
       {/* Second Chat */}
       <motion.div variants={item} className="flex flex-col gap-y-2">
-        <div className="flex px-6 py-3 bg-muted rounded-3xl rounded-bl-md border">
-          <p className="text-muted-foreground text-sm">
+        <div className="flex px-6 py-3 bg-accent rounded-3xl rounded-bl-md border">
+          <p className="text-accent-foreground text-sm">
             Creative developer with more than 2 years of experience in web
             development. I mainly create magic with Next.js, Tailwind, and
             Typescript.
