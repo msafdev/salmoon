@@ -1,11 +1,33 @@
 "use client";
 
-import React, { useState } from "react";
-import { motion } from "framer-motion";
+import { useState, useEffect, useRef } from "react";
+
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 const MenuButton = () => {
   const [open, setOpen] = useState<boolean>(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        menuRef.current &&
+        !menuRef.current.contains(event.target as Node) &&
+        buttonRef.current &&
+        !buttonRef.current.contains(event.target as Node)
+      ) {
+        setOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
     <motion.div
@@ -15,11 +37,10 @@ const MenuButton = () => {
       className="flex w-full justify-end relative"
     >
       <button
+        ref={buttonRef}
         aria-label="Menu Button"
         onClick={() => setOpen(!open)}
-        className={`flex group flex-col z-10 bg-primary h-10 aspect-square anim ease-linear justify-center items-end gap-y-1 relative ${
-          open ? "rounded-xl" : "rounded-lg hover:rounded-xl"
-        }`}
+        className="flex group flex-col z-10 bg-primary h-10 aspect-square anim ease-linear justify-center items-end gap-y-1 relative rounded-xl"
       >
         <div
           className={`w-[22px] anim ease-in-out rounded-full bg-background absolute snap-center top-1/2 left-1/2 -translate-x-1/2 ${
@@ -39,7 +60,8 @@ const MenuButton = () => {
 
       {/* Desktop Menu Bar */}
       <div
-        className={`hidden md:block absolute max-w-xs overflow-hidden anim ease-linear top-1/2 -right-1 -translate-y-1/2 ${
+        ref={menuRef}
+        className={`absolute w-[calc(100svw-32px)] translate-y-[calc(100%-16px)] md:w-full md:max-w-xs overflow-hidden anim ease-linear top-1/2 -right-1 z-10 md:-translate-y-1/2 ${
           open
             ? "w-full h-12 bg-popover border rounded-2xl pl-6 pr-14 opacity-100"
             : "w-0 h-12 opacity-0"

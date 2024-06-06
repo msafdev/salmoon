@@ -2,10 +2,13 @@
 
 import React, { useRef } from "react";
 
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import Link from "next/link";
 import { motion, useInView } from "framer-motion";
 
-import ChatFooter from "../shared/chat-footer";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import ChatFooter from "@/components/shared/chat-footer";
+
+import { FaPaperPlane } from "react-icons/fa6";
 
 const container = {
   hidden: { opacity: 0 },
@@ -44,7 +47,7 @@ const ActionSection = () => {
           className="relative"
         >
           <Avatar className="border overflow-hidden">
-            <AvatarImage src="./ava.png" alt="Avatar"/>
+            <AvatarImage src="./ava.png" alt="Avatar" />
             <AvatarFallback>CN</AvatarFallback>
           </Avatar>
 
@@ -64,13 +67,21 @@ const ActionSection = () => {
       </motion.div>
 
       {/* Second Chat */}
-      <motion.div variants={item} className="flex flex-col gap-y-2">
-        <div className="flex px-6 py-3 bg-accent rounded-3xl rounded-bl-md border">
-          <p className="text-accent-foreground text-sm">
-            Developer with more than 2 years of experience in web development. I
-            mainly create magic with Next.js, Tailwind, and Typescript.
+      <motion.div variants={item} className="flex flex-col w-full gap-y-2">
+        <Link
+          href={"/"}
+          className="flex items-center group justify-between pl-6 pr-1 py-1 bg-background hover:bg-green-200 rounded-tl-3xl rounded-e-[50px] rounded-bl-md border anim hover:border-green-500 w-full"
+        >
+          <p className="text-muted-foreground group-hover:text-green-700 font-medium group-hover:text-primary anim text-sm">
+            Get in touch.
           </p>
-        </div>
+          <div className="h-auto w-fit px-6 py-2.5 bg-[#878787] group-hover:bg-green-500 anim rounded-full">
+            <FaPaperPlane
+              size={24}
+              className="group-hover:p-0 anim text-background p-1"
+            />
+          </div>
+        </Link>
 
         <ChatFooter />
       </motion.div>
