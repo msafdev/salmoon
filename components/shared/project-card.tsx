@@ -9,7 +9,6 @@ import { motion } from "framer-motion";
 
 import { Sparkle, ArrowUpRight } from "lucide-react";
 
-import Macintosh from "@/public/project/macintosh.webp";
 import Marquee from "./marquee";
 
 const ProjectCard = ({
@@ -61,7 +60,7 @@ const ProjectCard = ({
       </Link>
 
       <Image
-        src={Macintosh}
+        src={image}
         alt={`Image of ${title}`}
         fill
         className="object-contain anim p-8 group-hover:p-4 shadow bg-transparent"
