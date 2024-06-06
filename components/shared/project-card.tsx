@@ -24,7 +24,7 @@ const ProjectCard = ({
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1, ease: "easeInOut" }}
-      className="flex w-full aspect-[16/10] relative group border rounded-xl overflow-hidden shadow"
+      className="flex w-full aspect-[16/10] relative group border rounded-xl overflow-hidden shadow bg-gradient-to-br from-background to-sky-100"
     >
       <div className="z-10 flex flex-col justify-between anim-slow w-full p-3 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 absolute aspect-[16/10]">
         <p className="text-sm text-muted-foreground font-semibold font-mono px-2 py-1 bg-muted/50 backdrop-blur-sm border w-fit rounded-md">
@@ -32,7 +32,7 @@ const ProjectCard = ({
         </p>
 
         {/* Stack */}
-        <div className="flex gap-x-2 items-center py-1 bg-muted/60 backdrop-blur-sm border rounded-md justify-around overflow-hidden relative">
+        <div className="flex pointer-events-none gap-x-2 items-center py-1 bg-muted/60 backdrop-blur-sm border rounded-md justify-around overflow-hidden relative">
           <Marquee className="[--duration:10s]">
             {stack.map((item, index) => (
               <React.Fragment key={index}>
@@ -54,7 +54,7 @@ const ProjectCard = ({
         src={Macintosh}
         alt="Macintosh"
         fill
-        className="object-contain anim bg-gradient-to-br from-background to-sky-100 p-3 shadow"
+        className="object-contain anim p-8 group-hover:p-4 shadow bg-transparent"
         placeholder="blur"
       />
     </motion.div>
