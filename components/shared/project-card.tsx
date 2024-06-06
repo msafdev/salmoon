@@ -1,11 +1,13 @@
 "use client";
 
 import React from "react";
+
 import Image, { StaticImageData } from "next/image";
+import Link from "next/link";
 
 import { motion } from "framer-motion";
 
-import { Sparkle } from "lucide-react";
+import { Sparkle, ArrowUpRight } from "lucide-react";
 
 import Macintosh from "@/public/project/macintosh.webp";
 import Marquee from "./marquee";
@@ -26,9 +28,17 @@ const ProjectCard = ({
       transition={{ duration: 1, ease: "easeInOut" }}
       className="flex w-full aspect-[16/10] relative group border rounded-xl overflow-hidden shadow bg-gradient-to-br from-background to-accent"
     >
-      <div className="z-10 flex flex-col justify-between anim-slow w-full p-3 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 absolute aspect-[16/10]">
+      <Link
+        href={"/"}
+        aria-label={`View ${title} project`}
+        className="z-10 flex flex-col justify-between anim-slow w-full p-3 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 absolute aspect-[16/10]"
+      >
         <p className="text-sm text-accent-foreground font-semibold font-mono px-2 py-1 bg-accent backdrop-blur-sm border w-fit rounded-md">
           {title}
+          <ArrowUpRight
+            className="inline-block ml-1 text-accent-foreground"
+            size={14}
+          />
         </p>
 
         {/* Stack */}
@@ -48,7 +58,7 @@ const ProjectCard = ({
           <div className="w-4 h-full absolute left-0 top-0 bg-gradient-to-r from-accent to-transparent" />
           <div className="w-4 h-full absolute right-0 top-0 bg-gradient-to-r to-accent from-transparent" />
         </div>
-      </div>
+      </Link>
 
       <Image
         src={Macintosh}
