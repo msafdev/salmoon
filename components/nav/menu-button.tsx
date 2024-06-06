@@ -40,7 +40,7 @@ const MenuButton = () => {
         ref={buttonRef}
         aria-label="Menu Button"
         onClick={() => setOpen(!open)}
-        className="flex group flex-col z-10 bg-primary h-10 aspect-square anim ease-linear justify-center items-end gap-y-1 relative rounded-xl"
+        className="flex group flex-col z-20 bg-primary h-10 aspect-square anim ease-linear justify-center items-end gap-y-1 relative rounded-xl"
       >
         <div
           className={`w-[22px] anim ease-in-out rounded-full bg-background absolute snap-center top-1/2 left-1/2 -translate-x-1/2 ${

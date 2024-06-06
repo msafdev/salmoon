@@ -36,7 +36,7 @@ const ActionSection = () => {
       variants={container}
       initial="hidden"
       animate={inView ? "show" : "hidden"}
-      className="max-w-2xl flex flex-col gap-y-4 items-start w-full md:p-4"
+      className="max-w-2xl flex flex-col gap-y-4 items-start w-full md:p-4 group"
     >
       {/* Avatar and First Chat */}
       <motion.div variants={item} className="flex items-end gap-x-4 w-full">
@@ -70,9 +70,9 @@ const ActionSection = () => {
       <motion.div variants={item} className="flex flex-col w-full gap-y-2">
         <Link
           href={"/"}
-          className="flex items-center group justify-between pl-6 pr-1 py-1 bg-background hover:bg-green-200 rounded-tl-3xl rounded-e-[50px] rounded-bl-md border anim hover:border-green-500 w-full"
+          className="flex items-center justify-between pl-6 pr-1 py-1 bg-background group-hover:bg-green-200 rounded-tl-3xl rounded-e-[50px] rounded-bl-md border anim group-hover:border-green-500 w-full"
         >
-          <p className="text-muted-foreground group-hover:text-green-700 font-medium group-hover:text-primary anim text-sm">
+          <p className="text-muted-foreground group-hover:text-green-700 font-medium anim text-sm">
             Get in touch.
           </p>
           <div className="h-auto w-fit px-6 py-2.5 bg-[#878787] group-hover:bg-green-500 anim rounded-full">
@@ -83,7 +83,7 @@ const ActionSection = () => {
           </div>
         </Link>
 
-        <ChatFooter />
+        <ChatFooter time={1} />
       </motion.div>
     </motion.div>
   );

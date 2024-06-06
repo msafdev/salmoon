@@ -73,9 +73,9 @@ const Footer = () => {
           </p>
 
           <div className="flex flex-col gap-y-3 md:ml-auto">
-            <h4 className="text-primary-foreground font-semibold text-center md:text-right font-mono uppercase">
+            <h2 className="text-primary-foreground font-semibold text-center md:text-right font-mono uppercase">
               Actions
-            </h4>
+            </h2>
             <div className="flex flex-col gap-y-1 text-primary-foreground/80 text-sm font-mono text-center md:text-right">
               <p>Back to top</p>
               <p>Copy my email</p>
@@ -83,9 +83,9 @@ const Footer = () => {
           </div>
 
           <div className="flex flex-col gap-y-3">
-            <h4 className="text-primary-foreground font-semibold text-center md:text-right font-mono uppercase">
+            <h2 className="text-primary-foreground font-semibold text-center md:text-right font-mono uppercase">
               Credits
-            </h4>
+            </h2>
             <div className="flex flex-col gap-y-1 text-primary-foreground/80 text-sm font-mono text-center md:text-right">
               <p>Darius Dan</p>
               <p>Transhumans</p>

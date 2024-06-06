@@ -13,7 +13,19 @@ const container = {
   show: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.4,
+      staggerChildren: 0.3,
+      ease: "easeInOut",
+    },
+  },
+};
+
+const project = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      delayChildren: 0.6,
+      staggerChildren: 0.3,
       ease: "easeInOut",
     },
   },
@@ -38,12 +50,7 @@ const ProjectSection = () => {
     >
       {/* Avatar and First Chat */}
       <div className="flex items-end gap-x-4 w-full">
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, ease: "easeInOut" }}
-          className="relative"
-        >
+        <motion.div variants={item} className="relative">
           <Avatar className="border overflow-hidden">
             <AvatarImage src="./ava.png" alt="Avatar" />
             <AvatarFallback>CN</AvatarFallback>
@@ -52,10 +59,9 @@ const ProjectSection = () => {
           {/* Status */}
           <div className="w-2 h-2 rounded-full bg-green-500 absolute top-0.5 right-0.5 border" />
         </motion.div>
+
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, ease: "easeInOut" }}
+          variants={item}
           className="flex px-6 py-3 bg-accent rounded-3xl rounded-bl-md border"
         >
           <p className="text-accent-foreground text-sm">
@@ -66,9 +72,10 @@ const ProjectSection = () => {
 
       {/* Second Chat */}
       <motion.div
-        variants={container}
+        variants={project}
         initial="hidden"
         animate={inView ? "show" : "hidden"}
+        transition={{ delay: 0.3 }}
         className="w-full grid sm:grid-cols-2 gap-4"
       >
         {projectItems.map((items, index) => (

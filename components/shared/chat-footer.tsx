@@ -1,7 +1,13 @@
 import { cn } from "@/lib/utils";
 import { CheckCheck, Heart, ThumbsDown } from "lucide-react";
 
-const ChatFooter = ({ className }: { className?: string }) => {
+const ChatFooter = ({
+  className,
+  time,
+}: {
+  className?: string;
+  time: number;
+}) => {
   return (
     <div
       className={cn(
@@ -10,18 +16,18 @@ const ChatFooter = ({ className }: { className?: string }) => {
       )}
     >
       <div className="flex gap-x-1 items-center">
-        <p className="text-muted-foreground text-xs md:text-sm">4m ago</p>
+        <p className="text-muted-foreground text-xs md:text-sm">{time}m ago</p>
         <CheckCheck className="text-blue-500 md:w-3 md:h-3 h-2.5 w-2.5" />
       </div>
 
       <div className="flex gap-x-4 items-center">
-        <div className="flex gap-x-2 items-center">
-          <ThumbsDown className="text-muted-foreground md:w-3 md:h-3 h-2.5 w-2.5" />
+        <div className="flex gap-x-2 items-center group/report">
+          <ThumbsDown className="text-muted-foreground md:w-3 md:h-3 h-2.5 w-2.5 group-hover/report:text-blue-500 anim" />
           <p className="text-muted-foreground text-xs md:text-sm">Report</p>
         </div>
 
-        <div className="flex gap-x-2 items-center">
-          <Heart className="text-muted-foreground md:w-3 md:h-3 h-2.5 w-2.5" />
+        <div className="flex gap-x-2 items-center group/favorite">
+          <Heart className="text-muted-foreground md:w-3 md:h-3 h-2.5 w-2.5 group-hover/favorite:text-red-400 group-hover/favorite:fill-red-400 anim" />
           <p className="text-muted-foreground text-xs md:text-sm">Favorite</p>
         </div>
       </div>
