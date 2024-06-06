@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 import { Sparkle } from "lucide-react";
 
 import Macintosh from "@/public/project/macintosh.webp";
+import Marquee from "./marquee";
 
 const ProjectCard = ({
   title,
@@ -31,15 +32,21 @@ const ProjectCard = ({
         </p>
 
         {/* Stack */}
-        <div className="flex gap-x-2 items-center px-2 py-1 bg-muted/60 backdrop-blur-sm border rounded-md justify-around">
-          {stack.map((item, index) => (
-            <React.Fragment key={index}>
-              <p className="text-xs text-muted-foreground font-mono">{item}</p>
-              {index !== stack.length - 1 && (
+        <div className="flex gap-x-2 items-center py-1 bg-muted/60 backdrop-blur-sm border rounded-md justify-around overflow-hidden relative">
+          <Marquee className="[--duration:10s]">
+            {stack.map((item, index) => (
+              <React.Fragment key={index}>
+                <p className="text-xs text-muted-foreground font-mono">
+                  {item}
+                </p>
                 <Sparkle className="text-foreground" size={10} />
-              )}
-            </React.Fragment>
-          ))}
+              </React.Fragment>
+            ))}
+          </Marquee>
+
+          {/* Blur */}
+          <div className="w-4 h-full absolute left-0 top-0 bg-gradient-to-r from-muted to-transparent" />
+          <div className="w-4 h-full absolute right-0 top-0 bg-gradient-to-r to-muted from-transparent" />
         </div>
       </div>
 

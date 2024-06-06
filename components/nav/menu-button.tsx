@@ -48,7 +48,7 @@ const MenuButton = () => {
             }`}
           >
             <div className="w-1 h-1 bg-foreground rounded-full group-hover:w-4 anim ease-in-out group-hover:bg-orange-400" />
-            <span>Blog</span>
+            <span>About</span>
           </Link>
           <Link href="/"
             className={`text-sm font-semibold font-mono anim ease-in-out flex items-center gap-x-2 group ${
@@ -56,7 +56,7 @@ const MenuButton = () => {
             }`}
           >
             <div className="w-1 h-1 bg-foreground rounded-full group-hover:w-4 anim ease-in-out group-hover:bg-orange-400" />
-            <span>About</span>
+            <span>Blog</span>
           </Link>
           <Link href="/experience"
             className={`text-sm font-semibold font-mono anim ease-in-out flex items-center gap-x-2 group ${

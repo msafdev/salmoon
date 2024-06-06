@@ -1,4 +1,5 @@
 import ChatSection from "@/components/section/chat-section";
+import ActionSection from "@/components/section/cta-section";
 import HomeSection from "@/components/section/home-section";
 import ProjectSection from "@/components/section/project-section";
 
@@ -8,6 +9,7 @@ export default function Page() {
       <HomeSection />
       <ChatSection />
       <ProjectSection />
+      <ActionSection />
     </section>
   );
 }

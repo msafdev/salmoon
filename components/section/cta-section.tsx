@@ -23,7 +23,7 @@ const item = {
   show: { opacity: 1, y: 0, scale: 1 },
 };
 
-const ChatSection = () => {
+const ActionSection = () => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true });
 
@@ -57,7 +57,9 @@ const ChatSection = () => {
           transition={{ duration: 0.8, ease: "easeInOut" }}
           className="flex px-6 py-3 bg-muted rounded-3xl rounded-bl-md border"
         >
-          <p className="text-muted-foreground text-sm">Hi there, I'm Salman.</p>
+          <p className="text-muted-foreground text-sm">
+            Have a project in mind? Do let me know.
+          </p>
         </motion.div>
       </motion.div>
 
@@ -65,9 +67,8 @@ const ChatSection = () => {
       <motion.div variants={item} className="flex flex-col gap-y-2">
         <div className="flex px-6 py-3 bg-muted rounded-3xl rounded-bl-md border">
           <p className="text-muted-foreground text-sm">
-            Creative developer with more than 2 years of experience in web
-            development. I mainly create magic with Next.js, Tailwind, and
-            Typescript.
+            Developer with more than 2 years of experience in web development. I
+            mainly create magic with Next.js, Tailwind, and Typescript.
           </p>
         </div>
 
@@ -96,4 +97,4 @@ const ChatSection = () => {
   );
 };
 
-export default ChatSection;
+export default ActionSection;

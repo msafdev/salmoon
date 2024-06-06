@@ -54,7 +54,7 @@ const Footer = () => {
             &copy; 2024 msaf. All rights reserved.
           </p>
 
-          <div className="flex flex-col md:ml-auto">
+          <div className="flex flex-col gap-y-3 md:ml-auto">
             <h3 className="text-primary-foreground font-semibold text-center md:text-right font-mono uppercase">
               Actions
             </h3>
@@ -64,7 +64,7 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="flex flex-col">
+          <div className="flex flex-col gap-y-3">
             <h3 className="text-primary-foreground font-semibold text-center md:text-right font-mono uppercase">
               Credits
             </h3>

@@ -1,11 +1,14 @@
 "use client";
 
 import React, { useRef } from "react";
+
 import { Plus_Jakarta_Sans } from "next/font/google";
-import { ArrowUpRight } from "lucide-react";
+
 import { motion, useInView } from "framer-motion";
 
 import ShinyText from "../shared/shiny-text";
+
+import { ArrowUpRight } from "lucide-react";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -15,6 +18,10 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 const HomeSection = () => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true });
+
+  function copyText(entryText: string) {
+    navigator.clipboard.writeText(entryText);
+  }
 
   return (
     <motion.div
@@ -36,14 +43,17 @@ const HomeSection = () => {
         creative mind for a more unique perspective
       </h1>
 
-      <div className="flex items-center text-muted-foreground anim gap-x-2 group relative w-fit pb-1">
+      <button
+        onClick={() => copyText("salmanalfarisi261002@gmail.com")}
+        className="flex items-center text-foreground anim gap-x-2 group relative w-fit pb-1"
+      >
         <ArrowUpRight
           size={16}
           className="group-hover:text-foreground anim group-hover:rotate-45"
         />
         <span>hi@msaf.tech</span>
         <div className="bottom-0 left-0 h-0.5 group-hover:w-full anim w-0 bg-foreground absolute" />
-      </div>
+      </button>
     </motion.div>
   );
 };
