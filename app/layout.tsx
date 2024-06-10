@@ -27,9 +27,9 @@ export default function RootLayout({
         <main className="flex flex-col min-h-[100svh] w-full gap-y-16 md:gap-y-20 lg:gap-y-24">
           <Navbar />
           {children}
-          <Toaster />
           <Footer />
         </main>
+        <Toaster />
       </body>
     </html>
   );
