@@ -36,8 +36,8 @@ const ChatSection = () => {
       <div className="flex flex-col gap-y-2">
         <div className="flex px-6 py-3 bg-accent rounded-3xl rounded-bl-md border">
           <p className="text-accent-foreground text-sm">
-            Now I'm creating my own freelancing business, exploring methods, and
-            leveling up both my design and programming skills.
+            Now I'm creating my own freelancing business, exploring new methods,
+            and leveling up both my design and programming skills.
           </p>
         </div>
 

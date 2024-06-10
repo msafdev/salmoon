@@ -20,7 +20,7 @@ const ProjectSection = () => {
 
         <div className="flex px-6 py-3 bg-accent rounded-3xl rounded-bl-md border">
           <p className="text-accent-foreground text-sm">
-            These are some of the projects I've worked on.
+            These are some small projects I've worked on.
           </p>
         </div>
       </div>

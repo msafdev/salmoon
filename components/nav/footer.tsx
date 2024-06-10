@@ -8,6 +8,9 @@ import { Licorice } from "next/font/google";
 import { useInView } from "framer-motion";
 
 import { Dot } from "lucide-react";
+import { copyToClipboard } from "@/lib/utils";
+
+import { useToast } from "@/components/ui/use-toast";
 
 const licorice = Licorice({
   subsets: ["latin"],
@@ -16,8 +19,16 @@ const licorice = Licorice({
 });
 
 const Footer = () => {
+  const { toast } = useToast();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: false });
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
 
   return (
     <footer
@@ -76,9 +87,25 @@ const Footer = () => {
             <h2 className="text-primary-foreground font-semibold text-center md:text-right font-mono uppercase">
               Actions
             </h2>
-            <div className="flex flex-col gap-y-1 text-primary-foreground/80 text-sm font-mono text-center md:text-right">
-              <p>Back to top</p>
-              <p>Copy my email</p>
+            <div className="flex flex-col gap-y-1 text-primary-foreground/80 text-sm font-mono text-center md:text-right items-center md:items-end">
+              <button
+                className="w-fit hover:text-primary-foreground"
+                onClick={scrollToTop}
+              >
+                Back to top
+              </button>
+              <button
+                className="w-fit hover:text-primary-foreground"
+                onClick={() => {
+                  copyToClipboard("salmanalfarisi261002@gmail.com");
+                  toast({
+                    title: "📧 Copied to clipboard",
+                    description: "Please use it wisely!",
+                  });
+                }}
+              >
+                Copy my email
+              </button>
             </div>
           </div>
 

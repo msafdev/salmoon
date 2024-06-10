@@ -4,7 +4,7 @@ import "./globals.css";
 
 import Navbar from "@/components/nav/navbar";
 import Footer from "@/components/nav/footer";
-import Cursor from "@/components/shared/cursor";
+import { Toaster } from "@/components/ui/toaster";
 
 const manrope = Manrope({
   subsets: ["latin"],
@@ -25,9 +25,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={manrope.className}>
         <main className="flex flex-col min-h-[100svh] w-full gap-y-16 md:gap-y-20 lg:gap-y-24">
-          {/* <Cursor /> */}
           <Navbar />
           {children}
+          <Toaster />
           <Footer />
         </main>
       </body>

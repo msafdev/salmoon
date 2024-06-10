@@ -1,7 +1,7 @@
 import { Plus_Jakarta_Sans } from "next/font/google";
 
 import Badge from "@/components/shared/badge";
-import CopyButton from "@/components/shared/copy-button";
+import CustomLink from "@/components/shared/custom-link";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -20,7 +20,15 @@ const HomeSection = () => {
         <span className="group-hover:text-pink-500 anim">.</span>
       </h1>
 
-      <CopyButton />
+      <div className="flex w-full gap-x-4 flex-wrap gap-y-2">
+        <CustomLink href="mailto:salmanalfarisi261002@gmail.com">
+          Email
+        </CustomLink>
+        <CustomLink href="https://linkedin.com/in/muhammadsalmoon">
+          LinkedIn
+        </CustomLink>
+        <CustomLink href="https://github.com/msafdev">Github</CustomLink>
+      </div>
     </div>
   );
 };

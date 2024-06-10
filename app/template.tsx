@@ -17,7 +17,7 @@ const Template = ({ children }: { children: ReactNode }) => {
       variants={variants}
       initial="hidden"
       animate="enter"
-      transition={{ type: "linear" }}
+      transition={{ type: "linear", staggerChildren: 1 }}
       exit={{ opacity: 0 }}
       className="flex flex-col h-auto grow w-full"
     >
