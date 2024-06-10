@@ -13,6 +13,7 @@ const container = {
   show: {
     opacity: 1,
     transition: {
+      delayChildren: 0.6,
       staggerChildren: 0.3,
       ease: "easeInOut",
     },
@@ -24,7 +25,7 @@ const project = {
   show: {
     opacity: 1,
     transition: {
-      delayChildren: 0.6,
+      delayChildren: 1,
       staggerChildren: 0.3,
       ease: "easeInOut",
     },
@@ -37,15 +38,11 @@ const item = {
 };
 
 const ProjectSection = () => {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true });
-
   return (
     <motion.div
       variants={container}
       initial="hidden"
-      animate={inView ? "show" : "hidden"}
-      ref={ref}
+      animate="show"
       className="flex flex-col w-full items-center gap-y-4 max-w-2xl md:p-4"
     >
       {/* Avatar and First Chat */}
@@ -74,8 +71,7 @@ const ProjectSection = () => {
       <motion.div
         variants={project}
         initial="hidden"
-        animate={inView ? "show" : "hidden"}
-        transition={{ delay: 0.3 }}
+        animate="show"
         className="w-full grid sm:grid-cols-2 gap-4"
       >
         {projectItems.map((items, index) => (

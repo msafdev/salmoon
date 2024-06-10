@@ -1,9 +1,7 @@
 "use client";
 
-import { useRef } from "react";
-
 import Link from "next/link";
-import { motion, useInView } from "framer-motion";
+import { motion } from "framer-motion";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import ChatFooter from "@/components/shared/chat-footer";
@@ -15,7 +13,8 @@ const container = {
   show: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.3,
+      delay: 1,
+      staggerChildren: 0.4,
       ease: "easeInOut",
     },
   },
@@ -27,15 +26,11 @@ const item = {
 };
 
 const ActionSection = () => {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true });
-
   return (
     <motion.div
-      ref={ref}
       variants={container}
       initial="hidden"
-      animate={inView ? "show" : "hidden"}
+      animate="show"
       className="max-w-2xl flex flex-col gap-y-4 items-start w-full md:p-4 group"
     >
       {/* Avatar and First Chat */}
