@@ -4,6 +4,7 @@ import "./globals.css";
 
 import Navbar from "@/components/nav/navbar";
 import Footer from "@/components/nav/footer";
+
 import { Toaster } from "@/components/ui/toaster";
 
 const manrope = Manrope({

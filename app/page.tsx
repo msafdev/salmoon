@@ -1,9 +1,7 @@
-import dynamic from "next/dynamic";
-
-const HomeSection = dynamic(() => import("@/app/_section/home-section"));
-const ChatSection = dynamic(() => import("@/app/_section/chat-section"));
-const ProjectSection = dynamic(() => import("@/app/_section/project-section"));
-const ActionSection = dynamic(() => import("@/app/_section/cta-section"));
+import HomeSection from "./_section/home-section";
+import ChatSection from "./_section/chat-section";
+import ProjectSection from "./_section/project-section";
+import ActionSection from "./_section/cta-section";
 
 export default function Page() {
   return (
