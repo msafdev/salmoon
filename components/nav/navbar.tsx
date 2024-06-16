@@ -19,7 +19,7 @@ const Navbar = () => {
         </motion.span>
         <MenuButton />
 
-        <div className="w-full h-12 absolute bg-gradient-to-b from-background to-transparent -bottom-12" />
+        <div className="w-full h-12 absolute bg-gradient-to-b from-background to-transparent -bottom-12 pointer-events-none" />
       </div>
     </header>
   );

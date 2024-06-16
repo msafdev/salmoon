@@ -17,13 +17,13 @@ const ProfileSection = () => {
         </div>
       </div>
 
-      <p className="text-sm md:text-base text-foreground w-full">
-        I help <strong>humans</strong> shape new ideas thru icons, illustrations and logos. I
+      <p className="text-sm md:text-base text-muted-foreground w-full">
+        I help <span className="text-foreground font-medium">humans</span> shape new ideas thru icons, illustrations and logos. I
         also enjoy crafting websites and bring them to life as a no-code
         enthusiast.
       </p>
 
-      <div className="w-full h-auto aspect-[6/5] xs:aspect-video border"></div>
+      <div className="w-full h-auto aspect-[6/5] xs:aspect-video border rounded-xl overflow-hidden"></div>
     </div>
   );
 };

@@ -89,14 +89,14 @@ const MenuButton = () => {
             <span>Blog</span>
           </Link>
           <Link
-            href="/work"
+            href="/lab"
             className={`text-sm font-semibold font-mono anim ease-in-out flex items-center w-full xs:w-fit gap-x-3 xs:gap-x-2 group ${
               open ? "opacity-100" : "opacity-0"
             }`}
-            aria-label="Work Page"
+            aria-label="Lab Page"
           >
             <div className="w-4 xs:w-1 h-1 bg-orange-400 xs:bg-primary rounded-full group-hover:w-4 anim ease-in-out group-hover:bg-orange-400" />
-            <span>Work</span>
+            <span>Lab</span>
           </Link>
         </div>
       </div>

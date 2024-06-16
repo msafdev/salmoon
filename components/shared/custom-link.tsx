@@ -7,6 +7,7 @@ import { copyToClipboard } from "@/lib/utils";
 import { useToast } from "@/components/ui/use-toast";
 
 import { ArrowUpRight } from "lucide-react";
+import { Button } from "../ui/button";
 
 const CustomLink = ({ href, children }: { href: string; children: string }) => {
   const { toast } = useToast();
@@ -18,7 +19,12 @@ const CustomLink = ({ href, children }: { href: string; children: string }) => {
       toast({
         title: "📧 Copied to clipboard",
         description: "Please use it wisely!",
-        action: <Link href={href}>Email</Link>,
+        duration: 3000,
+        action: (
+          <Button asChild variant={"secondary"} size={"sm"}>
+            <Link href={href}>Email</Link>
+          </Button>
+        ),
       });
       return;
     } else if (href.startsWith("http")) {

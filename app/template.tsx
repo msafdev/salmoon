@@ -1,24 +1,20 @@
 "use client";
 
-import React, { ReactNode, useMemo } from "react";
 import { motion } from "framer-motion";
 
-const Template = ({ children }: { children: ReactNode }) => {
-  const variants = useMemo(
-    () => ({
-      hidden: { opacity: 0, scale: 0.9 },
-      enter: { opacity: 1, scale: 1 },
-    }),
-    []
-  );
-
+const Template = ({ children }: { children: React.ReactNode }) => {
   return (
     <motion.section
-      variants={variants}
-      initial="hidden"
-      animate="enter"
-      transition={{ type: "linear", staggerChildren: 1 }}
-      exit={{ opacity: 0 }}
+      initial={{
+        opacity: 0,
+        scale: 0.9,
+      }}
+      animate={{
+        opacity: 1,
+        scale: 1,
+      }}
+      exit={{ opacity: 0, scale: 0.9 }}
+      transition={{ type: "linear", duration: 0.5 }}
       className="flex flex-col h-auto grow w-full"
     >
       {children}
@@ -26,4 +22,4 @@ const Template = ({ children }: { children: ReactNode }) => {
   );
 };
 
-export default React.memo(Template);
+export default Template;

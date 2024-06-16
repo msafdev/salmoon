@@ -9,21 +9,26 @@ const HistorySection = ({
 }: {
   className?: string;
   title: string;
-  from: string;
-  to: string;
+  from?: string;
+  to?: string;
   children: React.ReactNode;
 }) => {
   return (
     <div className="max-w-2xl w-full flex flex-col gap-y-5">
       <div className="flex flex-col w-full gap-y-2">
-        <h2 className="text-2xl font-semibold">{title}</h2>
-        <code className="text-sm flex items-center text-muted-foreground">
-          {from}
-          <MoveRight size={12} className="inline-block mx-2 text-foreground" />
-          {to}
-        </code>
+        <h2 className="text-xl font-semibold">{title}</h2>
+        {from && to && (
+          <code className="text-sm flex items-center text-muted-foreground">
+            {from}
+            <MoveRight
+              size={12}
+              className="inline-block mx-2 text-foreground"
+            />
+            {to}
+          </code>
+        )}
       </div>
-      <p className="text-foreground flex flex-col gap-y-2">{children}</p>
+      <div className="text-muted-foreground flex flex-col gap-y-5 text-sm">{children}</div>
     </div>
   );
 };

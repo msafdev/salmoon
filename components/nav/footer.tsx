@@ -11,6 +11,7 @@ import { Dot } from "lucide-react";
 import { copyToClipboard } from "@/lib/utils";
 
 import { useToast } from "@/components/ui/use-toast";
+import { Button } from "@/components/ui/button";
 
 const licorice = Licorice({
   subsets: ["latin"],
@@ -72,7 +73,7 @@ const Footer = () => {
               href=""
               aria-label="Free Reusable Components"
             >
-              free components
+              linkedin
             </Link>
           </div>
         </div>
@@ -101,6 +102,14 @@ const Footer = () => {
                   toast({
                     title: "📧 Copied to clipboard",
                     description: "Please use it wisely!",
+                    duration: 3000,
+                    action: (
+                      <Button asChild variant={"secondary"} size={"sm"}>
+                        <Link href="mailto:salmanalfarisi261002@gmail.com">
+                          Email
+                        </Link>
+                      </Button>
+                    ),
                   });
                 }}
               >
