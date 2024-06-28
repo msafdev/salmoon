@@ -14,7 +14,7 @@ const HistorySection = ({
   children: React.ReactNode;
 }) => {
   return (
-    <div className="max-w-2xl w-full flex flex-col gap-y-5">
+    <div className="max-w-xl w-full flex flex-col gap-y-5">
       <div className="flex flex-col w-full gap-y-2">
         <h2 className="text-xl font-semibold">{title}</h2>
         {from && to && (

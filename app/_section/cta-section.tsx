@@ -7,7 +7,7 @@ import { FaPaperPlane } from "react-icons/fa6";
 
 const ActionSection = () => {
   return (
-    <div className="max-w-2xl flex flex-col gap-y-4 items-start w-full md:p-4 group">
+    <div className="max-w-xl flex flex-col gap-y-4 items-start w-full md:p-4 group">
       {/* Avatar and First Chat */}
       <div className="flex items-end gap-x-4 w-full">
         <div className="relative">

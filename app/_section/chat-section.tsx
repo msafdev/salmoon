@@ -3,7 +3,7 @@ import ChatFooter from "@/components/shared/chat-footer";
 
 const ChatSection = () => {
   return (
-    <div className="max-w-2xl flex flex-col gap-y-4 items-start w-full md:p-4">
+    <div className="max-w-xl flex flex-col gap-y-4 items-start w-full md:p-4">
       {/* Avatar and First Chat */}
       <div className="flex items-end gap-x-4 w-full">
         <div className="relative">

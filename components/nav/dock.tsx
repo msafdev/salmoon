@@ -80,14 +80,7 @@ const Dock = () => {
               onClick={() => {
                 setTheme(theme === "dark" ? "light" : "dark");
               }}
-              className={`${
-                activeTab === item.id
-                  ? "text-foreground"
-                  : "text-muted-foreground"
-              } group/dock relative h-10 w-10 p-3 text-sm transition-all duration-300 ease-in-out focus-visible:outline-none`}
-              style={{
-                WebkitTapHighlightColor: "transparent",
-              }}
+              className={`group/dock text-yellow-500 dark:text-indigo-600 [&>svg]:fill-yellow-400 dark:[&>svg]:fill-indigo-500 relative h-10 w-10 p-3 text-sm transition-all duration-300 ease-in-out focus-visible:outline-none`}
               aria-label="Change theme button"
             >
               {item.icon}

@@ -1,10 +1,4 @@
-import { 
-  Home,
-  Beaker,
-  Book,
-  Package2,
-  SunMoon
- } from "lucide-react";
+import { Home, Beaker, Book, Package2, Hexagon } from "lucide-react";
 
 export const projectItems = [
   {
@@ -64,15 +58,15 @@ export const navItems = [
   { id: 1, label: "Home", href: "/", icon: <Home className="h-full w-full" /> },
   {
     id: 2,
-    label: "Lab",
-    href: "/lab",
-    icon: <Beaker className="h-full w-full" />,
-  },
-  {
-    id: 3,
     label: "Misc",
     href: "/misc",
     icon: <Package2 className="h-full w-full" />,
+  },
+  {
+    id: 3,
+    label: "Lab",
+    href: "/lab",
+    icon: <Beaker className="h-full w-full" />,
   },
   {
     id: 4,
@@ -83,6 +77,6 @@ export const navItems = [
   {
     id: 5,
     label: "Theme",
-    icon: <SunMoon className="h-full w-full" />,
+    icon: <Hexagon className="h-full w-full" />,
   },
-]
+];

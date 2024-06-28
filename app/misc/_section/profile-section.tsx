@@ -2,7 +2,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 const ProfileSection = () => {
   return (
-    <div className="max-w-2xl w-full flex flex-col gap-y-6 items-center">
+    <div className="max-w-xl w-full flex flex-col gap-y-6 items-center">
       <div className="flex w-full gap-x-4 items-center">
         <Avatar className="border overflow-hidden w-16 h-16">
           <AvatarImage src="./ava.png" alt="Avatar" />
