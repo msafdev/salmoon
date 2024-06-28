@@ -25,7 +25,7 @@ const Title = ({ title }: { title: string }) => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, ease: "easeInOut" }}
-        className="flex px-6 py-3 bg-accent rounded-3xl rounded-bl-md border"
+        className="flex px-6 py-3 bg-accent rounded-2xl rounded-bl-md border"
       >
         <p className="text-accent-foreground text-sm">{title}</p>
       </motion.div>

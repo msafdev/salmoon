@@ -4,12 +4,12 @@ const ProfileSection = () => {
   return (
     <div className="max-w-xl w-full flex flex-col gap-y-6 items-center">
       <div className="flex w-full gap-x-4 items-center">
-        <Avatar className="border overflow-hidden w-16 h-16">
+        <Avatar className="border overflow-hidden w-12 h-12">
           <AvatarImage src="./ava.png" alt="Avatar" />
           <AvatarFallback>M</AvatarFallback>
         </Avatar>
 
-        <div className="flex flex-col gap-y-1">
+        <div className="flex flex-col gap-y-2">
           <h1 className="text-base font-bold leading-none">Muh Salman</h1>
           <p className="text-xs text-muted-foreground leading-none font-medium">
             Creative Developer <span className="hidden sm:inline-block">/ Full-Time Learner</span>

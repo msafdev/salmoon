@@ -24,7 +24,7 @@
     --input: 240 5.9% 90%;
     --ring: 240 5.9% 10%;
     --radius: 0.5rem;
-    --selection: 	60 100% 50%
+    --selection: 60 100% 50%;
   }
 
   .dark {
@@ -47,7 +47,7 @@
     --border: 240 3.7% 15.9%;
     --input: 240 3.7% 15.9%;
     --ring: 240 4.9% 83.9%;
-    --selection: 240 100% 50%
+    --selection: 240 100% 50%;
   }
 }
 
@@ -56,7 +56,7 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground overflow-x-hidden m-0 p-0;
+    @apply bg-background text-foreground overflow-x-hidden m-0 p-0 min-w-64;
   }
 }
 
@@ -73,23 +73,12 @@
     @apply transition-all duration-200 ease-in-out;
   }
 
-  .custom-cursor {
-    position: fixed;
-    pointer-events: none; /* Prevent the cursor from blocking interactions */
-    transform: translate(-30%, -30%);
-    transition: transform 0.1s ease, opacity 0.1s ease;
-    z-index: 9999; /* Ensure it's on top of other elements */
-  }
-
-  .cursor-icon {
-    width: 24px; /* Adjust size as needed */
-    height: 24px;
-    color: black; /* Customize as needed */
-  }
-
-  .custom-cursor.hidden {
-    opacity: 0;
-    transform: scale(0) translate(-50%, -50%);
+  .dock-shadow {
+    box-shadow: inset 0 0 0.5px 1px hsla(0, 0%, 100%, 0.1),
+      0 0 0 1px hsla(230, 13%, 9%, 0.075),
+      0 0.3px 0.4px hsla(230, 13%, 9%, 0.02),
+      0 0.9px 1.5px hsla(230, 13%, 9%, 0.045),
+      0 3.5px 6px hsla(230, 13%, 9%, 0.09);
   }
 
   ::selection {

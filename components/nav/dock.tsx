@@ -43,7 +43,7 @@ const Dock = () => {
       variants={dockVariants}
       initial="closed"
       animate="open"
-      className="rounded-2xl z-50 border bg-popover p-1 fixed bottom-8 inset-x-0 mx-auto"
+      className="rounded-2xl z-50 bg-popover p-1 fixed bottom-8 inset-x-0 mx-auto dock-shadow"
     >
       <div className="flex items-center relative">
         <motion.span
