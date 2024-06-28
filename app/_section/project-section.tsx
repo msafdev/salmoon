@@ -26,6 +26,7 @@ const ProjectSection = () => {
           <Link
             href={item.href}
             key={index}
+            target="_blank"
             className="flex flex-col w-full bg-background hover:bg-accent anim group/project py-2 rounded-lg"
           >
             <h3 className="text-foreground group-hover/project:text-accent-foreground group-hover/project:pl-4 anim-fast font-semibold text-sm sm:text-base">
