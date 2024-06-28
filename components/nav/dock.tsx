@@ -42,7 +42,7 @@ const Dock = () => {
   );
   const { theme, setTheme } = useTheme();
 
-  const duration = 0.5;
+  const duration = 0.4;
 
   const dockVariants = {
     open: {
@@ -75,8 +75,8 @@ const Dock = () => {
       <div className="flex items-center relative">
         <motion.span
           className="absolute w-10 top-0 bottom-0 z-[99] rounded-[12px] bg-primary/40 mix-blend-difference outline-none ring-0 dark:bg-primary/80"
-          initial={{ translateX: initialX }}
-          animate={{ translateX: (activeTab - 1) * 40 }}
+          initial={{ translateX: initialX, opacity: 0}}
+          animate={{ translateX: (activeTab - 1) * 40, opacity: 1}}
           transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
         />
         {tabs.map((tab) =>
@@ -90,7 +90,7 @@ const Dock = () => {
                 activeTab === tab.id
                   ? "text-foreground"
                   : "text-muted-foreground"
-              } group/dock relative h-10 w-10 p-3 text-sm transition-all duration-500 ease-in-out focus-visible:outline-none`}
+              } group/dock relative h-10 w-10 p-3 text-sm transition-all duration-300 ease-in-out focus-visible:outline-none`}
               style={{
                 WebkitTapHighlightColor: "transparent",
               }}
@@ -110,7 +110,7 @@ const Dock = () => {
                 activeTab === tab.id
                   ? "text-foreground"
                   : "text-muted-foreground"
-              } group/dock relative h-10 w-10 p-3 text-sm transition-all duration-500 ease-in-out focus-visible:outline-none`}
+              } group/dock relative h-10 w-10 p-3 text-sm transition-all duration-300 ease-in-out focus-visible:outline-none`}
               style={{
                 WebkitTapHighlightColor: "transparent",
               }}
