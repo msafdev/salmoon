@@ -24,6 +24,7 @@
     --input: 240 5.9% 90%;
     --ring: 240 5.9% 10%;
     --radius: 0.5rem;
+    --selection: 	60 100% 50%
   }
 
   .dark {
@@ -46,6 +47,7 @@
     --border: 240 3.7% 15.9%;
     --input: 240 3.7% 15.9%;
     --ring: 240 4.9% 83.9%;
+    --selection: 240 100% 50%
   }
 }
 
@@ -88,5 +90,9 @@
   .custom-cursor.hidden {
     opacity: 0;
     transform: scale(0) translate(-50%, -50%);
+  }
+
+  ::selection {
+    background: hsl(var(--selection));
   }
 }
