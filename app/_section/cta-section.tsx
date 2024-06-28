@@ -30,9 +30,9 @@ const ActionSection = () => {
       <div className="flex flex-col w-full gap-y-2">
         <Link
           href={"/"}
-          className="flex items-center justify-between pl-6 pr-1 py-1 bg-green-200 md:bg-background md:group-hover:bg-green-200 dark:md:group-hover:bg-green-700 dark:bg-green-700 dark:md:bg-background rounded-tl-3xl rounded-e-[50px] rounded-bl-md border-green-500 border md:border-border anim md:group-hover:border-green-500 w-full"
+          className="flex items-center justify-between pl-6 pr-1 py-1 bg-green-200 md:bg-background md:group-hover:bg-green-200 dark:md:group-hover:bg-green-800 dark:bg-green-800 dark:md:bg-background rounded-tl-3xl rounded-e-[50px] rounded-bl-md border-green-500 border md:border-border anim md:group-hover:border-green-500 w-full"
         >
-          <p className="md:text-muted-foreground md:group-hover:text-green-700 dark:md:group-hover:text-white dark:text-white text-green-700 font-medium anim text-sm">
+          <p className="md:text-muted-foreground md:group-hover:text-green-800 dark:md:group-hover:text-white dark:text-white text-green-800 font-medium anim text-sm">
             Get in touch.
           </p>
           <div className="h-auto w-fit px-6 py-2.5 bg-green-500 md:bg-[#878787] md:group-hover:bg-green-500 anim rounded-full">
