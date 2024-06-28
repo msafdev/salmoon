@@ -79,6 +79,14 @@ const config = {
             "background-position": "calc(100% + var(--shimmer-width)) 0",
           },
         },
+        "background-shine": {
+          "0%": {
+            backgroundPosition: "0 0",
+          },
+          "100%": {
+            backgroundPosition: "-200% 0",
+          },
+        },
         marquee: {
           from: { transform: "translateX(0)" },
           to: { transform: "translateX(calc(-100% - var(--gap)))" },
@@ -89,6 +97,7 @@ const config = {
         },
       },
       animation: {
+        "background-shine": "background-shine 2s infinite linear",
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         shimmer: "shimmer 8s infinite",

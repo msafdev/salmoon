@@ -1,72 +1,27 @@
-"use client";
-
-import React from "react";
-
-import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 
-import { motion } from "framer-motion";
-
-import { Sparkle, ArrowUpRight } from "lucide-react";
-
-import Marquee from "@/components/shared/marquee";
-
 const ProjectCard = ({
+  href,
   title,
-  stack,
-  image,
+  description,
 }: {
+  href: string;
   title: string;
-  stack: string[];
-  image: StaticImageData;
+  description: string;
 }) => {
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 1, ease: "easeInOut" }}
-      className="flex w-full aspect-[16/10] relative group border rounded-xl overflow-hidden shadow bg-gradient-to-br from-background to-accent"
+    <Link
+      href={href}
+      target="_blank"
+      className="flex flex-col w-full bg-background hover:bg-accent anim group/project py-2 rounded-lg"
     >
-      <Link
-        href={"/"}
-        aria-label={`View ${title} project`}
-        className="z-10 flex flex-col justify-between anim-slow w-full p-3 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 absolute aspect-[16/10]"
-      >
-        <p className="text-sm text-accent-foreground font-semibold font-mono px-2 py-1 bg-accent backdrop-blur-sm border w-fit rounded-md">
-          {title}
-          <ArrowUpRight
-            className="inline-block ml-1 text-accent-foreground"
-            size={14}
-          />
-        </p>
-
-        {/* Stack */}
-        <div className="flex pointer-events-none gap-x-2 items-center py-1 bg-accent backdrop-blur-sm border rounded-md justify-around overflow-hidden relative">
-          <Marquee className="[--duration:10s]">
-            {stack.map((item, index) => (
-              <React.Fragment key={index}>
-                <p className="text-xs text-accent-foreground font-mono">
-                  {item}
-                </p>
-                <Sparkle className="text-foreground" size={10} />
-              </React.Fragment>
-            ))}
-          </Marquee>
-
-          {/* Blur */}
-          <div className="w-4 h-full absolute left-0 top-0 bg-gradient-to-r from-accent to-transparent" />
-          <div className="w-4 h-full absolute right-0 top-0 bg-gradient-to-r to-accent from-transparent" />
-        </div>
-      </Link>
-
-      <Image
-        src={image}
-        alt={`Image of ${title}`}
-        fill
-        className="object-contain anim p-8 group-hover:p-4 shadow bg-transparent"
-        placeholder="blur"
-      />
-    </motion.div>
+      <h3 className="text-foreground group-hover/project:text-accent-foreground group-hover/project:pl-4 anim-slow font-semibold text-sm sm:text-base">
+        {title}
+      </h3>
+      <p className="text-muted-foreground line-clamp-1 font-mono text-xs sm:text-sm anim-slow group-hover/project:pl-4">
+        {description}
+      </p>
+    </Link>
   );
 };
 

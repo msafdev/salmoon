@@ -7,7 +7,7 @@ import { copyToClipboard } from "@/lib/utils";
 import { useToast } from "@/components/ui/use-toast";
 
 import { ArrowUpRight } from "lucide-react";
-import { Button } from "../ui/button";
+import { Button } from "@/components/ui/button";
 
 const CustomLink = ({ href, children }: { href: string; children: string }) => {
   const { toast } = useToast();
@@ -36,11 +36,10 @@ const CustomLink = ({ href, children }: { href: string; children: string }) => {
   return (
     <button
       onClick={handleClick}
-      className="flex items-center text-foreground anim gap-x-2 group relative w-fit pb-1 text-sm md:text-base"
+      className="flex items-center text-muted-foreground anim gap-x-2 group relative w-fit text-sm md:text-base font-medium"
     >
-      <ArrowUpRight className="group-hover:text-foreground anim group-hover:rotate-45 md:w-4 aspect-square w-3" />
-      <span>{children}</span>
-      <div className="bottom-0 left-0 h-0.5 group-hover:w-full anim w-0 bg-foreground absolute" />
+      <ArrowUpRight className="text-foreground anim group-hover:rotate-45 md:w-4 aspect-square w-3" />
+      <span className="group-hover:text-foreground anim-slow">{children}</span>
     </button>
   );
 };

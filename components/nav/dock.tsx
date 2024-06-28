@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { easeInOut, motion } from "framer-motion";
 
 import Link from "next/link";
@@ -10,10 +10,16 @@ import { usePathname } from "next/navigation";
 import { navItems } from "@/lib/constants";
 
 const Dock = () => {
-  const [activeTab, setActiveTab] = useState(
-    navItems.find((item) => item.href === usePathname())?.id || 1
-  );
+  const pathname = usePathname();
   const { theme, setTheme } = useTheme();
+
+  const [activeTab, setActiveTab] = useState<number | null>(
+    navItems.find((item) => item.href === pathname)?.id || null
+  );
+
+  useEffect(() => {
+    setActiveTab(navItems.find((item) => item.href === pathname)?.id || null);
+  }, [pathname]);
 
   const duration = 0.4;
 
@@ -36,7 +42,7 @@ const Dock = () => {
     },
   };
 
-  const initialX = (activeTab - 1) * 40;
+  const initialX = activeTab !== null ? (activeTab - 1) * 40 : 0;
 
   return (
     <motion.div
@@ -46,12 +52,14 @@ const Dock = () => {
       className="rounded-2xl z-50 bg-popover p-1 fixed bottom-8 inset-x-0 mx-auto dock-shadow"
     >
       <div className="flex items-center relative">
-        <motion.span
-          className="absolute w-10 top-0 bottom-0 z-[99] rounded-[12px] bg-primary/40 mix-blend-difference outline-none ring-0 dark:bg-primary/80"
-          initial={{ translateX: initialX, opacity: 0, scale: 0.8 }}
-          animate={{ translateX: (activeTab - 1) * 40, opacity: 1, scale: 1 }}
-          transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
-        />
+        {activeTab !== null && (
+          <motion.span
+            className="absolute w-10 top-0 bottom-0 z-[99] rounded-[12px] bg-primary/40 mix-blend-difference outline-none ring-0 dark:bg-primary/80"
+            initial={{ translateX: initialX, opacity: 0, scale: 0.8 }}
+            animate={{ translateX: (activeTab - 1) * 40, opacity: 1, scale: 1 }}
+            transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+          />
+        )}
         {navItems.map((item) =>
           item.href ? (
             <Link

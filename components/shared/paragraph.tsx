@@ -11,7 +11,7 @@ const Paragraph = ({
   title: string;
   from?: string;
   to?: string;
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }) => {
   return (
     <div className="max-w-xl w-full flex flex-col gap-y-5">
@@ -28,7 +28,11 @@ const Paragraph = ({
           </code>
         )}
       </div>
-      <div className="text-muted-foreground flex flex-col gap-y-5 text-sm md:text-base">{children}</div>
+      {children && (
+        <div className="text-muted-foreground flex flex-col gap-y-5 text-sm md:text-base">
+          {children}
+        </div>
+      )}
     </div>
   );
 };

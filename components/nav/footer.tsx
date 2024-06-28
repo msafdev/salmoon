@@ -100,16 +100,9 @@ const Footer = () => {
                 onClick={() => {
                   copyToClipboard("salmanalfarisi261002@gmail.com");
                   toast({
-                    title: "📧 Copied to clipboard",
-                    description: "Please use it wisely!",
-                    duration: 3000,
-                    action: (
-                      <Button asChild variant={"secondary"} size={"sm"}>
-                        <Link href="mailto:salmanalfarisi261002@gmail.com">
-                          Email
-                        </Link>
-                      </Button>
-                    ),
+                    title: "Copied to clipboard",
+                    description: "😉 please use it wisely!",
+                    duration: 2000,
                   });
                 }}
               >

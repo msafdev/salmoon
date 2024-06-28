@@ -1,4 +1,4 @@
-import ProfileSection from "./_section/profile-section";
+import ProfileSection from "@/components/section/profile-section";
 
 import Paragraph from "@/components/shared/paragraph";
 

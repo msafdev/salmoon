@@ -1,8 +1,8 @@
-import HomeSection from "./_section/home-section";
-import ChatSection from "./_section/chat-section";
-import LabSection from "./_section/lab-section";
-import ProjectSection from "./_section/project-section";
-import ActionSection from "./_section/cta-section";
+import HomeSection from "@/components/section/home-section";
+import ChatSection from "@/components/section/chat-section";
+import LabSection from "@/components/section/lab-section";
+import ProjectSection from "@/components/section/project-section";
+import ActionSection from "@/components/section/cta-section";
 
 export default function Page() {
   return (
