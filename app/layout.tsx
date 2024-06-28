@@ -36,7 +36,7 @@ export default function RootLayout({
         >
           <div className="relative flex flex-col min-h-[100svh] items-center justify-center">
             <div className="fixed top-0 left-0 w-full h-16 pointer-events-none md:h-20 lg:h-24 bg-gradient-to-b from-background to-transparent z-50"/>
-            <main className="flex flex-col w-full py-16 md:py-20 lg:py-24">
+            <main className="flex flex-col h-auto grow w-full py-16 md:py-20 lg:py-24">
               {children}
             </main>
             <Dock />

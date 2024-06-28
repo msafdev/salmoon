@@ -70,8 +70,8 @@ export const navItems = [
   },
   {
     id: 4,
-    label: "Blog",
-    href: "/blog",
+    label: "Archive",
+    href: "/archive",
     icon: <Book className="h-full w-full" />,
   },
   {
