@@ -7,9 +7,9 @@ import Link from "next/link";
 import { useTheme } from "next-themes";
 import { usePathname } from "next/navigation";
 
-import { Beaker, Home, Package2, SunMoon } from "lucide-react";
+import { Beaker, Book, Home, Package2, SunMoon } from "lucide-react";
 
-let tabs = [
+const tabs = [
   { id: 1, label: "Home", href: "/", icon: <Home className="h-full w-full" /> },
   {
     id: 2,
@@ -25,6 +25,12 @@ let tabs = [
   },
   {
     id: 4,
+    label: "Blog",
+    href: "/blog",
+    icon: <Book className="h-full w-full" />,
+  },
+  {
+    id: 5,
     label: "Theme",
     icon: <SunMoon className="h-full w-full" />,
   },

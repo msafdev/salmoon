@@ -34,8 +34,8 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="relative flex flex-col min-h-[100svh]">
-            <main className="flex flex-col w-full pt-6 pb-24 xs:py-32 lg:py-40">
+          <div className="relative flex flex-col min-h-[100svh] items-center justify-center">
+            <main className="flex flex-col w-full py-16 md:py-20 lg:py-24">
               {children}
             </main>
             <Dock />
