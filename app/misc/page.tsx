@@ -1,5 +1,6 @@
 import ProfileSection from "./_section/profile-section";
-import HistorySection from "./_section/history-section";
+
+import Paragraph from "@/components/shared/paragraph";
 
 export default function Page() {
   return (
@@ -8,11 +9,11 @@ export default function Page() {
       className="flex flex-col items-center gap-y-16 md:gap-y-20 lg:gap-y-24 px-4"
     >
       <ProfileSection />
-      <HistorySection title="A brief summary.">
+      <Paragraph title="A brief summary.">
         <p>
-          I’m Salman, a fullstack software engineer based in
-          Jakarta, Indonesia. Building user-centric prodcuts through creative
-          development and seamless interactions.
+          I’m Salman, a fullstack software engineer based in Jakarta, Indonesia.
+          Building user-centric prodcuts through creative development and
+          seamless interactions.
         </p>
         <p>
           Passionate about both the technical and artistic side of thing, I
@@ -24,8 +25,8 @@ export default function Page() {
           with technical skill, I aim to build applications that make every
           interaction be remembered by everyone.
         </p>
-      </HistorySection>
-      <HistorySection title="Where it all started." from="2020" to="2023">
+      </Paragraph>
+      <Paragraph title="Where it all started." from="2020" to="2023">
         <p>
           I started programming from when I entered my college. Back then, I
           used to be so anxious deciding my path, trying Java, Python, C++, and
@@ -41,8 +42,8 @@ export default function Page() {
           there are no production-ready AIs to co-write code with me. So I had
           to learn everything from scratch.
         </p>
-      </HistorySection>
-      <HistorySection title="Present time." from="2024" to="present">
+      </Paragraph>
+      <Paragraph title="Present time." from="2024" to="present">
         <p>
           Fast forward to today, I have been working as a fullstack software,
           settling on Next.js, Tailwind, GraphQL, and PostgreSQL as my main
@@ -57,7 +58,7 @@ export default function Page() {
           Now, I am continuing to learn new things, and I am excited to see what
           the AI apocalypse will bring to me in the future.
         </p>
-      </HistorySection>
+      </Paragraph>
     </section>
   );
 }

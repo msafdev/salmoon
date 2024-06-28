@@ -1,6 +1,6 @@
 import { MoveRight } from "lucide-react";
 
-const HistorySection = ({
+const Paragraph = ({
   className,
   title,
   from,
@@ -33,4 +33,4 @@ const HistorySection = ({
   );
 };
 
-export default HistorySection;
+export default Paragraph;
