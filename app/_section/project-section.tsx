@@ -15,7 +15,7 @@ const ProjectSection = () => {
 
         <Button size={"icon"} variant={"ghost"}>
           <Link href="/project" aria-label="Go to /project">
-            <MoveRight size={20} />
+            <MoveRight size={24} />
           </Link>
         </Button>
       </div>
