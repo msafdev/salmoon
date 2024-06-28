@@ -75,8 +75,8 @@ const Dock = () => {
       <div className="flex items-center relative">
         <motion.span
           className="absolute w-10 top-0 bottom-0 z-[99] rounded-[12px] bg-primary/40 mix-blend-difference outline-none ring-0 dark:bg-primary/80"
-          initial={{ translateX: initialX, opacity: 0}}
-          animate={{ translateX: (activeTab - 1) * 40, opacity: 1}}
+          initial={{ translateX: initialX, opacity: 0, scale: 0.8 }}
+          animate={{ translateX: (activeTab - 1) * 40, opacity: 1, scale: 1 }}
           transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
         />
         {tabs.map((tab) =>
