@@ -94,6 +94,7 @@ const Dock = () => {
               style={{
                 WebkitTapHighlightColor: "transparent",
               }}
+              aria-label={tab.label}
             >
               {tab.icon}
               <span className="absolute -top-8 left-1/2 hidden md:block -translate-x-1/2 -translate-y-2 scale-75 rounded-md border bg-popover p-1 px-1.5 text-[10px] font-medium leading-none text-foreground opacity-0 transition-all duration-200 ease-in-out group-hover/dock:translate-y-0 group-hover/dock:scale-100 group-hover/dock:opacity-100">
@@ -114,6 +115,7 @@ const Dock = () => {
               style={{
                 WebkitTapHighlightColor: "transparent",
               }}
+              aria-label="Change theme button"
             >
               {tab.icon}
               <span className="absolute -top-8 left-1/2 hidden md:block -translate-x-1/2 -translate-y-2 scale-75 rounded-md border bg-popover p-1 px-1.5 text-[10px] font-medium leading-none text-foreground opacity-0 transition-all duration-200 ease-in-out group-hover/dock:translate-y-0 group-hover/dock:scale-100 group-hover/dock:opacity-100">
