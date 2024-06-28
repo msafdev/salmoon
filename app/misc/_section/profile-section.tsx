@@ -23,7 +23,7 @@ const ProfileSection = () => {
         enthusiast.
       </p>
 
-      <div className="w-full h-auto aspect-[6/5] xs:aspect-video border rounded-xl overflow-hidden"></div>
+      <div className="w-full h-auto aspect-[6/5] xs:aspect-video border rounded-xl overflow-hidden bg-muted"></div>
     </div>
   );
 };

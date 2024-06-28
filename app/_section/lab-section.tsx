@@ -20,7 +20,7 @@ const LabSection = () => {
       </div>
 
       {/* Lab Items */}
-      <div className="w-full h-auto aspect-[6/3] border rounded-xl"></div>
+      <div className="w-full h-auto aspect-[6/3] border rounded-xl bg-muted"></div>
     </div>
   );
 };
