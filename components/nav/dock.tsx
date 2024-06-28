@@ -7,38 +7,11 @@ import Link from "next/link";
 import { useTheme } from "next-themes";
 import { usePathname } from "next/navigation";
 
-import { Beaker, Book, Home, Package2, SunMoon } from "lucide-react";
-
-const tabs = [
-  { id: 1, label: "Home", href: "/", icon: <Home className="h-full w-full" /> },
-  {
-    id: 2,
-    label: "Lab",
-    href: "/lab",
-    icon: <Beaker className="h-full w-full" />,
-  },
-  {
-    id: 3,
-    label: "About",
-    href: "/about",
-    icon: <Package2 className="h-full w-full" />,
-  },
-  {
-    id: 4,
-    label: "Blog",
-    href: "/blog",
-    icon: <Book className="h-full w-full" />,
-  },
-  {
-    id: 5,
-    label: "Theme",
-    icon: <SunMoon className="h-full w-full" />,
-  },
-];
+import { navItems } from "@/lib/constants";
 
 const Dock = () => {
   const [activeTab, setActiveTab] = useState(
-    tabs.find((tab) => tab.href === usePathname())?.id || 1
+    navItems.find((item) => item.href === usePathname())?.id || 1
   );
   const { theme, setTheme } = useTheme();
 
@@ -79,36 +52,36 @@ const Dock = () => {
           animate={{ translateX: (activeTab - 1) * 40, opacity: 1, scale: 1 }}
           transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
         />
-        {tabs.map((tab) =>
-          tab.href ? (
+        {navItems.map((item) =>
+          item.href ? (
             <Link
-              key={tab.id}
-              href={tab.href}
+              key={item.id}
+              href={item.href}
               scroll={true}
-              onClick={() => setActiveTab(tab.id)}
+              onClick={() => setActiveTab(item.id)}
               className={`${
-                activeTab === tab.id
+                activeTab === item.id
                   ? "text-foreground"
                   : "text-muted-foreground"
               } group/dock relative h-10 w-10 p-3 text-sm transition-all duration-300 ease-in-out focus-visible:outline-none`}
               style={{
                 WebkitTapHighlightColor: "transparent",
               }}
-              aria-label={tab.label}
+              aria-label={item.label}
             >
-              {tab.icon}
+              {item.icon}
               <span className="absolute -top-8 left-1/2 hidden md:block -translate-x-1/2 -translate-y-2 scale-75 rounded-md border bg-popover p-1 px-1.5 text-[10px] font-medium leading-none text-foreground opacity-0 transition-all duration-200 ease-in-out group-hover/dock:translate-y-0 group-hover/dock:scale-100 group-hover/dock:opacity-100">
-                {tab.label}
+                {item.label}
               </span>
             </Link>
           ) : (
             <button
-              key={tab.id}
+              key={item.id}
               onClick={() => {
                 setTheme(theme === "dark" ? "light" : "dark");
               }}
               className={`${
-                activeTab === tab.id
+                activeTab === item.id
                   ? "text-foreground"
                   : "text-muted-foreground"
               } group/dock relative h-10 w-10 p-3 text-sm transition-all duration-300 ease-in-out focus-visible:outline-none`}
@@ -117,9 +90,9 @@ const Dock = () => {
               }}
               aria-label="Change theme button"
             >
-              {tab.icon}
+              {item.icon}
               <span className="absolute -top-8 left-1/2 hidden md:block -translate-x-1/2 -translate-y-2 scale-75 rounded-md border bg-popover p-1 px-1.5 text-[10px] font-medium leading-none text-foreground opacity-0 transition-all duration-200 ease-in-out group-hover/dock:translate-y-0 group-hover/dock:scale-100 group-hover/dock:opacity-100">
-                {tab.label}
+                {item.label}
               </span>
             </button>
           )

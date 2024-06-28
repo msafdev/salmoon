@@ -4,7 +4,7 @@ import HistorySection from "./_section/history-section";
 export default function Page() {
   return (
     <section
-      id="about"
+      id="misc"
       className="flex flex-col items-center gap-y-16 md:gap-y-20 lg:gap-y-24 px-4"
     >
       <ProfileSection />

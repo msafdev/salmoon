@@ -3,8 +3,6 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { projectItems } from "@/lib/constants";
 
-import ProjectCard from "@/components/shared/project-card";
-
 import { MoveRight } from "lucide-react";
 
 const ProjectSection = () => {
@@ -23,15 +21,20 @@ const ProjectSection = () => {
       </div>
 
       {/* Project Cards */}
-      <div className="w-full grid sm:grid-cols-2 gap-4">
-        {projectItems.map((items, index) => (
-          <div key={index}>
-            <ProjectCard
-              title={items.title}
-              stack={items.stack}
-              image={items.image}
-            />
-          </div>
+      <div className="w-full flex flex-col">
+        {[...projectItems].reverse().map((item, index) => (
+          <Link
+            href={item.href}
+            key={index}
+            className="flex flex-col w-full bg-background hover:bg-accent anim group/project py-2 hover:px-4 rounded-lg"
+          >
+            <h3 className="text-foreground group-hover/project:text-accent-foreground anim font-semibold text-sm sm:text-base">
+              {item.title}
+            </h3>
+            <p className="text-muted-foreground font-mono text-xs sm:text-sm">
+              {item.description}
+            </p>
+          </Link>
         ))}
       </div>
     </div>
