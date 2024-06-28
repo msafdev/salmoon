@@ -36,12 +36,9 @@ const CustomLink = ({ href, children }: { href: string; children: string }) => {
   return (
     <button
       onClick={handleClick}
-      className="flex items-center text-foreground anim gap-x-2 group relative w-fit pb-1"
+      className="flex items-center text-foreground anim gap-x-2 group relative w-fit pb-1 text-sm md:text-base"
     >
-      <ArrowUpRight
-        size={16}
-        className="group-hover:text-foreground anim group-hover:rotate-45"
-      />
+      <ArrowUpRight className="group-hover:text-foreground anim group-hover:rotate-45 md:w-4 aspect-square w-3" />
       <span>{children}</span>
       <div className="bottom-0 left-0 h-0.5 group-hover:w-full anim w-0 bg-foreground absolute" />
     </button>

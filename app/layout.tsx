@@ -2,12 +2,13 @@ import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
 import "./globals.css";
 
-import Navbar from "@/components/nav/navbar";
 import Footer from "@/components/nav/footer";
 
 import NotFound from "./not-found";
 
 import { Toaster } from "@/components/ui/toaster";
+import Dock from "@/components/nav/dock";
+import { ThemeProvider } from "@/components/shared/theme-provider";
 
 const manrope = Manrope({
   subsets: ["latin"],
@@ -27,12 +28,21 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={manrope.className}>
-        <main className="flex flex-col min-h-[100svh] w-full gap-y-16 md:gap-y-20 lg:gap-y-24">
-          <Navbar />
-          {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="light"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <div className="relative flex flex-col min-h-[100svh]">
+            <main className="flex flex-col w-full pt-6 pb-24 xs:py-32 lg:py-40">
+              {children}
+            </main>
+            <Dock />
+          </div>
           <Footer />
-        </main>
-        <Toaster />
+          <Toaster />
+        </ThemeProvider>
       </body>
     </html>
   );

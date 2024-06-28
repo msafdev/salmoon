@@ -7,14 +7,16 @@ const Template = ({ children }: { children: React.ReactNode }) => {
     <motion.section
       initial={{
         opacity: 0,
-        scale: 0.9,
+        translateY: 24,
+        filter: "blur(4px)",
       }}
       animate={{
         opacity: 1,
-        scale: 1,
+        translateY: 0,
+        filter: "blur(0px)",
       }}
-      exit={{ opacity: 0, scale: 0.9 }}
-      transition={{ type: "linear", duration: 0.5 }}
+      exit={{ opacity: 0, translateY: 24 }}
+      transition={{ ease: "easeInOut", duration: 0.6 }}
       className="flex flex-col h-auto grow w-full"
     >
       {children}

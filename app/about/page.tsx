@@ -10,7 +10,7 @@ export default function Page() {
       <ProfileSection />
       <HistorySection title="A brief summary.">
         <p>
-          I’m M. Salman Alfarisi, a fullstack software engineer based in
+          I’m Salman, a fullstack software engineer based in
           Jakarta, Indonesia. Building user-centric prodcuts through creative
           development and seamless interactions.
         </p>

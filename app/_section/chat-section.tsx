@@ -16,21 +16,23 @@ const ChatSection = () => {
           <div className="w-2 h-2 rounded-full bg-green-500 absolute top-0.5 right-0.5 border" />
         </div>
         <div className="flex px-6 py-3 bg-accent rounded-3xl rounded-bl-md border">
-          <p className="text-accent-foreground text-sm">
+          <p className="text-accent-foreground text-xs sm:text-sm">
             Hi there, I'm Salman.
           </p>
         </div>
       </div>
 
       {/* Second Chat */}
+      <div className="flex flex-col gap-y-4 px-6 py-3 bg-accent rounded-[32px] rounded-bl-md border">
+        <p className="text-accent-foreground text-xs sm:text-sm">
+          A fullstack website developer since 2020, with a knack for
+          minimalistic designs and user interactions.
+        </p>
+      </div>
+
       <div className="flex flex-col gap-y-3 w-full">
         <div className="flex flex-col gap-y-4 px-6 py-3 bg-accent rounded-[32px] rounded-bl-md border">
-          <p className="text-accent-foreground text-sm">
-            A fullstack website developer since 2020, with a knack for
-            minimalistic designs and user interactions.
-          </p>
-
-          <p className="text-accent-foreground text-sm">
+          <p className="text-accent-foreground text-xs sm:text-sm">
             Currently, I am building my own bizz, learning more about software
             as a whole, and freelancing on my free time.
           </p>

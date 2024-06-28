@@ -28,7 +28,7 @@ const HistorySection = ({
           </code>
         )}
       </div>
-      <div className="text-muted-foreground flex flex-col gap-y-5 text-sm">{children}</div>
+      <div className="text-muted-foreground flex flex-col gap-y-5 text-sm md:text-base">{children}</div>
     </div>
   );
 };
