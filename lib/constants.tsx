@@ -1,58 +1,19 @@
-import { Beaker, Book, Hexagon, Home, Package2 } from "lucide-react";
+import { Beaker, Book, Hexagon, Home, Package2, TestTube } from "lucide-react";
 
-export const projectItems = [
-  {
-    title: "Background",
-    stack: ["Next", "Tailwind"],
-    href: "https://bg.msaf.tech",
-    description: "Handpicked modern background patterns.",
-  },
-  {
-    title: "Gem",
-    stack: ["Next", "Tailwind"],
-    href: "https://gem.msaf.tech",
-    description: "Curated list of trending online games.",
-  },
-  {
-    title: "Zap",
-    stack: ["Next", "Tailwind"],
-    href: "https://zap.msaf.tech",
-    description: "Modern alternative to Pagespeed Insights.",
-  },
-  {
-    title: "UI",
-    stack: ["Next", "Tailwind"],
-    href: "https://ui.msaf.tech",
-    description: "Beautiful and modern UI components.",
-  },
-];
-
-export const templateItems = [
-  {
-    title: "Linkify",
-    stack: ["Next", "Tailwind"],
-    href: "https://linkify-demo.vercel.app",
-    description: "Modern link shortener for developers.",
-  },
-  {
-    title: "Nextbase",
-    stack: ["Next", "Tailwind", "Supabase"],
-    href: "https://nextbase-demo.vercel.app",
-    description: "Next.js and Supabase starter template.",
-  },
-  {
-    title: "Macfolio",
-    stack: ["Next", "Tailwind"],
-    href: "https://mac.msaf.tech",
-    description: "MacOS inspired portfolio template.",
-  },
-  {
-    title: "Compactfolio",
-    stack: ["Next", "Tailwind"],
-    href: "https://compact.msaf.tech",
-    description: "Compact and minimal portfolio template.",
-  },
-];
+import Bash from "@/public/icons/bash.png";
+import Figma from "@/public/icons/figma.png";
+import Git from "@/public/icons/git.png";
+import Jira from "@/public/icons/jira.png";
+import JS from "@/public/icons/js.png";
+import NextJS from "@/public/icons/nextjs.png";
+import Notion from "@/public/icons/notion.png";
+import React from "@/public/icons/react.png";
+import Slack from "@/public/icons/slack.png";
+import TailwindCSS from "@/public/icons/tailwindcss.png";
+import TS from "@/public/icons/ts.png";
+import VSC from "@/public/icons/vsc.png";
+import Vue from "@/public/icons/vue.png";
+import Webflow from "@/public/icons/webflow.png";
 
 export const navItems = [
   { id: 1, label: "Home", href: "/", icon: <Home className="h-full w-full" /> },
@@ -79,4 +40,21 @@ export const navItems = [
     label: "Theme",
     icon: <Hexagon className="h-full w-full" />,
   },
+];
+
+export const skillItems = [
+  { name: "Next", icon: NextJS },
+  { name: "Tailwind", icon: TailwindCSS },
+  { name: "TypeScript", icon: TS },
+  { name: "JavaScript", icon: JS },
+  { name: "Git", icon: Git },
+  { name: "Figma", icon: Figma },
+  { name: "Notion", icon: Notion },
+  { name: "Jira", icon: Jira },
+  { name: "Bash", icon: Bash },
+  { name: "VS Code", icon: VSC },
+  { name: "Slack", icon: Slack },
+  { name: "React", icon: React },
+  { name: "Vue", icon: Vue },
+  { name: "Webflow", icon: Webflow },
 ];

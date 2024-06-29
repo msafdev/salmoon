@@ -8,7 +8,6 @@ import { useRef } from "react";
 import { Licorice } from "next/font/google";
 import Link from "next/link";
 
-import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
 
 import { copyToClipboard } from "@/lib/utils";
@@ -46,7 +45,8 @@ const Footer = () => {
           <div className="flex flex-wrap items-center justify-center gap-x-3 text-sm text-primary-foreground/80 dark:text-primary/80">
             <Link
               className="anim hover:text-primary-foreground dark:hover:text-primary"
-              href=""
+              href="https://twitter.com/msafdev"
+              target="_blank"
               aria-label="Twitter / X.com"
             >
               x.com
@@ -54,15 +54,17 @@ const Footer = () => {
             <Dot size={12} />
             <Link
               className="anim hover:text-primary-foreground dark:hover:text-primary"
-              href=""
-              aria-label="Dribbble"
+              href="https://papermark.io/view/cly0hd4dm00023b7qo9s5rn5i"
+              target="_blank"
+              aria-label="Curriculum Vitae"
             >
-              dribbble
+              cv
             </Link>
             <Dot size={12} />
             <Link
               className="anim hover:text-primary-foreground dark:hover:text-primary"
-              href=""
+              href="https://instagram.com/msalman_af"
+              target="_blank"
               aria-label="Instagram"
             >
               insta
@@ -70,7 +72,8 @@ const Footer = () => {
             <Dot size={12} />
             <Link
               className="anim hover:text-primary-foreground dark:hover:text-primary"
-              href=""
+              href="https://linkedin.com/in/muhammadsalmoon"
+              target="_blank"
               aria-label="Free Reusable Components"
             >
               linkedin
@@ -80,15 +83,24 @@ const Footer = () => {
 
         {/* Copyright */}
         <div className="flex w-full flex-col-reverse items-center gap-x-8 gap-y-6 md:flex-row md:items-end">
-          <p className="font-mono text-sm text-primary-foreground/60 dark:text-primary/60 md:text-center">
+          <p className="font-mono text-sm text-primary-foreground/60 dark:text-primary/60 md:text-left">
             &copy; 2024 msaf. All rights reserved.
+            <br />
+            Icons by{" "}
+            <Link
+              href={"https://icons8.com"}
+              target="_blank"
+              className="hover:text-foreground"
+            >
+              Icons8
+            </Link>
           </p>
 
           <div className="flex flex-col gap-y-3 md:ml-auto">
             <h2 className="text-center font-mono font-semibold uppercase text-primary-foreground dark:text-primary md:text-right">
               Actions
             </h2>
-            <div className="flex flex-col items-center gap-y-1 text-center font-mono text-sm text-primary-foreground/80 dark:text-primary/80 md:items-end md:text-right">
+            <div className="flex flex-col items-center gap-y-1 text-center font-mono text-sm text-muted-foreground md:items-end md:text-right">
               <button
                 className="w-fit hover:text-primary-foreground dark:hover:text-primary"
                 onClick={scrollToTop}
@@ -115,7 +127,7 @@ const Footer = () => {
             <h2 className="text-center font-mono font-semibold uppercase text-primary-foreground dark:text-primary md:text-right">
               Credits
             </h2>
-            <div className="flex flex-col gap-y-1 text-center font-mono text-sm text-primary-foreground/80 dark:text-primary/80 md:text-right">
+            <div className="flex flex-col gap-y-1 text-center font-mono text-sm text-muted-foreground md:text-right">
               <p>Ibelick</p>
               <p>Darius Dan</p>
               <p>Transhumans</p>

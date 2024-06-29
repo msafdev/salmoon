@@ -1,5 +1,6 @@
-import ProfileSection from "@/components/section/profile-section";
 import Paragraph from "@/components/shared/paragraph";
+
+import ProfileSection from "@/components/section/profile-section";
 
 export default function Page() {
   return (

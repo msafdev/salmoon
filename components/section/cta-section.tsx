@@ -3,11 +3,12 @@ import { FaPaperPlane } from "react-icons/fa6";
 import Link from "next/link";
 
 import ChatFooter from "@/components/shared/chat-footer";
+
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 const ActionSection = () => {
   return (
-    <div className="flex w-full max-w-xl flex-col items-start gap-y-4 md:p-4">
+    <div className="flex w-full max-w-xl flex-col items-start gap-y-4">
       {/* Avatar and First Chat */}
       <div className="flex w-full items-end gap-x-4">
         <div className="relative">
@@ -26,23 +27,18 @@ const ActionSection = () => {
         </div>
       </div>
 
-      {/* Second Chat */}
-      <div className="flex w-full flex-col gap-y-2">
-        <Link
-          href={"/"}
-          className="group flex w-full items-center justify-between rounded-e-[50px] rounded-bl-md rounded-tl-[24px] border bg-background py-1 pl-4 pr-1 md:pl-6"
-        >
-          <p className="text-sm font-medium text-foreground">Get in touch.</p>
-          <div className="anim h-auto w-fit rounded-full bg-green-500 px-6 py-2.5 md:bg-[#878787] md:group-hover:bg-green-500">
-            <FaPaperPlane
-              size={24}
-              className="anim p-1 text-white group-hover:p-0.5 md:text-background md:group-hover:text-white"
-            />
-          </div>
-        </Link>
-
-        <ChatFooter time={1} />
-      </div>
+      <Link
+        href={"/"}
+        className="group flex w-full items-center justify-between rounded-e-[50px] rounded-bl-md rounded-tl-[24px] border bg-background py-1.5 pl-4 pr-1.5 md:pl-6"
+      >
+        <p className="text-sm font-medium text-foreground">Get in touch.</p>
+        <div className="anim h-auto w-fit rounded-full bg-green-500 px-6 py-2.5 md:bg-[#878787] md:group-hover:bg-green-500">
+          <FaPaperPlane
+            size={24}
+            className="anim p-1 text-white group-hover:p-0.5 md:text-background md:group-hover:text-white"
+          />
+        </div>
+      </Link>
     </div>
   );
 };

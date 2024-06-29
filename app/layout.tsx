@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
 
-import Dock from "@/components/nav/dock";
-import Footer from "@/components/nav/footer";
+import Dock from "@/components/shared/dock";
+import Footer from "@/components/shared/footer";
 import { ThemeProvider } from "@/components/shared/theme-provider";
+
 import { Toaster } from "@/components/ui/toaster";
 
 import "./globals.css";

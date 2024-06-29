@@ -3,6 +3,7 @@ import ActionSection from "@/components/section/cta-section";
 import HomeSection from "@/components/section/home-section";
 import LabSection from "@/components/section/lab-section";
 import ProjectSection from "@/components/section/project-section";
+import SkillSection from "@/components/section/skill-section";
 
 export default function Page() {
   return (
@@ -13,6 +14,7 @@ export default function Page() {
       <HomeSection />
       <ChatSection />
       <LabSection />
+      <SkillSection />
       <ProjectSection />
       <ActionSection />
     </section>

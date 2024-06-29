@@ -5,6 +5,7 @@ import Link from "next/link";
 import Code from "@/components/shared/code";
 import LabCard from "@/components/shared/lab-card";
 import Paragraph from "@/components/shared/paragraph";
+
 import { Button } from "@/components/ui/button";
 
 import { COMPONENTS } from "@/lib/data";
@@ -26,9 +27,9 @@ export default async function Page({ params }: { params: { slug: string } }) {
   if (!item) {
     return (
       <section className="pad-x flex h-auto w-full grow flex-col items-center justify-center">
-        <h1 className="text-center text-xl font-semibold text-accent-foreground">
+        <h2 className="text-center text-xl font-semibold text-accent-foreground">
           Component Not Found
-        </h1>
+        </h2>
       </section>
     );
   }

@@ -1,8 +1,9 @@
 import ChatFooter from "@/components/shared/chat-footer";
+import Marquee from "@/components/shared/marquee";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
-const ChatSection = () => {
+const SkillSection = () => {
   return (
     <div className="flex w-full max-w-xl flex-col items-start gap-y-4">
       {/* Avatar and First Chat */}
@@ -18,7 +19,7 @@ const ChatSection = () => {
         </div>
         <div className="flex rounded-2xl rounded-bl-md border bg-accent px-4 py-2 md:px-6 md:py-3">
           <p className="text-xs text-accent-foreground sm:text-sm">
-            Hi there, I'm Salman.
+            I have a diverse set of skills.
           </p>
         </div>
       </div>
@@ -27,14 +28,14 @@ const ChatSection = () => {
       <div className="flex w-full flex-col gap-y-3">
         <div className="flex flex-col gap-y-2 rounded-[24px] rounded-bl-md border bg-accent px-4 py-2 md:px-6 md:py-3">
           <p className="text-xs text-accent-foreground sm:text-sm">
-            An independent creative developer since 2020, with a knack for
-            minimalistic designs and interactions.
+            Over the time, I have worked using various stacks and tools. I still
+            thrive to learn new things. Here are some of them.
           </p>
         </div>
-        <ChatFooter time={4} />
+        <Marquee />
       </div>
     </div>
   );
 };
 
-export default ChatSection;
+export default SkillSection;

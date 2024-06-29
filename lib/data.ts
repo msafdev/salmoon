@@ -4,9 +4,9 @@ import DigitalClock from "@/components/lab/digital-clock";
 import EncryptedText from "@/components/lab/encrypted-text";
 import LoadingBar from "@/components/lab/loading-bar";
 import LoadingCircle from "@/components/lab/loading-circle";
-import ShadowButton from "@/components/lab/shadow-button";
 import ShiningBadge from "@/components/lab/shining-badge";
 import SwipeButton from "@/components/lab/swipe-button";
+import Timeline from "@/components/lab/timeline";
 import Tooltip from "@/components/lab/tooltip";
 
 export type ComponentType = {
@@ -53,11 +53,6 @@ export const TW_CONFIG: TWConfig = {
 
 export const COMPONENTS: ComponentType[] = [
   {
-    name: "Shadow Button",
-    slug: "shadow-button",
-    child: ShadowButton,
-  },
-  {
     name: "Digital Clock",
     slug: "digital-clock",
     child: DigitalClock,
@@ -99,6 +94,11 @@ export const COMPONENTS: ComponentType[] = [
     name: "Encrypted Text",
     slug: "encrypted-text",
     child: EncryptedText,
+  },
+  {
+    name: "Timeline",
+    slug: "timeline",
+    child: Timeline,
   },
   {
     name: "Swipe Button",

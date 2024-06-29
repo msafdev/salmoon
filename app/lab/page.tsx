@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import LabCard from "@/components/shared/lab-card";
 import Paragraph from "@/components/shared/paragraph";
 
@@ -11,17 +13,35 @@ export default function Page() {
     >
       <Paragraph title="My humble abode.">
         <p>
-          This is my lab, where I explore and experiment with component design
-          and interaction.
+          This is my lab, where I explore and experiment with UI designs and
+          interactions.
+        </p>
+        <p>
+          I will try to reference my inspirations and resources as much as I
+          can. If you have any feedback, feel free to reach out to me.
         </p>
       </Paragraph>
 
       <Paragraph title="Before you start.">
         <p>
-          Some of these components require{" "}
-          <code className="text-foreground">shadcn-ui</code> as well as{" "}
-          <code className="text-foreground">next-themes</code> to work properly.
-          Make sure you have them installed on your development environment.
+          These components require{" "}
+          <Link
+            href="https://ui.shadcn.com/"
+            target="_blank"
+            className="text-foreground"
+          >
+            shadcn-ui
+          </Link>{" "}
+          along with{" "}
+          <Link
+            href="https://ui.shadcn.com/docs/dark-mode/next"
+            target="_blank"
+            className="text-foreground"
+          >
+            next-themes
+          </Link>{" "}
+          to work properly. Make sure you have them installed on your
+          development environment.
         </p>
       </Paragraph>
 
