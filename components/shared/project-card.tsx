@@ -13,12 +13,12 @@ const ProjectCard = ({
     <Link
       href={href}
       target="_blank"
-      className="flex flex-col w-full bg-background hover:bg-accent anim group/project py-2 rounded-lg"
+      className="anim group/project flex w-full flex-col rounded-lg bg-background py-2 hover:bg-accent"
     >
-      <h3 className="text-foreground group-hover/project:text-accent-foreground group-hover/project:pl-4 anim-slow font-semibold text-sm sm:text-base">
+      <h3 className="anim-slow text-sm font-semibold text-foreground group-hover/project:pl-4 group-hover/project:text-accent-foreground sm:text-base">
         {title}
       </h3>
-      <p className="text-muted-foreground line-clamp-1 font-mono text-xs sm:text-sm anim-slow group-hover/project:pl-4">
+      <p className="anim-slow line-clamp-1 font-mono text-xs text-muted-foreground group-hover/project:pl-4 sm:text-sm">
         {description}
       </p>
     </Link>

@@ -1,10 +1,13 @@
 "use client";
 
-import { ClipboardList, Check } from "lucide-react";
+import { Check, ClipboardList } from "lucide-react";
+
+import { useState } from "react";
+
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
+
 import { copyToClipboard } from "@/lib/utils";
-import { useState } from "react";
 
 const CopyButton = ({
   className,
@@ -32,15 +35,15 @@ const CopyButton = ({
 
   return (
     <Button
-      variant={"link"}
+      variant={"ghost"}
       size={"icon"}
       className={className}
       onClick={handleClick}
     >
       {isCopied ? (
-        <Check className="h-3.5 w-3.5 text-white" />
+        <Check className="h-3.5 w-3.5" />
       ) : (
-        <ClipboardList className="h-3.5 w-3.5 text-white" />
+        <ClipboardList className="h-3.5 w-3.5" />
       )}
     </Button>
   );

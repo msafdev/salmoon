@@ -1,4 +1,4 @@
-import { Home, Beaker, Book, Package2, Hexagon } from "lucide-react";
+import { Beaker, Book, Hexagon, Home, Package2 } from "lucide-react";
 
 export const projectItems = [
   {

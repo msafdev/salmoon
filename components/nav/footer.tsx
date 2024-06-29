@@ -1,17 +1,17 @@
 "use client";
 
+import { useInView } from "framer-motion";
+import { Dot } from "lucide-react";
+
 import { useRef } from "react";
 
-import Link from "next/link";
 import { Licorice } from "next/font/google";
+import Link from "next/link";
 
-import { useInView } from "framer-motion";
-
-import { Dot } from "lucide-react";
-import { copyToClipboard } from "@/lib/utils";
-
-import { useToast } from "@/components/ui/use-toast";
 import { Button } from "@/components/ui/button";
+import { useToast } from "@/components/ui/use-toast";
+
+import { copyToClipboard } from "@/lib/utils";
 
 const licorice = Licorice({
   subsets: ["latin"],
@@ -34,16 +34,16 @@ const Footer = () => {
   return (
     <footer
       ref={ref}
-      className="flex flex-col w-full px-4 md:px-8 lg:px-16 py-12 bg-primary dark:bg-primary-foreground"
+      className="flex w-full flex-col bg-primary px-4 py-12 dark:bg-primary-foreground md:px-8 lg:px-16"
     >
       <div
-        className={`max-w-3xl flex flex-col items-center py-8 mx-auto w-full gap-y-12 transition-all duration-500 ease-in-out ${
-          isInView ? "opacity-100 scale-100" : "opacity-0 scale-90"
+        className={`mx-auto flex w-full max-w-3xl flex-col items-center gap-y-12 py-8 transition-all duration-500 ease-in-out ${
+          isInView ? "scale-100 opacity-100" : "scale-90 opacity-0"
         }`}
       >
-        <div className="flex flex-col md:flex-row items-center gap-x-4 gap-y-3 justify-between text-primary-foreground dark:text-primary w-full">
+        <div className="flex w-full flex-col items-center justify-between gap-x-4 gap-y-3 text-primary-foreground dark:text-primary md:flex-row">
           <span className={`text-3xl ${licorice.className}`}>Salman</span>
-          <div className="flex flex-wrap justify-center items-center text-primary-foreground/80 dark:text-primary/80 text-sm gap-x-3">
+          <div className="flex flex-wrap items-center justify-center gap-x-3 text-sm text-primary-foreground/80 dark:text-primary/80">
             <Link
               className="anim hover:text-primary-foreground dark:hover:text-primary"
               href=""
@@ -79,16 +79,16 @@ const Footer = () => {
         </div>
 
         {/* Copyright */}
-        <div className="flex md:flex-row flex-col-reverse w-full gap-x-8 gap-y-6 items-center md:items-end">
-          <p className="text-primary-foreground/60 dark:text-primary/60 text-sm md:text-center font-mono">
+        <div className="flex w-full flex-col-reverse items-center gap-x-8 gap-y-6 md:flex-row md:items-end">
+          <p className="font-mono text-sm text-primary-foreground/60 dark:text-primary/60 md:text-center">
             &copy; 2024 msaf. All rights reserved.
           </p>
 
           <div className="flex flex-col gap-y-3 md:ml-auto">
-            <h2 className="text-primary-foreground dark:text-primary font-semibold text-center md:text-right font-mono uppercase">
+            <h2 className="text-center font-mono font-semibold uppercase text-primary-foreground dark:text-primary md:text-right">
               Actions
             </h2>
-            <div className="flex flex-col gap-y-1 text-primary-foreground/80 dark:text-primary/80 text-sm font-mono text-center md:text-right items-center md:items-end">
+            <div className="flex flex-col items-center gap-y-1 text-center font-mono text-sm text-primary-foreground/80 dark:text-primary/80 md:items-end md:text-right">
               <button
                 className="w-fit hover:text-primary-foreground dark:hover:text-primary"
                 onClick={scrollToTop}
@@ -112,10 +112,10 @@ const Footer = () => {
           </div>
 
           <div className="flex flex-col gap-y-3">
-            <h2 className="text-primary-foreground dark:text-primary font-semibold text-center md:text-right font-mono uppercase">
+            <h2 className="text-center font-mono font-semibold uppercase text-primary-foreground dark:text-primary md:text-right">
               Credits
             </h2>
-            <div className="flex flex-col gap-y-1 text-primary-foreground/80 dark:text-primary/80 text-sm font-mono text-center md:text-right">
+            <div className="flex flex-col gap-y-1 text-center font-mono text-sm text-primary-foreground/80 dark:text-primary/80 md:text-right">
               <p>Ibelick</p>
               <p>Darius Dan</p>
               <p>Transhumans</p>

@@ -17,7 +17,7 @@ const Template = ({ children }: { children: React.ReactNode }) => {
       }}
       exit={{ opacity: 0, translateY: 24 }}
       transition={{ ease: "easeInOut", duration: 0.6 }}
-      className="flex flex-col h-auto grow w-full"
+      className="flex h-auto w-full grow flex-col"
     >
       {children}
     </motion.section>

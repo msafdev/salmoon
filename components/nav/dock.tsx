@@ -1,10 +1,11 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import { easeInOut, motion } from "framer-motion";
 
-import Link from "next/link";
+import { useEffect, useState } from "react";
+
 import { useTheme } from "next-themes";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 import { navItems } from "@/lib/constants";
@@ -14,7 +15,7 @@ const Dock = () => {
   const { theme, setTheme } = useTheme();
 
   const [activeTab, setActiveTab] = useState<number | null>(
-    navItems.find((item) => item.href === pathname)?.id || null
+    navItems.find((item) => item.href === pathname)?.id || null,
   );
 
   useEffect(() => {
@@ -49,12 +50,12 @@ const Dock = () => {
       variants={dockVariants}
       initial="closed"
       animate="open"
-      className="rounded-2xl z-50 bg-popover p-1 fixed bottom-8 inset-x-0 mx-auto dock-shadow"
+      className="dock-shadow fixed inset-x-0 bottom-8 z-50 mx-auto rounded-2xl bg-popover p-1"
     >
-      <div className="flex items-center relative">
+      <div className="relative flex items-center">
         {activeTab !== null && (
           <motion.span
-            className="absolute w-10 top-0 bottom-0 z-[99] rounded-[12px] bg-primary/40 mix-blend-difference outline-none ring-0 dark:bg-primary/80"
+            className="absolute bottom-0 top-0 z-[99] w-10 rounded-[12px] bg-primary/40 mix-blend-difference outline-none ring-0 dark:bg-primary/80"
             initial={{ translateX: initialX, opacity: 0, scale: 0.8 }}
             animate={{ translateX: (activeTab - 1) * 40, opacity: 1, scale: 1 }}
             transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
@@ -78,7 +79,7 @@ const Dock = () => {
               aria-label={item.label}
             >
               {item.icon}
-              <span className="absolute -top-8 left-1/2 hidden md:block -translate-x-1/2 -translate-y-2 scale-75 rounded-md border bg-popover p-1 px-1.5 text-[10px] font-medium leading-none text-foreground opacity-0 transition-all duration-200 ease-in-out group-hover/dock:translate-y-0 group-hover/dock:scale-100 group-hover/dock:opacity-100">
+              <span className="absolute -top-8 left-1/2 hidden -translate-x-1/2 -translate-y-2 scale-75 rounded-md border bg-popover p-1 px-1.5 text-[10px] font-medium leading-none text-foreground opacity-0 transition-all duration-200 ease-in-out group-hover/dock:translate-y-0 group-hover/dock:scale-100 group-hover/dock:opacity-100 md:block">
                 {item.label}
               </span>
             </Link>
@@ -88,15 +89,15 @@ const Dock = () => {
               onClick={() => {
                 setTheme(theme === "dark" ? "light" : "dark");
               }}
-              className={`group/dock text-yellow-500 dark:text-indigo-600 [&>svg]:fill-yellow-400 dark:[&>svg]:fill-indigo-500 relative h-10 w-10 p-3 text-sm transition-all duration-300 ease-in-out focus-visible:outline-none`}
+              className={`group/dock relative h-10 w-10 p-3 text-sm text-yellow-500 transition-all duration-300 ease-in-out focus-visible:outline-none dark:text-indigo-600 [&>svg]:fill-yellow-400 dark:[&>svg]:fill-indigo-500`}
               aria-label="Change theme button"
             >
               {item.icon}
-              <span className="absolute -top-8 left-1/2 hidden md:block -translate-x-1/2 -translate-y-2 scale-75 rounded-md border bg-popover p-1 px-1.5 text-[10px] font-medium leading-none text-foreground opacity-0 transition-all duration-200 ease-in-out group-hover/dock:translate-y-0 group-hover/dock:scale-100 group-hover/dock:opacity-100">
+              <span className="absolute -top-8 left-1/2 hidden -translate-x-1/2 -translate-y-2 scale-75 rounded-md border bg-popover p-1 px-1.5 text-[10px] font-medium leading-none text-foreground opacity-0 transition-all duration-200 ease-in-out group-hover/dock:translate-y-0 group-hover/dock:scale-100 group-hover/dock:opacity-100 md:block">
                 {item.label}
               </span>
             </button>
-          )
+          ),
         )}
       </div>
     </motion.div>

@@ -84,14 +84,14 @@ const DigitalClock = () => {
   const formattedTime = formatTime(time);
 
   return (
-    <div className="flex flex-col lg:flex-row lg:items-center gap-x-5 gap-y-5">
+    <div className="flex flex-col gap-x-5 gap-y-5 lg:flex-row lg:items-center">
       <div className="flex items-center gap-x-5">
         <SevenSegment value={parseInt(formattedTime[0])} />
         <SevenSegment value={parseInt(formattedTime[1])} />
       </div>
-      <div className="lg:flex hidden flex-col gap-y-1">
-        <div className="w-1 h-1 bg-primary animate-pulse" />
-        <div className="w-1 h-1 bg-primary animate-pulse" />
+      <div className="hidden flex-col gap-y-1 lg:flex">
+        <div className="h-1 w-1 animate-pulse bg-primary" />
+        <div className="h-1 w-1 animate-pulse bg-primary" />
       </div>
       <div className="flex items-center gap-x-5">
         <SevenSegment value={parseInt(formattedTime[2])} />

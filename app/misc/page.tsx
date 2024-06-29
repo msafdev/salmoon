@@ -1,12 +1,11 @@
 import ProfileSection from "@/components/section/profile-section";
-
 import Paragraph from "@/components/shared/paragraph";
 
 export default function Page() {
   return (
     <section
       id="misc"
-      className="flex flex-col items-center gap-y-16 md:gap-y-20 lg:gap-y-24 px-4"
+      className="flex flex-col items-center gap-y-16 px-4 md:gap-y-20 lg:gap-y-24"
     >
       <ProfileSection />
       <Paragraph title="A brief summary.">

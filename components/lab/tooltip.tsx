@@ -1,9 +1,11 @@
 "use client";
 
+import { Ellipsis, Lock, Triangle, VenetianMask } from "lucide-react";
+
 import { useState } from "react";
+
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
-import { Ellipsis, Lock, Triangle, VenetianMask } from "lucide-react";
 
 const Tooltip = () => {
   const [closed, setClosed] = useState(true);
@@ -33,7 +35,7 @@ const Tooltip = () => {
         </Button>
       </div>
       <div
-        className={`flex flex-col divide-y border-t transition-all bg-background duration-500 ease-in-out ${
+        className={`flex flex-col divide-y border-t bg-background transition-all duration-500 ease-in-out ${
           closed ? "max-h-0 border-transparent" : "max-h-80 border-border"
         }`}
       >
@@ -68,7 +70,7 @@ const Tooltip = () => {
           <Button
             variant={"ghost"}
             size={"sm"}
-            className="h-8 justify-start text-xs text-red-400 hover:bg-red-50 dark:hover:bg-red-400/20 hover:text-red-500"
+            className="h-8 justify-start text-xs text-red-400 hover:bg-red-50 hover:text-red-500 dark:hover:bg-red-400/20"
           >
             Delete Account
           </Button>

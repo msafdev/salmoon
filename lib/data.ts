@@ -15,7 +15,7 @@ export type ComponentType = {
   child: React.ComponentType<any>;
   description?: string;
   twConfig?: object;
-  gridClass?: string;
+  gridClass?: "regular-card" | "medium-card" | "large-card" | "default-card";
 };
 
 export type TWConfig = {
@@ -61,6 +61,7 @@ export const COMPONENTS: ComponentType[] = [
     name: "Digital Clock",
     slug: "digital-clock",
     child: DigitalClock,
+    gridClass: "medium-card",
   },
   {
     name: "Avatar with Status",
@@ -105,3 +106,5 @@ export const COMPONENTS: ComponentType[] = [
     child: SwipeButton,
   },
 ];
+
+export const NEW_COMPONENT = COMPONENTS[COMPONENTS.length - 1];

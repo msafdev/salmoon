@@ -1,11 +1,11 @@
-import React from 'react';
+import React from "react";
 
 const NotFound = () => {
-    return (
-        <div className='flex items-center justify-center h-auto grow'>
-            Not found
-        </div>
-    );
-}
+  return (
+    <div className="flex h-auto grow items-center justify-center">
+      Not found
+    </div>
+  );
+};
 
 export default NotFound;

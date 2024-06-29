@@ -1,27 +1,14 @@
-import Link from "next/link";
-
-import fs from "fs";
-import path from "path";
-import { promisify } from "util";
-
-import { COMPONENTS } from "@/lib/data";
-
-import { Button } from "@/components/ui/button";
-import Paragraph from "@/components/shared/paragraph";
-import LabCard from "@/components/shared/lab-card";
-import Code from "@/components/shared/code";
-
 import { MoveLeft, Share2 } from "lucide-react";
 
-async function readFilePath(filePath: string) {
-  const readFile = promisify(fs.readFile);
-  const fileContent = await readFile(
-    path.join(process.cwd(), filePath),
-    "utf8"
-  );
+import Link from "next/link";
 
-  return fileContent.trim();
-}
+import Code from "@/components/shared/code";
+import LabCard from "@/components/shared/lab-card";
+import Paragraph from "@/components/shared/paragraph";
+import { Button } from "@/components/ui/button";
+
+import { COMPONENTS } from "@/lib/data";
+import { getFilePathAndConfig } from "@/lib/functions";
 
 export async function generateStaticParams() {
   const componentSlugs = COMPONENTS.map((component) => ({
@@ -46,32 +33,24 @@ export default async function Page({ params }: { params: { slug: string } }) {
     );
   }
 
-  const filePath = `./components/lab/${item?.slug.replace(/\s+/g, "")}.tsx`;
-
-  const code = await readFilePath(filePath)
-    .catch(() => {
-      return `// ${item?.name} component not found`;
-    })
-    .then((data) => data);
-
-  const twConfig = JSON.stringify(item?.twConfig, null, 2);
+  const { code, twConfig } = await getFilePathAndConfig(item);
 
   return (
     <section
       id={`lab-${item?.slug}`}
-      className="flex flex-col h-auto grow w-full items-center gap-y-16 md:gap-y-20 lg:gap-y-24"
+      className="flex h-auto w-full grow flex-col items-center gap-y-16 md:gap-y-20 lg:gap-y-24"
     >
-      <div className="flex flex-col w-full max-w-xl gap-y-10 md:gap-y-12 lg:gap-y-16">
+      <div className="flex w-full max-w-xl flex-col gap-y-10 md:gap-y-12 lg:gap-y-16">
         {/* Header */}
-        <div className="flex items-center w-full justify-between max-w-xl">
+        <div className="flex w-full max-w-xl items-center justify-between">
           <Link
             href={`/lab`}
             scroll={true}
             aria-label={`Go back to /lab`}
-            className="flex items-center gap-x-2 text-muted-foreground hover:text-foreground anim"
+            className="anim flex items-center gap-x-2 text-muted-foreground hover:text-foreground"
           >
             <MoveLeft className="h-5 w-5" />
-            <p className="text-xs md:text-sm font-medium">back to lab</p>
+            <p className="text-xs font-medium md:text-sm">back to lab</p>
           </Link>
           <Button
             variant="ghost"
@@ -91,26 +70,26 @@ export default async function Page({ params }: { params: { slug: string } }) {
         </div>
 
         {/* Content */}
-        <div className="flex flex-col w-full max-w-xl gap-y-4 sm:gap-y-6">
+        <div className="flex w-full max-w-xl flex-col gap-y-5">
           <Paragraph title={`${item?.name}`} />
-          <LabCard button={false} gridClass="detail-card">
+          <LabCard gridClass="default-card" className="min-h-72">
             <item.child />
           </LabCard>
         </div>
 
         {twConfig && (
-          <div className="flex flex-col w-full max-w-xl gap-y-4 sm:gap-y-6">
+          <div className="flex w-full max-w-xl flex-col gap-y-5">
             <Paragraph title="Tailwind Setup" />
-            <div className="w-full h-fit max-w-xl p-2 border rounded-xl">
-              <Code code={twConfig} />
+            <div className="h-fit w-full max-w-xl rounded-xl border p-2">
+              <Code code={twConfig} lang="json" />
             </div>
           </div>
         )}
 
         {/* Code */}
-        <div className="flex flex-col w-full max-w-xl gap-y-4 sm:gap-y-6">
+        <div className="flex w-full max-w-xl flex-col gap-y-5">
           <Paragraph title="Code" />
-          <div className="w-full h-fit max-w-xl p-2 border rounded-xl">
+          <div className="h-fit w-full max-w-xl rounded-xl border p-2">
             <Code code={code} />
           </div>
         </div>

@@ -2,13 +2,13 @@ import CustomLink from "@/components/shared/custom-link";
 
 const HomeSection = () => {
   return (
-    <div className="max-w-xl w-full flex flex-col gap-y-4">
-      <h1 className="text-balance text-2xl xs:text-4xl font-bold leading-8 xs:leading-[42px]">
+    <div className="flex w-full max-w-xl flex-col gap-y-4">
+      <h1 className="text-balance text-2xl font-bold leading-8 xs:text-4xl xs:leading-[42px]">
         creative mind for a more unique perspective
         <span className="text-pink-500">.</span>
       </h1>
 
-      <div className="flex w-full gap-x-4 flex-wrap gap-y-2">
+      <div className="flex w-full flex-wrap gap-x-4 gap-y-2">
         <CustomLink href="mailto:salmanalfarisi261002@gmail.com">
           Email
         </CustomLink>

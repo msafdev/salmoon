@@ -7,7 +7,7 @@ const EncryptedText = () => {
   const intervalRefs = useRef<{ [key: string]: number | undefined }>({});
 
   const onHover = (
-    event: React.MouseEvent<HTMLParagraphElement, MouseEvent>
+    event: React.MouseEvent<HTMLParagraphElement, MouseEvent>,
   ) => {
     const targetElement = event.target as HTMLParagraphElement;
     const originalText = targetElement.dataset.value || "";
@@ -40,7 +40,7 @@ const EncryptedText = () => {
   };
 
   return (
-    <div className="flex flex-col md:flex-row gap-x-3 items-center">
+    <div className="flex flex-col items-center gap-x-3 md:flex-row">
       <p
         data-value="Hello"
         onMouseOver={onHover}

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const LoadingBar = () => {
   const [percentage, setPercentage] = useState(0);
@@ -19,9 +19,9 @@ const LoadingBar = () => {
   }, []);
 
   return (
-    <div className="flex w-full items-center rounded-full overflow-hidden max-w-xs border">
+    <div className="flex w-full max-w-xs items-center overflow-hidden rounded-full border">
       <div
-        className="bg-gradient-to-b from-background border-r to-accent transition-all duration-300 ease-in-out"
+        className="border-r bg-gradient-to-b from-background to-accent transition-all duration-300 ease-in-out"
         style={{
           width: `${percentage}%`,
           height: "24px",
