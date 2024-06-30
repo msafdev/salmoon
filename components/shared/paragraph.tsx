@@ -5,7 +5,6 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
 const Paragraph = ({
-  className,
   title,
   from,
   to,
@@ -13,7 +12,6 @@ const Paragraph = ({
   link = false,
   href = "/",
 }: {
-  className?: string;
   title: string;
   from?: string;
   to?: string;
@@ -27,7 +25,7 @@ const Paragraph = ({
         <div className="flex w-full items-center justify-between gap-x-4">
           <h2 className="text-xl font-semibold">{title}</h2>
           {link && (
-            <Button size={"icon"} variant={"ghost"}>
+            <Button size={"icon"} variant={"ghost"} className="size-9">
               <Link href={href} aria-label={`Go to ${href}`}>
                 <MoveRight size={24} />
               </Link>

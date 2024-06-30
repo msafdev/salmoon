@@ -29,7 +29,7 @@ const SkillSection = () => {
         <div className="flex flex-col gap-y-2 rounded-[24px] rounded-bl-md border bg-accent px-4 py-2 md:px-6 md:py-3">
           <p className="text-xs text-accent-foreground sm:text-sm">
             Over the time, I have worked using various stacks and tools. I still
-            thrive to learn new things. Here are some of them.
+            strive to learn new things. Here are some of them.
           </p>
         </div>
         <Marquee />

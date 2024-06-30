@@ -4,7 +4,7 @@ import { skillItems } from "@/lib/constants";
 
 const Marquee = () => {
   return (
-    <div className="group relative mt-2 flex gap-x-8 overflow-hidden">
+    <div className="group/marquee relative mt-2 flex gap-x-8 overflow-hidden">
       <div className="absolute left-0 top-0 z-10 h-full w-8 bg-gradient-to-r from-background to-transparent" />
       <div className="absolute right-0 top-0 z-10 h-full w-8 bg-gradient-to-l from-background to-transparent" />
       {Array(4)
@@ -12,7 +12,7 @@ const Marquee = () => {
         .map((_, i) => (
           <div
             key={i}
-            className="flex shrink-0 animate-marquee flex-row justify-around gap-8"
+            className="flex shrink-0 animate-marquee flex-row justify-around gap-8 group-hover/marquee:[animation-play-state:paused]"
           >
             {skillItems.map((item, index) => (
               <div key={index} className="flex items-center gap-x-2">
