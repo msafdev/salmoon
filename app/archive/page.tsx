@@ -15,10 +15,7 @@ export default function Page() {
       <Paragraph title="My grand archive.">
         <p>
           I am a sentimental person. I keep a record of my projects, blogs, and
-          other things that I have done.
-        </p>
-        <p>
-          Everything is here, it helps me understand how much I have grown and
+          other things that I have done. Everything here helps me understand how much I have grown and
           how much I have yet to learn.
         </p>
       </Paragraph>
