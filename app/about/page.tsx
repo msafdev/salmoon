@@ -5,7 +5,7 @@ import ProfileSection from "@/components/section/profile-section";
 export default function Page() {
   return (
     <section
-      id="misc"
+      id="about"
       className="flex flex-col items-center gap-y-16 px-4 md:gap-y-20 lg:gap-y-24"
     >
       <ProfileSection />

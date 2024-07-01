@@ -19,8 +19,8 @@ export const navItems = [
   { id: 1, label: "Home", href: "/", icon: <Home className="h-full w-full" /> },
   {
     id: 2,
-    label: "Misc",
-    href: "/misc",
+    label: "About",
+    href: "/about",
     icon: <Package2 className="h-full w-full" />,
   },
   {
