@@ -53,14 +53,13 @@ const BlogSection = () => {
         </div>
       </div>
       <div className="flex w-full flex-col">
-        <AnimatePresence>
+        <AnimatePresence key={selectedCategory}>
           {filteredBlogItems.map((item, index) => (
             <motion.div
               key={item.slug}
               initial={{ height: 0, opacity: 0, filter: "blur(4px)" }}
               animate={{ height: "auto", opacity: 1, filter: "blur(0px)" }}
-              exit={{ height: 0, opacity: 0, filter: "blur(4px)" }}
-              transition={{ duration: 0.1, delay: index * 0.1 }}
+              transition={{ duration: 0.2, delay: index * 0.1 }}
             >
               <BlogCard {...item} className="text-xs sm:text-sm" />
             </motion.div>
