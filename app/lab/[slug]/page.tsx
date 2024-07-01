@@ -71,7 +71,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
         </div>
 
         {/* Content */}
-        <div className="flex w-full max-w-xl flex-col gap-y-5">
+        <div className="flex w-full max-w-xl flex-col gap-y-4">
           <Paragraph title={`${item?.name}`} />
           <LabCard gridClass="default-card" className="min-h-72">
             <item.child />
@@ -79,7 +79,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
         </div>
 
         {twConfig && (
-          <div className="flex w-full max-w-xl flex-col gap-y-5">
+          <div className="flex w-full max-w-xl flex-col gap-y-4">
             <Paragraph title="Tailwind Setup" />
             <div className="h-fit w-full max-w-xl rounded-xl border p-2">
               <Code code={twConfig} lang="json" />
@@ -88,7 +88,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
         )}
 
         {/* Code */}
-        <div className="flex w-full max-w-xl flex-col gap-y-5">
+        <div className="flex w-full max-w-xl flex-col gap-y-4">
           <Paragraph title="Code" />
           <div className="h-fit w-full max-w-xl rounded-xl border p-2">
             <Code code={code} />

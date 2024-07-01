@@ -1,4 +1,10 @@
+import BlogCard from "@/components/shared/blog-card";
 import Paragraph from "@/components/shared/paragraph";
+import ProjectCard from "@/components/shared/project-card";
+
+import { projectItems, templateItems } from "@/lib/items";
+import { recentBlogs } from "@/lib/posts";
+
 
 export default function Page() {
   return (
@@ -16,14 +22,29 @@ export default function Page() {
           how much I have yet to learn.
         </p>
       </Paragraph>
-      <div className="flex w-full flex-col items-center gap-y-5">
-        <Paragraph title="What i wrote." />
+      <div className="flex w-full max-w-xl flex-col items-center gap-y-4">
+        <Paragraph title="What i wrote." link href="/blog" />
+        <div className="flex w-full flex-col">
+          {recentBlogs.map((item, index) => (
+            <BlogCard {...item} key={index} />
+          ))}
+        </div>
       </div>
-      <div className="flex w-full flex-col items-center gap-y-5">
+      <div className="flex w-full max-w-xl flex-col items-center gap-y-4">
         <Paragraph title="Little projects." />
+        <div className="flex w-full flex-col">
+          {projectItems.reverse().map((item, index) => (
+            <ProjectCard {...item} key={index} />
+          ))}
+        </div>
       </div>
-      <div className="flex w-full flex-col items-center gap-y-5">
+      <div className="flex w-full max-w-xl flex-col items-center gap-y-4">
         <Paragraph title="Free templates." />
+        <div className="flex w-full flex-col">
+          {templateItems.map((item, index) => (
+            <ProjectCard {...item} key={index} />
+          ))}
+        </div>
       </div>
     </section>
   );

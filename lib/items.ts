@@ -33,7 +33,7 @@ export const templateItems = [
     title: "Linkify",
     stack: ["Next", "Tailwind"],
     href: "https://linkify-demo.vercel.app",
-    description: "Modern link shortener for developers.",
+    description: "Linktree inspired portfolio template.",
   },
   {
     title: "Nextbase",
@@ -44,13 +44,13 @@ export const templateItems = [
   {
     title: "Macfolio",
     stack: ["Next", "Tailwind"],
-    href: "https://mac.msaf.tech",
+    href: "https://macfolio-demo.vercel.app",
     description: "MacOS inspired portfolio template.",
   },
   {
     title: "Compactfolio",
     stack: ["Next", "Tailwind"],
-    href: "https://compact.msaf.tech",
+    href: "https://compactfolio-demo.vercel.app",
     description: "Compact and minimal portfolio template.",
   },
 ];

@@ -5,7 +5,7 @@ import { NEW_COMPONENT as component } from "@/lib/data";
 
 const LabSection = () => {
   return (
-    <div className="flex w-full max-w-xl flex-col gap-y-5">
+    <div className="flex w-full max-w-xl flex-col gap-y-4">
       <Paragraph title="Fresh from the oven." link href="/lab" />
 
       {/* Lab Items */}

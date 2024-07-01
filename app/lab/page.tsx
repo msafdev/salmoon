@@ -45,7 +45,7 @@ export default function Page() {
         </p>
       </Paragraph>
 
-      <div className="flex w-full max-w-xl flex-col gap-y-5">
+      <div className="flex w-full max-w-xl flex-col gap-y-4">
         <Paragraph title="Have fun." />
         <div className="grid w-full max-w-xl gap-6 sm:grid-cols-2">
           {COMPONENTS.map((component, index) => (
