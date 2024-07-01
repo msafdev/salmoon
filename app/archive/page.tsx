@@ -5,7 +5,6 @@ import ProjectCard from "@/components/shared/project-card";
 import { projectItems, templateItems } from "@/lib/items";
 import { recentBlogs } from "@/lib/posts";
 
-
 export default function Page() {
   return (
     <section
@@ -14,9 +13,9 @@ export default function Page() {
     >
       <Paragraph title="My grand archive.">
         <p>
-          I am a sentimental person. I keep a record of my projects, blogs, and
-          other things that I have done. Everything here helps me understand how much I have grown and
-          how much I have yet to learn.
+          I am a sentimental person. I keep records of my projects, blogs, and
+          other things that I have done. I like to look back and see how much I
+          have grown as a person.
         </p>
       </Paragraph>
       <div className="flex w-full max-w-xl flex-col items-center gap-y-4">
