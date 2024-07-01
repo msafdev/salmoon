@@ -18,7 +18,7 @@ const ProjectCard = ({
       href={href}
       target="_blank"
       className={cn(
-        "anim group/project flex w-full flex-col rounded-sm bg-background py-2 text-sm hover:bg-accent hover:pl-3 sm:text-base",
+        "anim group/project flex w-full flex-col rounded-md bg-background py-2 text-sm hover:bg-accent hover:pl-3 sm:text-base",
         className,
       )}
     >

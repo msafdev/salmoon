@@ -16,9 +16,8 @@ const BlogCard = ({
   return (
     <Link
       href={`/blog/${slug}`}
-      target="_blank"
       className={cn(
-        "anim group/blog flex w-full flex-col rounded-sm bg-background py-2 text-sm hover:bg-accent hover:pl-3 sm:text-base",
+        "anim group/blog flex w-full flex-col rounded-md bg-background py-2 text-sm hover:bg-accent hover:pl-3 sm:text-base",
         className,
       )}
     >

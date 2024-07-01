@@ -41,7 +41,7 @@ const BlogSection = () => {
             <div
               key={category}
               onClick={() => handleFilterClick(category)}
-              className={`cursor-pointer rounded-sm bg-background text-xs font-medium ${
+              className={`cursor-pointer text-xs font-medium ${
                 selectedCategory === category
                   ? "text-foreground"
                   : "text-muted-foreground hover:text-foreground"
@@ -60,7 +60,7 @@ const BlogSection = () => {
               initial={{ height: 0, opacity: 0, filter: "blur(4px)" }}
               animate={{ height: "auto", opacity: 1, filter: "blur(0px)" }}
               exit={{ height: 0, opacity: 0, filter: "blur(4px)" }}
-              transition={{ duration: 0.2, delay: index * 0.1 }}
+              transition={{ duration: 0.1, delay: index * 0.1 }}
             >
               <BlogCard {...item} className="text-xs sm:text-sm" />
             </motion.div>
