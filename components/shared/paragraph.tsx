@@ -25,9 +25,9 @@ const Paragraph = ({
         <div className="flex w-full items-center justify-between gap-x-4">
           <h2 className="text-xl font-semibold">{title}</h2>
           {link && (
-            <Button size={"icon"} variant={"ghost"} className="size-10">
-              <Link href={href} aria-label={`Go to ${href}`}>
-                <MoveRight size={28} />
+            <Button size={"icon"} variant={"ghost"} className="size-9">
+              <Link href={href} aria-label={`Go to ${href}`} className="w-full h-full p-1.5">
+                <MoveRight className="w-full h-full" />
               </Link>
             </Button>
           )}
