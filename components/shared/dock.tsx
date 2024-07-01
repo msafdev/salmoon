@@ -56,7 +56,7 @@ const Dock = () => {
         {activeTab !== null && (
           <motion.span
             className="absolute bottom-0 top-0 z-[99] w-10 rounded-[12px] bg-primary/40 mix-blend-difference outline-none ring-0 dark:bg-primary/80"
-            initial={{ translateX: initialX, opacity: 0, scale: 0.8 }}
+            initial={{ translateX: initialX, opacity: 0, scale: 0 }}
             animate={{ translateX: (activeTab - 1) * 40, opacity: 1, scale: 1 }}
             transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
           />
