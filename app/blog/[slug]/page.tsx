@@ -67,31 +67,31 @@ export default async function Page({ params }: { params: { slug: string } }) {
       switch (child.type) {
         case "heading-one":
           return (
-            <h1 className="mb-6 text-2xl font-bold" key={index}>
+            <h1 className="my-6 text-2xl font-bold" key={index}>
               {child.children[0].text}
             </h1>
           );
         case "heading-two":
           return (
-            <h2 className="mb-5 text-xl font-semibold" key={index}>
+            <h2 className="my-5 text-xl font-semibold" key={index}>
               {child.children[0].text}
             </h2>
           );
         case "heading-three":
           return (
-            <h3 className="mb-4 text-lg font-semibold" key={index}>
+            <h3 className="my-4 text-lg font-semibold" key={index}>
               {child.children[0].text}
             </h3>
           );
         case "heading-four":
           return (
-            <h4 className="mb-4 text-lg font-medium" key={index}>
+            <h4 className="my-4 text-lg font-medium" key={index}>
               {child.children[0].text}
             </h4>
           );
         case "heading-five":
           return (
-            <h5 className="mb-4 text-base font-medium" key={index}>
+            <h5 className="my-4 text-base font-medium" key={index}>
               {child.children[0].text}
             </h5>
           );
@@ -177,7 +177,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       <div className="flex w-full max-w-xl flex-col">
         <h1 className="mb-6 text-2xl font-semibold">{post?.title}</h1>
 
-        <pre className="mb-12 w-full max-w-xl whitespace-pre-wrap text-wrap text-xs text-muted-foreground md:text-sm">
+        <pre className="mb-4 w-full max-w-xl whitespace-pre-wrap text-wrap text-xs text-muted-foreground md:text-sm">
           {post?.excerpt}
         </pre>
 
