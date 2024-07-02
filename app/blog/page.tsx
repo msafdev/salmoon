@@ -1,15 +1,17 @@
-import Paragraph from "@/components/shared/paragraph";
-
 import BlogSection from "@/components/section/blog-section";
 
-export default function Page() {
+import { getPosts } from "@/lib/gql";
+
+export default async function Page() {
+  const posts = await getPosts();
+
   return (
     <section
       id="blog"
-      className="flex h-auto grow flex-col items-center gap-y-16 px-4 md:gap-y-20 lg:gap-y-24"
+      className="flex h-auto w-full grow flex-col items-center gap-y-16 md:gap-y-20 lg:gap-y-24"
     >
       <div className="flex w-full max-w-xl flex-col items-center gap-y-4">
-        <BlogSection />
+        <BlogSection items={posts} />
       </div>
     </section>
   );

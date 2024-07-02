@@ -2,15 +2,21 @@ import Link from "next/link";
 
 import { cn } from "@/lib/utils";
 
+export const formatDate = (dateString: string) => {
+  const date = new Date(dateString);
+  const formattedDate = `${date.getDate()}/${date.getMonth() + 1}/${String(date.getFullYear()).slice(-2)}`;
+  return formattedDate;
+};
+
 const BlogCard = ({
   slug,
   title,
-  date,
+  updatedAt,
   className,
 }: {
   slug: string;
   title: string;
-  date: string;
+  updatedAt: string;
   className?: string;
 }) => {
   return (
@@ -25,7 +31,7 @@ const BlogCard = ({
         {title}
       </h3>
       <p className="anim line-clamp-1 font-mono text-xs text-muted-foreground">
-        {date}
+        {formatDate(updatedAt)}
       </p>
     </Link>
   );

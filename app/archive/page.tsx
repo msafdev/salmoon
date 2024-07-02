@@ -2,10 +2,14 @@ import BlogCard from "@/components/shared/blog-card";
 import Paragraph from "@/components/shared/paragraph";
 import ProjectCard from "@/components/shared/project-card";
 
+import { getPosts } from "@/lib/gql";
 import { projectItems, templateItems } from "@/lib/items";
-import { recentBlogs } from "@/lib/posts";
 
-export default function Page() {
+export default async function Page() {
+  const posts = await getPosts();
+
+  const recentPosts = posts ? posts.slice(0, 4) : [];
+
   return (
     <section
       id="archive"
@@ -21,13 +25,19 @@ export default function Page() {
       <div className="flex w-full max-w-xl flex-col items-center gap-y-4">
         <Paragraph title="What i wrote." link href="/blog" />
         <div className="flex w-full flex-col">
-          {recentBlogs.map((item, index) => (
-            <BlogCard {...item} key={index} />
-          ))}
+          {recentPosts &&
+            recentPosts.map((item, index) => (
+              <BlogCard
+                slug={item.node.slug}
+                title={item.node.title}
+                updatedAt={item.node.updatedAt}
+                key={index}
+              />
+            ))}
         </div>
       </div>
       <div className="flex w-full max-w-xl flex-col items-center gap-y-4">
-        <Paragraph title="Little projects." />
+        <Paragraph title="All projects." />
         <div className="flex w-full flex-col">
           {projectItems.reverse().map((item, index) => (
             <ProjectCard {...item} key={index} />

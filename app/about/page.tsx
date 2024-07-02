@@ -11,8 +11,8 @@ export default function Page() {
       <ProfileSection />
       <Paragraph title="A brief summary.">
         <p>
-          I’m Salman, a fullstack software engineer based in <span className="text-foreground">Jakarta, Indonesia</span>.
-          Building user-centric prodcuts through creative development and
+          I’m Salman, a fullstack software engineer based in Jakarta, Indonesia.
+          Building user-centric products through creative development and
           seamless interactions.
         </p>
         <p>

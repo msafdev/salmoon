@@ -63,7 +63,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
               href={`https://x.com/intent/tweet?text=${item?.name}&url=https://salmoon.vercel.app/lab/${item?.slug}`}
               target="_blank"
               scroll={true}
-              aria-label={`Go back to /lab`}
+              aria-label={`Share /lab/${item?.slug}`}
             >
               <Share2 className="h-5 w-5" />
             </Link>

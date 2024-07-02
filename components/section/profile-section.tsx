@@ -19,9 +19,10 @@ const ProfileSection = () => {
       </div>
 
       <p className="w-full text-sm text-muted-foreground md:text-base">
-        I help <span className="font-medium text-foreground">humans</span> shape
-        new ideas thru icons, illustrations and logos. I also enjoy crafting
-        websites and bring them to life as a no-code enthusiast.
+        I help <span className="font-medium text-foreground">humans</span> make
+        their ideas come to life through websites and applications. My goal is
+        to create digital experiences that not only meet but exceed
+        expectations.
       </p>
 
       <div className="aspect-[6/5] h-auto w-full overflow-hidden rounded-xl border bg-muted xs:aspect-video"></div>
