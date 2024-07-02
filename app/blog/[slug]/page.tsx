@@ -1,4 +1,5 @@
 import { MoveLeft, Share2 } from "lucide-react";
+import { BundledLanguage } from "shiki";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -9,6 +10,15 @@ import Code from "@/components/shared/code";
 import { Button } from "@/components/ui/button";
 
 import { getPost } from "@/lib/gql";
+
+const extractLanguage = (codeString: string) => {
+  const match = codeString.match(/^\/\/(\w+)/m);
+  const lang = match ? match[1] : "plaintext";
+  const code = match
+    ? codeString.slice(match[0].length).trimStart()
+    : codeString;
+  return { lang, code };
+};
 
 export default async function Page({ params }: { params: { slug: string } }) {
   const posts = await getPost({ slug: params.slug });
@@ -114,12 +124,13 @@ export default async function Page({ params }: { params: { slug: string } }) {
             </blockquote>
           );
         case "code-block":
+          const { lang, code } = extractLanguage(child.children[0].text);
           return (
             <div
               key={index}
               className="mb-4 h-fit w-full max-w-xl rounded-xl border p-2"
             >
-              <Code code={child.children[0].text} lang="tsx" />
+              <Code code={code} lang={lang as BundledLanguage} />
             </div>
           );
         case "image":
