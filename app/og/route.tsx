@@ -72,8 +72,8 @@ export function GET(request: Request) {
       </div>
     ),
     {
-      width: 1200,
-      height: 630,
+      width: 900,
+      height: 400,
     },
   );
 }
