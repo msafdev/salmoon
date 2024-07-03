@@ -15,7 +15,7 @@ export function GET(request: Request) {
           alignItems: "center",
           justifyContent: "center",
           letterSpacing: "-.02em",
-          fontWeight: 700,
+          fontWeight: 600,
           backgroundColor: "white",
           backgroundImage:
             "linear-gradient(to right, #e5e7eb 1px, transparent 1px), linear-gradient(to bottom, #e5e7eb 1px, transparent 1px)",
