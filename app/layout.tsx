@@ -19,8 +19,7 @@ const manrope = Manrope({
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: "Salmoon",
-  description:
-    "Salman/Salmoon is a full-stack creative engineer with almost 2 years worth of experiences. This website provides free templates, animated components, as well as full-fledged products that you can try for free!. Check it out yourself and let me know what you think, cheers! 🚀",
+  description: "When creativity meets ADHD, you get me.",
   openGraph: {
     title: "Salmoon",
     url: baseUrl,
