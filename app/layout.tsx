@@ -29,14 +29,14 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: `${baseUrl}/og?title=Salmoon`,
+        url: `${baseUrl}/og`,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Salmoon",
-    images: [`${baseUrl}/og?title=Salmoon`],
+    images: [`${baseUrl}/og`],
   },
   robots: {
     index: true,

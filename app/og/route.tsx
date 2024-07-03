@@ -2,24 +2,72 @@ import { ImageResponse } from "next/og";
 
 export function GET(request: Request) {
   let url = new URL(request.url);
-  let title = url.searchParams.get("title") || "Salmoon";
-  let blogTitle = url.searchParams.get("blogTitle") || null;
+  let blogTitle = url.searchParams.get("blogTitle") || "Portfolio Website";
 
   return new ImageResponse(
     (
-      <div tw="flex flex-col w-full h-full items-center justify-center bg-white relative">
+      <div
+        style={{
+          position: "relative",
+          display: "flex",
+          height: "100%",
+          width: "100%",
+          alignItems: "center",
+          justifyContent: "center",
+          letterSpacing: "-.02em",
+          fontWeight: 700,
+          backgroundColor: "white",
+          backgroundImage:
+            "linear-gradient(to right, #e5e7eb 1px, transparent 1px), linear-gradient(to bottom, #e5e7eb 1px, transparent 1px)",
+          backgroundSize: "50px 70px",
+        }}
+      >
         <div
-          tw="absolute inset-0 h-full w-full bg-white [background:radial-gradient(125%_125%_at_50%_20%,transparent_40%,#63e_100%)]"
           style={{
-            background:
-              "radial-gradient(125% 125% at 50% 20%, #fff 60%, #63e 100%)",
+            position: "absolute",
+            left: "50%",
+            top: "50%",
+            height: "400px",
+            width: "400px",
+            transform: "translate(-50%, -50%)",
+            borderRadius: "50%",
+            background: "radial-gradient(circle, #ffffff, white)",
           }}
         />
-        <div tw="flex flex-col w-full py-12 px-8 gap-y-8 items-center">
-          <h2 tw="text-6xl font-bold text-center">{title}</h2>
-          {blogTitle && (
-            <h3 tw="text-4xl font-semibold text-center">{blogTitle}</h3>
-          )}
+        <div
+          style={{
+            left: 42,
+            bottom: 42,
+            position: "absolute",
+            display: "flex",
+            alignItems: "center",
+          }}
+        >
+          <span
+            style={{
+              marginLeft: 8,
+              fontSize: 20,
+            }}
+          >
+            🚀 salmoon
+          </span>
+        </div>
+        <div
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "center",
+            padding: "20px 50px",
+            margin: "0 42px",
+            fontSize: 40,
+            width: "auto",
+            maxWidth: 550,
+            textAlign: "center",
+            color: "black",
+            lineHeight: 1.4,
+          }}
+        >
+          {blogTitle}
         </div>
       </div>
     ),
