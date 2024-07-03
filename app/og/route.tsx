@@ -16,9 +16,9 @@ export function GET(request: Request) {
           }}
         />
         <div tw="flex flex-col w-full py-12 px-8 gap-y-8 items-center">
-          <h2 tw="text-4xl font-bold text-center">{title}</h2>
+          <h2 tw="text-6xl font-bold text-center">{title}</h2>
           {blogTitle && (
-            <h3 tw="text-2xl font-semibold text-center">{blogTitle}</h3>
+            <h3 tw="text-4xl font-semibold text-center">{blogTitle}</h3>
           )}
         </div>
       </div>
