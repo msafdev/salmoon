@@ -6,7 +6,7 @@ export function GET(request: Request) {
 
   return new ImageResponse(
     (
-      <div tw="flex flex-col w-full h-full items-center justify-center bg-transparent relative">
+      <div tw="flex flex-col w-full h-full items-center justify-center bg-white relative">
         <div
           tw="absolute inset-0 h-full w-full bg-white [background:radial-gradient(125%_125%_at_50%_20%,transparent_40%,#63e_100%)]"
           style={{
