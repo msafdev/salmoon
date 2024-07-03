@@ -3,6 +3,7 @@ import { ImageResponse } from "next/og";
 export function GET(request: Request) {
   let url = new URL(request.url);
   let title = url.searchParams.get("title") || "Salmoon";
+  let blogTitle = url.searchParams.get("blogTitle") || null;
 
   return new ImageResponse(
     (
@@ -14,8 +15,11 @@ export function GET(request: Request) {
               "radial-gradient(125% 125% at 50% 20%, #fff 60%, #63e 100%)",
           }}
         />
-        <div tw="flex flex-col w-full py-12 px-4 items-center justify-between">
+        <div tw="flex flex-col w-full py-12 px-8 gap-y-8 items-center justify-between">
           <h2 tw="text-4xl font-bold text-center">{title}</h2>
+          {blogTitle && (
+            <h3 tw="text-2xl font-semibold text-center">{blogTitle}</h3>
+          )}
         </div>
       </div>
     ),
