@@ -15,7 +15,7 @@ export function GET(request: Request) {
           alignItems: "center",
           justifyContent: "center",
           letterSpacing: "-.02em",
-          fontWeight: 600,
+          fontWeight: 700,
           backgroundColor: "white",
           backgroundImage:
             "linear-gradient(to right, #e5e7eb 1px, transparent 1px), linear-gradient(to bottom, #e5e7eb 1px, transparent 1px)",
@@ -36,8 +36,8 @@ export function GET(request: Request) {
         />
         <div
           style={{
-            left: 42,
-            bottom: 42,
+            left: 50,
+            bottom: 50,
             position: "absolute",
             display: "flex",
             alignItems: "center",
@@ -45,8 +45,8 @@ export function GET(request: Request) {
         >
           <span
             style={{
-              marginLeft: 8,
-              fontSize: 20,
+              marginLeft: 10,
+              fontSize: 24,
             }}
           >
             🚀 salmoon
@@ -59,7 +59,7 @@ export function GET(request: Request) {
             justifyContent: "center",
             padding: "20px 50px",
             margin: "0 42px",
-            fontSize: 40,
+            fontSize: 48,
             width: "auto",
             maxWidth: 550,
             textAlign: "center",
@@ -72,7 +72,7 @@ export function GET(request: Request) {
       </div>
     ),
     {
-      width: 900,
+      width: 1000,
       height: 400,
     },
   );
