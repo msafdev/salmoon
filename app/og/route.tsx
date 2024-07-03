@@ -1,9 +1,6 @@
 import { ImageResponse } from "next/og";
 
 export function GET(request: Request) {
-  let url = new URL(request.url);
-  let blogTitle = url.searchParams.get("blogTitle") || "Portfolio Website";
-
   return new ImageResponse(
     (
       <div
@@ -36,44 +33,23 @@ export function GET(request: Request) {
         />
         <div
           style={{
-            left: 50,
-            bottom: 50,
-            position: "absolute",
-            display: "flex",
-            alignItems: "center",
-          }}
-        >
-          <span
-            style={{
-              marginLeft: 10,
-              fontSize: 24,
-            }}
-          >
-            🚀 salmoon
-          </span>
-        </div>
-        <div
-          style={{
             display: "flex",
             flexWrap: "wrap",
             justifyContent: "center",
-            padding: "20px 50px",
-            margin: "0 42px",
-            fontSize: 48,
+            fontSize: 64,
             width: "auto",
-            maxWidth: 550,
+            maxWidth: 600,
             textAlign: "center",
-            color: "black",
-            lineHeight: 1.4,
+            lineHeight: 1.5,
           }}
         >
-          {blogTitle}
+          🚀
         </div>
       </div>
     ),
     {
-      width: 1000,
-      height: 400,
+      width: 1200,
+      height: 630,
     },
   );
 }
