@@ -9,6 +9,7 @@ import { Toaster } from "@/components/ui/toaster";
 
 import "./globals.css";
 import NotFound from "./not-found";
+import { baseUrl } from "./sitemap";
 
 const manrope = Manrope({
   subsets: ["latin"],
@@ -16,8 +17,38 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(baseUrl),
   title: "Salmoon",
-  description: "Salmoon's personal website.",
+  description:
+    "Salman/Salmoon is a full-stack creative engineer with almost 2 years worth of experiences. This website provides free templates, animated components, as well as full-fledged products that you can try for free!. Check it out yourself and let me know what you think, cheers! 🚀",
+  openGraph: {
+    title: "Salmoon",
+    url: baseUrl,
+    siteName: "Salmoon",
+    locale: "en_US",
+    type: "website",
+    images: [
+      {
+        url: `${baseUrl}/og?title=Salmoon`,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Salmoon",
+    images: [`${baseUrl}/og?title=Salmoon`],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
 };
 
 export default function RootLayout({
