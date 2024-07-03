@@ -28,6 +28,7 @@ export async function generateMetadata({
   params: { slug: string };
 }) {
   const posts = await getPost({ slug: params.slug });
+  
   if (!posts) {
     return null;
   }
@@ -45,7 +46,7 @@ export async function generateMetadata({
     description: excerpt,
     openGraph: {
       title,
-      content,
+      description: excerpt,
       type: "article",
       updatedAt,
       url: `${baseUrl}/blog/${slug}`,
