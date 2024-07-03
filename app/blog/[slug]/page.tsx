@@ -34,6 +34,7 @@ export async function generateMetadata({
 
   const title = posts.postsConnection?.edges[0].node.title;
   const content = posts.postsConnection?.edges[0].node.content;
+  const excerpt = posts.postsConnection?.edges[0].node.excerpt;
   const updatedAt = posts.postsConnection?.edges[0].node.updatedAt;
   const slug = posts.postsConnection?.edges[0].node.slug;
 
@@ -41,7 +42,7 @@ export async function generateMetadata({
 
   return {
     title,
-    description: content,
+    description: excerpt,
     openGraph: {
       title,
       content,
