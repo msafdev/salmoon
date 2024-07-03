@@ -28,13 +28,12 @@ export async function generateMetadata({
   params: { slug: string };
 }) {
   const posts = await getPost({ slug: params.slug });
-  
+
   if (!posts) {
     return null;
   }
 
   const title = posts.postsConnection?.edges[0].node.title;
-  const content = posts.postsConnection?.edges[0].node.content;
   const excerpt = posts.postsConnection?.edges[0].node.excerpt;
   const updatedAt = posts.postsConnection?.edges[0].node.updatedAt;
   const slug = posts.postsConnection?.edges[0].node.slug;
@@ -44,11 +43,12 @@ export async function generateMetadata({
   return {
     title,
     description: excerpt,
+    publishedAt: updatedAt,
     openGraph: {
       title,
       description: excerpt,
       type: "article",
-      updatedAt,
+      publishedAt: updatedAt,
       url: `${baseUrl}/blog/${slug}`,
       images: [
         {
@@ -59,7 +59,8 @@ export async function generateMetadata({
     twitter: {
       card: "summary_large_image",
       title,
-      content,
+      description: excerpt,
+      publishedAt: updatedAt,
       images: [ogImage],
     },
   };
