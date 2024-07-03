@@ -34,7 +34,7 @@ export async function generateMetadata({
   }
 
   const title = posts.postsConnection?.edges[0].node.title;
-  const excerpt = JSON.stringify(posts.postsConnection?.edges[0].node.excerpt);
+  const content = JSON.stringify(posts.postsConnection?.edges[0].node.content);
   const updatedAt = posts.postsConnection?.edges[0].node.updatedAt;
   const slug = posts.postsConnection?.edges[0].node.slug;
 
@@ -42,11 +42,11 @@ export async function generateMetadata({
 
   return {
     title,
-    description: excerpt,
+    description: content,
     publishedAt: updatedAt,
     openGraph: {
       title,
-      description: excerpt,
+      description: content,
       type: "article",
       publishedAt: updatedAt,
       url: `${baseUrl}/blog/${slug}`,
@@ -59,7 +59,7 @@ export async function generateMetadata({
     twitter: {
       card: "summary_large_image",
       title,
-      description: excerpt,
+      description: content,
       publishedAt: updatedAt,
       images: [ogImage],
     },
