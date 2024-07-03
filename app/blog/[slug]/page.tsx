@@ -40,11 +40,11 @@ export async function generateMetadata({
 
   return {
     title,
-    description: `Read more about ${title} on my blog. 🚀`,
+    description: `Read more about "${title}" on my blog. 🚀`,
     publishedAt: updatedAt,
     openGraph: {
       title,
-      description: `Read more about ${title} on my blog. 🚀`,
+      description: `Read more about "${title}" on my blog. 🚀`,
       type: "article",
       publishedAt: updatedAt,
       url: `${baseUrl}/blog/${slug}`,
@@ -57,7 +57,7 @@ export async function generateMetadata({
     twitter: {
       card: "summary_large_image",
       title,
-      description: `Read more about ${title} on my blog. 🚀`,
+      description: `Read more about "${title}" on my blog. 🚀`,
       publishedAt: updatedAt,
       images: [ogImage],
     },
