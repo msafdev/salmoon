@@ -13,15 +13,6 @@ import { Button } from "@/components/ui/button";
 import { getPost, getPosts } from "@/lib/gql";
 import { Post } from "@/lib/types";
 
-const extractLanguage = (codeString: string) => {
-  const match = codeString.match(/^\/\/(\w+)/m);
-  const lang = match ? match[1] : "plaintext";
-  const code = match
-    ? codeString.slice(match[0].length).trimStart()
-    : codeString;
-  return { lang, code };
-};
-
 export async function generateMetadata({
   params,
 }: {
@@ -68,6 +59,15 @@ export default async function Page({ params }: { params: { slug: string } }) {
   const posts = await getPost({ slug: params.slug });
 
   const post = posts?.postsConnection?.edges[0].node;
+
+  const extractLanguage = (codeString: string) => {
+    const match = codeString.match(/^\/\/(\w+)/m);
+    const lang = match ? match[1] : "tsx";
+    const code = match
+      ? codeString.slice(match[0].length).trimStart()
+      : codeString;
+    return { lang, code };
+  };
 
   const renderInlineStyles = (children: any[]) => {
     return children.map((child: any, index: number) => {
