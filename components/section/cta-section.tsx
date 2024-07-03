@@ -1,4 +1,4 @@
-import { FaPaperPlane } from "react-icons/fa6";
+import { MessageCircle } from "lucide-react";
 
 import Link from "next/link";
 
@@ -33,9 +33,9 @@ const ActionSection = () => {
       >
         <p className="text-sm font-medium text-foreground">Get in touch.</p>
         <div className="anim h-auto w-fit rounded-full bg-green-500 px-6 py-2.5 md:bg-[#878787] md:group-hover:bg-green-500">
-          <FaPaperPlane
+          <MessageCircle
             size={24}
-            className="anim p-1 text-white group-hover:p-0.5 md:text-background md:group-hover:text-white"
+            className="anim fill-white p-1 text-white group-hover:p-0.5 md:fill-background md:text-background md:group-hover:rotate-6 md:group-hover:fill-white md:group-hover:text-white"
           />
         </div>
       </Link>

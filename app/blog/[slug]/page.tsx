@@ -1,3 +1,4 @@
+import { baseUrl } from "@/app/sitemap";
 import { MoveLeft, Share2 } from "lucide-react";
 import { BundledLanguage } from "shiki";
 
@@ -9,7 +10,8 @@ import Code from "@/components/shared/code";
 
 import { Button } from "@/components/ui/button";
 
-import { getPost } from "@/lib/gql";
+import { getPost, getPosts } from "@/lib/gql";
+import { Post } from "@/lib/types";
 
 const extractLanguage = (codeString: string) => {
   const match = codeString.match(/^\/\/(\w+)/m);
@@ -19,6 +21,47 @@ const extractLanguage = (codeString: string) => {
     : codeString;
   return { lang, code };
 };
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  const posts = await getPost({ slug: params.slug });
+  if (!posts) {
+    return null;
+  }
+
+  const title = posts.postsConnection?.edges[0].node.title;
+  const content = posts.postsConnection?.edges[0].node.content;
+  const updatedAt = posts.postsConnection?.edges[0].node.updatedAt;
+  const slug = posts.postsConnection?.edges[0].node.slug;
+
+  const ogImage = `${baseUrl}/og?title=${encodeURIComponent(title ?? "")}`;
+
+  return {
+    title,
+    content,
+    openGraph: {
+      title,
+      content,
+      type: "article",
+      updatedAt,
+      url: `${baseUrl}/blog/${slug}`,
+      images: [
+        {
+          url: ogImage,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      content,
+      images: [ogImage],
+    },
+  };
+}
 
 export default async function Page({ params }: { params: { slug: string } }) {
   const posts = await getPost({ slug: params.slug });
