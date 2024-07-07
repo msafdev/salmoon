@@ -80,7 +80,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
 
         {twConfig && (
           <div className="flex w-full max-w-xl flex-col gap-y-4">
-            <Paragraph title="Tailwind Setup" />
+            <Paragraph title="Tailwind setup" />
             <div className="h-fit w-full max-w-xl rounded-xl border p-2">
               <Code code={twConfig} lang="json" />
             </div>

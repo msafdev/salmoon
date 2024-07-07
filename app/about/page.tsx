@@ -9,7 +9,7 @@ export default function Page() {
       className="flex flex-col items-center gap-y-16 px-4 md:gap-y-20 lg:gap-y-24"
     >
       <ProfileSection />
-      <Paragraph title="A brief summary.">
+      <Paragraph title="A brief summary">
         <p>
           I’m Salman, a fullstack software engineer based in Jakarta, Indonesia.
           Building user-centric products through creative development and
@@ -26,7 +26,7 @@ export default function Page() {
           interaction be remembered by everyone.
         </p>
       </Paragraph>
-      <Paragraph title="Where it all started." from="2020" to="2023">
+      <Paragraph title="Where it all started" from="2020" to="2023">
         <p>
           I started programming from when I entered my college. Back then, I
           used to be so anxious deciding my path, trying Java, Python, C++, and
@@ -43,7 +43,7 @@ export default function Page() {
           to learn everything from scratch.
         </p>
       </Paragraph>
-      <Paragraph title="Present time." from="2024" to="present">
+      <Paragraph title="Present time" from="2024" to="present">
         <p>
           Fast forward to today, I have been working as a fullstack software,
           settling on Next.js, Tailwind, GraphQL, and PostgreSQL as my main

@@ -6,7 +6,7 @@ import { NEW_COMPONENT as component } from "@/lib/data";
 const LabSection = () => {
   return (
     <div className="flex w-full max-w-xl flex-col gap-y-4">
-      <Paragraph title="Fresh from the oven." link href="/lab" />
+      <Paragraph title="Fresh from the oven" link href="/lab" />
 
       {/* Lab Items */}
       <LabCard gridClass="default-card" className="min-h-64">

@@ -11,7 +11,7 @@ export default function Page() {
       id="lab"
       className="flex h-auto grow flex-col items-center gap-y-16 md:gap-y-20 lg:gap-y-24"
     >
-      <Paragraph title="My humble abode.">
+      <Paragraph title="My humble abode">
         <p>
           This is my lab, where I explore and experiment with UI designs and
           interactions.
@@ -22,7 +22,7 @@ export default function Page() {
         </p>
       </Paragraph>
 
-      <Paragraph title="Before you start.">
+      <Paragraph title="Before you start">
         <p>
           These components require{" "}
           <Link
@@ -46,7 +46,7 @@ export default function Page() {
       </Paragraph>
 
       <div className="flex w-full max-w-xl flex-col gap-y-4">
-        <Paragraph title="Have fun." />
+        <Paragraph title="Have fun" />
         <div className="grid w-full max-w-xl gap-6 sm:grid-cols-2">
           {COMPONENTS.map((component, index) => (
             <LabCard
