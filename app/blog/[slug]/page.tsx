@@ -10,8 +10,7 @@ import Code from "@/components/shared/code";
 
 import { Button } from "@/components/ui/button";
 
-import { getPost, getPosts } from "@/lib/gql";
-import { Post } from "@/lib/types";
+import { getPost } from "@/lib/gql";
 
 export async function generateMetadata({
   params,
@@ -161,7 +160,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
         case "block-quote":
           return (
             <blockquote
-              className="mb-4 border-l-2 border-primary bg-accent px-4 py-2 text-xs font-medium text-accent-foreground md:text-sm"
+              className="mb-4 border-l-2 border-primary px-4 py-1 text-xs font-medium italic text-muted-foreground md:text-sm"
               key={index}
             >
               {child.children[0].text}
