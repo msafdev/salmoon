@@ -34,7 +34,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
     );
   }
 
-  const { code, twConfig } = await getFilePathAndConfig(item);
+  const { code, twConfig, uiLibrary } = await getFilePathAndConfig(item);
 
   return (
     <section
@@ -77,6 +77,15 @@ export default async function Page({ params }: { params: { slug: string } }) {
             <item.child />
           </LabCard>
         </div>
+
+        {uiLibrary && (
+          <div className="flex w-full max-w-xl flex-col gap-y-4">
+            <Paragraph title="Install dependencies" />
+            <div className="h-fit w-full max-w-xl rounded-xl border p-2">
+              <Code code={uiLibrary} lang="bash" />
+            </div>
+          </div>
+        )}
 
         {twConfig && (
           <div className="flex w-full max-w-xl flex-col gap-y-4">

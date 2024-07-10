@@ -22,6 +22,7 @@ export async function getFilePathAndConfig(item: ComponentType) {
   });
 
   const twConfig = JSON.stringify(item.twConfig, null, 2);
+  const uiLibrary = item.uiLibrary;
 
-  return { code, twConfig };
+  return { code, twConfig, uiLibrary };
 }

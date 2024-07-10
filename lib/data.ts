@@ -22,6 +22,7 @@ export type ComponentType = {
   description?: string;
   twConfig?: object;
   gridClass?: "regular-card" | "medium-card" | "large-card" | "default-card";
+  uiLibrary?: string;
 };
 
 export type TWConfig = {
@@ -73,6 +74,7 @@ export const COMPONENTS: ComponentType[] = [
     slug: "tooltip",
     child: Tooltip,
     gridClass: "large-card",
+    uiLibrary: "npx shadcn-ui@latest add button",
   },
   {
     name: "Loading Circle",
@@ -114,12 +116,14 @@ export const COMPONENTS: ComponentType[] = [
     name: "Animated Counter",
     slug: "animated-counter",
     child: AnimatedCounter,
+    uiLibrary: "npx shadcn-ui@latest add button",
   },
   {
     name: "Toolbar",
     slug: "toolbar",
     child: Toolbar,
     gridClass: "large-card",
+    uiLibrary: "npx shadcn-ui@latest add button",
   },
   {
     name: "Shining Badge",
