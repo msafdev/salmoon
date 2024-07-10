@@ -5,8 +5,6 @@ import { Ellipsis, X } from "lucide-react";
 
 import React, { useState } from "react";
 
-import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
-
 const DynamicIsland = () => {
   const refMenu = React.useRef<HTMLDivElement>(null);
   const [openIsland, setOpenIsland] = useState(false);
@@ -105,7 +103,7 @@ const DynamicIsland = () => {
                   iPhone
                 </p>
                 <p className="text-xs font-semibold text-primary-foreground">
-                  Salman's
+                  User's
                 </p>
               </div>
               <button className="ml-auto flex aspect-square h-10 w-auto shrink-0 items-center justify-center rounded-full bg-red-600 text-white">

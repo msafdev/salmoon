@@ -63,9 +63,10 @@ const ChatBubble = () => {
       >
         <button
           onClick={addMessage}
-          className="inline-flex items-center justify-center rounded-full bg-secondary/80 p-1.5 text-secondary-foreground hover:bg-secondary"
+          aria-label="Add message"
+          className="inline-flex w-8 h-8 items-center justify-center rounded-full bg-secondary/80 p-1.5 text-secondary-foreground hover:bg-secondary"
         >
-          <PlusIcon className="h-4 w-4" />
+          <PlusIcon className="h-full w-full" />
         </button>
       </div>
       <ul className="flex flex-col gap-y-4">
