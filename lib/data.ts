@@ -1,3 +1,4 @@
+import AnimatedCounter from "@/components/lab/animated-counter";
 import AnimatedImage from "@/components/lab/animated-image";
 import AnimatedTags from "@/components/lab/animated-tags";
 import AvatarStatus from "@/components/lab/avatar-status";
@@ -7,8 +8,8 @@ import LoadingBar from "@/components/lab/loading-bar";
 import LoadingCircle from "@/components/lab/loading-circle";
 import ShiningBadge from "@/components/lab/shining-badge";
 import SwipeButton from "@/components/lab/swipe-button";
-import TiltCard from "@/components/lab/tilt-card";
 import Timeline from "@/components/lab/timeline";
+import Toolbar from "@/components/lab/toolbar";
 import Tooltip from "@/components/lab/tooltip";
 
 export type ComponentType = {
@@ -55,11 +56,6 @@ export const TW_CONFIG: TWConfig = {
 
 export const COMPONENTS: ComponentType[] = [
   {
-    name: "Tilt Card",
-    slug: "tilt-card",
-    child: TiltCard,
-  },
-  {
     name: "Animated Tags",
     slug: "animated-tags",
     child: AnimatedTags,
@@ -91,15 +87,15 @@ export const COMPONENTS: ComponentType[] = [
     child: AnimatedImage,
   },
   {
-    name: "Shining Badge",
-    slug: "shining-badge",
-    child: ShiningBadge,
-    twConfig: TW_CONFIG["background-shine"],
-  },
-  {
     name: "Dynamic Island",
     slug: "dynamic-island",
     child: DynamicIsland,
+  },
+  {
+    name: "Chat Bubble",
+    slug: "chat-bubble",
+    child: ChatBubble,
+    gridClass: "large-card",
   },
   {
     name: "Timeline",
@@ -112,10 +108,21 @@ export const COMPONENTS: ComponentType[] = [
     child: SwipeButton,
   },
   {
-    name: "Chat Bubble",
-    slug: "chat-bubble",
-    child: ChatBubble,
+    name: "Animated Counter",
+    slug: "animated-counter",
+    child: AnimatedCounter,
+  },
+  {
+    name: "Toolbar",
+    slug: "toolbar",
+    child: Toolbar,
     gridClass: "large-card",
+  },
+  {
+    name: "Shining Badge",
+    slug: "shining-badge",
+    child: ShiningBadge,
+    twConfig: TW_CONFIG["background-shine"],
   },
 ];
 

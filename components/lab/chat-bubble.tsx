@@ -1,7 +1,7 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { PlusIcon } from "lucide-react";
+import { Plus } from "lucide-react";
 
 import { useState } from "react";
 
@@ -57,16 +57,16 @@ const ChatBubble = () => {
       <div
         className={`absolute transition-all duration-300 ease-in-out ${
           messages.length > 0
-            ? "left-0 top-0"
-            : "left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+            ? "bottom-0 right-0"
+            : "bottom-1/2 right-1/2 translate-x-1/2 translate-y-1/2"
         }`}
       >
         <button
           onClick={addMessage}
           aria-label="Add message"
-          className="inline-flex w-8 h-8 items-center justify-center rounded-full bg-secondary/80 p-1.5 text-secondary-foreground hover:bg-secondary"
+          className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-secondary/80 p-1.5 text-secondary-foreground hover:bg-secondary"
         >
-          <PlusIcon className="h-full w-full" />
+          <Plus className="h-full w-full" />
         </button>
       </div>
       <ul className="flex flex-col gap-y-4">
