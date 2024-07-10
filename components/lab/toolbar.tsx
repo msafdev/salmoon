@@ -36,7 +36,8 @@ const Toolbar = () => {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{
-                  duration: 0.1,
+                  duration: 0.2,
+                  delay: mode === "default" ? 0 : 0.2,
                 }}
                 className="flex items-center p-2"
               >
@@ -65,7 +66,8 @@ const Toolbar = () => {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{
-                  duration: 0.1,
+                  duration: 0.2,
+                  delay: mode === "search" ? 0 : 0.2,
                 }}
                 className="flex items-center p-2"
               >
@@ -91,7 +93,8 @@ const Toolbar = () => {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{
-                  duration: 0.1,
+                  duration: 0.2,
+                  delay: mode === "schedule" ? 0 : 0.2,
                 }}
                 className="flex items-center p-2"
               >

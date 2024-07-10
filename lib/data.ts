@@ -1,16 +1,19 @@
-import AnimatedCounter from "@/components/lab/animated-counter";
-import AnimatedImage from "@/components/lab/animated-image";
-import AnimatedTags from "@/components/lab/animated-tags";
-import AvatarStatus from "@/components/lab/avatar-status";
-import ChatBubble from "@/components/lab/chat-bubble";
-import DynamicIsland from "@/components/lab/dynamic-island";
-import LoadingBar from "@/components/lab/loading-bar";
-import LoadingCircle from "@/components/lab/loading-circle";
-import ShiningBadge from "@/components/lab/shining-badge";
-import SwipeButton from "@/components/lab/swipe-button";
-import Timeline from "@/components/lab/timeline";
-import Toolbar from "@/components/lab/toolbar";
-import Tooltip from "@/components/lab/tooltip";
+import dynamic from "next/dynamic";
+
+// prettier-ignore
+const AnimatedCounter = dynamic(() => import("@/components/lab/animated-counter"));
+const AnimatedImage = dynamic(() => import("@/components/lab/animated-image"));
+const AnimatedTags = dynamic(() => import("@/components/lab/animated-tags"));
+const AvatarStatus = dynamic(() => import("@/components/lab/avatar-status"));
+const ChatBubble = dynamic(() => import("@/components/lab/chat-bubble"));
+const DynamicIsland = dynamic(() => import("@/components/lab/dynamic-island"));
+const LoadingBar = dynamic(() => import("@/components/lab/loading-bar"));
+const LoadingCircle = dynamic(() => import("@/components/lab/loading-circle"));
+const ShiningBadge = dynamic(() => import("@/components/lab/shining-badge"));
+const Timeline = dynamic(() => import("@/components/lab/timeline"));
+const Toolbar = dynamic(() => import("@/components/lab/toolbar"));
+const Tooltip = dynamic(() => import("@/components/lab/tooltip"));
+const SwipeButton = dynamic(() => import("@/components/lab/swipe-button"));
 
 export type ComponentType = {
   name: string;
