@@ -1,11 +1,13 @@
 import AnimatedImage from "@/components/lab/animated-image";
+import AnimatedTags from "@/components/lab/animated-tags";
 import AvatarStatus from "@/components/lab/avatar-status";
-import DigitalClock from "@/components/lab/digital-clock";
-import EncryptedText from "@/components/lab/encrypted-text";
+import ChatBubble from "@/components/lab/chat-bubble";
+import DynamicIsland from "@/components/lab/dynamic-island";
 import LoadingBar from "@/components/lab/loading-bar";
 import LoadingCircle from "@/components/lab/loading-circle";
 import ShiningBadge from "@/components/lab/shining-badge";
 import SwipeButton from "@/components/lab/swipe-button";
+import TiltCard from "@/components/lab/tilt-card";
 import Timeline from "@/components/lab/timeline";
 import Tooltip from "@/components/lab/tooltip";
 
@@ -53,10 +55,14 @@ export const TW_CONFIG: TWConfig = {
 
 export const COMPONENTS: ComponentType[] = [
   {
-    name: "Digital Clock",
-    slug: "digital-clock",
-    child: DigitalClock,
-    gridClass: "medium-card",
+    name: "Tilt Card",
+    slug: "tilt-card",
+    child: TiltCard,
+  },
+  {
+    name: "Animated Tags",
+    slug: "animated-tags",
+    child: AnimatedTags,
   },
   {
     name: "Avatar with Status",
@@ -91,9 +97,9 @@ export const COMPONENTS: ComponentType[] = [
     twConfig: TW_CONFIG["background-shine"],
   },
   {
-    name: "Encrypted Text",
-    slug: "encrypted-text",
-    child: EncryptedText,
+    name: "Dynamic Island",
+    slug: "dynamic-island",
+    child: DynamicIsland,
   },
   {
     name: "Timeline",
@@ -104,6 +110,12 @@ export const COMPONENTS: ComponentType[] = [
     name: "Swipe Button",
     slug: "swipe-button",
     child: SwipeButton,
+  },
+  {
+    name: "Music Player",
+    slug: "music-player",
+    child: ChatBubble,
+    gridClass: "large-card",
   },
 ];
 

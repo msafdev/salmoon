@@ -22,7 +22,7 @@ const LabCard = ({
   const size: { [key: string]: string } = {
     "regular-card": "aspect-[4/3] sm:aspect-square",
     "medium-card": "aspect-square sm:aspect-square",
-    "large-card": "aspect-[3/4] sm:aspect-square",
+    "large-card": "aspect-[3/4] sm:aspect-[2/1] sm:col-span-2",
     "default-card": "",
   };
 
