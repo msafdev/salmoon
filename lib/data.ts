@@ -112,8 +112,8 @@ export const COMPONENTS: ComponentType[] = [
     child: SwipeButton,
   },
   {
-    name: "Music Player",
-    slug: "music-player",
+    name: "Chat Bubble",
+    slug: "chat-bubble",
     child: ChatBubble,
     gridClass: "large-card",
   },
