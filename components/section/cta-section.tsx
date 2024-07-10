@@ -1,44 +1,39 @@
-import { MessageCircle } from "lucide-react";
-
 import Link from "next/link";
 
-import ChatFooter from "@/components/shared/chat-footer";
-
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import Paragraph from "@/components/shared/paragraph";
 
 const ActionSection = () => {
   return (
-    <div className="flex w-full max-w-xl flex-col items-start gap-y-4">
-      {/* Avatar and First Chat */}
-      <div className="flex w-full items-end gap-x-4">
-        <div className="relative">
-          <Avatar className="overflow-hidden border">
-            <AvatarImage src="./ava.png" alt="Avatar" />
-            <AvatarFallback>M</AvatarFallback>
-          </Avatar>
-
-          {/* Status */}
-          <div className="absolute right-0.5 top-0.5 h-2 w-2 rounded-full border bg-green-500" />
-        </div>
-        <div className="flex rounded-2xl rounded-bl-md border bg-accent px-4 py-2 md:px-6 md:py-3">
-          <p className="text-xs text-accent-foreground md:text-sm">
-            Have a project in mind? Do let me know.
-          </p>
-        </div>
-      </div>
-
-      <Link
-        href={"/"}
-        className="group flex w-full items-center justify-between rounded-e-[50px] rounded-bl-md rounded-tl-[24px] border bg-background py-1.5 pl-4 pr-1.5 md:pl-6"
-      >
-        <p className="text-sm font-medium text-foreground">Get in touch.</p>
-        <div className="anim h-auto w-fit rounded-full bg-green-500 px-6 py-2.5 md:bg-[#878787] md:group-hover:bg-green-500">
-          <MessageCircle
-            size={24}
-            className="anim fill-white p-1 text-white group-hover:p-0.5 md:fill-background md:text-background md:group-hover:rotate-6 md:group-hover:fill-white md:group-hover:text-white"
-          />
-        </div>
-      </Link>
+    <div className="flex w-full max-w-xl flex-col gap-y-4">
+      <Paragraph title="Connect">
+        <p>
+          See more of my work on{" "}
+          <Link
+            href={"https://twitter.com/msafdev"}
+            target="_blank"
+            className="anim underline underline-offset-2 hover:text-foreground active:text-foreground"
+          >
+            X
+          </Link>
+          , view my code on{" "}
+          <Link
+            href={"https://github.com/msafdev"}
+            target="_blank"
+            className="anim underline underline-offset-2 hover:text-foreground active:text-foreground"
+          >
+            Github
+          </Link>
+          , or check out how I'm doing on{" "}
+          <Link
+            href={"https://papermark.io/view/cly0hd4dm00023b7qo9s5rn5i"}
+            target="_blank"
+            className="anim underline underline-offset-2 hover:text-foreground active:text-foreground"
+          >
+            Papermark
+          </Link>
+          .
+        </p>
+      </Paragraph>
     </div>
   );
 };

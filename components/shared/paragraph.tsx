@@ -48,7 +48,7 @@ const Paragraph = ({
         )}
       </div>
       {children && (
-        <div className="flex flex-col gap-y-3 text-sm text-muted-foreground md:text-base">
+        <div className="flex flex-col gap-y-3 text-sm text-muted-foreground md:text-base [&>p]:leading-relaxed">
           {children}
         </div>
       )}

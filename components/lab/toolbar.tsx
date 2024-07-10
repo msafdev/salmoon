@@ -1,7 +1,7 @@
 "use client";
 
 import { AnimatePresence, MotionConfig, motion } from "framer-motion";
-import { ArrowLeft, GanttChart, Search, User } from "lucide-react";
+import { ArrowLeft, X, Search, User } from "lucide-react";
 
 import React, { useState } from "react";
 
@@ -115,8 +115,9 @@ const Toolbar = () => {
                     size={"icon"}
                     onClick={() => setMode("default")}
                     aria-label="Placeholder button"
+                    className="hover:bg-red-100"
                   >
-                    <GanttChart className="h-5 w-5" />
+                    <X className="h-5 w-5 text-red-600" />
                   </Button>
                 </div>
               </motion.div>

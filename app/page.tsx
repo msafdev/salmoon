@@ -13,8 +13,8 @@ export default function Page() {
     >
       <HomeSection />
       <WhoSection />
-      <LabSection />
       <SkillSection />
+      <LabSection />
       <ProjectSection />
       <ActionSection />
     </section>

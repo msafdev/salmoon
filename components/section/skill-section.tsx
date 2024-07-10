@@ -7,8 +7,11 @@ const SkillSection = () => {
       <Paragraph title="Jack of all trades">
         <p>
           I have a diverse set of skills and tools. Over the years, I've worked
-          across various technologies, but mostly with Next.js, Supabase, and
-          Tailwind CSS.
+          across various technologies and tools.
+        </p>
+        <p>
+          My curiosity and passion for building products drive me to
+          continuously improve and expand my skill set.
         </p>
       </Paragraph>
 
