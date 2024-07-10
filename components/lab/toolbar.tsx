@@ -26,7 +26,7 @@ const Toolbar = () => {
           animate={{ width: mode === "default" ? 111 : 281 }}
           transition={transition}
           layout
-          className="h-full w-full overflow-hidden rounded-xl border border-zinc-950/10 bg-white"
+          className="h-full w-full overflow-hidden rounded-xl border bg-popover text-popover-foreground"
         >
           <AnimatePresence mode="wait">
             {mode === "default" ? (
