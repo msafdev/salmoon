@@ -5,8 +5,8 @@ const WhoSection = () => {
     <div className="flex w-full max-w-xl flex-col gap-y-4">
       <Paragraph title="About me">
         <p>
-          Hi there, I'm Salman, a creative developer from Indonesia with a knack
-          for minimalistic designs and interactions.
+          A fullstack developer with React since 2020. Building products that
+          are just as beautiful as they are functional.
         </p>
       </Paragraph>
     </div>

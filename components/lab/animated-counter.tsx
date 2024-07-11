@@ -10,32 +10,13 @@ import { Button } from "@/components/ui/button";
 const Number = ({ mv, number }: { mv: MotionValue; number: number }) => {
   const y = useTransform(mv, (latest) => {
     const height = 32;
-    const latestValue = latest % 10;
-    const offset = (10 + number - latestValue) % 10;
-
-    let memo = offset * height;
-
-    if (offset > 5) {
-      memo -= 10 * height;
-    }
-
-    return memo;
+    const offset = (10 + number - (latest % 10)) % 10;
+    return (offset > 5 ? offset - 10 : offset) * height;
   });
 
   const scale = useTransform(y, (y) => {
-    const minScale = 0.5;
-    const maxScale = 1.0;
-    const scaleFactor = 0.5;
-
     const absY = Math.abs(y);
-
-    if (absY > 5 * 32) {
-      return minScale;
-    } else if (absY < 3 * 32) {
-      return maxScale;
-    }
-
-    return maxScale - ((absY - 3 * 32) / (2 * 32)) * scaleFactor;
+    return absY > 160 ? 0.5 : absY < 96 ? 1 : 1 - ((absY - 96) / 64) * 0.5;
   });
 
   return (
@@ -48,16 +29,14 @@ const Number = ({ mv, number }: { mv: MotionValue; number: number }) => {
   );
 };
 
-const DigitContainer = ({ value, place }: { value: number; place: number }) => {
+const Container = ({ value, place }: { value: number; place: number }) => {
   const digit = Math.floor(value / place) % 10;
   const animatedValue = useSpring(digit);
-  useEffect(() => {
-    animatedValue.set(digit);
-  }, [animatedValue, digit]);
+  useEffect(() => animatedValue.set(digit), [animatedValue, digit]);
 
   return (
     <div className="relative size-8">
-      {Array.from(Array(10).keys()).map((index) => (
+      {Array.from({ length: 10 }, (_, index) => (
         <Number mv={animatedValue} number={index} key={index} />
       ))}
     </div>
@@ -67,40 +46,28 @@ const DigitContainer = ({ value, place }: { value: number; place: number }) => {
 const AnimatedCounter = () => {
   const [count, setCount] = useState(123);
 
-  const handleIncrement = () => {
-    setCount(count + 1);
-  };
-
-  const handleDecrement = () => {
-    if (count > 0) {
-      setCount(count - 1);
-    }
-  };
-
   return (
     <div className="flex h-full w-full items-center justify-center gap-x-4 overflow-hidden">
       <Button
-        variant={"secondary"}
-        size={"icon"}
+        variant="secondary"
+        size="icon"
         className="size-7 rounded-full p-1.5"
-        onClick={handleIncrement}
+        onClick={() => setCount(count + 1)}
         aria-label="Increment counter"
       >
         <Plus />
       </Button>
       <div className="relative flex h-24 items-center overflow-hidden">
-        <DigitContainer value={count} place={100} />
-        <DigitContainer value={count} place={10} />
-        <DigitContainer value={count} place={1} />
-
-        {/* Overlay */}
+        {[100, 10, 1].map((place) => (
+          <Container value={count} place={place} key={place} />
+        ))}
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-background via-transparent to-background" />
       </div>
       <Button
-        variant={"secondary"}
-        size={"icon"}
+        variant="secondary"
+        size="icon"
         className="size-7 rounded-full p-1.5"
-        onClick={handleDecrement}
+        onClick={() => count > 0 && setCount(count - 1)}
         aria-label="Decrement counter"
       >
         <Minus />

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Globe, Smartphone, Play } from "lucide-react";
+import { Globe, Play, Smartphone } from "lucide-react";
 
 import { useState } from "react";
 
@@ -30,35 +30,38 @@ const AnimatedTags = () => {
   const [tags, setTags] = useState(chipData);
 
   const toggleSelect = (id: number) => {
-    setTags((prevChips) =>
-      prevChips.map((chip) =>
-        chip.id === id
-          ? { ...chip, selected: !chip.selected }
-          : { ...chip, selected: false },
-      ),
+    setTags((prevTags) =>
+      prevTags.map((tag) => ({
+        ...tag,
+        selected: tag.id === id ? !tag.selected : false,
+      })),
     );
   };
 
   return (
     <div className="flex w-full items-center justify-center gap-x-2">
-      {tags.map((chip) => (
+      {tags.map(({ id, label, icon, selected }) => (
         <div
-          key={chip.id}
-          onClick={() => toggleSelect(chip.id)}
+          key={id}
+          onClick={() => toggleSelect(id)}
           className={`flex cursor-pointer items-center rounded-full py-1.5 transition-all duration-500 ease-in-out ${
-            chip.selected
+            selected
               ? "bg-accent px-3 text-accent-foreground"
               : "px-1 text-muted-foreground hover:text-accent-foreground"
           }`}
         >
-          {chip.icon}
+          {icon}
           <motion.span
-            initial={{ width: 0, opacity: 0}}
-            animate={{ width: chip.selected ? "auto" : 0, marginLeft: 8, opacity: chip.selected ? 1 : 0}}
-            exit={{ width: 0, opacity: 0}}
+            initial={{ width: 0, opacity: 0 }}
+            animate={{
+              width: selected ? "auto" : 0,
+              marginLeft: selected ? 8 : 0,
+              opacity: selected ? 1 : 0,
+            }}
+            exit={{ width: 0, opacity: 0 }}
             className="overflow-hidden text-sm"
           >
-            {chip.label}
+            {label}
           </motion.span>
         </div>
       ))}

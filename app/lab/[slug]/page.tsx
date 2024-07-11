@@ -80,7 +80,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
 
         {uiLibrary && (
           <div className="flex w-full max-w-xl flex-col gap-y-4">
-            <Paragraph title="Install dependencies" />
+            <Paragraph title="Library setup" />
             <div className="h-fit w-full max-w-xl rounded-xl border p-2">
               <Code code={uiLibrary} lang="bash" />
             </div>

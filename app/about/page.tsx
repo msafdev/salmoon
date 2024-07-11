@@ -11,31 +11,26 @@ export default function Page() {
       <ProfileSection />
       <Paragraph title="A brief summary">
         <p>
-          I’m Salman, a fullstack software engineer based in Jakarta, Indonesia.
-          Building user-centric products through creative development and
-          seamless interactions.
+          I’m Salman, a fullstack software engineer with almost 2 years of
+          experience. I build user-centric products through creative development
+          and seamless interactions.
         </p>
         <p>
           Passionate about both the technical and artistic side of thing, I
           strive to create digital experiences that have meaning to each of
           their iteration.
         </p>
-        <p>
-          My products are driven by quality and passion. By merging creativity
-          with technical skill, I aim to build applications that make every
-          interaction be remembered by everyone.
-        </p>
       </Paragraph>
       <Paragraph title="Where it all started" from="2020" to="2023">
         <p>
-          I started programming from when I entered my college. Back then, I
-          used to be so anxious deciding my path, trying Java, Python, C++, and
-          even ASM.
+          I started programming from when I entered my college, Diponegoro
+          University . Back then, I used to be so anxious deciding my path,
+          trying Java, Python, C++, and even ASM.
         </p>
         <p>
-          Then, I found something that I really love: web development. I started
-          to learn HTML, CSS, JS, then React. I also learned how to build a
-          simple server using Node.js.
+          Then, I found something that I really love: website development. I
+          started to learn HTML, CSS, JS, and ofc React. I also learned how to
+          build a simple server using Node.js.
         </p>
         <p>
           It was very hard for someone who never touched programming before, as
@@ -56,7 +51,7 @@ export default function Page() {
         </p>
         <p>
           Now, I am continuing to learn new things, and I am excited to see what
-          the AI apocalypse will bring to me in the future.
+          the AI-pocalypse will bring to me in the future.
         </p>
       </Paragraph>
     </section>

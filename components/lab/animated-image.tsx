@@ -22,40 +22,44 @@ const items = [
   },
 ];
 
-const AnimatedImage = () => {
-  return (
-    <div className="flex items-center -space-x-4">
-      {items.map((item, index) => (
-        <div
-          key={index}
-          className="-rotate-[19deg] first:rotate-[6deg] last:rotate-[8deg]"
-        >
-          <motion.div
-            initial={{ scale: 0, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0, opacity: 0 }}
-            transition={{
-              duration: 0.4,
-              delay: index * 0.4,
-              ease: "easeInOut",
-              repeat: Infinity,
-              repeatDelay: 1.2,
-              repeatType: "reverse",
-            }}
-            className="relative h-12 w-12 overflow-hidden rounded-md border-2 bg-accent"
-          >
-            <Image
-              src={item.imageUrl}
-              alt={item.name}
-              fill
-              className="object-cover"
-              quality={40}
-            />
-          </motion.div>
-        </div>
-      ))}
-    </div>
-  );
-};
+const AnimatedImage = () => (
+  <div className="flex items-center -space-x-4">
+    {items.map((item, index) => (
+      <motion.div
+        key={index}
+        initial={{
+          scale: 0,
+          opacity: 0,
+          rotate: index === 0 ? 6 : index === 1 ? -18 : 8,
+        }}
+        animate={{
+          scale: 1,
+          opacity: 1,
+        }}
+        exit={{
+          scale: 0,
+          opacity: 0,
+        }}
+        transition={{
+          duration: 0.4,
+          delay: index * 0.4,
+          ease: "easeInOut",
+          repeat: Infinity,
+          repeatDelay: 1.2,
+          repeatType: "reverse",
+        }}
+        className="relative h-12 w-12 overflow-hidden rounded-md border-2 bg-accent first:rotate-6"
+      >
+        <Image
+          src={item.imageUrl}
+          alt={item.name}
+          fill
+          className="object-cover"
+          quality={40}
+        />
+      </motion.div>
+    ))}
+  </div>
+);
 
 export default AnimatedImage;

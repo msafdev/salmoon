@@ -21,7 +21,7 @@ const licorice = Licorice({
 const Footer = () => {
   const { toast } = useToast();
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: false });
+  const isInView = useInView(ref, { once: true });
 
   const scrollToTop = () => {
     window.scrollTo({
@@ -36,7 +36,7 @@ const Footer = () => {
       className="flex w-full flex-col bg-primary px-4 py-12 dark:bg-primary-foreground md:px-8 lg:px-16"
     >
       <div
-        className={`mx-auto flex w-full max-w-3xl flex-col items-center gap-y-12 py-8 transition-all duration-500 ease-in-out ${
+        className={`mx-auto flex w-full max-w-3xl flex-col items-center gap-y-12 pt-8 pb-20 transition-all duration-500 ease-in-out ${
           isInView ? "scale-100 opacity-100" : "scale-90 opacity-0"
         }`}
       >
@@ -82,7 +82,7 @@ const Footer = () => {
         </div>
 
         {/* Copyright */}
-        <div className="flex w-full flex-col-reverse items-center gap-x-8 gap-y-6 md:flex-row md:items-end">
+        <div className="flex w-full flex-col-reverse items-center gap-x-8 gap-y-12 md:flex-row md:items-end">
           <p className="font-mono text-sm text-primary-foreground/60 dark:text-primary/60 md:text-left">
             &copy; 2024 msaf. All rights reserved.
             <br />
