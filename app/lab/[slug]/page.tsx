@@ -42,7 +42,6 @@ export default async function Page({ params }: { params: { slug: string } }) {
       className="flex h-auto w-full grow flex-col items-center gap-y-16 md:gap-y-20 lg:gap-y-24"
     >
       <div className="flex w-full max-w-xl flex-col gap-y-10 md:gap-y-12 lg:gap-y-16">
-        {/* Header */}
         <div className="flex w-full max-w-xl items-center justify-between">
           <Link
             href={`/lab`}
@@ -70,7 +69,6 @@ export default async function Page({ params }: { params: { slug: string } }) {
           </Button>
         </div>
 
-        {/* Content */}
         <div className="flex w-full max-w-xl flex-col gap-y-4">
           <Paragraph title={`${item?.name}`} />
           <LabCard gridClass="default-card" className="min-h-72">
@@ -96,7 +94,6 @@ export default async function Page({ params }: { params: { slug: string } }) {
           </div>
         )}
 
-        {/* Code */}
         <div className="flex w-full max-w-xl flex-col gap-y-4">
           <Paragraph title="Code" />
           <div className="h-fit w-full max-w-xl rounded-xl border p-2">

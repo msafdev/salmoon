@@ -200,7 +200,6 @@ export default async function Page({ params }: { params: { slug: string } }) {
       id={`${post?.slug}`}
       className="flex h-auto w-full grow flex-col items-center gap-y-16 md:gap-y-20 lg:gap-y-24"
     >
-      {/* Header */}
       <div className="flex w-full max-w-xl items-center justify-between">
         <Link
           href={`/blog`}

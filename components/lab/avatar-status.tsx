@@ -2,6 +2,8 @@
 
 import { motion } from "framer-motion";
 
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+
 const badgeMotion = {
   rest: {
     width: 16,
@@ -36,7 +38,16 @@ const AvatarStatus = () => {
       animate="rest"
       className="group/status relative h-fit w-fit cursor-default rounded-full border-2 border-background"
     >
-      <div className="size-12 bg-muted animate-pulse rounded-full border"/>
+      <Avatar className="size-12 overflow-hidden border">
+        <AvatarImage
+          src="https://github.com/msafdev.png"
+          alt="User"
+          className="rounded-full"
+        />
+        <AvatarFallback className="rounded-full bg-primary text-white">
+          A
+        </AvatarFallback>
+      </Avatar>
       <motion.div
         variants={badgeMotion}
         className="absolute bottom-0 left-8 flex items-center justify-center overflow-hidden rounded-full border-2 border-background bg-green-500 text-xs font-medium text-white"

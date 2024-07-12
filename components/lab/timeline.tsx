@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 
-import { useRef, useState } from "react";
+import { useState } from "react";
 
 const years = Array.from({ length: 2024 - 2000 + 1 }, (_, i) => 2024 - i);
 
@@ -36,6 +36,7 @@ const Timeline = () => {
             onClick={() => setSelected(index)}
             className="group/timeline relative inline-flex px-0.5"
             key={index}
+            aria-label={year.toString()}
           >
             <motion.div
               className={`h-8 w-1 rounded-full transition-colors duration-300 ease-in-out ${

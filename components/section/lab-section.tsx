@@ -14,7 +14,7 @@ const LabSection = () => {
     <div className="flex w-full max-w-xl flex-col gap-y-4">
       <Paragraph title="Fresh from the oven" link href="/lab" />
 
-      {/* Lab Items */}
+      {/* Dynamically render the component based on the data from the JSON file. */}
       <LabCard
         className={`min-h-64 ${size[component.gridClass || "regular-card"]}`}
       >

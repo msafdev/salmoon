@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 import Image from "next/image";
 
-const items = [
+const imageItems = [
   {
     name: "Place 1",
     imageUrl:
@@ -22,9 +22,9 @@ const items = [
   },
 ];
 
-const AnimatedImage = () => (
+const StackedImage = () => (
   <div className="flex items-center -space-x-4">
-    {items.map((item, index) => (
+    {imageItems.map((item, index) => (
       <motion.div
         key={index}
         initial={{
@@ -62,4 +62,4 @@ const AnimatedImage = () => (
   </div>
 );
 
-export default AnimatedImage;
+export default StackedImage;

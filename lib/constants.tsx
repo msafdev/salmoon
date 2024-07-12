@@ -1,4 +1,4 @@
-import { Beaker, Book, Hexagon, Home, Package2, TestTube } from "lucide-react";
+import { Beaker, Book, Hexagon, Home, Package2 } from "lucide-react";
 
 import Bash from "@/public/icons/bash.png";
 import Figma from "@/public/icons/figma.png";
@@ -15,8 +15,14 @@ import VSC from "@/public/icons/vsc.png";
 import Vue from "@/public/icons/vue.png";
 import Webflow from "@/public/icons/webflow.png";
 
+// prettier-ignore
 export const navItems = [
-  { id: 1, label: "Home", href: "/", icon: <Home className="h-full w-full" /> },
+  { 
+    id: 1, 
+    label: "Home", 
+    href: "/", 
+    icon: <Home className="h-full w-full" /> 
+  },
   {
     id: 2,
     label: "About",
@@ -42,6 +48,7 @@ export const navItems = [
   },
 ];
 
+// prettier-ignore
 export const skillItems = [
   { name: "Next", icon: NextJS },
   { name: "Tailwind", icon: TailwindCSS },
@@ -57,4 +64,56 @@ export const skillItems = [
   { name: "React", icon: React },
   { name: "Vue", icon: Vue },
   { name: "Webflow", icon: Webflow },
+];
+
+// prettier-ignore
+export const creditList = [
+  {
+    category: "Engineers",
+    items: [
+      { name: "Jakub Krehel", href: "https://kbo.sk" },
+      { name: "Lee Robinson", href: "https://leerob.io" },
+      { name: "Julien Thibeaut", href: "https://ibelick.com" },
+      { name: "Sam Selikoff", href: "https://samselikoff.com" },
+    ],
+  },
+  {
+    category: "Designers",
+    items: [
+      { name: "Darius Dan", href: "https://dariusdan.com" },
+      { name: "Tanbir", href: "https://tanbir.framer.website" },
+      { name: "Via", href: "https://pricharielp.space" },
+    ],
+  },
+  {
+    category: "Creators",
+    items: [
+      { name: "Web Programming Unpas", href: "https://www.youtube.com/@sandhikagalihWPU"},
+      { name: "Sajid", href: "https://www.youtube.com/@whosajid" },
+      { name: "ThePrimeTime", href: "https://www.youtube.com/@ThePrimeTimeagen" },
+    ],
+  },
+  {
+    category: "Friends",
+    items: [
+      { name: "Nadia Lovely", href: "https://nadialvy.com" },
+    ],
+  },
+  {
+    category: "Libraries",
+    items: [
+      { name: "Shadcn", href: "https://ui.shadcn.com" },
+      { name: "Magic UI", href: "https://magicui.design" },
+      { name: "Icons8", href: "https://icons8.com" },
+      { name: "Lucide", href: "https://lucide.dev" },
+    ],
+  },
+  {
+    category: "Tools",
+    items: [
+      { name: "Bun", href: "https://bun.sh" },
+      { name: "Vercel", href: "https://vercel.com" },
+      { name: "Supabase", href: "https://supabase.io" },
+    ],
+  },
 ];

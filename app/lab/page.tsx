@@ -14,11 +14,7 @@ export default function Page() {
       <Paragraph title="My humble abode">
         <p>
           This is my lab, where I explore and experiment with UI designs and
-          interactions.
-        </p>
-        <p>
-          I will try to reference my inspirations and resources as much as I
-          can. If you have any feedback, feel free to reach out to me.
+          interactions. If you have any feedback, feel free to reach out to me.
         </p>
       </Paragraph>
 
@@ -47,7 +43,7 @@ export default function Page() {
 
       <div className="flex w-full max-w-xl flex-col gap-y-4">
         <Paragraph title="Have fun" />
-        <div className="grid w-full max-w-xl gap-6 sm:grid-cols-2 grid-flow-dense">
+        <div className="grid w-full max-w-xl grid-flow-dense gap-6 sm:grid-cols-2">
           {COMPONENTS.map((component, index) => (
             <LabCard
               key={index}

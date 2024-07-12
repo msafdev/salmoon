@@ -43,8 +43,8 @@ const Container = ({ value, place }: { value: number; place: number }) => {
   );
 };
 
-const AnimatedCounter = () => {
-  const [count, setCount] = useState(123);
+const ClassicCounter = () => {
+  const [count, setCount] = useState(0);
 
   return (
     <div className="flex h-full w-full items-center justify-center gap-x-4 overflow-hidden">
@@ -67,7 +67,7 @@ const AnimatedCounter = () => {
         variant="secondary"
         size="icon"
         className="size-7 rounded-full p-1.5"
-        onClick={() => count > 0 && setCount(count - 1)}
+        onClick={() => count > 0 && count < 999 && setCount(count - 1)}
         aria-label="Decrement counter"
       >
         <Minus />
@@ -76,4 +76,4 @@ const AnimatedCounter = () => {
   );
 };
 
-export default AnimatedCounter;
+export default ClassicCounter;

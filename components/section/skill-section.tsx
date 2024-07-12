@@ -15,7 +15,6 @@ const SkillSection = () => {
         </p>
       </Paragraph>
 
-      {/* Second Chat */}
       <div className="flex w-full">
         <Marquee />
       </div>

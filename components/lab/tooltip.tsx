@@ -4,6 +4,7 @@ import { Ellipsis, Lock, Triangle, VenetianMask } from "lucide-react";
 
 import { useState } from "react";
 
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 
 const Tooltip = () => {
@@ -12,7 +13,16 @@ const Tooltip = () => {
   return (
     <div className="flex w-full max-w-64 flex-col overflow-hidden rounded-lg border">
       <div className="flex items-center gap-x-3 rounded-md bg-popover p-3">
-      <div className="size-8 bg-muted animate-pulse rounded-full border"/>
+        <Avatar className="size-8 overflow-hidden border">
+          <AvatarImage
+            src="https://github.com/msafdev.png"
+            alt="User"
+            className="rounded-full"
+          />
+          <AvatarFallback className="rounded-full bg-primary text-white">
+            A
+          </AvatarFallback>
+        </Avatar>
         <div className="flex flex-col gap-y-1">
           <p className="text-sm font-medium leading-none text-foreground">
             @msafdev

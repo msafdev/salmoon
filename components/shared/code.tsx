@@ -14,10 +14,9 @@ const Code: React.FC<CodeProps> = ({ code, lang }) => {
         <Shiki code={code} lang={lang} />
       </Suspense>
 
-      {/* Overlay */}
+      {/* Overlaying the code to smoothly hide overflowing content. */}
       <div className="absolute right-0 top-0 z-0 h-full w-12 bg-gradient-to-r from-transparent to-[#f7f7f7] dark:to-[#101010]" />
 
-      {/* Copy Button */}
       <CopyButton string={code} className="absolute right-2 top-2 h-8 w-8" />
     </div>
   );

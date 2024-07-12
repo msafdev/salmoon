@@ -36,7 +36,7 @@ const Footer = () => {
       className="flex w-full flex-col bg-primary px-4 py-12 dark:bg-primary-foreground md:px-8 lg:px-16"
     >
       <div
-        className={`mx-auto flex w-full max-w-3xl flex-col items-center gap-y-12 pt-8 pb-20 transition-all duration-500 ease-in-out ${
+        className={`mx-auto flex w-full max-w-3xl flex-col items-center gap-y-12 pb-20 pt-8 transition-all duration-500 ease-in-out ${
           isInView ? "scale-100 opacity-100" : "scale-90 opacity-0"
         }`}
       >
@@ -81,7 +81,6 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Copyright */}
         <div className="flex w-full flex-col-reverse items-center gap-x-8 gap-y-12 md:flex-row md:items-end">
           <p className="font-mono text-sm text-primary-foreground/60 dark:text-primary/60 md:text-left">
             &copy; 2024 msaf. All rights reserved.
@@ -102,13 +101,13 @@ const Footer = () => {
             </h2>
             <div className="flex flex-col items-center gap-y-1 text-center font-mono text-sm text-muted-foreground md:items-end md:text-right">
               <button
-                className="w-fit hover:text-primary-foreground dark:hover:text-primary"
+                className="anim w-fit hover:text-primary-foreground dark:hover:text-primary"
                 onClick={scrollToTop}
               >
                 Back to top
               </button>
               <button
-                className="w-fit hover:text-primary-foreground dark:hover:text-primary"
+                className="anim w-fit hover:text-primary-foreground dark:hover:text-primary"
                 onClick={() => {
                   copyToClipboard("salmanalfarisi261002@gmail.com");
                   toast({
@@ -125,12 +124,27 @@ const Footer = () => {
 
           <div className="flex flex-col gap-y-3">
             <h2 className="text-center font-mono font-semibold uppercase text-primary-foreground dark:text-primary md:text-right">
-              Credits
+              Misc
             </h2>
             <div className="flex flex-col gap-y-1 text-center font-mono text-sm text-muted-foreground md:text-right">
-              <p>Ibelick</p>
-              <p>Darius Dan</p>
-              <p>Transhumans</p>
+              <Link
+                href={"/"}
+                className="anim hover:text-primary-foreground dark:hover:text-primary"
+              >
+                Secret
+              </Link>
+              <Link
+                href={"/credits"}
+                className="anim hover:text-primary-foreground dark:hover:text-primary"
+              >
+                Credits
+              </Link>
+              <Link
+                href={"/guestbook"}
+                className="anim hover:text-primary-foreground dark:hover:text-primary"
+              >
+                Guestbook
+              </Link>
             </div>
           </div>
         </div>

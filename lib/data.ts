@@ -1,19 +1,20 @@
 import dynamic from "next/dynamic";
 
 // prettier-ignore
-const AnimatedCounter = dynamic(() => import("@/components/lab/animated-counter"));
-const AnimatedImage = dynamic(() => import("@/components/lab/animated-image"));
-const AnimatedTags = dynamic(() => import("@/components/lab/animated-tags"));
+const ClassicCounter = dynamic(() => import("@/components/lab/classic-counter"));
+const StackedImage = dynamic(() => import("@/components/lab/stacked-image"));
+const Tags = dynamic(() => import("@/components/lab/tags"));
 const AvatarStatus = dynamic(() => import("@/components/lab/avatar-status"));
 const ChatBubble = dynamic(() => import("@/components/lab/chat-bubble"));
 const DynamicIsland = dynamic(() => import("@/components/lab/dynamic-island"));
 const LoadingBar = dynamic(() => import("@/components/lab/loading-bar"));
-const LoadingCircle = dynamic(() => import("@/components/lab/loading-circle"));
 const ShiningBadge = dynamic(() => import("@/components/lab/shining-badge"));
 const Timeline = dynamic(() => import("@/components/lab/timeline"));
 const Toolbar = dynamic(() => import("@/components/lab/toolbar"));
 const Tooltip = dynamic(() => import("@/components/lab/tooltip"));
 const SwipeButton = dynamic(() => import("@/components/lab/swipe-button"));
+const StackedAvatar = dynamic(() => import("@/components/lab/stacked-avatar"));
+const MusicCard = dynamic(() => import("@/components/lab/music-card"));
 
 export type ComponentType = {
   name: string;
@@ -60,26 +61,22 @@ export const TW_CONFIG: TWConfig = {
 
 export const COMPONENTS: ComponentType[] = [
   {
-    name: "Animated Tags",
-    slug: "animated-tags",
-    child: AnimatedTags,
+    name: "Tags",
+    slug: "tags",
+    child: Tags,
   },
   {
     name: "Avatar with Status",
     slug: "avatar-status",
     child: AvatarStatus,
+    uiLibrary: "npx shadcn-ui@latest add avatar",
   },
   {
     name: "Tooltip",
     slug: "tooltip",
     child: Tooltip,
     gridClass: "large-card",
-    uiLibrary: "npx shadcn-ui@latest add button",
-  },
-  {
-    name: "Loading Circle",
-    slug: "loading-circle",
-    child: LoadingCircle,
+    uiLibrary: "npx shadcn-ui@latest add avatar button",
   },
   {
     name: "Loading Bar",
@@ -87,14 +84,21 @@ export const COMPONENTS: ComponentType[] = [
     child: LoadingBar,
   },
   {
-    name: "Animated Image",
-    slug: "animated-image",
-    child: AnimatedImage,
+    name: "Stacked Image",
+    slug: "stacked-image",
+    child: StackedImage,
   },
   {
-    name: "Dynamic Island",
-    slug: "dynamic-island",
-    child: DynamicIsland,
+    name: "Classic Counter",
+    slug: "classic-counter",
+    child: ClassicCounter,
+    uiLibrary: "npx shadcn-ui@latest add button",
+  },
+  {
+    name: "Stacked Avatar",
+    slug: "stacked-avatar",
+    child: StackedAvatar,
+    uiLibrary: "npx shadcn-ui@latest add avatar",
   },
   {
     name: "Chat Bubble",
@@ -113,10 +117,9 @@ export const COMPONENTS: ComponentType[] = [
     child: SwipeButton,
   },
   {
-    name: "Animated Counter",
-    slug: "animated-counter",
-    child: AnimatedCounter,
-    uiLibrary: "npx shadcn-ui@latest add button",
+    name: "Music Card",
+    slug: "music-card",
+    child: MusicCard,
   },
   {
     name: "Toolbar",
