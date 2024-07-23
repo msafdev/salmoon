@@ -88,9 +88,9 @@ export const creditList = [
   {
     category: "Creators",
     items: [
-      { name: "Web Programming Unpas", href: "https://www.youtube.com/@sandhikagalihWPU"},
-      { name: "Sajid", href: "https://www.youtube.com/@whosajid" },
-      { name: "ThePrimeTime", href: "https://www.youtube.com/@ThePrimeTimeagen" },
+      { name: "Web Programming Unpas", href: "https://youtube.com/@sandhikagalihWPU"},
+      { name: "Sajid", href: "https://youtube.com/@whosajid" },
+      { name: "ThePrimeTime", href: "https://youtube.com/@ThePrimeTimeagen" },
     ],
   },
   {
@@ -218,6 +218,7 @@ export const projectItems = [
   },
 ];
 
+// prettier-ignore
 export const recentProjects = projectItems.slice(1, projectItems.length);
 
 // prettier-ignore
@@ -280,23 +281,60 @@ export const workItems = [
 // prettier-ignore
 export const toolItems = [
   {
-    category: "Workstation",
-    items: ["ASUS TUF FX505DT", "iPhone XR"],
+    category: "OS",
+    items: ["Windows", "Linux"],
   },
   {
-    category: "Peripheral",
-    items: ["Logitech G102", "Rexus Ayaka TKL"],
+    category: "Device",
+    items: ["iPhone XR", "ASUS TUF FX505DT"],
   },
   {
-    category: "Productivity",
-    items: ["Safari", "Obsidian", "Slack"],
+    category: "Shell",
+    items: ["Powershell", "Bash"],
+  },
+  {
+    category: "Browser",
+    items: ["Firefox", "Safari"],
   },
   {
     category: "Development",
-    items: ["Visual Studio Code", "JetBrains IDEs", "GitHub Desktop", "Figma", "Postman", "SourceTree"],
+    items: ["Visual Studio Code", "Figma", "GitHub"],
   },
   {
-    category: "Inspiration",
-    items: ["dribbble.com", "layers.to", "godly.website"],
+    category: "Productivity",
+    items: ["Notion", "Obsidian"],
+  },
+  {
+    category: "Others",
+    items: ["Jira", "Postman", "Slack"],
+  },
+];
+
+// prettier-ignore
+export const inspoItems = [
+  {
+    category: "Creators",
+    items: [
+      { name: "Sam Selikoff", href: "https://youtube.com/@samselikoff" },
+      { name: "Sandhika Galih", href: "https://youtube.com/@sandhikagalih" },
+      { name: "Olivier Larose", href: "https://youtube.com/@olivierlarose1" },
+      { name: "Fireship", href: "https://youtube.com/@fireship" },
+    ],
+  },
+  {
+    category: "Designers",
+    items: [
+      { name: "Dwinawan", href: "https://twitter.com/dwinawan_" },
+      { name: "Oguz Yagiz Kara", href: "https://twitter.com/oguzyagizkara" },
+      { name: "Ilya Miskov", href: "https://twitter.com/ilyamiskov" },
+    ],
+  },
+  {
+    category: "Engineers",
+    items: [
+      { name: "Lee Robinson", href: "https://leerob.io" },
+      { name: "Julien Thibeaut", href: "https://ibelick.com" },
+      { name: "Jakub Krehel", href: "https://kbo.sk" },
+    ],
   },
 ];

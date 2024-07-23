@@ -7,7 +7,7 @@ const TrackCard = async () => {
   const tracks = await topTracks();
 
   return (
-    <div className="flex w-full flex-col gap-y-3">
+    <div className="flex w-full flex-col gap-y-4">
       {tracks.map((track) => (
         <Link
           href={track.external_urls.spotify}

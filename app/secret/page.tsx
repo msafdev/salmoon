@@ -10,7 +10,7 @@ export default async function Page() {
     >
       <Paragraph title="Why are you here?">
         <p>
-          If you're hoping to find some hidden API keys, I'm sorry to disappoint
+          If you're hoping to find some secret API keys, I'm sorry to disappoint
           you. This page is just a place where I can put some of my more
           personal things.
         </p>

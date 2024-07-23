@@ -2,7 +2,7 @@ import CustomLink from "@/components/shared/custom-link";
 
 const HomeSection = () => {
   return (
-    <div className="flex w-full max-w-xl flex-col gap-y-3 sm:gap-y-4">
+    <div className="flex w-full max-w-xl flex-col gap-y-4">
       <h1 className="text-balance text-xl font-bold leading-7 xs:text-2xl xs:leading-8 sm:text-4xl sm:leading-[42px]">
         creative mind for a more unique perspective
         <span className="text-pink-500">.</span>

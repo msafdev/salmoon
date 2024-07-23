@@ -5,7 +5,7 @@ import Map from "@/public/assets/map.webp";
 
 const ProfileSection = () => {
   return (
-    <div className="flex w-full max-w-xl flex-col items-center gap-y-3">
+    <div className="flex w-full max-w-xl flex-col items-center gap-y-4">
       <div className="flex w-full items-center gap-x-4">
         <Image
           src={Ava}

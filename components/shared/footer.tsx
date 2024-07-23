@@ -40,7 +40,7 @@ const Footer = () => {
           isInView ? "scale-100 opacity-100" : "scale-90 opacity-0"
         }`}
       >
-        <div className="flex w-full flex-col items-center justify-between gap-x-4 gap-y-3 text-primary-foreground dark:text-primary md:flex-row">
+        <div className="flex w-full flex-col items-center justify-between gap-4 text-primary-foreground dark:text-primary md:flex-row">
           <span className={`text-3xl ${licorice.className}`}>Salman</span>
           <div className="flex flex-wrap items-center justify-center gap-x-3 text-sm text-primary-foreground/80 dark:text-primary/80">
             <Link
@@ -140,10 +140,10 @@ const Footer = () => {
                 Secret
               </Link>
               <Link
-                href={"/credits"}
+                href={"/material"}
                 className="anim hover:text-primary-foreground dark:hover:text-primary"
               >
-                Credits
+                Material
               </Link>
               <Link
                 href={"/guestbook"}
