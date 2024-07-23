@@ -45,8 +45,9 @@ const Footer = () => {
           <div className="flex flex-wrap items-center justify-center gap-x-3 text-sm text-primary-foreground/80 dark:text-primary/80">
             <Link
               className="anim hover:text-primary-foreground dark:hover:text-primary"
-              href="https://twitter.com/msafdev"
+              href="https://twitter.com/sal__moon"
               target="_blank"
+              rel="noopener noreferrer"
               aria-label="Twitter / X.com"
             >
               x.com
@@ -56,6 +57,7 @@ const Footer = () => {
               className="anim hover:text-primary-foreground dark:hover:text-primary"
               href="https://papermark.io/view/cly0hd4dm00023b7qo9s5rn5i"
               target="_blank"
+              rel="noopener noreferrer"
               aria-label="Curriculum Vitae"
             >
               cv
@@ -65,6 +67,7 @@ const Footer = () => {
               className="anim hover:text-primary-foreground dark:hover:text-primary"
               href="https://instagram.com/msalman_af"
               target="_blank"
+              rel="noopener noreferrer"
               aria-label="Instagram"
             >
               insta
@@ -74,6 +77,7 @@ const Footer = () => {
               className="anim hover:text-primary-foreground dark:hover:text-primary"
               href="https://linkedin.com/in/muhammadsalmoon"
               target="_blank"
+              rel="noopener noreferrer"
               aria-label="Free Reusable Components"
             >
               linkedin
@@ -89,6 +93,8 @@ const Footer = () => {
             <Link
               href={"https://icons8.com"}
               target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Icons8"
               className="hover:text-foreground"
             >
               Icons8
@@ -128,7 +134,7 @@ const Footer = () => {
             </h2>
             <div className="flex flex-col gap-y-1 text-center font-mono text-sm text-muted-foreground md:text-right">
               <Link
-                href={"/"}
+                href={"/secret"}
                 className="anim hover:text-primary-foreground dark:hover:text-primary"
               >
                 Secret

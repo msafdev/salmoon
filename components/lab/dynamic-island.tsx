@@ -96,7 +96,7 @@ const DynamicIsland = () => {
                   delay: 0.3,
                 }}
                 layout
-                className="h-10 w-10 rounded-full border bg-muted animate-pulse"
+                className="h-10 w-10 animate-pulse rounded-full border bg-muted"
               />
               <div className="flex flex-col">
                 <p className="text-[10px] font-medium text-muted-foreground">

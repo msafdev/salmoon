@@ -1,7 +1,7 @@
+import ProjectCard from "@/components/shared/cards/project-card";
 import Paragraph from "@/components/shared/paragraph";
-import ProjectCard from "@/components/shared/project-card";
 
-import { recentProjects } from "@/lib/items";
+import { recentProjects } from "@/lib/constants";
 
 const ProjectSection = () => {
   return (

@@ -1,9 +1,10 @@
-import BlogCard from "@/components/shared/blog-card";
+import BlogCard from "@/components/shared/cards/blog-card";
+import ProjectCard from "@/components/shared/cards/project-card";
+import WorkCard from "@/components/shared/cards/work-card";
 import Paragraph from "@/components/shared/paragraph";
-import ProjectCard from "@/components/shared/project-card";
 
+import { projectItems, templateItems, workItems } from "@/lib/constants";
 import { getPosts } from "@/lib/gql";
-import { projectItems, templateItems } from "@/lib/items";
 
 export default async function Page() {
   const posts = await getPosts();
@@ -37,7 +38,15 @@ export default async function Page() {
         </div>
       </div>
       <div className="flex w-full max-w-xl flex-col items-center gap-y-4">
-        <Paragraph title="All projects" />
+        <Paragraph title="Career path" />
+        <div className="flex w-full flex-col">
+          {workItems.map((item, index) => (
+            <WorkCard {...item} key={index} />
+          ))}
+        </div>
+      </div>
+      <div className="flex w-full max-w-xl flex-col items-center gap-y-4">
+        <Paragraph title="Side projects" />
         <div className="flex w-full flex-col">
           {projectItems.reverse().map((item, index) => (
             <ProjectCard {...item} key={index} />

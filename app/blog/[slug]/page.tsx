@@ -5,7 +5,7 @@ import { BundledLanguage } from "shiki";
 import Image from "next/image";
 import Link from "next/link";
 
-import { formatDate } from "@/components/shared/blog-card";
+import { formatDate } from "@/components/shared/cards/blog-card";
 import Code from "@/components/shared/code";
 
 import { Button } from "@/components/ui/button";
@@ -106,6 +106,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
             className="font-medium text-primary hover:underline"
             href={child.href}
             target={child.openInNewTab ? "_blank" : "_self"}
+            aria-label={child.children[0].text}
+            rel={child.openInNewTab ? "noopener noreferrer" : ""}
           >
             {child.children[0].text}
           </a>
@@ -219,6 +221,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           <Link
             href={`https://x.com/intent/tweet?text=${post?.title}&url=https://salmoon.vercel.app/blog/${post?.slug}`}
             target="_blank"
+            rel="noopener noreferrer"
             scroll={true}
             aria-label={`Go to /blog/${post?.slug}`}
           >

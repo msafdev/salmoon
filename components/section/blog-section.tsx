@@ -4,7 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 
 import { useState } from "react";
 
-import BlogCard from "@/components/shared/blog-card";
+import BlogCard from "@/components/shared/cards/blog-card";
 
 import { Edge, categoryType } from "@/lib/types";
 

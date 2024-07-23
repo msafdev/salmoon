@@ -24,6 +24,8 @@ export default function Page() {
           <Link
             href="https://ui.shadcn.com/"
             target="_blank"
+            rel="noopener noreferrer"
+            aria-label="shadcn-ui"
             className="text-foreground"
           >
             shadcn-ui
@@ -32,6 +34,8 @@ export default function Page() {
           <Link
             href="https://ui.shadcn.com/docs/dark-mode/next"
             target="_blank"
+            rel="noopener noreferrer"
+            aria-label="next-themes"
             className="text-foreground"
           >
             next-themes

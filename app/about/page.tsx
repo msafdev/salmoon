@@ -32,22 +32,12 @@ export default function Page() {
           started to learn HTML, CSS, JS, and ofc React. I also learned how to
           build a simple server using Node.js.
         </p>
-        <p>
-          It was very hard for someone who never touched programming before, as
-          there are no production-ready AIs to co-write code with me. So I had
-          to learn everything from scratch.
-        </p>
       </Paragraph>
       <Paragraph title="Present time" from="2024" to="present">
         <p>
           Fast forward to today, I have been working as a fullstack software,
           settling on Next.js, Tailwind, GraphQL, and PostgreSQL as my main
           stack.
-        </p>
-        <p>
-          With my new-found knowledge, I started to build a lot of projects,
-          some are personal, some are for clients. I also started to write quite
-          a few of articles about anything in general, but mostly about tech.
         </p>
         <p>
           Now, I am continuing to learn new things, and I am excited to see what

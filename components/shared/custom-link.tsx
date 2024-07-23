@@ -40,6 +40,8 @@ const CustomLink = ({ href, children }: { href: string; children: string }) => {
     <Link
       href={href}
       target="_blank"
+      rel="noopener noreferrer"
+      aria-label={`Go to ${href}`}
       className="anim group relative flex w-fit items-center gap-x-2 text-sm font-medium text-muted-foreground md:text-base"
     >
       <ArrowUpRight className="anim aspect-square w-3 text-foreground group-hover:rotate-45 md:w-4" />
