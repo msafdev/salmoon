@@ -1,11 +1,13 @@
 import { githubSignIn, googleSignIn, signOut } from "@/supabase/functions";
 
-import { BsGithub } from "react-icons/bs";
-import { FcGoogle } from "react-icons/fc";
+import Image from "next/image";
 
 import { User } from "@supabase/supabase-js";
 
 import { Button } from "@/components/ui/button";
+
+import GithubLogo from "@/public/icons/github.png";
+import GoogleLogo from "@/public/icons/google.png";
 
 import ContentForm from "./content-form";
 
@@ -31,7 +33,13 @@ const GuestbookForm = ({ user }: { user: User | null }) => {
               className="flex w-full items-center gap-x-2"
               variant={"secondary"}
             >
-              <BsGithub size={16} /> Sign in with GitHub
+              <Image
+                src={GithubLogo}
+                alt="GitHub Logo"
+                width={16}
+                height={16}
+              />
+              Sign in with GitHub
             </Button>
           </form>
           <form action={googleSignIn} className="flex flex-1">
@@ -40,7 +48,13 @@ const GuestbookForm = ({ user }: { user: User | null }) => {
               className="flex w-full items-center gap-x-2"
               variant={"secondary"}
             >
-              <FcGoogle size={14} /> Sign in with Google
+              <Image
+                src={GoogleLogo}
+                alt="Google Logo"
+                width={16}
+                height={16}
+              />
+              Sign in with Google
             </Button>
           </form>
         </div>
