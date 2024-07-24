@@ -47,7 +47,7 @@ const QuoteCard = () => {
         <AnimatePresence initial={false} mode="popLayout">
           {quoteItems.map((item, index) => (
             <motion.blockquote
-              key={item.id}
+              key={index}
               initial="enter"
               animate={active === index ? "center" : "exit"}
               exit="exit"

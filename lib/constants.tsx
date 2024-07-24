@@ -15,13 +15,12 @@ import VSC from "@/public/icons/vsc.png";
 import Vue from "@/public/icons/vue.png";
 import Webflow from "@/public/icons/webflow.png";
 
-// prettier-ignore
 export const navItems = [
-  { 
-    id: 1, 
-    label: "Home", 
-    href: "/", 
-    icon: <Home className="h-full w-full" /> 
+  {
+    id: 1,
+    label: "Home",
+    href: "/",
+    icon: <Home className="h-full w-full" />,
   },
   {
     id: 2,
@@ -48,7 +47,6 @@ export const navItems = [
   },
 ];
 
-// prettier-ignore
 export const skillItems = [
   { name: "Next", icon: NextJS },
   { name: "Tailwind", icon: TailwindCSS },
@@ -66,7 +64,6 @@ export const skillItems = [
   { name: "Webflow", icon: Webflow },
 ];
 
-// prettier-ignore
 export const creditList = [
   {
     category: "Engineers",
@@ -88,16 +85,17 @@ export const creditList = [
   {
     category: "Creators",
     items: [
-      { name: "Web Programming Unpas", href: "https://youtube.com/@sandhikagalihWPU"},
+      {
+        name: "Web Programming Unpas",
+        href: "https://youtube.com/@sandhikagalihWPU",
+      },
       { name: "Sajid", href: "https://youtube.com/@whosajid" },
       { name: "ThePrimeTime", href: "https://youtube.com/@ThePrimeTimeagen" },
     ],
   },
   {
     category: "Friends",
-    items: [
-      { name: "Nadia Lovely", href: "https://nadialvy.com" },
-    ],
+    items: [{ name: "Nadia Lovely", href: "https://nadialvy.com" }],
   },
   {
     category: "Libraries",
@@ -118,78 +116,6 @@ export const creditList = [
   },
 ];
 
-// prettier-ignore
-export const quoteItems = [
-  {
-    id: 1,
-    quote:
-      "Your time is limited, so don't waste it living someone else's life. Don't be trapped by dogma – which is living with the results of other people's thinking.",
-    author: "Steve Jobs",
-  },
-  {
-    id: 2,
-    quote:
-      "You may say I'm a dreamer, but I'm not the only one. I hope someday you'll join us. And the world will live as one.",
-    author: "John Lennon",
-  },
-  {
-    id: 3,
-    quote: "The only way to do great work is to love what you do.",
-    author: "Steve Jobs",
-  },
-  {
-    id: 4,
-    quote: "Life is what happens when you're busy making other plans.",
-    author: "John Lennon",
-  },
-  {
-    id: 5,
-    quote:
-      "The greatest glory in living lies not in never falling, but in rising every time we fall.",
-    author: "Nelson Mandela",
-  },
-  {
-    id: 6,
-    quote: "The way to get started is to quit talking and begin doing.",
-    author: "Walt Disney",
-  },
-  {
-    id: 7,
-    quote: "Don't watch the clock; do what it does. Keep going.",
-    author: "Sam Levenson",
-  },
-  {
-    id: 8,
-    quote:
-      "Keep smiling, because life is a beautiful thing and there's so much to smile about.",
-    author: "Marilyn Monroe",
-  },
-  {
-    id: 9,
-    quote:
-      "Success is not the key to happiness. Happiness is the key to success. If you love what you are doing, you will be successful.",
-    author: "Albert Schweitzer",
-  },
-  {
-    id: 10,
-    quote: "You miss 100% of the shots you don't take.",
-    author: "Wayne Gretzky",
-  },
-  {
-    id: 11,
-    quote:
-      "The only limit to our realization of tomorrow is our doubts of today.",
-    author: "Franklin D. Roosevelt",
-  },
-  {
-    id: 12,
-    quote:
-      "In the end, we will remember not the words of our enemies, but the silence of our friends.",
-    author: "Martin Luther King Jr.",
-  },
-];
-
-// prettier-ignore
 export const projectItems = [
   {
     title: "Pameraja",
@@ -218,10 +144,8 @@ export const projectItems = [
   },
 ];
 
-// prettier-ignore
 export const recentProjects = projectItems.slice(1, projectItems.length);
 
-// prettier-ignore
 export const templateItems = [
   {
     title: "Linkify",
@@ -249,7 +173,6 @@ export const templateItems = [
   },
 ];
 
-// prettier-ignore
 export const workItems = [
   {
     title: "Fullstack Developer",
@@ -278,7 +201,6 @@ export const workItems = [
   },
 ];
 
-// prettier-ignore
 export const toolItems = [
   {
     category: "OS",
@@ -310,7 +232,39 @@ export const toolItems = [
   },
 ];
 
-// prettier-ignore
+export const quoteItems = [
+  {
+    quote:
+      "Your time is limited, so don't waste it living someone else's life. Don't be trapped by dogma – which is living with the results of other people's thinking.",
+    author: "Steve Jobs",
+  },
+  {
+    quote:
+      "He who would learn to fly one day must first learn to stand and walk and run and climb and dance; one cannot fly into flying.",
+    author: "Friedrich Nietzsche",
+  },
+  {
+    quote:
+      "You say you’re ‘depressed’ – all I see is resilience. You are allowed to feel messed up and inside out. It doesn’t mean you’re defective – it just means you’re human.",
+    author: "David Mitchell",
+  },
+  {
+    quote:
+      "Character cannot be developed in ease and quiet. Only through experience of trial and suffering can the soul be strengthened, vision cleared, ambition inspired and success achieved.",
+    author: "Helen Keller",
+  },
+  {
+    quote:
+      "Obstacles can't stop you. Problems can't stop you. Most of all, other people can't stop you. Only you can stop you.",
+    author: "Jeffrey Gitomer",
+  },
+  {
+    quote:
+      "To be yourself in a world that is constantly trying to make you something else is the greatest accomplishment.",
+    author: "Ralph W. Emerson",
+  },
+];
+
 export const inspoItems = [
   {
     category: "Creators",
@@ -339,7 +293,7 @@ export const inspoItems = [
   },
 ];
 
-export const bookmarkItems = [
+export const resourceItems = [
   {
     title: "Clean Code — A practical approach",
     href: "https://medium.com/clarityai-engineering/clean-code-a-practical-approach-896546435235",
@@ -349,15 +303,11 @@ export const bookmarkItems = [
     href: "https://uxdesign.cc/user-experience-the-key-differentiator-for-ai-0d5d12fe5b08",
   },
   {
-    title: "I Finally Decided to Buy A Cloud Server",
-    href: "https://levelup.gitconnected.com/i-finally-decided-to-buy-a-cloud-server-58af4474ff8a",
-  },
-  {
     title: "15 Time-Saving Websites Every Developer Needs",
     href: "https://javascript.plainenglish.io/15-time-saving-websites-every-developer-needs-cf76ea19e430",
   },
   {
-    title: "Only 30 seconds to reject your portfolio?",
-    href: "https://uxdesign.cc/only-30-seconds-to-reject-your-portfolio-8cb14ac70674",
+    title: "Every React Concept Explained in 12 Minutes",
+    href: "https://www.youtube.com/watch?v=wIyHSOugGGw&pp=ygUTcmVhY3QgaW4gMTIgbWludXRlcw%3D%3D",
   },
 ];

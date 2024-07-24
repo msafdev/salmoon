@@ -6,7 +6,7 @@ import Link from "next/link";
 
 import Paragraph from "@/components/shared/paragraph";
 
-import { bookmarkItems, inspoItems, toolItems } from "@/lib/constants";
+import { resourceItems, inspoItems, toolItems } from "@/lib/constants";
 
 const Page = () => {
   return (
@@ -68,9 +68,9 @@ const Page = () => {
         </ul>
       </div>
       <div className="flex w-full max-w-xl flex-col gap-y-3">
-        <h2 className="text-base font-semibold">Bookmark</h2>
+        <h2 className="text-base font-semibold">Resources</h2>
         <div className="flex flex-col">
-          {bookmarkItems.map((item, index) => (
+          {resourceItems.map((item, index) => (
             <Link
               key={index}
               href={item.href}
