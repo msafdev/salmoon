@@ -40,8 +40,9 @@ const GuestbookCard = async ({
         <div className="relative flex size-8 items-center justify-center overflow-hidden rounded-sm bg-muted">
           <Image
             src={user?.user?.user_metadata.avatar_url}
-            alt={user?.user?.user_metadata.user_name}
+            alt={user?.user?.user_metadata.user_name || "User avatar"}
             fill
+            sizes="(max-width: 768px) 66vw, 33vw"
             className="object-cover"
           />
         </div>

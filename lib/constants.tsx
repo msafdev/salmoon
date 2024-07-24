@@ -338,3 +338,26 @@ export const inspoItems = [
     ],
   },
 ];
+
+export const bookmarkItems = [
+  {
+    title: "Clean Code — A practical approach",
+    href: "https://medium.com/clarityai-engineering/clean-code-a-practical-approach-896546435235",
+  },
+  {
+    title: "How UX can be a key differentiator for AI",
+    href: "https://uxdesign.cc/user-experience-the-key-differentiator-for-ai-0d5d12fe5b08",
+  },
+  {
+    title: "I Finally Decided to Buy A Cloud Server",
+    href: "https://levelup.gitconnected.com/i-finally-decided-to-buy-a-cloud-server-58af4474ff8a",
+  },
+  {
+    title: "15 Time-Saving Websites Every Developer Needs",
+    href: "https://javascript.plainenglish.io/15-time-saving-websites-every-developer-needs-cf76ea19e430",
+  },
+  {
+    title: "Only 30 seconds to reject your portfolio?",
+    href: "https://uxdesign.cc/only-30-seconds-to-reject-your-portfolio-8cb14ac70674",
+  },
+];

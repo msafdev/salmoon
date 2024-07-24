@@ -6,7 +6,7 @@ import Link from "next/link";
 
 import Paragraph from "@/components/shared/paragraph";
 
-import { inspoItems, toolItems } from "@/lib/constants";
+import { bookmarkItems, inspoItems, toolItems } from "@/lib/constants";
 
 const Page = () => {
   return (
@@ -51,6 +51,7 @@ const Page = () => {
                     <Link
                       href={person.href}
                       target="_blank"
+                      aria-label={`Link to ${person.name}`}
                       rel="noopener noreferrer"
                       className="text-foreground underline-offset-2 hover:underline"
                     >
@@ -66,11 +67,25 @@ const Page = () => {
           ))}
         </ul>
       </div>
-      <div className="flex w-full max-w-xl flex-col gap-y-4">
+      <div className="flex w-full max-w-xl flex-col gap-y-3">
         <h2 className="text-base font-semibold">Bookmark</h2>
-        <p className="text-center text-sm text-muted-foreground md:text-base">
-          Nothing here <span className="text-foreground">yet</span>. Stay tuned!
-        </p>
+        <div className="flex flex-col">
+          {bookmarkItems.map((item, index) => (
+            <Link
+              key={index}
+              href={item.href}
+              aria-label={`Link to ${item.title}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group/bookmark flex items-center gap-x-3 py-1"
+            >
+              <MoveRight className="text-foreground" size={12} />
+              <p className="anim w-full pr-5 text-xs text-muted-foreground group-hover/bookmark:text-foreground sm:text-sm">
+                {item.title}
+              </p>
+            </Link>
+          ))}
+        </div>
       </div>
     </section>
   );
