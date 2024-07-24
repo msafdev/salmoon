@@ -19,6 +19,9 @@ const manrope = Manrope({
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: "Salmoon",
+  icons: {
+    icon: `/favicon.ico`,
+  },
   description: "When creativity meets ADHD, you get me.",
   openGraph: {
     title: "Salmoon",
