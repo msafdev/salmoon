@@ -71,7 +71,14 @@ const EmailDetail = () => {
   }, [activeValue, calculateBounds]);
 
   const handleMouseEnter = (value: string) => setActiveValue(value);
-  const handleMouseLeave = () => setActiveValue(null);
+  const handleMouseLeave = () => {
+    setActiveValue(null);
+
+    const spans = containerRef.current?.querySelectorAll("span");
+    if (spans) {
+      spans.forEach((span) => span.classList.remove("active"));
+    }
+  };
 
   return (
     <div
