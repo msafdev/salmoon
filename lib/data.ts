@@ -1,5 +1,7 @@
 import dynamic from "next/dynamic";
 
+import EmailDetail from "@/components/lab/email-detail";
+
 // prettier-ignore
 const ClassicCounter = dynamic(() => import("@/components/lab/classic-counter"));
 const StackedImage = dynamic(() => import("@/components/lab/stacked-image"));
@@ -133,6 +135,12 @@ export const COMPONENTS: ComponentType[] = [
     slug: "shining-badge",
     child: ShiningBadge,
     twConfig: TW_CONFIG["background-shine"],
+  },
+  {
+    name: "Email Detail",
+    slug: "email-detail",
+    child: EmailDetail,
+    gridClass: "large-card",
   },
 ];
 
