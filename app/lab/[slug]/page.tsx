@@ -34,7 +34,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
     );
   }
 
-  const { code, twConfig, uiLibrary } = await getFilePathAndConfig(item);
+  const { code, twConfig, uiLibrary, cssClass } =
+    await getFilePathAndConfig(item);
 
   return (
     <section
@@ -82,6 +83,15 @@ export default async function Page({ params }: { params: { slug: string } }) {
             <Paragraph title="Library setup" />
             <div className="h-fit w-full max-w-xl rounded-xl border p-2">
               <Code code={uiLibrary} lang="bash" />
+            </div>
+          </div>
+        )}
+
+        {cssClass && (
+          <div className="flex w-full max-w-xl flex-col gap-y-4">
+            <Paragraph title="CSS setup" />
+            <div className="h-fit w-full max-w-xl rounded-xl border p-2">
+              <Code code={cssClass} lang="css" />
             </div>
           </div>
         )}

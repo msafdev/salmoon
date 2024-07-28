@@ -24,6 +24,7 @@ export type ComponentType = {
   child: React.ComponentType<any>;
   description?: string;
   twConfig?: object;
+  cssClass?: string;
   gridClass?: "regular-card" | "medium-card" | "large-card" | "default-card";
   uiLibrary?: string;
 };
@@ -141,6 +142,13 @@ export const COMPONENTS: ComponentType[] = [
     slug: "email-detail",
     child: EmailDetail,
     gridClass: "large-card",
+    cssClass: `.detail-text span {
+  transition: color 0.3s;
+}
+
+.detail-text:has(span.active) span:not(.active) {
+  color: hsl(var(--muted-foreground));
+}`,
   },
 ];
 
