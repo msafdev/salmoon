@@ -18,13 +18,13 @@ const manrope = Manrope({
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
-  title: "Salmoon",
+  title: "Salmoon | Fullstack Developer",
   icons: {
     icon: `/favicon.ico`,
   },
-  description: "When creativity meets ADHD, you get me.",
+  description: "When creativity meets perfection, you get me.",
   openGraph: {
-    title: "Salmoon",
+    title: "Salmoon | Fullstack Developer",
     url: baseUrl,
     siteName: "Salmoon",
     locale: "en_US",
