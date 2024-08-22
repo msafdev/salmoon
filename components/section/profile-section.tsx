@@ -42,8 +42,9 @@ const ProfileSection = () => {
           src={Map}
           alt="Map of Semarang, Indonesia"
           fill
-          className="anim scale-150 object-cover brightness-95 group-hover/map:scale-100"
+          className="anim scale-110 object-cover brightness-95 group-hover/map:scale-100"
           quality={50}
+          priority={true}
           placeholder="blur"
         />
         <div className="absolute left-1/2 top-1/2 z-10 size-4 -translate-x-1/2 -translate-y-1/2">

@@ -1,14 +1,11 @@
 import dynamic from "next/dynamic";
 
-import EmailDetail from "@/components/lab/email-detail";
-
 // prettier-ignore
 const ClassicCounter = dynamic(() => import("@/components/lab/classic-counter"));
 const StackedImage = dynamic(() => import("@/components/lab/stacked-image"));
 const Tags = dynamic(() => import("@/components/lab/tags"));
 const AvatarStatus = dynamic(() => import("@/components/lab/avatar-status"));
 const ChatBubble = dynamic(() => import("@/components/lab/chat-bubble"));
-const DynamicIsland = dynamic(() => import("@/components/lab/dynamic-island"));
 const LoadingBar = dynamic(() => import("@/components/lab/loading-bar"));
 const ShiningBadge = dynamic(() => import("@/components/lab/shining-badge"));
 const Timeline = dynamic(() => import("@/components/lab/timeline"));
@@ -17,6 +14,11 @@ const Tooltip = dynamic(() => import("@/components/lab/tooltip"));
 const SwipeButton = dynamic(() => import("@/components/lab/swipe-button"));
 const StackedAvatar = dynamic(() => import("@/components/lab/stacked-avatar"));
 const MusicCard = dynamic(() => import("@/components/lab/music-card"));
+const EmailDetail = dynamic(() => import("@/components/lab/email-detail"));
+const TransactionButton = dynamic(
+  () => import("@/components/lab/transaction-button"),
+);
+const TextScatter = dynamic(() => import("@/components/lab/text-scatter"));
 
 export type ComponentType = {
   name: string;
@@ -132,12 +134,6 @@ export const COMPONENTS: ComponentType[] = [
     uiLibrary: "npx shadcn-ui@latest add button",
   },
   {
-    name: "Shining Badge",
-    slug: "shining-badge",
-    child: ShiningBadge,
-    twConfig: TW_CONFIG["background-shine"],
-  },
-  {
     name: "Email Detail",
     slug: "email-detail",
     child: EmailDetail,
@@ -149,6 +145,22 @@ export const COMPONENTS: ComponentType[] = [
 .detail-text:has(span.active) span:not(.active) {
   color: hsl(var(--muted-foreground));
 }`,
+  },
+  {
+    name: "Transaction Button",
+    slug: "transaction-button",
+    child: TransactionButton,
+  },
+  {
+    name: "Text Scatter",
+    slug: "text-scatter",
+    child: TextScatter,
+  },
+  {
+    name: "Shining Badge",
+    slug: "shining-badge",
+    child: ShiningBadge,
+    twConfig: TW_CONFIG["background-shine"],
   },
 ];
 

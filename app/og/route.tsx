@@ -1,55 +1,73 @@
 import { ImageResponse } from "next/og";
 
-export function GET(request: Request) {
+export const runtime = "edge";
+
+const getInstrumentSerif = async () => {
+  const response = await fetch(
+    new URL("@/public/fonts/InstrumentSerif.ttf", import.meta.url),
+  );
+  const instrumentSerif = await response.arrayBuffer();
+
+  return instrumentSerif;
+};
+
+export async function GET(request: Request) {
   return new ImageResponse(
     (
       <div
         style={{
           position: "relative",
           display: "flex",
+          flexDirection: "column",
           height: "100%",
           width: "100%",
-          alignItems: "center",
-          justifyContent: "center",
-          letterSpacing: "-.02em",
-          fontWeight: 700,
+          alignItems: "flex-end",
+          justifyContent: "flex-end",
           backgroundColor: "white",
-          backgroundImage:
-            "linear-gradient(to right, #e5e7eb 1px, transparent 1px), linear-gradient(to bottom, #e5e7eb 1px, transparent 1px)",
-          backgroundSize: "50px 70px",
         }}
       >
         <div
           style={{
-            position: "absolute",
-            left: "50%",
-            top: "50%",
-            height: "400px",
-            width: "400px",
-            transform: "translate(-50%, -50%)",
-            borderRadius: "50%",
-            background: "radial-gradient(circle, #ffffff, white)",
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "flex-start",
+            fontSize: 42,
+            fontWeight: 500,
+            width: "100%",
+            paddingLeft: 96,
+            paddingBottom: 8,
+            fontFamily: '"InstrumentSerif"',
           }}
-        />
+        >
+          salmoon is a developer
+        </div>
         <div
           style={{
             display: "flex",
             flexWrap: "wrap",
-            justifyContent: "center",
-            fontSize: 64,
-            width: "auto",
-            maxWidth: 600,
-            textAlign: "center",
-            lineHeight: 1.5,
+            justifyContent: "flex-start",
+            fontSize: 42,
+            fontWeight: 500,
+            width: "100%",
+            paddingLeft: 96,
+            paddingBottom: 96,
+            fontFamily: '"InstrumentSerif"',
           }}
         >
-          🚀
+          based out of Indonesia
         </div>
       </div>
     ),
     {
       width: 1200,
       height: 630,
+      fonts: [
+        {
+          name: "InstrumentSerif",
+          data: await getInstrumentSerif(),
+          style: "normal",
+        },
+      ],
     },
   );
 }

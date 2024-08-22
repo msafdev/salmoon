@@ -177,7 +177,7 @@ export const workItems = [
   {
     title: "Fullstack Developer",
     company: "Freelance",
-    duration: "Mei 23",
+    duration: "May 23",
   },
   {
     title: "Cloud Computing Cohort",

@@ -1,7 +1,7 @@
 "use client";
 
-const Title = () => {
-  const text = "creative mind for a more unique perspective.";
+const TextScatter = () => {
+  const text = "hover over me!";
 
   const handleMouseEnter = (e: React.MouseEvent<HTMLSpanElement>) => {
     const wordIndex = e.currentTarget.getAttribute("data-index");
@@ -9,8 +9,8 @@ const Title = () => {
 
     characters.forEach((char) => {
       if (char instanceof HTMLElement) {
-        const randomX = Math.random() * 8;
-        const randomY = Math.random() * 8 * -1.4;
+        const randomX = Math.random() * 4;
+        const randomY = Math.random() * 4 * -0.7;
         const randomRotate = Math.random() * 10;
 
         char.style.transform = `translate(${randomX}px, ${randomY}px) rotate(${randomRotate}deg)`;
@@ -30,12 +30,12 @@ const Title = () => {
   };
 
   return (
-    <h1 className="cursor-default text-balance text-xl font-bold leading-7 xs:text-2xl xs:leading-8 sm:text-4xl sm:leading-[42px]">
+    <h1 className="cursor-default text-lg font-medium">
       {text.split(" ").map((word, wordIndex) => (
         <span
           key={wordIndex}
           data-index={wordIndex}
-          className={`group relative inline-block word-${wordIndex}`}
+          className={`group text-muted-foreground transition-all duration-300 ease-in-out hover:text-foreground relative inline-block word-${wordIndex}`}
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
@@ -48,11 +48,10 @@ const Title = () => {
             </span>
           ))}
           {wordIndex < text.split(" ").length - 1 && "\u00A0"}
-          {/* Non-breaking space */}
         </span>
       ))}
     </h1>
   );
 };
 
-export default Title;
+export default TextScatter;
