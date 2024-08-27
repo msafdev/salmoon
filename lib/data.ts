@@ -19,6 +19,7 @@ const TransactionButton = dynamic(
   () => import("@/components/lab/transaction-button"),
 );
 const TextScatter = dynamic(() => import("@/components/lab/text-scatter"));
+const VinylRecord = dynamic(() => import("@/components/lab/vinyl-record"));
 
 export type ComponentType = {
   name: string;
@@ -59,6 +60,21 @@ export const TW_CONFIG: TWConfig = {
       marquee: {
         from: { transform: "translateX(0)" },
         to: { transform: "translateX(calc(-100% - 16px))" },
+      },
+    },
+  },
+  ["vinyl-spin"]: {
+    animation: {
+      "vinyl-spin": "vinyl-spin 3s linear infinite",
+    },
+    keyframes: {
+      "vinyl-spin": {
+        from: {
+          transform: "rotate(0deg)",
+        },
+        to: {
+          transform: "rotate(360deg)",
+        },
       },
     },
   },
@@ -161,6 +177,12 @@ export const COMPONENTS: ComponentType[] = [
     slug: "shining-badge",
     child: ShiningBadge,
     twConfig: TW_CONFIG["background-shine"],
+  },
+  {
+    name: "Vinyl Record",
+    slug: "vinyl-record",
+    child: VinylRecord,
+    twConfig: TW_CONFIG["vinyl-spin"],
   },
 ];
 
