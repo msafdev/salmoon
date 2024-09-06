@@ -8,6 +8,7 @@ export default async function sitemap() {
     posts?.map((post) => ({
       url: `${baseUrl}/blog/${post.node.slug}`,
       lastModified: post.node.updatedAt,
+      priority: 0.5,
     })) ?? [];
 
   let routes = [
@@ -21,7 +22,16 @@ export default async function sitemap() {
   ].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date().toISOString().split("T")[0],
+    priority: 0.7,
   }));
 
-  return [...routes, ...blogs];
+  let sitemap = [
+    {
+      url: `${baseUrl}/`,
+      lastModified: new Date().toISOString().split("T")[0],
+      priority: 1,
+    },
+  ];
+
+  return sitemap.concat(routes).concat(blogs);
 }
