@@ -8,7 +8,8 @@ import GuestbookForm from "@/components/form/guestbook-form";
 import GuestbookSection from "@/components/section/guestbook-section";
 
 export const metadata: Metadata = {
-  title: "Lab",
+  title: "Guestbook",
+  description: "Msafdev's personal guestbook, leave me a trace of your visit.",
 };
 
 const Page = async () => {
