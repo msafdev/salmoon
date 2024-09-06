@@ -29,8 +29,18 @@ export default function Page() {
             className="text-foreground"
           >
             shadcn-ui
-          </Link>{" "}
-          along with{" "}
+          </Link>
+          ,{" "}
+          <Link
+            href="https://www.framer.com/motion/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="frame-motion"
+            className="text-foreground"
+          >
+            framer-motion
+          </Link>,{" "}
+          and{" "}
           <Link
             href="https://ui.shadcn.com/docs/dark-mode/next"
             target="_blank"

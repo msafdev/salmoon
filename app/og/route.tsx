@@ -39,7 +39,7 @@ export async function GET(request: Request) {
             fontFamily: '"InstrumentSerif"',
           }}
         >
-          salmoon is a developer
+          msafdev is a developer
         </div>
         <div
           style={{
