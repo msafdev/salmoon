@@ -26,8 +26,8 @@ const MusicCard = () => {
               backgroundColor: ["#ff708d", "#ff073a", "#ff708d"],
             }}
             transition={{
-              duration: 0.7,
-              delay: (0.7 / 3) * index,
+              duration: 1.2,
+              delay: (1.2 / 3) * index,
               repeat: Infinity,
               ease: "easeOut",
             }}
