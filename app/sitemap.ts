@@ -1,6 +1,6 @@
 import { getPosts } from "@/lib/gql";
 
-export const baseUrl = "https://salmoon.vercel.app";
+export const baseUrl = "https://msaf.tech";
 
 export default async function sitemap() {
   const posts = await getPosts();
@@ -10,7 +10,15 @@ export default async function sitemap() {
       lastModified: post.node.updatedAt,
     })) ?? [];
 
-  let routes = ["", "/about", "/lab", "/blog"].map((route) => ({
+  let routes = [
+    "/",
+    "/about",
+    "/lab",
+    "/blog",
+    "/material",
+    "/secret",
+    "/guestbook",
+  ].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date().toISOString().split("T")[0],
   }));
