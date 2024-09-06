@@ -22,6 +22,9 @@ export const metadata: Metadata = {
     default: "Msafdev | Fullstack Developer",
     template: "Msafdev | %s",
   },
+  verification: {
+    google: "o2JC_24yWCXt25B4cLk_3kF-RTSQDBNab7JNqh33cHU",
+  },
   icons: {
     icon: `/favicon.ico`,
   },
