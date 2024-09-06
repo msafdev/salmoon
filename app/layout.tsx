@@ -18,7 +18,10 @@ const manrope = Manrope({
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
-  title: "Msafdev | Fullstack Developer",
+  title: {
+    default: "Msafdev | Fullstack Developer",
+    template: "Msafdev | %s",
+  },
   icons: {
     icon: `/favicon.ico`,
   },

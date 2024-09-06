@@ -1,9 +1,14 @@
+import { Metadata } from "next";
 import Link from "next/link";
 
 import LabCard from "@/components/shared/lab-card";
 import Paragraph from "@/components/shared/paragraph";
 
 import { COMPONENTS } from "@/lib/data";
+
+export const metadata: Metadata = {
+  title: "Lab",
+};
 
 export default function Page() {
   return (
@@ -39,8 +44,8 @@ export default function Page() {
             className="text-foreground"
           >
             framer-motion
-          </Link>,{" "}
-          and{" "}
+          </Link>
+          , and{" "}
           <Link
             href="https://ui.shadcn.com/docs/dark-mode/next"
             target="_blank"

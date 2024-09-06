@@ -2,11 +2,16 @@ import { MoveRight } from "lucide-react";
 
 import React from "react";
 
+import { Metadata } from "next";
 import Link from "next/link";
 
 import Paragraph from "@/components/shared/paragraph";
 
-import { resourceItems, inspoItems, toolItems } from "@/lib/constants";
+import { inspoItems, resourceItems, toolItems } from "@/lib/constants";
+
+export const metadata: Metadata = {
+  title: "Material",
+};
 
 const Page = () => {
   return (

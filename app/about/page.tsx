@@ -1,6 +1,12 @@
+import { Metadata } from "next";
+
 import Paragraph from "@/components/shared/paragraph";
 
 import ProfileSection from "@/components/section/profile-section";
+
+export const metadata: Metadata = {
+  title: "About",
+};
 
 export default function Page() {
   return (

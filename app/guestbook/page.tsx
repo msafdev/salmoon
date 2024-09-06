@@ -1,9 +1,15 @@
 import { createClient } from "@/supabase/server";
 
+import { Metadata } from "next";
+
 import Paragraph from "@/components/shared/paragraph";
 
 import GuestbookForm from "@/components/form/guestbook-form";
 import GuestbookSection from "@/components/section/guestbook-section";
+
+export const metadata: Metadata = {
+  title: "Lab",
+};
 
 const Page = async () => {
   const supabase = createClient();

@@ -1,6 +1,12 @@
+import { Metadata } from "next";
+
 import BlogSection from "@/components/section/blog-section";
 
 import { getPosts } from "@/lib/gql";
+
+export const metadata: Metadata = {
+  title: "Blog",
+};
 
 export default async function Page() {
   const posts = await getPosts();

@@ -1,6 +1,12 @@
+import { Metadata } from "next";
+
 import QuoteCard from "@/components/shared/cards/quote-card";
 import TrackCard from "@/components/shared/cards/track-card";
 import Paragraph from "@/components/shared/paragraph";
+
+export const metadata: Metadata = {
+  title: "Secret",
+};
 
 export default async function Page() {
   return (

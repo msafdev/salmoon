@@ -1,3 +1,5 @@
+import { Metadata } from "next";
+
 import BlogCard from "@/components/shared/cards/blog-card";
 import ProjectCard from "@/components/shared/cards/project-card";
 import WorkCard from "@/components/shared/cards/work-card";
@@ -5,6 +7,10 @@ import Paragraph from "@/components/shared/paragraph";
 
 import { projectItems, templateItems, workItems } from "@/lib/constants";
 import { getPosts } from "@/lib/gql";
+
+export const metadata: Metadata = {
+  title: "Archive",
+};
 
 export default async function Page() {
   const posts = await getPosts();
