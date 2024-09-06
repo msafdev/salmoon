@@ -13,7 +13,6 @@ const Toolbar = dynamic(() => import("@/components/lab/toolbar"));
 const Tooltip = dynamic(() => import("@/components/lab/tooltip"));
 const SwipeButton = dynamic(() => import("@/components/lab/swipe-button"));
 const StackedAvatar = dynamic(() => import("@/components/lab/stacked-avatar"));
-const MusicCard = dynamic(() => import("@/components/lab/music-card"));
 const EmailDetail = dynamic(() => import("@/components/lab/email-detail"));
 const TransactionButton = dynamic(
   () => import("@/components/lab/transaction-button"),
@@ -136,11 +135,6 @@ export const COMPONENTS: ComponentType[] = [
     name: "Swipe Button",
     slug: "swipe-button",
     child: SwipeButton,
-  },
-  {
-    name: "Music Card",
-    slug: "music-card",
-    child: MusicCard,
   },
   {
     name: "Toolbar",
