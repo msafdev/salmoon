@@ -64,7 +64,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <div className="relative flex min-h-[100svh] flex-col items-center justify-center">
-            <div className="absolute pointer-events-none inset-0 h-full w-full rotate-180 bg-background [background:radial-gradient(175%_175%_at_50%_20%,transparent_40%,#71717a_100%)] dark:[background:radial-gradient(175%_175%_at_50%_20%,transparent_40%,#a1a1aa_100%)]"></div>
+            <div className="absolute pointer-events-none inset-0 h-auto aspect-video w-full rotate-180 bg-background [background:radial-gradient(175%_175%_at_50%_20%,transparent_40%,#71717a_100%)] dark:[background:radial-gradient(175%_175%_at_50%_20%,transparent_40%,#a1a1aa_100%)]"></div>
             <main className="flex h-auto w-full grow flex-col py-16 md:py-20 lg:py-24">
               {children}
             </main>
