@@ -25,7 +25,8 @@ export const metadata: Metadata = {
   icons: {
     icon: `/favicon.ico`,
   },
-  description: "When creativity meets perfection, you get me.",
+  description:
+    "When creativity meets perfection, you get me. A freelance fullstack developer with a passion for building pretty products.",
   openGraph: {
     title: "Msafdev | Fullstack Developer",
     url: baseUrl,
