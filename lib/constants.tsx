@@ -175,9 +175,14 @@ export const templateItems = [
 
 export const workItems = [
   {
+    title: "Frontend Developer",
+    company: "CAN Creative",
+    duration: "Aug 24 - Present",
+  },
+  {
     title: "Fullstack Developer",
     company: "Freelance",
-    duration: "May 23",
+    duration: "May 23 - Present",
   },
   {
     title: "Cloud Computing Cohort",
