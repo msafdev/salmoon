@@ -79,7 +79,7 @@ export default function RootLayout({
             easing="ease"
             speed={300}
             showSpinner={false}
-            height={3}
+            height={2}
             shadow="0 0 20px #2299DD, 0 0 10px #2299DD"
             zIndex={100}
           />
