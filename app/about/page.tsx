@@ -2,6 +2,7 @@ import { Metadata } from "next";
 
 import Paragraph from "@/components/shared/paragraph";
 
+import FaqSection from "@/components/section/faq-section";
 import ProfileSection from "@/components/section/profile-section";
 
 export const metadata: Metadata = {
@@ -49,6 +50,9 @@ export default function Page() {
           Now, I am continuing to learn new things, and I am excited to see what
           the AI-pocalypse will bring to me in the future.
         </p>
+      </Paragraph>
+      <Paragraph title="Any questions?">
+        <FaqSection />
       </Paragraph>
     </section>
   );

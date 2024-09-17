@@ -5,7 +5,7 @@ import { Globe, Link, Mail, User } from "lucide-react";
 
 import React, { useCallback, useEffect, useRef, useState } from "react";
 
-import { Button } from "../ui/button";
+import { Button } from "@/components/ui/button";
 
 const EmailDetail = () => {
   const [activeValue, setActiveValue] = useState<string | null>(null);

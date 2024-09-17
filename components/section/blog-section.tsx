@@ -35,7 +35,7 @@ const BlogSection = ({ items }: { items: Edge[] | undefined }) => {
 
   return (
     <motion.div className="flex w-full flex-col gap-y-5">
-      <div className="flex flex-col gap-x-3 gap-y-2 md:flex-row md:items-center">
+      <div className="flex flex-col gap-x-3 gap-y-2">
         <p className="text-sm font-semibold text-foreground md:text-base">
           Filter by
         </p>
