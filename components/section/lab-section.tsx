@@ -11,7 +11,7 @@ const LabSection = () => {
   };
 
   return (
-    <div className="flex w-full max-w-xl flex-col gap-y-4">
+    <div className="flex w-full max-w-sm flex-col gap-y-4">
       <Paragraph title="Fresh from the oven" link href="/lab" />
 
       {/* Dynamically render the component based on the data from the JSON file. */}

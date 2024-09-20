@@ -3,7 +3,7 @@ import Title from "@/components/shared/title";
 
 const HomeSection = () => {
   return (
-    <div className="flex w-full max-w-xl flex-col gap-y-4">
+    <div className="flex w-full max-w-sm flex-col gap-y-4">
       <Title />
 
       <div className="flex w-full flex-wrap gap-x-4 gap-y-2">

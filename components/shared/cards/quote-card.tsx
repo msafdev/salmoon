@@ -31,7 +31,7 @@ const QuoteCard = () => {
   };
 
   return (
-    <div className="flex w-full max-w-xl flex-col items-center gap-y-4">
+    <div className="flex w-full max-w-sm flex-col items-center gap-y-4">
       <div className="flex h-8 w-full items-center justify-between gap-x-4">
         <h2 className="text-lg font-semibold">Word for word</h2>
         <Button

@@ -16,7 +16,7 @@ export default async function Page() {
       id="blog"
       className="flex h-auto w-full grow flex-col items-center gap-y-16 md:gap-y-20 lg:gap-y-24"
     >
-      <div className="flex w-full max-w-xl flex-col items-center gap-y-4">
+      <div className="flex w-full max-w-sm flex-col items-center gap-y-4">
         <BlogSection items={posts} />
       </div>
     </section>

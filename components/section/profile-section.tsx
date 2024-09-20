@@ -5,7 +5,7 @@ import Map from "@/public/assets/map.webp";
 
 const ProfileSection = () => {
   return (
-    <div className="flex w-full max-w-xl flex-col items-center gap-y-4">
+    <div className="flex w-full max-w-sm flex-col items-center gap-y-4">
       <div className="flex w-full items-center gap-x-4">
         <Image
           src={Ava}
@@ -14,11 +14,11 @@ const ProfileSection = () => {
           quality={75}
           width={40}
           height={40}
-          className="overflow-hidden rounded-full border object-cover"
+          className="overflow-hidden rounded-xl border object-cover"
         />
 
         <div className="flex flex-col gap-y-2">
-          <h3 className="text-base font-bold leading-none">Salman Alfarisi</h3>
+          <h3 className="text-base font-semibold leading-none">Salman Alfarisi</h3>
           <p className="text-xs font-medium leading-none text-muted-foreground">
             Creative Developer{" "}
             <span className="hidden sm:inline-block">/ Full-Time Learner</span>
@@ -27,13 +27,7 @@ const ProfileSection = () => {
       </div>
 
       <p className="w-full text-sm text-muted-foreground md:text-base">
-        I help humans make their ideas come to life through websites and
-        applications. My goal is to create digital experiences that not only
-        meet but exceed expectations.
-      </p>
-
-      <p className="w-full text-sm text-muted-foreground md:text-base">
-        I am based in Indonesia, specifically in Semarang. In my free time, I
+        I am a fullstack developer based in Indonesia, specifically in Semarang. In my free time, I
         enjoy listening to music and exploring new places.
       </p>
 

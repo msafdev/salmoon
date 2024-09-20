@@ -4,7 +4,7 @@ import Paragraph from "@/components/shared/paragraph";
 
 const ActionSection = () => {
   return (
-    <div className="flex w-full max-w-xl flex-col gap-y-4">
+    <div className="flex w-full max-w-sm flex-col gap-y-4">
       <Paragraph title="Connect">
         <p>
           See more of my work on{" "}

@@ -20,7 +20,7 @@ const Paragraph = ({
   href?: string;
 }) => {
   return (
-    <div className="flex w-full max-w-xl flex-col gap-y-4">
+    <div className="flex w-full max-w-sm flex-col gap-y-4">
       <div className="flex w-full flex-col">
         <div className="flex h-8 w-full items-center justify-between gap-x-4">
           <h2 className="text-lg font-semibold">{title}</h2>

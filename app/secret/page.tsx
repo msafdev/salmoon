@@ -22,7 +22,7 @@ export default async function Page() {
         </p>
       </Paragraph>
       <QuoteCard />
-      <div className="flex w-full max-w-xl flex-col gap-y-4">
+      <div className="flex w-full max-w-sm flex-col gap-y-4">
         <Paragraph title="Top tracks">
           <p>
             I listen to a lot of music, and I like to keep track of the songs

@@ -71,7 +71,7 @@ const GuestbookSection = async () => {
     .order("created_at", { ascending: false });
 
   return (
-    <div className="flex h-fit w-full max-w-xl flex-col gap-y-4">
+    <div className="flex h-fit w-full max-w-sm flex-col gap-y-4">
       {guestbook &&
         guestbook.map((item, index) => {
           return (

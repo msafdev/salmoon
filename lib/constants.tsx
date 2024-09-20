@@ -277,7 +277,6 @@ export const inspoItems = [
       { name: "Sam Selikoff", href: "https://youtube.com/@samselikoff" },
       { name: "Sandhika Galih", href: "https://youtube.com/@sandhikagalih" },
       { name: "Olivier Larose", href: "https://youtube.com/@olivierlarose1" },
-      { name: "Fireship", href: "https://youtube.com/@fireship" },
     ],
   },
   {

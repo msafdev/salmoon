@@ -26,7 +26,7 @@ const Page = () => {
           use and recommend.
         </p>
       </Paragraph>
-      <div className="flex w-full max-w-xl flex-col gap-y-4">
+      <div className="flex w-full max-w-sm flex-col gap-y-4">
         <h2 className="text-base font-semibold">Workstation</h2>
         <ul className="flex flex-col gap-y-3">
           {toolItems.map((item, index) => (
@@ -41,7 +41,7 @@ const Page = () => {
           ))}
         </ul>
       </div>
-      <div className="flex w-full max-w-xl flex-col gap-y-4">
+      <div className="flex w-full max-w-sm flex-col gap-y-4">
         <h2 className="text-base font-semibold">Inspiration</h2>
         <ul className="flex flex-col gap-y-2">
           {inspoItems.map((item, index) => (
@@ -72,7 +72,7 @@ const Page = () => {
           ))}
         </ul>
       </div>
-      <div className="flex w-full max-w-xl flex-col gap-y-3">
+      <div className="flex w-full max-w-sm flex-col gap-y-3">
         <h2 className="text-base font-semibold">Resources</h2>
         <div className="flex flex-col">
           {resourceItems.map((item, index) => (

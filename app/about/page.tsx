@@ -16,18 +16,6 @@ export default function Page() {
       className="flex flex-col items-center gap-y-16 px-4 md:gap-y-20 lg:gap-y-24"
     >
       <ProfileSection />
-      <Paragraph title="A brief summary">
-        <p>
-          I’m Salman, a fullstack software engineer with almost 2 years of
-          experience. I build user-centric products through creative development
-          and seamless interactions.
-        </p>
-        <p>
-          Passionate about both the technical and artistic side of thing, I
-          strive to create digital experiences that have meaning to each of
-          their iteration.
-        </p>
-      </Paragraph>
       <Paragraph title="Where it all started" from="2020" to="2023">
         <p>
           I started programming from when I entered my college, Diponegoro

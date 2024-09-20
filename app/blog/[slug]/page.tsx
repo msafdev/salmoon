@@ -173,14 +173,14 @@ export default async function Page({ params }: { params: { slug: string } }) {
           return (
             <div
               key={index}
-              className="mb-4 h-fit w-full max-w-xl rounded-xl border p-2"
+              className="mb-4 h-fit w-full max-w-sm rounded-xl border p-2"
             >
               <Code code={code} lang={lang as BundledLanguage} />
             </div>
           );
         case "image":
           return (
-            <div key={index} className="mb-4 aspect-auto max-w-xl">
+            <div key={index} className="mb-4 aspect-auto max-w-sm">
               <Image
                 src={child.src || ""}
                 alt={child.title || "alt text"}
@@ -202,7 +202,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       id={`${post?.slug}`}
       className="flex h-auto w-full grow flex-col items-center gap-y-16 md:gap-y-20 lg:gap-y-24"
     >
-      <div className="flex w-full max-w-xl items-center justify-between">
+      <div className="flex w-full max-w-sm items-center justify-between">
         <Link
           href={`/blog`}
           scroll={true}
@@ -230,10 +230,10 @@ export default async function Page({ params }: { params: { slug: string } }) {
         </Button>
       </div>
 
-      <div className="flex w-full max-w-xl flex-col">
+      <div className="flex w-full max-w-sm flex-col">
         <h1 className="mb-6 text-2xl font-semibold">{post?.title}</h1>
 
-        <pre className="mb-4 w-full max-w-xl whitespace-pre-wrap text-wrap text-xs text-muted-foreground md:text-sm">
+        <pre className="mb-4 w-full max-w-sm whitespace-pre-wrap text-wrap text-xs text-muted-foreground md:text-sm">
           {post?.excerpt}
         </pre>
 
@@ -242,7 +242,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       </div>
 
       {post?.updatedAt && (
-        <div className="flex w-full max-w-xl items-center justify-end">
+        <div className="flex w-full max-w-sm items-center justify-end">
           <p className="text-sm text-foreground">
             Last updated on {formatDate(post.updatedAt)}
           </p>

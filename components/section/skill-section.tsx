@@ -3,7 +3,7 @@ import Paragraph from "@/components/shared/paragraph";
 
 const SkillSection = () => {
   return (
-    <div className="flex w-full max-w-xl flex-col items-start gap-y-4">
+    <div className="flex w-full max-w-sm flex-col items-start gap-y-4">
       <Paragraph title="Jack of all trades">
         <p>
           I have a diverse set of skills and tools. Over the years, I've worked

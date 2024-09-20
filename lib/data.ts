@@ -4,7 +4,6 @@ import dynamic from "next/dynamic";
 const ClassicCounter = dynamic(() => import("@/components/lab/classic-counter"));
 const StackedImage = dynamic(() => import("@/components/lab/stacked-image"));
 const Tags = dynamic(() => import("@/components/lab/tags"));
-const AvatarStatus = dynamic(() => import("@/components/lab/avatar-status"));
 const ChatBubble = dynamic(() => import("@/components/lab/chat-bubble"));
 const LoadingBar = dynamic(() => import("@/components/lab/loading-bar"));
 const ShiningBadge = dynamic(() => import("@/components/lab/shining-badge"));
@@ -81,15 +80,15 @@ export const TW_CONFIG: TWConfig = {
 
 export const COMPONENTS: ComponentType[] = [
   {
+    name: "Timeline",
+    slug: "timeline",
+    child: Timeline,
+    gridClass: "large-card",
+  },
+  {
     name: "Tags",
     slug: "tags",
     child: Tags,
-  },
-  {
-    name: "Avatar with Status",
-    slug: "avatar-status",
-    child: AvatarStatus,
-    uiLibrary: "npx shadcn-ui@latest add avatar",
   },
   {
     name: "Tooltip",
@@ -127,11 +126,6 @@ export const COMPONENTS: ComponentType[] = [
     gridClass: "large-card",
   },
   {
-    name: "Timeline",
-    slug: "timeline",
-    child: Timeline,
-  },
-  {
     name: "Swipe Button",
     slug: "swipe-button",
     child: SwipeButton,
@@ -160,6 +154,7 @@ export const COMPONENTS: ComponentType[] = [
     name: "Transaction Button",
     slug: "transaction-button",
     child: TransactionButton,
+    gridClass: "large-card",
   },
   {
     name: "Text Scatter",
@@ -176,6 +171,7 @@ export const COMPONENTS: ComponentType[] = [
     name: "Vinyl Record",
     slug: "vinyl-record",
     child: VinylRecord,
+    gridClass: "large-card",
     twConfig: TW_CONFIG["vinyl-spin"],
   },
 ];
