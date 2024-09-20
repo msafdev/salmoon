@@ -20,7 +20,7 @@ const manrope = Manrope({
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
-    default: "Msafdev | Fullstack Developer",
+    default: "Msafdev | Design Engineer",
     template: "Msafdev | %s",
   },
   keywords: [
@@ -39,9 +39,9 @@ export const metadata: Metadata = {
     icon: `/favicon.ico`,
   },
   description:
-    "When creativity meets perfection, you get me. A freelance fullstack developer with a passion for building pretty products.",
+    "When creativity meets perfection, you get me. A freelance design engineer / fullstack developer with a passion for building pretty products.",
   openGraph: {
-    title: "Msafdev | Fullstack Developer",
+    title: "Msafdev | Design Engineer",
     url: baseUrl,
     siteName: "Msafdev",
     locale: "en_US",

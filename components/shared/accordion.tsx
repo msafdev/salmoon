@@ -22,7 +22,7 @@ const Accordion: React.FC<AccordionProps> = ({
   };
 
   return (
-    <div className="group/accordion w-full rounded-[12px] bg-gradient-to-b from-zinc-200 to-zinc-300 p-[1px] dark:from-zinc-600 dark:to-zinc-700">
+    <div className="group/accordion w-full rounded-[12px] bg-gradient-to-b from-zinc-200 to-zinc-300 p-[1px] dark:from-zinc-700 dark:to-zinc-800">
       <div className="anim w-full rounded-[11px] bg-card/90 group-hover/accordion:bg-card/70">
         <div
           className={`flex cursor-pointer items-center justify-between px-3.5 py-3 ${color}`}

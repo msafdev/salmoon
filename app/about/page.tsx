@@ -30,13 +30,14 @@ export default function Page() {
       </Paragraph>
       <Paragraph title="Present time" from="2024" to="present">
         <p>
-          Fast forward to today, I have been working as a fullstack software,
-          settling on Next.js, Tailwind, GraphQL, and PostgreSQL as my main
-          stack.
+          Fast forward to today, I have been working as a fullstack software
+          engineer, settling on Next.js, Tailwind, GraphQL, and PostgreSQL as my
+          main stack.
         </p>
         <p>
-          Now, I am continuing to learn new things, and I am excited to see what
-          the AI-pocalypse will bring to me in the future.
+          Now, I'm a self-proclaimed design engineer, focusing on creating
+          seamless user experiences by adding interactivity to various
+          interfaces.
         </p>
       </Paragraph>
       <Paragraph title="Any questions?">

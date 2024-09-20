@@ -44,7 +44,7 @@ const Button = ({
   return (
     <div
       className={cn(
-        "group/button rounded-lg bg-gradient-to-b from-zinc-200 to-zinc-300 p-[1px] dark:from-zinc-600 dark:to-zinc-700",
+        "group/button rounded-lg bg-gradient-to-b from-zinc-200 to-zinc-300 p-[1px] dark:from-zinc-700 dark:to-zinc-800",
         containerSizes[size],
       )}
     >
