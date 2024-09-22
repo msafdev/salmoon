@@ -75,7 +75,7 @@ const Footer = () => {
             <Dot size={12} />
             <Link
               className="anim hover:text-primary-foreground dark:hover:text-primary"
-              href="https://linkedin.com/in/muhammadsalmoon"
+              href="https://linkedin.com/in/msafdev"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Free Reusable Components"
