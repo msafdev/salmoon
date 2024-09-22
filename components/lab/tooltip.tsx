@@ -35,6 +35,7 @@ const Tooltip = () => {
           onClick={() => setClosed(!closed)}
           variant={"ghost"}
           size={"icon"}
+          aria-label="Show more"
           className="ml-auto h-8 w-8"
         >
           <Ellipsis className="h-3 w-3" />
