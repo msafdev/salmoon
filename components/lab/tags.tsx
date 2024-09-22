@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Globe, Play, Smartphone } from "lucide-react";
+import { Globe, Smartphone } from "lucide-react";
 
 import { useState } from "react";
 

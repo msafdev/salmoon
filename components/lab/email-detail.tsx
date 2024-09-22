@@ -136,6 +136,7 @@ const EmailDetail = () => {
             key={value}
             variant="ghost"
             size="icon"
+            aria-label={`Show ${value}`}
             className="size-8"
             onMouseEnter={() => handleMouseEnter(value)}
             onMouseLeave={handleMouseLeave}

@@ -30,11 +30,11 @@ const Timeline = () => {
         const isSelect = selected === index;
 
         return (
-          <button
+          <div
             onMouseEnter={() => handleHover(index)}
             onMouseLeave={handleLeave}
             onClick={() => setSelected(index)}
-            className="group/timeline relative inline-flex px-0.5"
+            className="group/timeline relative inline-flex px-0.5 cursor-pointer"
             key={index}
             aria-label={year.toString()}
           >
@@ -56,7 +56,7 @@ const Timeline = () => {
                 {year}
               </motion.code>
             )}
-          </button>
+          </div>
         );
       })}
     </div>
