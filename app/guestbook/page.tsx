@@ -1,5 +1,7 @@
 import { createClient } from "@/supabase/server";
 
+import { Suspense } from "react";
+
 import { Metadata } from "next";
 import dynamic from "next/dynamic";
 
@@ -37,7 +39,9 @@ const Page = async () => {
         </Paragraph>
         <GuestbookForm user={user.user} />
       </div>
-      <GuestbookSection />
+      <Suspense fallback={<p>Loading guestbook...</p>}>
+        <GuestbookSection />
+      </Suspense>{" "}
     </section>
   );
 };
