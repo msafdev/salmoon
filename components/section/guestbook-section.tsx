@@ -67,7 +67,6 @@ const GuestbookSection = async () => {
     .from("guestbook")
     .select("*")
     .order("created_at", { ascending: false })
-    .limit(10);
 
   return (
     <div className="flex h-fit w-full max-w-sm flex-col gap-y-4">
