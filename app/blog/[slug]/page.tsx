@@ -219,7 +219,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           className="h-9 w-9 text-muted-foreground"
         >
           <Link
-            href={`https://x.com/intent/tweet?text=${post?.title}&url=https://salmoon.vercel.app/blog/${post?.slug}`}
+            href={`https://x.com/intent/tweet?text=${post?.title}&url=https://msaf.tech/blog/${post?.slug}`}
             target="_blank"
             rel="noopener noreferrer"
             scroll={true}
