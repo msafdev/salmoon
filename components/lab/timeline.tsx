@@ -34,9 +34,8 @@ const Timeline = () => {
             onMouseEnter={() => handleHover(index)}
             onMouseLeave={handleLeave}
             onClick={() => setSelected(index)}
-            className="group/timeline relative inline-flex px-0.5 cursor-pointer"
+            className="group/timeline relative inline-flex cursor-pointer px-0.5"
             key={index}
-            aria-label={year.toString()}
           >
             <motion.div
               className={`h-8 w-1 rounded-full transition-colors duration-300 ease-in-out ${
