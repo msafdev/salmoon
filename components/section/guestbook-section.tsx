@@ -106,14 +106,14 @@ const GuestbookSection: React.FC = () => {
     fetchGuestbook();
   }, []);
 
-  if (!isLoading) {
+  if (isLoading) {
     return (
       <div className="flex h-fit w-full max-w-sm flex-col gap-y-4">
         {Array.from({ length: 4 }).map((_, index) => (
           <div key={index} className="flex animate-pulse flex-col gap-y-3">
             <div className="flex w-full items-center gap-x-4">
               <div className="size-8 shrink-0 rounded-sm bg-muted" />
-              <div className="flex w-full flex-col justify-center gap-y-[2px] self-stretch py-[2px]">
+              <div className="flex w-full flex-col justify-center gap-y-1 self-stretch py-[2px]">
                 <div className="h-3 w-1/2 rounded-sm bg-muted" />
                 <div className="h-3 w-1/3 rounded-sm bg-muted" />
               </div>
