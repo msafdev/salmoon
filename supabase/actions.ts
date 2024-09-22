@@ -2,7 +2,7 @@
 
 import { createClient } from "@/supabase/server";
 
-import { revalidatePath } from "next/cache";
+import { useRouter } from "next/navigation";
 
 export async function addContent(formData: FormData) {
   let content = formData.get("content") as string;
@@ -32,7 +32,6 @@ export async function addContent(formData: FormData) {
   if (error) {
     return { error: `😵‍💫 ${error.message}` };
   } else {
-    revalidatePath("/guestbook");
     return { data: "👍 Data inserted successfully" };
   }
 }
