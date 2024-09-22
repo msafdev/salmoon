@@ -1,11 +1,18 @@
 import { createClient } from "@/supabase/server";
 
 import { Metadata } from "next";
+import dynamic from "next/dynamic";
 
 import Paragraph from "@/components/shared/paragraph";
 
-import GuestbookForm from "@/components/form/guestbook-form";
-import GuestbookSection from "@/components/section/guestbook-section";
+const GuestbookForm = dynamic(
+  () => import("@/components/form/guestbook-form"),
+  { ssr: false },
+);
+const GuestbookSection = dynamic(
+  () => import("@/components/section/guestbook-section"),
+  { ssr: false },
+);
 
 export const metadata: Metadata = {
   title: "Guestbook",
@@ -14,7 +21,7 @@ export const metadata: Metadata = {
 
 const Page = async () => {
   const supabase = createClient();
-  const { data: user, error } = await supabase.auth.getUser();
+  const { data: user } = await supabase.auth.getUser();
 
   return (
     <section
@@ -28,7 +35,7 @@ const Page = async () => {
             song you'd want me to listen to.
           </p>
         </Paragraph>
-        <GuestbookForm user={user.user} />
+        <GuestbookForm user={user?.user} />
       </div>
       <GuestbookSection />
     </section>

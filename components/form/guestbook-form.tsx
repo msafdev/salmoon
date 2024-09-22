@@ -6,9 +6,6 @@ import { User } from "@supabase/supabase-js";
 
 import Button from "@/components/shared/button";
 
-import GithubLogo from "@/public/icons/github.png";
-import GoogleLogo from "@/public/icons/google.png";
-
 import ContentForm from "./content-form";
 
 const GuestbookForm = ({ user }: { user: User | null }) => {
@@ -26,11 +23,11 @@ const GuestbookForm = ({ user }: { user: User | null }) => {
           </form>
         </div>
       ) : (
-        <div className="flex flex-wrap items-center gap-3">                                                                       
+        <div className="flex flex-wrap items-center gap-3">
           <form action={githubSignIn} className="flex flex-1">
             <Button type="submit" className="flex w-full items-center gap-x-2">
               <Image
-                src={GithubLogo}
+                src="/icons/github.png"
                 alt="GitHub Logo"
                 width={16}
                 height={16}
@@ -41,7 +38,7 @@ const GuestbookForm = ({ user }: { user: User | null }) => {
           <form action={googleSignIn} className="flex flex-1">
             <Button type="submit" className="flex w-full items-center gap-x-2">
               <Image
-                src={GoogleLogo}
+                src="/icons/google.png"
                 alt="Google Logo"
                 width={16}
                 height={16}
