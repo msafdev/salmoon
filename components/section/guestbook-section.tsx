@@ -1,49 +1,22 @@
-"use client";
-
-import { createClient } from "@/supabase/client";
-
-import { useEffect, useState } from "react";
+import { createClient } from "@/supabase/server";
 
 import Image from "next/image";
 
-interface GuestbookEntry {
-  id: number;
-  content: string;
-  user_id: string;
-  created_at: string;
-}
-
-interface GuestbookCardProps {
-  content: string;
-  user_id: string;
-  createdAt: string;
-}
-
-type User = {
-  id: string;
-  avatar_url: string;
-  name: string;
-};
-
-const GuestbookCard: React.FC<GuestbookCardProps> = ({
+const GuestbookCard = async ({
   content,
   user_id,
   createdAt,
+}: {
+  content: string;
+  user_id: string;
+  createdAt: string;
 }) => {
-  const [user, setUser] = useState<User | null>(null);
-
-  useEffect(() => {
-    const fetchUser = async () => {
-      const supabase = createClient();
-      const { data: user } = await supabase
-        .from("profile")
-        .select("*")
-        .eq("id", user_id)
-        .single();
-      setUser(user as User);
-    };
-    fetchUser();
-  }, [user_id]);
+  const supabase = createClient();
+  const { data: user } = await supabase
+    .from("profile")
+    .select("*")
+    .eq("id", user_id)
+    .single();
 
   const formatTimestamp = (timestamp: string): string => {
     const currentDate = new Date();
@@ -88,53 +61,25 @@ const GuestbookCard: React.FC<GuestbookCardProps> = ({
   );
 };
 
-const GuestbookSection: React.FC = () => {
-  const [guestbook, setGuestbook] = useState<GuestbookEntry[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchGuestbook = async () => {
-      setIsLoading(true);
-      const supabase = createClient();
-      const { data: guestbook } = await supabase
-        .from("guestbook")
-        .select("*")
-        .order("created_at", { ascending: false });
-      setGuestbook((guestbook as GuestbookEntry[]) || []);
-      setIsLoading(false);
-    };
-    fetchGuestbook();
-  }, []);
-
-  if (isLoading) {
-    return (
-      <div className="flex h-fit w-full max-w-sm flex-col gap-y-4">
-        {Array.from({ length: 4 }).map((_, index) => (
-          <div key={index} className="flex animate-pulse flex-col gap-y-3">
-            <div className="flex w-full items-center gap-x-4">
-              <div className="size-8 shrink-0 rounded-sm bg-muted" />
-              <div className="flex w-full flex-col justify-center gap-y-1 self-stretch py-[2px]">
-                <div className="h-3 w-1/2 rounded-sm bg-muted" />
-                <div className="h-3 w-1/3 rounded-sm bg-muted" />
-              </div>
-            </div>
-            <div className="h-[14px] md:h-[18px] w-full rounded-sm bg-muted" />
-          </div>
-        ))}
-      </div>
-    );
-  }
+const GuestbookSection = async () => {
+  const supabase = createClient();
+  const { data: guestbook } = await supabase
+    .from("guestbook")
+    .select("*")
+    .order("created_at", { ascending: false })
+    .limit(10);
 
   return (
     <div className="flex h-fit w-full max-w-sm flex-col gap-y-4">
-      {guestbook.map((item) => (
-        <GuestbookCard
-          key={item.id}
-          content={item.content}
-          user_id={item.user_id}
-          createdAt={item.created_at}
-        />
-      ))}
+      {guestbook &&
+        guestbook.map((item) => (
+          <GuestbookCard
+            key={item.id}
+            content={item.content}
+            user_id={item.user_id || ""}
+            createdAt={item.created_at}
+          />
+        ))}
     </div>
   );
 };

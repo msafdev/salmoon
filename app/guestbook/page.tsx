@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 
 const Page = async () => {
   const supabase = createClient();
-  const { data: user } = await supabase.auth.getUser();
+  const { data: user, error } = await supabase.auth.getUser();
 
   return (
     <section
@@ -35,7 +35,7 @@ const Page = async () => {
             song you'd want me to listen to.
           </p>
         </Paragraph>
-        <GuestbookForm user={user?.user} />
+        <GuestbookForm user={user.user} />
       </div>
       <GuestbookSection />
     </section>

@@ -49,7 +49,6 @@ const ContentForm = () => {
     }
 
     setLoading(false);
-    location.reload();
   };
 
   return (
