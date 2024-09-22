@@ -35,7 +35,7 @@ const TextScatter = () => {
         <span
           key={wordIndex}
           data-index={wordIndex}
-          className={`group text-muted-foreground transition-all duration-300 ease-in-out hover:text-foreground relative inline-block word-${wordIndex}`}
+          className={`group relative inline-block text-muted-foreground transition-all duration-300 ease-in-out hover:text-foreground word-${wordIndex}`}
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >

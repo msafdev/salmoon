@@ -34,7 +34,7 @@ const TransactionButton = () => {
         color: loading ? "#4DAFFF" : "#34C759",
       }}
       layout="position"
-      className="flex items-center gap-x-2 rounded-full px-3 text-sm font-medium overflow-hidden h-8"
+      className="flex h-8 items-center gap-x-2 overflow-hidden rounded-full px-3 text-sm font-medium"
     >
       <AnimatePresence mode="popLayout" initial={false}>
         <motion.span

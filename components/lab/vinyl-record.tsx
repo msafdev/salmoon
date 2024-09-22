@@ -8,7 +8,7 @@ const VinylPlate = ({ className }: { className?: string }) => {
   return (
     <div
       className={cn(
-        "animate-vinyl-spin relative border flex size-20 items-center justify-center rounded-full bg-gradient-to-r from-black via-zinc-800 to-black",
+        "relative flex size-20 animate-vinyl-spin items-center justify-center rounded-full border bg-gradient-to-r from-black via-zinc-800 to-black",
         className,
       )}
     >
@@ -34,10 +34,12 @@ const VinylRecord = () => {
   return (
     <div className="relative w-full max-w-72 overflow-hidden rounded-lg border-2 bg-popover">
       <div className="flex flex-col p-2 pl-16 md:pl-[72px]">
-        <p className="text-sm md:text-base font-bold text-foreground">Timur</p>
-        <p className="text-xs md:text-sm font-semibold text-muted-foreground">The Adams</p>
+        <p className="text-sm font-bold text-foreground md:text-base">Timur</p>
+        <p className="text-xs font-semibold text-muted-foreground md:text-sm">
+          The Adams
+        </p>
       </div>
-      <VinylPlate className="absolute -left-8 md:-left-7 -top-3.5 md:-top-2.5" />
+      <VinylPlate className="absolute -left-8 -top-3.5 md:-left-7 md:-top-2.5" />
     </div>
   );
 };

@@ -56,7 +56,7 @@ const Accordion: React.FC<AccordionProps> = ({
               }}
               className="overflow-hidden"
             >
-              <div className="flex flex-col gap-y-3.5 border-t px-3.5 py-3 text-xs md:text-sm font-medium">
+              <div className="flex flex-col gap-y-3.5 border-t px-3.5 py-3 text-xs font-medium md:text-sm">
                 {children}
               </div>
             </motion.div>

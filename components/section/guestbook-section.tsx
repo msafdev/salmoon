@@ -34,17 +34,17 @@ const GuestbookCard = async ({
   return (
     <div className="group/guestbook relative flex flex-col gap-y-3">
       <div className="flex w-full items-center gap-x-4">
-        <div className="relative flex size-8 items-center justify-center overflow-hidden rounded-sm bg-muted">
-          {user && user.avatar_url && (
-            <Image
-              src={user.avatar_url}
-              alt={user.name || "User avatar"}
-              fill
-              sizes="32px"
-              className="bg-muted object-cover"
-            />
-          )}
-        </div>
+        {user && user.avatar_url && (
+          <Image
+            src={user.avatar_url}
+            alt={user.name || "User avatar"}
+            width={32}
+            height={32}
+            className="rounded-sm bg-muted object-cover"
+            loading="lazy"
+            typeof="image/webp"
+          />
+        )}
         <div className="flex flex-col">
           <p className="min-h-4 text-xs font-semibold md:min-h-5 md:text-sm">
             {user?.name}
@@ -66,7 +66,7 @@ const GuestbookSection = async () => {
   const { data: guestbook } = await supabase
     .from("guestbook")
     .select("*")
-    .order("created_at", { ascending: false })
+    .order("created_at", { ascending: false });
 
   return (
     <div className="flex h-fit w-full max-w-sm flex-col gap-y-4">
