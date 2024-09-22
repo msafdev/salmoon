@@ -25,10 +25,10 @@ const Accordion: React.FC<AccordionProps> = ({
     <div className="group/accordion w-full rounded-[12px] bg-gradient-to-b from-zinc-200 to-zinc-300 p-[1px] dark:from-zinc-700 dark:to-zinc-800">
       <div className="anim w-full rounded-[11px] bg-card/90 group-hover/accordion:bg-card/70">
         <div
-          className={`flex cursor-pointer items-center justify-between px-3.5 py-3 ${color}`}
+          className={`flex cursor-pointer items-center justify-between gap-x-3 px-3.5 py-3 ${color}`}
           onClick={toggleAccordion}
         >
-          <p className="font-semibold">{title}</p>
+          <p className="text-sm font-semibold">{title}</p>
           <motion.span
             initial={false}
             animate={{ rotate: isOpen ? 180 : 0 }}
@@ -56,7 +56,7 @@ const Accordion: React.FC<AccordionProps> = ({
               }}
               className="overflow-hidden"
             >
-              <div className="flex flex-col gap-y-3.5 border-t px-3.5 py-3 text-sm font-medium">
+              <div className="flex flex-col gap-y-3.5 border-t px-3.5 py-3 text-xs md:text-sm font-medium">
                 {children}
               </div>
             </motion.div>

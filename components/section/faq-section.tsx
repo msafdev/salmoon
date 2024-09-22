@@ -3,7 +3,7 @@ import Paragraph from "@/components/shared/paragraph";
 
 const FaqSection = () => {
   return (
-    <div className="flex w-full flex-col gap-y-3">
+    <div className="flex w-full flex-col gap-y-2.5">
       <Accordion title="How do you work?">
         <code>
           I work completely remote, using Slack, Jira, and ClickUp for
@@ -25,8 +25,13 @@ const FaqSection = () => {
       <Accordion title="What stack do you use?">
         <code>
           Next, Nuxt, or Gatsby for frontend, and Node, Django, or Ruby on Rails
-          for backend. Hygraph and Supabase for database. Just let me know your
-          preference!
+          for backend. Hygraph and Supabase for database.
+        </code>
+      </Accordion>
+      <Accordion title="How do you handle payments?">
+        <code>
+          I use Wise for international clients and bank transfer for local ones
+          (ID).
         </code>
       </Accordion>
     </div>

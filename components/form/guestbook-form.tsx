@@ -4,7 +4,7 @@ import Image from "next/image";
 
 import { User } from "@supabase/supabase-js";
 
-import { Button } from "@/components/ui/button";
+import Button from "@/components/shared/button";
 
 import GithubLogo from "@/public/icons/github.png";
 import GoogleLogo from "@/public/icons/google.png";
@@ -26,13 +26,9 @@ const GuestbookForm = ({ user }: { user: User | null }) => {
           </form>
         </div>
       ) : (
-        <div className="flex flex-wrap items-center gap-x-4 gap-y-3">
+        <div className="flex flex-wrap items-center gap-3">                                                                       
           <form action={githubSignIn} className="flex flex-1">
-            <Button
-              type="submit"
-              className="flex w-full items-center gap-x-2"
-              variant={"secondary"}
-            >
+            <Button type="submit" className="flex w-full items-center gap-x-2">
               <Image
                 src={GithubLogo}
                 alt="GitHub Logo"
@@ -43,11 +39,7 @@ const GuestbookForm = ({ user }: { user: User | null }) => {
             </Button>
           </form>
           <form action={googleSignIn} className="flex flex-1">
-            <Button
-              type="submit"
-              className="flex w-full items-center gap-x-2"
-              variant={"secondary"}
-            >
+            <Button type="submit" className="flex w-full items-center gap-x-2">
               <Image
                 src={GoogleLogo}
                 alt="Google Logo"

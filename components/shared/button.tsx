@@ -44,7 +44,7 @@ const Button = ({
   return (
     <div
       className={cn(
-        "group/button rounded-lg bg-gradient-to-b from-zinc-200 to-zinc-300 p-[1px] dark:from-zinc-700 dark:to-zinc-800",
+        "group/button whitespace-nowrap rounded-lg bg-gradient-to-b from-zinc-200 to-zinc-300 p-[1px] dark:from-zinc-700 dark:to-zinc-800",
         containerSizes[size],
       )}
     >
@@ -52,7 +52,7 @@ const Button = ({
         onClick={onClick}
         type={type}
         className={cn(
-          `anim flex w-full items-center justify-center gap-x-2 rounded-[calc(var(--radius)-1px)] bg-gradient-to-b from-card/80 to-card/90 font-medium text-white transition-all duration-300 ease-in-out group-hover/button:from-card/70 group-hover/button:to-card/80 ${
+          `anim flex w-full items-center justify-center gap-x-2 text-sm rounded-[calc(var(--radius)-1px)] bg-gradient-to-b from-card/80 to-card/90 font-medium text-white transition-all duration-300 ease-in-out group-hover/button:from-card/70 group-hover/button:to-card/80 ${
             disabled ? "cursor-not-allowed" : "cursor-pointer"
           }`,
           buttonSizes[size],
