@@ -96,7 +96,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       }
       if (child.code) {
         element = (
-          <code key={index} className="text-foreground/80">
+          <code key={index} className="text-foreground/80 text-sm">
             {element}
           </code>
         );
