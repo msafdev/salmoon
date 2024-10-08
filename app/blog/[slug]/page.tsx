@@ -12,6 +12,8 @@ import { Button } from "@/components/ui/button";
 
 import { getPost } from "@/lib/gql";
 
+export const dynamic = "force-dynamic";
+
 export async function generateMetadata({
   params,
 }: {
@@ -96,7 +98,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       }
       if (child.code) {
         element = (
-          <code key={index} className="text-foreground/80 text-sm">
+          <code key={index} className="text-sm text-foreground/80">
             {element}
           </code>
         );
