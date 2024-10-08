@@ -13,7 +13,7 @@ type Post = {
   excerpt: string;
   categories: categoryType;
   content: {
-    raw: RawContent;
+    json: RawContent;
   };
   updatedAt: string;
 };

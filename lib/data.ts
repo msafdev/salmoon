@@ -162,17 +162,17 @@ export const COMPONENTS: ComponentType[] = [
     child: TextScatter,
   },
   {
-    name: "Shining Badge",
-    slug: "shining-badge",
-    child: ShiningBadge,
-    twConfig: TW_CONFIG["background-shine"],
-  },
-  {
     name: "Vinyl Record",
     slug: "vinyl-record",
     child: VinylRecord,
     gridClass: "large-card",
     twConfig: TW_CONFIG["vinyl-spin"],
+  },
+  {
+    name: "Shining Badge",
+    slug: "shining-badge",
+    child: ShiningBadge,
+    twConfig: TW_CONFIG["background-shine"],
   },
 ];
 

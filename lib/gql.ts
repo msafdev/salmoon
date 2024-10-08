@@ -17,7 +17,7 @@ const getPosts = async () => {
             updatedAt
             categories
             content {
-              raw
+              json
             }
           }
         }
@@ -43,7 +43,7 @@ const getPost = async ({ slug }: { slug: string }) => {
             updatedAt
             categories
             content {
-              raw
+              json
             }
           }
         }

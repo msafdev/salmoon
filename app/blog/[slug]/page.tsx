@@ -59,6 +59,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
 
   const post = posts?.postsConnection?.edges[0].node;
 
+  console.log("code-block", post?.content.json);
+
   const extractLanguage = (codeString: string) => {
     const match = codeString.match(/^\/\/(\w+)/m);
     const lang = match ? match[1] : "tsx";
@@ -169,7 +171,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             </blockquote>
           );
         case "code-block":
-          const { lang, code } = extractLanguage(child.children[0].text);
+          const { code, lang } = extractLanguage(child.children[0].text);
           return (
             <div
               key={index}
@@ -237,8 +239,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
           {post?.excerpt}
         </pre>
 
-        {post?.content.raw.children &&
-          renderChildren(post.content.raw.children)}
+        {post?.content.json.children &&
+          renderChildren(post.content.json.children)}
       </div>
 
       {post?.updatedAt && (
