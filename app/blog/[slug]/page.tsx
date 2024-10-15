@@ -51,9 +51,7 @@ export async function generateMetadata({
     twitter: {
       card: "summary_large_image",
       title: `Msafdev | ${title}`,
-      description: `Read more about "${title}" on my blog.`,
       images: [ogImage],
-      site: "https://msaf.tech",
     },
   };
 }

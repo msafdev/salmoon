@@ -57,11 +57,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Msafdev",
+    title: "Msafdev | Design Engineer",
     images: [`${baseUrl}/og`],
-    description:
-      "When creativity meets perfection, you get me. A freelance design engineer / fullstack developer with a passion for building pretty products.",
-    site: "https://msaf.tech",
   },
 };
 
