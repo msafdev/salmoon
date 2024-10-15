@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
 import NextTopLoader from "nextjs-toploader";
 
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+
 import Dock from "@/components/shared/dock";
 import Footer from "@/components/shared/footer";
 import { ThemeProvider } from "@/components/shared/theme-provider";
@@ -70,6 +73,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={manrope.className}>
+        <SpeedInsights />
+        <Analytics />
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
