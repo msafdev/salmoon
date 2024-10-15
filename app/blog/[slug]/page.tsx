@@ -10,7 +10,7 @@ import Code from "@/components/shared/code";
 
 import { Button } from "@/components/ui/button";
 
-import { fetchWithNoCache, getPost } from "@/lib/gql";
+import { getPost } from "@/lib/gql";
 
 export const dynamic = "force-dynamic";
 
@@ -77,7 +77,7 @@ export async function generateMetadata({
 }
 
 export default async function Page({ params }: { params: { slug: string } }) {
-  const posts = await fetchWithNoCache(getPost, { slug: params.slug });
+  const posts = await getPost({ slug: params.slug, disableCache: true });
 
   const post = posts?.postsConnection?.edges[0].node;
 

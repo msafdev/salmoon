@@ -30,7 +30,13 @@ const getPosts = async () => {
   return response.postsConnection?.edges;
 };
 
-const getPost = async ({ slug }: { slug: string }) => {
+const getPost = async ({
+  slug,
+  disableCache = false,
+}: {
+  slug: string;
+  disableCache?: boolean;
+}) => {
   const query = gql`
     query FetchPost($slug: String!) {
       postsConnection(where: { slug: $slug }) {
@@ -50,13 +56,15 @@ const getPost = async ({ slug }: { slug: string }) => {
       }
     }
   `;
-  const response = await graphQLClient.request(query, { slug });
 
-  return response as FetchPostResponse;
+  if (disableCache) {
+    const timestamp = new Date().getTime();
+    const response = await graphQLClient.request(query, { slug, timestamp });
+    return response as FetchPostResponse;
+  } else {
+    const response = await graphQLClient.request(query, { slug });
+    return response as FetchPostResponse;
+  }
 };
 
-const fetchWithNoCache = async (fetchFn: Function, ...args: any[]) => {
-  return await fetchFn(...args);
-};
-
-export { getPosts, getPost, fetchWithNoCache };
+export { getPosts, getPost };
