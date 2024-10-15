@@ -29,11 +29,24 @@ export async function generateMetadata({
   const updatedAt = posts.postsConnection?.edges[0].node.updatedAt;
   const slug = posts.postsConnection?.edges[0].node.slug;
   const ogImage = `${baseUrl}/og/blog/?title=${title}`;
+  const keywords = [
+    "salmoon",
+    "salman",
+    "msafdev",
+    "blog",
+    "design",
+    "portfolio",
+    "article",
+    "website developer",
+    "design engineer",
+  ];
 
   return {
     title: `Msafdev | ${title}`,
     description: `Read more about "${title}" on my blog.`,
+    keywords,
     publishedAt: updatedAt,
+    applicationName: "Msafdev",
     openGraph: {
       title: `Msafdev | ${title}`,
       description: `Read more about "${title}" on my blog.`,
@@ -51,7 +64,14 @@ export async function generateMetadata({
     twitter: {
       card: "summary_large_image",
       title: `Msafdev | ${title}`,
+      description: `Read more about "${title}" on my blog.`,
       images: [ogImage],
+    },
+    icons: {
+      icon: `/favicon.ico`,
+    },
+    verification: {
+      google: "o2JC_24yWCXt25B4cLk_3kF-RTSQDBNab7JNqh33cHU",
     },
   };
 }
