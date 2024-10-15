@@ -50,6 +50,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: `${baseUrl}/og`,
+        alt: "Msafdev",
+        type: "image/png",
       },
     ],
   },
@@ -57,6 +59,9 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Msafdev",
     images: [`${baseUrl}/og`],
+    description:
+      "When creativity meets perfection, you get me. A freelance design engineer / fullstack developer with a passion for building pretty products.",
+    site: "https://msaf.tech",
   },
 };
 

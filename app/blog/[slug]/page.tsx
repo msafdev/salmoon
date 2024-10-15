@@ -43,6 +43,8 @@ export async function generateMetadata({
       images: [
         {
           url: ogImage,
+          alt: title,
+          type: "image/png",
         },
       ],
     },
@@ -50,8 +52,8 @@ export async function generateMetadata({
       card: "summary_large_image",
       title: `Msafdev | ${title}`,
       description: `Read more about "${title}" on my blog.`,
-      publishedAt: updatedAt,
       images: [ogImage],
+      site: "https://msaf.tech",
     },
   };
 }
