@@ -42,7 +42,7 @@ export async function generateMetadata({
   ];
 
   return {
-    title: `Msafdev | ${title}`,
+    title: `${title}`,
     description: `Read more about "${title}" on my blog.`,
     keywords,
     publishedAt: updatedAt,
