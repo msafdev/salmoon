@@ -202,14 +202,17 @@ export default async function Page({ params }: { params: { slug: string } }) {
           );
         case "image":
           return (
-            <div key={index} className="mb-4 aspect-auto max-w-sm">
+            <div
+              key={index}
+              className="mb-4 aspect-auto max-w-sm rounded-xl border p-2"
+            >
               <Image
                 src={child.src || ""}
                 alt={child.title || "alt text"}
                 title={child.title || ""}
                 width={child.width}
                 height={child.height}
-                className="object-cover"
+                className="rounded-lg object-cover"
               />
             </div>
           );
