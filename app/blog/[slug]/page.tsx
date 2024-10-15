@@ -28,15 +28,15 @@ export async function generateMetadata({
   const title = posts.postsConnection?.edges[0].node.title;
   const updatedAt = posts.postsConnection?.edges[0].node.updatedAt;
   const slug = posts.postsConnection?.edges[0].node.slug;
-  const ogImage = `${baseUrl}/og`;
+  const ogImage = `${baseUrl}/og/blog/?title=${title}`;
 
   return {
-    title,
-    description: `Read more about "${title}" on my blog. 🚀`,
+    title: `Msafdev | ${title}`,
+    description: `Read more about "${title}" on my blog.`,
     publishedAt: updatedAt,
     openGraph: {
-      title,
-      description: `Read more about "${title}" on my blog. 🚀`,
+      title: `Msafdev | ${title}`,
+      description: `Read more about "${title}" on my blog.`,
       type: "article",
       publishedAt: updatedAt,
       url: `${baseUrl}/blog/${slug}`,
@@ -48,8 +48,8 @@ export async function generateMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title,
-      description: `Read more about "${title}" on my blog. 🚀`,
+      title: `Msafdev | ${title}`,
+      description: `Read more about "${title}" on my blog.`,
       publishedAt: updatedAt,
       images: [ogImage],
     },
@@ -60,8 +60,6 @@ export default async function Page({ params }: { params: { slug: string } }) {
   const posts = await getPost({ slug: params.slug });
 
   const post = posts?.postsConnection?.edges[0].node;
-
-  console.log("code-block", post?.content.json);
 
   const extractLanguage = (codeString: string) => {
     const match = codeString.match(/^\/\/(\w+)/m);

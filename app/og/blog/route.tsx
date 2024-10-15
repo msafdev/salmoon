@@ -11,7 +11,10 @@ const getInstrumentSerif = async () => {
   return instrumentSerif;
 };
 
-export async function GET() {
+export async function GET(request: Request) {
+  const { searchParams } = new URL(request.url);
+  const title = searchParams.get("title");
+
   return new ImageResponse(
     (
       <div
@@ -34,12 +37,14 @@ export async function GET() {
             fontSize: 42,
             fontWeight: 500,
             width: "100%",
+            maxWidth: "70%",
             paddingLeft: 96,
             paddingBottom: 8,
+            marginRight: "auto",
             fontFamily: '"InstrumentSerif"',
           }}
         >
-          msafdev is a developer
+          {title}
         </div>
         <div
           style={{
@@ -54,7 +59,7 @@ export async function GET() {
             fontFamily: '"InstrumentSerif"',
           }}
         >
-          based out of Indonesia
+          Msafdev, Design Engineer
         </div>
       </div>
     ),

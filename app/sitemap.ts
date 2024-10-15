@@ -1,6 +1,6 @@
 import { getPosts } from "@/lib/gql";
 
-export const baseUrl = "https://msaf.tech";
+export const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 
 export default async function sitemap() {
   const posts = await getPosts();

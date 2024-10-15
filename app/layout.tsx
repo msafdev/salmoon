@@ -18,7 +18,8 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(baseUrl),
+  metadataBase: baseUrl ? new URL(baseUrl) : undefined,
+  applicationName: "Msafdev",
   title: {
     default: "Msafdev | Design Engineer",
     template: "Msafdev | %s",
