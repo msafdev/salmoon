@@ -55,4 +55,8 @@ const getPost = async ({ slug }: { slug: string }) => {
   return response as FetchPostResponse;
 };
 
-export { getPosts, getPost };
+const fetchWithNoCache = async (fetchFn: Function, ...args: any[]) => {
+  return await fetchFn(...args);
+};
+
+export { getPosts, getPost, fetchWithNoCache };
