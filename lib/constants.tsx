@@ -181,11 +181,6 @@ export const workItems = [
   },
   {
     title: "Fullstack Developer",
-    company: "Dev Different",
-    duration: "Oct 24 - Present",
-  },
-  {
-    title: "Fullstack Developer",
     company: "Freelance",
     duration: "May 23 - Present",
   },
