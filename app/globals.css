@@ -52,6 +52,9 @@
 }
 
 @layer base {
+  html {
+    @apply no-scrollbar;
+  }
   * {
     @apply border-border;
   }

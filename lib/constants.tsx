@@ -1,17 +1,11 @@
 import { Beaker, Book, Hexagon, Home, Package2 } from "lucide-react";
 
-import Bash from "@/public/icons/bash.png";
 import Figma from "@/public/icons/figma.png";
 import Git from "@/public/icons/git.png";
-import Jira from "@/public/icons/jira.png";
-import JS from "@/public/icons/js.png";
 import NextJS from "@/public/icons/nextjs.png";
-import Notion from "@/public/icons/notion.png";
 import React from "@/public/icons/react.png";
-import Slack from "@/public/icons/slack.png";
 import TailwindCSS from "@/public/icons/tailwindcss.png";
-import TS from "@/public/icons/ts.png";
-import VSC from "@/public/icons/vsc.png";
+import Typescript from "@/public/icons/ts.png";
 import Vue from "@/public/icons/vue.png";
 import Webflow from "@/public/icons/webflow.png";
 
@@ -50,15 +44,9 @@ export const navItems = [
 export const skillItems = [
   { name: "Next", icon: NextJS },
   { name: "Tailwind", icon: TailwindCSS },
-  { name: "TypeScript", icon: TS },
-  { name: "JavaScript", icon: JS },
+  { name: "TypeScript", icon: Typescript },
   { name: "Git", icon: Git },
   { name: "Figma", icon: Figma },
-  { name: "Notion", icon: Notion },
-  { name: "Jira", icon: Jira },
-  { name: "Bash", icon: Bash },
-  { name: "VS Code", icon: VSC },
-  { name: "Slack", icon: Slack },
   { name: "React", icon: React },
   { name: "Vue", icon: Vue },
   { name: "Webflow", icon: Webflow },
@@ -151,29 +139,34 @@ export const templateItems = [
     title: "Linkify",
     stack: ["Next", "Tailwind"],
     href: "https://linkify-demo.vercel.app",
-    description: "Linktree inspired portfolio template.",
+    description: "Linktree inspired portfolio.",
   },
   {
     title: "Nextbase",
     stack: ["Next", "Tailwind", "Supabase"],
     href: "https://nextbase-demo.vercel.app",
-    description: "Next.js and Supabase starter template.",
+    description: "Next.js and Supabase starter.",
   },
   {
     title: "Macfolio",
     stack: ["Next", "Tailwind"],
     href: "https://macfolio-demo.vercel.app",
-    description: "MacOS inspired portfolio template.",
+    description: "MacOS inspired portfolio.",
   },
   {
     title: "Compactfolio",
     stack: ["Next", "Tailwind"],
     href: "https://compactfolio-demo.vercel.app",
-    description: "Compact and minimal portfolio template.",
+    description: "Compact and minimal portfolio.",
   },
 ];
 
 export const workItems = [
+  {
+    title: "Founder",
+    company: "Oddin",
+    duration: "May 22 - Present",
+  },
   {
     title: "Fullstack Developer",
     company: "Airestate",
@@ -182,7 +175,7 @@ export const workItems = [
   {
     title: "Fullstack Developer",
     company: "Freelance",
-    duration: "May 23 - Present",
+    duration: "May 22 - Sept 24",
   },
   {
     title: "Frontend Developer",
@@ -252,11 +245,6 @@ export const quoteItems = [
     quote:
       "He who would learn to fly one day must first learn to stand and walk and run and climb and dance; one cannot fly into flying.",
     author: "Friedrich Nietzsche",
-  },
-  {
-    quote:
-      "You say you’re ‘depressed’ – all I see is resilience. You are allowed to feel messed up and inside out. It doesn’t mean you’re defective – it just means you’re human.",
-    author: "David Mitchell",
   },
   {
     quote:
