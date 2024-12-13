@@ -20,7 +20,7 @@ const ProjectCard = ({
       rel="noopener noreferrer"
       aria-label={title}
       className={cn(
-        "anim group/project flex w-full flex-col gap-y-0.5 rounded-md bg-background py-2 text-sm hover:bg-accent hover:pl-3 sm:text-base",
+        "anim group/project flex w-full flex-col gap-y-0.5 rounded-md bg-background py-2 text-xs hover:bg-accent hover:pl-3 sm:text-sm",
         className,
       )}
     >

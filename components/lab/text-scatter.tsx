@@ -30,7 +30,7 @@ const TextScatter = () => {
   };
 
   return (
-    <h1 className="cursor-default text-lg font-medium">
+    <h1 className="cursor-default text-base font-medium">
       {text.split(" ").map((word, wordIndex) => (
         <span
           key={wordIndex}

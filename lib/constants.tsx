@@ -173,11 +173,6 @@ export const workItems = [
     duration: "Oct 24 - Present",
   },
   {
-    title: "Fullstack Developer",
-    company: "Freelance",
-    duration: "May 22 - Sept 24",
-  },
-  {
     title: "Frontend Developer",
     company: "CAN Creative",
     duration: "Aug 24 - Oct 24",
@@ -193,14 +188,14 @@ export const workItems = [
     duration: "Oct 23 - Apr 24",
   },
   {
-    title: "Laboratory Assistant",
-    company: "Diponegoro University",
-    duration: "Aug 22 - Dec 23",
-  },
-  {
     title: "Frontend Developer",
     company: "Ministry of Manpower",
     duration: "Jan 23 - Mar 23",
+  },
+  {
+    title: "Laboratory Assistant",
+    company: "Diponegoro University",
+    duration: "Aug 22 - Dec 23",
   },
 ];
 

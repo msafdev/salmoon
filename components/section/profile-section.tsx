@@ -28,7 +28,7 @@ const ProfileSection = () => {
         </div>
       </div>
 
-      <p className="w-full text-sm text-muted-foreground md:text-base">
+      <p className="w-full text-xs text-muted-foreground md:text-sm">
         I am a design engineer based in Indonesia, specifically in Semarang. In
         my free time, I enjoy listening to music and exploring new places.
       </p>

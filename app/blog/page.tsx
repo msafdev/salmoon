@@ -17,7 +17,7 @@ export default async function Page() {
       className="flex h-auto w-full grow flex-col items-center gap-y-16 md:gap-y-20 lg:gap-y-24"
     >
       <div className="flex w-full max-w-sm flex-col items-center gap-y-4">
-        <BlogSection items={posts} />
+        <BlogSection items={posts?.reverse()} />
       </div>
     </section>
   );

@@ -156,13 +156,13 @@ export default async function Page({ params }: { params: { slug: string } }) {
           );
         case "heading-three":
           return (
-            <h3 className="my-4 text-lg font-semibold" key={index}>
+            <h3 className="my-4 text-base font-semibold" key={index}>
               {child.children[0].text}
             </h3>
           );
         case "heading-four":
           return (
-            <h4 className="my-4 text-lg font-medium" key={index}>
+            <h4 className="my-4 text-base font-medium" key={index}>
               {child.children[0].text}
             </h4>
           );
@@ -175,7 +175,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
         case "paragraph":
           return (
             <p
-              className="mb-4 text-sm text-muted-foreground md:text-base"
+              className="mb-4 text-xs text-muted-foreground md:text-sm"
               key={index}
             >
               {renderInlineStyles(child.children)}

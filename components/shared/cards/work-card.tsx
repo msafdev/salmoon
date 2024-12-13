@@ -14,7 +14,7 @@ const WorkCard = ({
   return (
     <div
       className={cn(
-        "anim group/work flex w-full flex-col gap-y-0.5 rounded-md bg-background py-2 text-sm sm:text-base",
+        "anim group/work flex w-full flex-col gap-y-0.5 rounded-md bg-background py-2 text-xs sm:text-sm",
         className,
       )}
     >

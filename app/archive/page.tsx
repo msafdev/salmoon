@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 export default async function Page() {
   const posts = await getPosts();
 
-  const recentPosts = posts ? posts.slice(0, 4) : [];
+  const recentPosts = posts ? posts.reverse().slice(0, 4) : [];
 
   return (
     <section
@@ -44,7 +44,14 @@ export default async function Page() {
         </div>
       </div>
       <div className="flex w-full max-w-sm flex-col items-center gap-y-4">
-        <Paragraph title="Career path" />
+        <Paragraph title="Career path">
+          <p>
+            Beside working as a freelance developer, I have pursued various professional roles that have shaped my skills and expertise.
+          </p>
+          <p>
+            Each step in my career has been a learning experience, driving me to grow and adapt in an ever-evolving industry.
+          </p>
+        </Paragraph>
         <div className="flex w-full flex-col">
           {workItems.map((item, index) => (
             <WorkCard {...item} key={index} />

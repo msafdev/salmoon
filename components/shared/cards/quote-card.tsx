@@ -33,7 +33,7 @@ const QuoteCard = () => {
   return (
     <div className="flex w-full max-w-sm flex-col items-center gap-y-4">
       <div className="flex h-8 w-full items-center justify-between gap-x-4">
-        <h2 className="text-lg font-semibold">Word for word</h2>
+        <h2 className="text-base font-semibold">Word for word</h2>
         <Button
           onClick={() => setActive((prev) => (prev + 1) % quoteItems.length)}
           className="size-8 hover:bg-transparent"
