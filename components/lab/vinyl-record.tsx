@@ -34,8 +34,10 @@ const VinylRecord = () => {
   return (
     <div className="relative w-full max-w-56 overflow-hidden rounded-lg border-2 bg-popover">
       <div className="flex flex-col p-2 pl-16 md:pl-[72px]">
-        <p className="text-sm font-bold text-foreground md:text-sm">Timur</p>
-        <p className="text-xs font-semibold text-muted-foreground md:text-sm">
+        <p className="text-sm font-semibold text-foreground md:text-sm">
+          Timur
+        </p>
+        <p className="text-xs font-medium text-muted-foreground md:text-sm">
           The Adams
         </p>
       </div>

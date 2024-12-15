@@ -1,4 +1,4 @@
-import { Beaker, Book, Hexagon, Home, Package2 } from "lucide-react";
+import { Beaker, Book, Hexagon, Home, MailOpen } from "lucide-react";
 
 import Figma from "@/public/icons/figma.png";
 import Git from "@/public/icons/git.png";
@@ -18,9 +18,9 @@ export const navItems = [
   },
   {
     id: 2,
-    label: "About",
-    href: "/about",
-    icon: <Package2 className="h-full w-full" />,
+    label: "Guestbook",
+    href: "/guestbook",
+    icon: <MailOpen className="h-full w-full" />,
   },
   {
     id: 3,

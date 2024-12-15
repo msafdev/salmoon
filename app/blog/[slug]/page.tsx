@@ -12,6 +12,8 @@ import { Button } from "@/components/ui/button";
 
 import { getPost } from "@/lib/gql";
 
+import Placeholder from "@/public/assets/placeholder.svg";
+
 export const dynamic = "force-dynamic";
 
 export async function generateMetadata({
@@ -256,11 +258,16 @@ export default async function Page({ params }: { params: { slug: string } }) {
       </div>
 
       <div className="flex w-full max-w-sm flex-col">
-        <h1 className="mb-6 text-2xl font-semibold">{post?.title}</h1>
+        <h1 className="mb-4 text-2xl font-semibold">{post?.title}</h1>
 
-        <pre className="mb-4 w-full max-w-sm whitespace-pre-wrap text-wrap text-xs text-muted-foreground md:text-sm">
-          {post?.excerpt}
-        </pre>
+        <div className="relative aspect-video overflow-hidden rounded-md border-[1.5px] shadow-sm">
+          <Image
+            src={post?.thumbnail.url || Placeholder}
+            alt={`Thumbnail of ${post?.title}`}
+            fill
+            className="h-full w-full object-cover"
+          />
+        </div>
 
         {post?.content.json.children &&
           renderChildren(post.content.json.children)}

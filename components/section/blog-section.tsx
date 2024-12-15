@@ -4,7 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 
 import { useState } from "react";
 
-import BlogCard from "@/components/shared/cards/blog-card";
+import AltBlogCard from "@/components/shared/cards/alt-blog-card";
 
 import { Edge, categoryType } from "@/lib/types";
 
@@ -65,10 +65,10 @@ const BlogSection = ({ items }: { items: Edge[] | undefined }) => {
                 animate={{ height: "auto", opacity: 1, filter: "blur(0px)" }}
                 transition={{ duration: 0.3, delay: index * 0.1 }}
               >
-                <BlogCard
+                <AltBlogCard
                   slug={item.node.slug}
                   title={item.node.title}
-                  updatedAt={item.node.updatedAt}
+                  createdAt={item.node.createdAt}
                   className="text-xs sm:text-sm"
                 />
               </motion.div>

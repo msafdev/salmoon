@@ -10,9 +10,7 @@ const HomeSection = () => {
         <CustomLink href="mailto:salmanalfarisi261002@gmail.com">
           Email
         </CustomLink>
-        <CustomLink href="https://linkedin.com/in/msafdev">
-          LinkedIn
-        </CustomLink>
+        <CustomLink href="https://linkedin.com/in/msafdev">LinkedIn</CustomLink>
         <CustomLink href="https://github.com/msafdev">Github</CustomLink>
       </div>
     </div>

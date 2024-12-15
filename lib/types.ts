@@ -6,16 +6,21 @@ export type categoryType =
   | "personal"
   | "ai";
 
+type Thumbnail = {
+  url: string;
+};
 type Post = {
   id: string;
   title: string;
   slug: string;
+  thumbnail: Thumbnail;
   excerpt: string;
   categories: categoryType;
   content: {
     json: RawContent;
   };
   updatedAt: string;
+  createdAt: string;
 };
 
 type RawContent = {

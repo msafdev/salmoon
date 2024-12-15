@@ -31,25 +31,30 @@ export default async function Page() {
       </Paragraph>
       <div className="flex w-full max-w-sm flex-col items-center gap-y-4">
         <Paragraph title="What i wrote" link href="/blog" />
-        <div className="flex w-full flex-col">
+        <div className="grid w-full grid-cols-1 gap-3 sm:grid-cols-2">
           {recentPosts &&
-            recentPosts.map((item, index) => (
-              <BlogCard
-                slug={item.node.slug}
-                title={item.node.title}
-                updatedAt={item.node.updatedAt}
-                key={index}
-              />
-            ))}
+            recentPosts
+              .slice(0, 4)
+              .map((item, index) => (
+                <BlogCard
+                  slug={item.node.slug}
+                  title={item.node.title}
+                  url={item.node.thumbnail.url}
+                  createdAt={item.node.createdAt}
+                  key={index}
+                />
+              ))}
         </div>
       </div>
       <div className="flex w-full max-w-sm flex-col items-center gap-y-4">
         <Paragraph title="Career path">
           <p>
-            Beside working as a freelance developer, I have pursued various professional roles that have shaped my skills and expertise.
+            Beside working as a freelance developer, I have pursued various
+            professional roles that have shaped my skills and expertise.
           </p>
           <p>
-            Each step in my career has been a learning experience, driving me to grow and adapt in an ever-evolving industry.
+            Each step in my career has been a learning experience, driving me to
+            grow and adapt in an ever-evolving industry.
           </p>
         </Paragraph>
         <div className="flex w-full flex-col">

@@ -35,7 +35,7 @@ const CopyButton = ({
 
   return (
     <Button
-      variant={"ghost"}
+      variant={"outline"}
       size={"icon"}
       className={className}
       onClick={handleClick}

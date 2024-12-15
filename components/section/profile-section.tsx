@@ -33,19 +33,19 @@ const ProfileSection = () => {
         my free time, I enjoy listening to music and exploring new places.
       </p>
 
-      <div className="group/map relative aspect-[6/5] h-auto w-full overflow-hidden rounded-xl border bg-zinc-400 shadow-sm xs:aspect-video">
+      <div className="group/map relative aspect-[4/3] h-auto w-full overflow-hidden rounded-xl border-[1.5px] bg-zinc-400 shadow-sm xs:aspect-video">
         <Image
           src={Map}
           alt="Map of Semarang, Indonesia"
           fill
-          className="anim scale-110 object-cover brightness-95 group-hover/map:scale-100"
-          quality={50}
+          className="anim scale-110 object-cover group-hover/map:scale-100 dark:grayscale"
+          quality={60}
           priority={true}
           placeholder="blur"
         />
-        <div className="absolute left-1/2 top-1/2 z-10 size-4 -translate-x-1/2 -translate-y-1/2">
-          <div className="absolute inset-0 animate-ping rounded-full bg-emerald-400" />
-          <div className="relative size-full rounded-full bg-emerald-500" />
+        <div className="absolute left-1/2 top-1/2 z-10 size-3 -translate-x-1/2 -translate-y-1/2">
+          <div className="absolute inset-0 animate-ping rounded-full bg-emerald-400 dark:bg-violet-400" />
+          <div className="relative size-full rounded-full bg-emerald-500 dark:bg-violet-500" />
         </div>
       </div>
     </div>

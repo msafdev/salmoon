@@ -13,8 +13,12 @@ const getPosts = async () => {
             id
             title
             slug
+            thumbnail {
+              url
+            }
             excerpt
             updatedAt
+            createdAt
             categories
             content {
               json
@@ -45,8 +49,12 @@ const getPost = async ({
             id
             title
             slug
+            thumbnail {
+              url
+            }
             excerpt
             updatedAt
+            createdAt
             categories
             content {
               json

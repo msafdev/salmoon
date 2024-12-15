@@ -52,7 +52,7 @@ const Button = ({
         onClick={onClick}
         type={type}
         className={cn(
-          `anim flex w-full items-center justify-center gap-x-2 rounded-[calc(var(--radius)-1px)] bg-gradient-to-b from-card/80 to-card/90 text-sm font-medium text-black dark:text-white transition-all duration-300 ease-in-out group-hover/button:from-card/70 group-hover/button:to-card/80 ${
+          `anim flex w-full items-center justify-center gap-x-2 rounded-[calc(var(--radius)-1px)] bg-gradient-to-b from-card/80 to-card/90 text-sm font-medium text-black transition-all duration-300 ease-in-out group-hover/button:from-card/70 group-hover/button:to-card/80 dark:text-white ${
             disabled ? "cursor-not-allowed" : "cursor-pointer"
           }`,
           buttonSizes[size],

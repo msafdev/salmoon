@@ -3,19 +3,17 @@ import { Metadata } from "next";
 import Paragraph from "@/components/shared/paragraph";
 
 import FaqSection from "@/components/section/faq-section";
-import ProfileSection from "@/components/section/profile-section";
 
 export const metadata: Metadata = {
-  title: "About",
+  title: "Retrospect",
 };
 
 export default function Page() {
   return (
     <section
-      id="about"
+      id="retrospect"
       className="flex flex-col items-center gap-y-16 px-4 md:gap-y-20 lg:gap-y-24"
     >
-      <ProfileSection />
       <Paragraph title="Where it all started" from="2020" to="2023">
         <p>
           I started programming from when I entered my college, Diponegoro

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 import { cn } from "@/lib/utils";
@@ -9,30 +10,42 @@ export const formatDate = (dateString: string) => {
 };
 
 const BlogCard = ({
-  slug,
   title,
-  updatedAt,
+  slug,
+  url,
+  createdAt,
   className,
 }: {
-  slug: string;
   title: string;
-  updatedAt: string;
+  slug: string;
+  url: string;
+  createdAt: string;
   className?: string;
 }) => {
   return (
     <Link
       href={`/blog/${slug}`}
       className={cn(
-        "anim group/blog flex w-full flex-col gap-y-0.5 rounded-md bg-background py-2 text-xs hover:bg-accent hover:pl-3 sm:text-sm",
+        "anim group/blog grid w-full grid-cols-2 gap-2 text-xs sm:text-sm",
         className,
       )}
     >
-      <h3 className="anim line-clamp-1 font-semibold text-foreground group-hover/blog:text-accent-foreground">
-        {title}
-      </h3>
-      <p className="anim line-clamp-1 font-mono text-xs text-muted-foreground">
-        {formatDate(updatedAt)}
-      </p>
+      <div className="relative col-span-full aspect-[8/5] h-auto w-full overflow-hidden rounded-sm bg-muted">
+        <Image
+          src={url}
+          alt={`Thumbnail of ${title}`}
+          fill
+          className="anim scale-100 object-cover group-hover/blog:scale-125"
+        />
+      </div>
+      <div className="col-span-full flex h-full flex-col justify-center">
+        <h3 className="anim line-clamp-1 font-semibold text-foreground group-hover/blog:text-accent-foreground">
+          {title}
+        </h3>
+        <p className="anim font-mono text-xs text-muted-foreground">
+          {formatDate(createdAt)}
+        </p>
+      </div>
     </Link>
   );
 };

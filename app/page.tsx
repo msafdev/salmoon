@@ -4,7 +4,6 @@ import LabSection from "@/components/section/lab-section";
 import ProjectSection from "@/components/section/project-section";
 import ServiceSection from "@/components/section/service-section";
 import SkillSection from "@/components/section/skill-section";
-import WhoSection from "@/components/section/who-section";
 
 export default function Page() {
   return (
@@ -13,7 +12,6 @@ export default function Page() {
       className="flex flex-col items-center gap-y-16 px-4 md:gap-y-20 lg:gap-y-24"
     >
       <HomeSection />
-      <WhoSection />
       <ServiceSection />
       <SkillSection />
       <LabSection />

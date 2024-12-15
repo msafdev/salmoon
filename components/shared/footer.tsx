@@ -146,10 +146,10 @@ const Footer = () => {
                 Material
               </Link>
               <Link
-                href={"/guestbook"}
+                href={"/retrospect"}
                 className="anim hover:text-primary-foreground dark:hover:text-primary"
               >
-                Guestbook
+                Retrospect
               </Link>
             </div>
           </div>

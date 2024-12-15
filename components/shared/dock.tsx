@@ -55,7 +55,7 @@ const Dock = () => {
       <div className="relative flex items-center">
         {activeTab !== null && (
           <motion.span
-            className="absolute bottom-0 top-0 z-[99] w-10 rounded-[12px] bg-primary/40 mix-blend-difference outline-none ring-0 dark:bg-primary/80"
+            className="absolute bottom-0 top-0 z-[99] w-10 rounded-[12px] bg-primary/40 mix-blend-difference outline-none ring-0 dark:bg-primary/20"
             initial={{ translateX: initialX, opacity: 0, scale: 0 }}
             animate={{ translateX: (activeTab - 1) * 40, opacity: 1, scale: 1 }}
             transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
@@ -79,7 +79,7 @@ const Dock = () => {
               aria-label={item.label}
             >
               {item.icon}
-              <span className="absolute -top-8 left-1/2 hidden -translate-x-1/2 -translate-y-2 scale-75 rounded-md border bg-popover p-1 px-1.5 text-[10px] font-medium leading-none text-foreground opacity-0 transition-all duration-200 ease-in-out group-hover/dock:translate-y-0 group-hover/dock:scale-100 group-hover/dock:opacity-100 md:block">
+              <span className="pointer-events-none absolute -top-8 left-1/2 hidden -translate-x-1/2 -translate-y-2 scale-75 rounded-md border bg-popover p-1 px-1.5 text-[10px] font-medium leading-none text-foreground opacity-0 transition-all duration-200 ease-in-out group-hover/dock:translate-y-0 group-hover/dock:scale-100 group-hover/dock:opacity-100 md:block">
                 {item.label}
               </span>
             </Link>
@@ -93,7 +93,7 @@ const Dock = () => {
               aria-label="Change theme button"
             >
               {item.icon}
-              <span className="absolute -top-8 left-1/2 hidden -translate-x-1/2 -translate-y-2 scale-75 rounded-md border bg-popover p-1 px-1.5 text-[10px] font-medium leading-none text-foreground opacity-0 transition-all duration-200 ease-in-out group-hover/dock:translate-y-0 group-hover/dock:scale-100 group-hover/dock:opacity-100 md:block">
+              <span className="pointer-events-none absolute -top-8 left-1/2 hidden -translate-x-1/2 -translate-y-2 scale-75 rounded-md border bg-popover p-1 px-1.5 text-[10px] font-medium leading-none text-foreground opacity-0 transition-all duration-200 ease-in-out group-hover/dock:translate-y-0 group-hover/dock:scale-100 group-hover/dock:opacity-100 md:block">
                 {item.label}
               </span>
             </button>
