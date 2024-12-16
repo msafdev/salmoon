@@ -206,7 +206,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           return (
             <div
               key={index}
-              className="mb-4 aspect-auto max-w-sm rounded-xl border p-2"
+              className="mb-4 aspect-auto max-w-sm overflow-hidden rounded-lg border-[1.5px] shadow-sm"
             >
               <Image
                 src={child.src || ""}
@@ -214,7 +214,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
                 title={child.title || ""}
                 width={child.width}
                 height={child.height}
-                className="rounded-lg object-cover"
+                className="h-full w-full object-cover"
               />
             </div>
           );
@@ -250,7 +250,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             target="_blank"
             rel="noopener noreferrer"
             scroll={true}
-            aria-label={`Go to /blog/${post?.slug}`}
+            aria-label={`Tweet about ${post?.title}`}
           >
             <Share2 className="h-5 w-5" />
           </Link>
@@ -260,7 +260,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       <div className="flex w-full max-w-sm flex-col">
         <h1 className="mb-4 text-2xl font-semibold">{post?.title}</h1>
 
-        <div className="relative aspect-video overflow-hidden rounded-md border-[1.5px] shadow-sm">
+        <div className="relative aspect-video overflow-hidden rounded-lg border-[1.5px] shadow-sm">
           <Image
             src={post?.thumbnail.url || Placeholder}
             alt={`Thumbnail of ${post?.title}`}

@@ -1,5 +1,7 @@
 import { createClient } from "@/supabase/server";
+
 import Image from "next/image";
+
 import Paragraph from "@/components/shared/paragraph";
 
 const GuestbookCard = ({
@@ -21,14 +23,14 @@ const GuestbookCard = ({
     const years = Math.floor(days / 365);
 
     const units = [
-      { value: years, singular: 'year', plural: 'years' },
-      { value: months, singular: 'month', plural: 'months' },
-      { value: days, singular: 'day', plural: 'days' },
-      { value: hours, singular: 'hour', plural: 'hours' },
-      { value: minutes, singular: 'minute', plural: 'minutes' }
+      { value: years, singular: "year", plural: "years" },
+      { value: months, singular: "month", plural: "months" },
+      { value: days, singular: "day", plural: "days" },
+      { value: hours, singular: "hour", plural: "hours" },
+      { value: minutes, singular: "minute", plural: "minutes" },
     ];
 
-    const unit = units.find(u => u.value > 0);
+    const unit = units.find((u) => u.value > 0);
     return unit
       ? `${unit.value} ${unit.value > 1 ? unit.plural : unit.singular} ago`
       : "just now";
@@ -74,22 +76,23 @@ const GuestbookSection = async () => {
     .limit(50);
 
   if (!guestbook?.length) {
-    return (
-      <Paragraph title="Be the first to leave a trace!" />
-    );
+    return <Paragraph title="Be the first to leave a trace!" />;
   }
 
-  const userIds = Array.from(new Set(guestbook.map((item) => item.user_id).filter(Boolean)));
+  const userIds = Array.from(
+    new Set(guestbook.map((item) => item.user_id).filter(Boolean)),
+  );
 
   const { data: users } = await supabase
     .from("profile")
     .select("*")
     .in("id", userIds);
 
-  const userMap = users?.reduce(
-    (acc, user) => ({ ...acc, [user.id]: user }),
-    {} as Record<string, { name: string | null; avatar_url: string | null }>
-  ) || {};
+  const userMap =
+    users?.reduce(
+      (acc, user) => ({ ...acc, [user.id]: user }),
+      {} as Record<string, { name: string | null; avatar_url: string | null }>,
+    ) || {};
 
   return (
     <div className="flex h-fit w-full max-w-sm flex-col gap-y-4">
