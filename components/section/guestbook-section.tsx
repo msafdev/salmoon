@@ -15,12 +15,16 @@ const GuestbookCard = ({
     const currentDate = new Date();
     const createdAtDate = new Date(timestamp);
     const timeDiff = currentDate.getTime() - createdAtDate.getTime();
-    const hoursDiff = Math.floor(timeDiff / (1000 * 60 * 60));
-    const daysDiff = Math.floor(hoursDiff / 24);
 
-    if (daysDiff > 1) return `${daysDiff} days ago`;
-    if (daysDiff === 1) return "yesterday";
-    if (hoursDiff > 0) return `${hoursDiff} hours ago`;
+    const hours = Math.floor(timeDiff / (1000 * 60 * 60));
+    const days = Math.floor(hours / 24);
+    const months = Math.floor(days / 30);
+    const years = Math.floor(days / 365);
+
+    if (years > 0) return `${years} year${years > 1 ? 's' : ''} ago`;
+    if (months > 0) return `${months} month${months > 1 ? 's' : ''} ago`;
+    if (days > 0) return `${days} day${days > 1 ? 's' : ''} ago`;
+    if (hours > 0) return `${hours} hour${hours > 1 ? 's' : ''} ago`;
     return "less than an hour ago";
   };
 
@@ -65,18 +69,7 @@ const GuestbookSection = async () => {
   if (!guestbook || guestbook.length === 0) {
     return (
       <div className="flex h-fit w-full max-w-sm flex-col gap-y-4">
-        {Array.from({ length: 6 }).map((_, index) => (
-          <div key={index} className="flex animate-pulse flex-col gap-y-3">
-            <div className="flex w-full items-center gap-x-4">
-              <div className="size-8 shrink-0 rounded-sm bg-muted" />
-              <div className="flex w-full flex-col justify-center gap-y-1 self-stretch py-[2px]">
-                <div className="h-3 w-1/2 rounded-sm bg-muted" />
-                <div className="h-3 w-1/3 rounded-sm bg-muted" />
-              </div>
-            </div>
-            <div className="h-[14px] w-full rounded-sm bg-muted md:h-[18px]" />
-          </div>
-        ))}
+        No entries yet
       </div>
     );
   }
