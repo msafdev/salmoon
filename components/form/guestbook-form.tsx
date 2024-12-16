@@ -2,7 +2,7 @@ import { githubSignIn, googleSignIn, signOut } from "@/supabase/functions";
 import Image from "next/image";
 import { User } from "@supabase/supabase-js";
 import Button from "@/components/shared/button";
-import ContentForm from "./content-form";
+import ContentForm from "@/components/form/content-form";
 
 const GuestbookForm = ({ user }: { user: User | null }) => {
   return (

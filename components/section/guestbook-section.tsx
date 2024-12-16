@@ -1,5 +1,6 @@
 import { createClient } from "@/supabase/server";
 import Image from "next/image";
+import Paragraph from "@/components/shared/paragraph";
 
 const GuestbookCard = ({
   content,
@@ -28,7 +29,7 @@ const GuestbookCard = ({
     ];
 
     const unit = units.find(u => u.value > 0);
-    return unit 
+    return unit
       ? `${unit.value} ${unit.value > 1 ? unit.plural : unit.singular} ago`
       : "just now";
   };
@@ -74,14 +75,12 @@ const GuestbookSection = async () => {
 
   if (!guestbook?.length) {
     return (
-      <div className="flex h-fit w-full max-w-sm flex-col gap-y-4">
-        No entries yet
-      </div>
+      <Paragraph title="Be the first to leave a trace!" />
     );
   }
 
   const userIds = Array.from(new Set(guestbook.map((item) => item.user_id).filter(Boolean)));
-  
+
   const { data: users } = await supabase
     .from("profile")
     .select("*")

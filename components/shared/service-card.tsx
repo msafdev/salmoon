@@ -1,4 +1,4 @@
-import Meteors from "../ui/meteor";
+import Meteors from "@/components/ui/meteor";
 
 const ServiceCard = ({
   title,

@@ -1,7 +1,7 @@
 import { Component, Terminal } from "lucide-react";
 
-import ServiceCard from "../shared/service-card";
-import ProfileSection from "./profile-section";
+import ServiceCard from "@/components/shared/service-card";
+import ProfileSection from "@/components/section/profile-section";
 
 const ServiceSection = () => {
   return (
