@@ -3,6 +3,7 @@ import { Metadata } from "next";
 import QuoteCard from "@/components/shared/cards/quote-card";
 import TrackCard from "@/components/shared/cards/track-card";
 import Paragraph from "@/components/shared/paragraph";
+
 import MovieSection from "@/components/section/movie-section";
 
 export const metadata: Metadata = {
