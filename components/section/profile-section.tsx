@@ -18,9 +18,9 @@ const ProfileSection = () => {
         />
 
         <div className="flex flex-col gap-y-2">
-          <h3 className="text-base font-semibold leading-none">
+          <h1 className="text-base font-semibold leading-none">
             Salman Alfarisi
-          </h3>
+          </h1>
           <p className="text-xs font-medium leading-none text-muted-foreground">
             Design Engineer{" "}
             <span className="hidden sm:inline-block">/ Full-Time Learner</span>

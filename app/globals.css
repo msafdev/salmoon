@@ -131,3 +131,12 @@
 .detail-text:has(span.active) span:not(.active) {
   color: hsl(var(--muted-foreground));
 }
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
