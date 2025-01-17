@@ -37,7 +37,7 @@ const ActionSection = () => {
           >
             Read.cv
           </Link>{" "}
-          or{" "}
+          and{" "}
           <Link
             href={"https://www.papermark.io/view/cm605w61700036su48609mo7h"}
             target="_blank"
