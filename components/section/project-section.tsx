@@ -6,7 +6,7 @@ import { recentProjects } from "@/lib/constants";
 const ProjectSection = () => {
   return (
     <div className="flex w-full max-w-sm flex-col gap-y-4">
-      <Paragraph title="Recently launched" link href="/archive" />
+      <Paragraph title="Side projects" link href="/archive" />
 
       <div className="flex w-full flex-col">
         {[...recentProjects].reverse().map((item, index) => (

@@ -29,7 +29,17 @@ const ActionSection = () => {
           </Link>
           , or check out how I'm doing on{" "}
           <Link
-            href={"https://papermark.io/view/cly0hd4dm00023b7qo9s5rn5i"}
+            href={"https://read.cv/msafdev"}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Read.cv"
+            className="anim underline underline-offset-2 hover:text-foreground active:text-foreground"
+          >
+            Read.cv
+          </Link>{" "}
+          or{" "}
+          <Link
+            href={"https://www.papermark.io/view/cm605w61700036su48609mo7h"}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Papermark"

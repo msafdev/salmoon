@@ -30,7 +30,7 @@ const Title = () => {
   };
 
   return (
-    <h1 className="cursor-default text-balance text-lg font-bold xs:text-xl sm:text-2xl">
+    <h1 className="cursor-default text-balance text-lg font-bold leading-tight xs:text-xl sm:text-2xl">
       {text.split(" ").map((word, wordIndex) => (
         <span
           key={wordIndex}

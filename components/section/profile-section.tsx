@@ -33,7 +33,7 @@ const ProfileSection = () => {
         my free time, I enjoy listening to music and exploring new places.
       </p>
 
-      <div className="group/map relative aspect-[4/3] h-auto w-full overflow-hidden rounded-xl border-[1.5px] bg-zinc-400 shadow-sm xs:aspect-video">
+      <div className="group/map relative aspect-[5/3] h-auto w-full overflow-hidden rounded-xl border-[1.5px] bg-zinc-400 shadow-sm xs:aspect-video">
         <Image
           src={Map}
           alt="Map of Semarang, Indonesia"
