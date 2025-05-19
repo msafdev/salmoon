@@ -62,9 +62,9 @@ export default function Page() {
         </p>
       </Paragraph>
 
-      <div className="flex w-full max-w-sm flex-col gap-y-4">
+      <div className="flex w-full max-w-lg flex-col gap-y-4">
         <Paragraph title="Have fun" />
-        <div className="grid w-full max-w-sm grid-flow-dense gap-6 sm:grid-cols-2">
+        <div className="grid w-full max-w-lg grid-flow-dense gap-6 sm:grid-cols-2">
           {COMPONENTS.map((component, index) => (
             <LabCard
               key={index}

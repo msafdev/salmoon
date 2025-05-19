@@ -29,7 +29,7 @@ export default async function Page() {
           have grown as a person.
         </p>
       </Paragraph>
-      <div className="flex w-full max-w-sm flex-col items-center gap-y-6">
+      <div className="flex w-full max-w-lg flex-col items-center gap-y-6">
         <Paragraph title="What i wrote" link href="/blog" />
         <div className="grid w-full grid-cols-1 gap-3 sm:grid-cols-2">
           {recentPosts &&
@@ -46,7 +46,7 @@ export default async function Page() {
               ))}
         </div>
       </div>
-      <div className="flex w-full max-w-sm flex-col items-center gap-y-4">
+      <div className="flex w-full max-w-lg flex-col items-center gap-y-4">
         <Paragraph title="Career path">
           <p>
             Beside working as a freelance developer, I have pursued various
@@ -63,7 +63,7 @@ export default async function Page() {
           ))}
         </div>
       </div>
-      <div className="flex w-full max-w-sm flex-col items-center gap-y-4">
+      <div className="flex w-full max-w-lg flex-col items-center gap-y-4">
         <Paragraph title="Side projects" />
         <div className="flex w-full flex-col">
           {projectItems.reverse().map((item, index) => (
@@ -71,7 +71,7 @@ export default async function Page() {
           ))}
         </div>
       </div>
-      <div className="flex w-full max-w-sm flex-col items-center gap-y-4">
+      <div className="flex w-full max-w-lg flex-col items-center gap-y-4">
         <Paragraph title="Free templates" />
         <div className="flex w-full flex-col">
           {templateItems.map((item, index) => (

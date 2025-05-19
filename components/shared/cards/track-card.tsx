@@ -28,7 +28,7 @@ const TrackCard = async () => {
           </div>
           <div className="flex flex-col gap-y-1">
             <h3 className="line-clamp-1 text-sm font-semibold">{track.name}</h3>
-            <p className="line-clamp-1 text-xs text-muted-foreground">
+            <p className="line-clamp-1 text-sm text-muted-foreground">
               {track.artists[0].name}
             </p>
           </div>

@@ -34,7 +34,7 @@ const StackedAvatar = () => {
             <AvatarFallback className="rounded-full">
               {profile.fallback}
             </AvatarFallback>
-            <code className="absolute -bottom-5 left-1/2 z-10 -translate-x-1/2 text-xs text-accent-foreground underline underline-offset-2 opacity-0 transition-all duration-300 ease-in-out group-hover/avatar:opacity-100">
+            <code className="absolute -bottom-5 left-1/2 z-10 -translate-x-1/2 text-sm text-accent-foreground underline underline-offset-2 opacity-0 transition-all duration-300 ease-in-out group-hover/avatar:opacity-100">
               {profile.username}
             </code>
           </Avatar>

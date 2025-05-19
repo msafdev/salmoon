@@ -26,7 +26,7 @@ const BlogCard = ({
     <Link
       href={`/blog/${slug}`}
       className={cn(
-        "anim group/blog grid w-full grid-cols-2 gap-2 text-xs sm:text-sm",
+        "anim group/blog grid w-full grid-cols-2 gap-2 text-sm sm:text-sm",
         className,
       )}
     >
@@ -42,7 +42,7 @@ const BlogCard = ({
         <h3 className="anim line-clamp-1 font-semibold text-foreground group-hover/blog:text-accent-foreground">
           {title}
         </h3>
-        <p className="anim font-mono text-xs text-muted-foreground">
+        <p className="anim font-mono text-sm text-muted-foreground">
           {formatDate(createdAt)}
         </p>
       </div>

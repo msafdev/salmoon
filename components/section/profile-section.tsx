@@ -1,50 +1,69 @@
 import Image from "next/image";
 
-import Ava from "@/public/assets/ava.webp";
+import { Profile } from "@/components/shared/profile";
+
 import Map from "@/public/assets/map.webp";
 
 const ProfileSection = () => {
   return (
-    <div className="flex w-full max-w-sm flex-col items-center gap-y-4">
-      <div className="flex w-full items-center gap-x-4">
-        <Image
-          src={Ava}
-          alt="Avatar of Salman"
-          placeholder="blur"
-          quality={75}
-          width={40}
-          height={40}
-          className="overflow-hidden rounded-xl border object-cover"
-        />
+    <div className="flex w-full max-w-lg flex-col items-center gap-y-4">
+      <div className="flex w-full flex-col gap-y-4">
+        <Profile />
 
-        <div className="flex flex-col gap-y-2">
-          <h1 className="text-base font-semibold leading-none">
-            Salman Alfarisi
-          </h1>
-          <p className="text-xs font-medium leading-none text-muted-foreground">
-            Design Engineer{" "}
-            <span className="hidden sm:inline-block">/ Full-Time Learner</span>
+        <div className="flex flex-col gap-y-1 md:gap-y-0">
+          <div className="flex items-center gap-x-2">
+            <h1 className="text-base font-semibold leading-none md:text-lg">
+              Salman Alfarisi
+            </h1>
+
+            <CheckmarkIcon />
+          </div>
+          <p className="text-xs font-medium leading-none text-muted-foreground md:text-sm">
+            Fullstack Engineer
           </p>
         </div>
       </div>
 
-      <p className="w-full text-xs text-muted-foreground md:text-sm">
-        I am a design engineer based in Indonesia, specifically in Semarang. In
-        my free time, I enjoy listening to music and exploring new places.
+      <p className="w-full text-base font-medium text-muted-foreground md:text-lg">
+        I am a fullstack engineer based in{" "}
+        <span className="text-foreground">Indonesia</span>, specifically in
+        Semarang. In my free time, I enjoy listening to music and exploring new
+        places.
       </p>
 
-      <div className="group/map relative aspect-[5/3] h-auto w-full overflow-hidden rounded-xl border-[1.5px] bg-zinc-400 shadow-sm xs:aspect-video">
-        <Image
-          src={Map}
-          alt="Map of Semarang, Indonesia"
-          fill
-          className="anim object-cover group-hover/map:scale-100 dark:grayscale"
-          quality={60}
-          placeholder="blur"
-        />
+      <div className="aspect-[5/3] w-full rounded-[16px] border-2 border-dashed p-2">
+        <div className="group/map relative h-full w-full overflow-hidden rounded-[8px] bg-muted">
+          <Image
+            src={Map}
+            alt="Map of Semarang, Indonesia"
+            fill
+            className="anim object-cover group-hover/map:scale-100 dark:grayscale"
+            quality={60}
+            placeholder="blur"
+          />
+        </div>
       </div>
     </div>
   );
 };
 
 export default ProfileSection;
+
+const CheckmarkIcon = () => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="#1db7f9"
+      stroke="hsl(var(--background))"
+      stroke-width="1.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+      <path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z" />
+      <path d="m9 12 2 2 4-4" />
+    </svg>
+  );
+};

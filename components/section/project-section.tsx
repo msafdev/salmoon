@@ -5,7 +5,7 @@ import { recentProjects } from "@/lib/constants";
 
 const ProjectSection = () => {
   return (
-    <div className="flex w-full max-w-sm flex-col gap-y-4">
+    <div className="flex w-full max-w-lg flex-col gap-y-4">
       <Paragraph title="Side projects" link href="/archive" />
 
       <div className="flex w-full flex-col">

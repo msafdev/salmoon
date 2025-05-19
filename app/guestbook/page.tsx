@@ -21,7 +21,7 @@ const GuestbookSection = dynamic(
   {
     ssr: false,
     loading: () => (
-      <div className="flex h-fit w-full max-w-sm flex-col gap-y-4">
+      <div className="flex h-fit w-full max-w-lg flex-col gap-y-4">
         {Array.from({ length: 6 }).map((_, index) => (
           <div key={index} className="flex animate-pulse flex-col gap-y-3">
             <div className="flex w-full items-center gap-x-4">
@@ -64,7 +64,7 @@ const Page = async () => {
       </div>
       <Suspense
         fallback={
-          <div className="flex h-fit w-full max-w-sm flex-col gap-y-4">
+          <div className="flex h-fit w-full max-w-lg flex-col gap-y-4">
             {Array.from({ length: 6 }).map((_, index) => (
               <div key={index} className="flex animate-pulse flex-col gap-y-3">
                 <div className="flex w-full items-center gap-x-4">

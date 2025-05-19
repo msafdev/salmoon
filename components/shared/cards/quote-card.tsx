@@ -31,7 +31,7 @@ const QuoteCard = () => {
   };
 
   return (
-    <div className="flex w-full max-w-sm flex-col items-center gap-y-4">
+    <div className="flex w-full max-w-lg flex-col items-center gap-y-4">
       <div className="flex h-8 w-full items-center justify-between gap-x-4">
         <h2 className="text-base font-semibold">Word for word</h2>
         <Button
@@ -56,7 +56,7 @@ const QuoteCard = () => {
               className="flex flex-col gap-y-2"
             >
               <p className="text-sm font-medium">{item.quote}</p>
-              <code className="text-xs font-normal text-muted-foreground">
+              <code className="text-sm font-normal text-muted-foreground">
                 {item.author}
               </code>
             </motion.blockquote>

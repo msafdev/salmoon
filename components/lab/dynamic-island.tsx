@@ -102,7 +102,7 @@ const DynamicIsland = () => {
                 <p className="text-[10px] font-medium text-muted-foreground">
                   iPhone
                 </p>
-                <p className="text-xs font-semibold text-primary-foreground">
+                <p className="text-sm font-semibold text-primary-foreground">
                   User's
                 </p>
               </div>

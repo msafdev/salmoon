@@ -50,7 +50,7 @@ const AvatarStatus = () => {
       </Avatar>
       <motion.div
         variants={badgeMotion}
-        className="absolute bottom-0 left-8 flex items-center justify-center overflow-hidden rounded-full border-2 border-background bg-green-500 text-xs font-medium text-white"
+        className="absolute bottom-0 left-8 flex items-center justify-center overflow-hidden rounded-full border-2 border-background bg-green-500 text-sm font-medium text-white"
       >
         <motion.span variants={textMotion} className="text-[10px]">
           Online

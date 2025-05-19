@@ -47,7 +47,7 @@ const Timeline = () => {
             />
             {isSelect && (
               <motion.code
-                className={`absolute -top-5 left-1/2 -translate-x-1/2 text-xs text-foreground transition-all duration-200 ease-in-out group-hover/timeline:-top-6`}
+                className={`absolute -top-5 left-1/2 -translate-x-1/2 text-sm text-foreground transition-all duration-200 ease-in-out group-hover/timeline:-top-6`}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 0.6 }}
                 transition={{ duration: 0.2, delay: 0.3, ease: "easeInOut" }}

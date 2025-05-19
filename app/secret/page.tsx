@@ -24,7 +24,7 @@ export default async function Page() {
         </p>
       </Paragraph>
       <QuoteCard />
-      <div className="flex w-full max-w-sm flex-col gap-y-4">
+      <div className="flex w-full max-w-lg flex-col gap-y-4">
         <Paragraph title="Top Tracks">
           <p>
             I listen to a lot of music, and I like to keep track of the songs
@@ -33,7 +33,7 @@ export default async function Page() {
         </Paragraph>
         <TrackCard />
       </div>
-      <div className="flex w-full max-w-sm flex-col gap-y-4">
+      <div className="flex w-full max-w-lg flex-col gap-y-4">
         <Paragraph title="Top Movies">
           <p>
             Movies have a way of transporting us to different worlds, making us

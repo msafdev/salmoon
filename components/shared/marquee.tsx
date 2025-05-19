@@ -16,8 +16,8 @@ const Marquee = () => {
           >
             {skillItems.map((item, index) => (
               <div key={index} className="flex items-center gap-x-2">
-                <Image src={item.icon} alt={item.name} width={16} height={16} />
-                <p className="text-sm leading-none text-muted-foreground">
+                <Image src={item.icon} alt={item.name} width={20} height={20} />
+                <p className="text-base leading-none text-muted-foreground">
                   {item.name}
                 </p>
               </div>

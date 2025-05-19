@@ -35,7 +35,7 @@ const MovieCard = ({ title, url }: { title: string; url: string }) => {
           className="object-cover grayscale duration-700 group-hover:grayscale-0"
         />
       </Tilt>
-      <h3 className="font-mono text-xs font-medium leading-none text-foreground sm:text-sm sm:leading-none">
+      <h3 className="font-mono text-sm font-medium leading-none text-foreground sm:text-sm sm:leading-none">
         {title}
       </h3>
     </div>

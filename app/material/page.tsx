@@ -26,13 +26,13 @@ const Page = () => {
           use and recommend.
         </p>
       </Paragraph>
-      <div className="flex w-full max-w-sm flex-col gap-y-4">
+      <div className="flex w-full max-w-lg flex-col gap-y-4">
         <h2 className="text-base font-semibold">Workstation</h2>
         <ul className="flex flex-col gap-y-3">
           {toolItems.map((item, index) => (
             <li
               key={index}
-              className="flex items-center gap-x-3 text-xs sm:text-sm"
+              className="flex items-center gap-x-3 text-sm sm:text-sm"
             >
               <p className="text-muted-foreground">{item.category}</p>
               <MoveRight className="size-3 text-foreground" />
@@ -41,11 +41,11 @@ const Page = () => {
           ))}
         </ul>
       </div>
-      <div className="flex w-full max-w-sm flex-col gap-y-4">
+      <div className="flex w-full max-w-lg flex-col gap-y-4">
         <h2 className="text-base font-semibold">Inspiration</h2>
         <ul className="flex flex-col gap-y-2">
           {inspoItems.map((item, index) => (
-            <li key={index} className="flex items-start text-xs sm:text-sm">
+            <li key={index} className="flex items-start text-sm sm:text-sm">
               <div className="flex items-center">
                 <p className="text-muted-foreground">{item.category}</p>
                 <MoveRight className="mx-3 size-3 text-foreground" />
@@ -72,7 +72,7 @@ const Page = () => {
           ))}
         </ul>
       </div>
-      <div className="flex w-full max-w-sm flex-col gap-y-3">
+      <div className="flex w-full max-w-lg flex-col gap-y-3">
         <h2 className="text-base font-semibold">Resources</h2>
         <div className="flex flex-col">
           {resourceItems.map((item, index) => (
@@ -85,7 +85,7 @@ const Page = () => {
               className="group/bookmark flex items-center gap-x-3 py-1"
             >
               <MoveRight className="text-foreground" size={12} />
-              <p className="anim w-full pr-5 text-xs text-muted-foreground group-hover/bookmark:text-foreground sm:text-sm">
+              <p className="anim w-full pr-5 text-sm text-muted-foreground group-hover/bookmark:text-foreground sm:text-sm">
                 {item.title}
               </p>
             </Link>

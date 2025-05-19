@@ -17,7 +17,7 @@ const GuestbookForm = ({ user }: { user: User | null }) => {
           <form action={signOut}>
             <button
               type="submit"
-              className="text-xs text-muted-foreground hover:text-foreground md:text-sm"
+              className="text-sm text-muted-foreground hover:text-foreground md:text-base"
             >
               Sign out
             </button>

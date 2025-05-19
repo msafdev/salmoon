@@ -34,14 +34,14 @@ const AltBlogCard = ({
     <Link
       href={`/blog/${slug}`}
       className={cn(
-        "anim group/blog flex w-full items-center justify-between py-1 text-xs sm:text-sm",
+        "anim group/blog flex w-full items-center justify-between py-1 text-sm sm:text-sm",
         className,
       )}
     >
-      <p className="anim hidden font-mono text-xs text-muted-foreground xs:block">
+      <p className="anim hidden font-mono text-sm text-muted-foreground xs:block">
         {formatDate(createdAt)}
       </p>
-      <p className="anim block font-mono text-xs text-muted-foreground xs:hidden">
+      <p className="anim block font-mono text-sm text-muted-foreground xs:hidden">
         {altFormatDate(createdAt)}
       </p>
       <h3 className="anim line-clamp-1 pr-0 font-semibold text-foreground group-hover/blog:pr-3">

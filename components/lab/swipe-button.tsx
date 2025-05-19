@@ -92,7 +92,7 @@ const SwipeButton = () => {
       </motion.div>
       <motion.div
         variants={textVariants}
-        className="translate-x-5 text-xs font-medium text-popover-foreground"
+        className="translate-x-5 text-sm font-medium text-popover-foreground"
       >
         Book a demo
       </motion.div>

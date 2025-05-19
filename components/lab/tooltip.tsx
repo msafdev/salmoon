@@ -27,7 +27,7 @@ const Tooltip = () => {
           <p className="text-sm font-medium leading-none text-foreground">
             @msafdev
           </p>
-          <p className="text-xs leading-none text-muted-foreground">
+          <p className="text-sm leading-none text-muted-foreground">
             msaf.tech
           </p>
         </div>
@@ -50,7 +50,7 @@ const Tooltip = () => {
           <Button
             variant={"ghost"}
             size={"sm"}
-            className="h-8 justify-start text-xs text-muted-foreground hover:text-foreground"
+            className="h-8 justify-start text-sm text-muted-foreground hover:text-foreground"
           >
             Edit Profile
             <VenetianMask className="ml-auto h-3 w-3" />
@@ -58,7 +58,7 @@ const Tooltip = () => {
           <Button
             variant={"ghost"}
             size={"sm"}
-            className="h-8 justify-start text-xs text-muted-foreground hover:text-foreground"
+            className="h-8 justify-start text-sm text-muted-foreground hover:text-foreground"
           >
             Account Settings
             <Lock className="ml-auto h-3 w-3" />
@@ -69,7 +69,7 @@ const Tooltip = () => {
           <Button
             variant={"ghost"}
             size={"sm"}
-            className="h-8 justify-start text-xs text-muted-foreground hover:text-foreground"
+            className="h-8 justify-start text-sm text-muted-foreground hover:text-foreground"
           >
             Home Page
             <Triangle className="ml-auto h-3 w-3" />
@@ -77,7 +77,7 @@ const Tooltip = () => {
           <Button
             variant={"ghost"}
             size={"sm"}
-            className="h-8 justify-start text-xs text-red-400 hover:bg-red-50 hover:text-red-500 dark:hover:bg-red-400/20"
+            className="h-8 justify-start text-sm text-red-400 hover:bg-red-50 hover:text-red-500 dark:hover:bg-red-400/20"
           >
             Delete Account
           </Button>

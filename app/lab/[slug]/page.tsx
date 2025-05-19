@@ -42,8 +42,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
       id={`lab-${item?.slug}`}
       className="flex h-auto w-full grow flex-col items-center gap-y-16 md:gap-y-20 lg:gap-y-24"
     >
-      <div className="flex w-full max-w-sm flex-col gap-y-10 md:gap-y-12 lg:gap-y-16">
-        <div className="flex w-full max-w-sm items-center justify-between">
+      <div className="flex w-full max-w-lg flex-col gap-y-10 md:gap-y-12 lg:gap-y-16">
+        <div className="flex w-full max-w-lg items-center justify-between">
           <Link
             href={`/lab`}
             scroll={true}
@@ -51,7 +51,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             className="anim flex items-center gap-x-2 text-muted-foreground hover:text-foreground"
           >
             <MoveLeft className="h-5 w-5" />
-            <p className="text-xs font-medium md:text-sm">back to lab</p>
+            <p className="text-sm font-medium md:text-base">back to lab</p>
           </Link>
           <Button
             variant="ghost"
@@ -71,7 +71,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           </Button>
         </div>
 
-        <div className="flex w-full max-w-sm flex-col gap-y-4">
+        <div className="flex w-full max-w-lg flex-col gap-y-4">
           <Paragraph title={`${item?.name}`} />
           <LabCard gridClass="default-card" className="min-h-72">
             <item.child />
@@ -79,35 +79,35 @@ export default async function Page({ params }: { params: { slug: string } }) {
         </div>
 
         {uiLibrary && (
-          <div className="flex w-full max-w-sm flex-col gap-y-4">
+          <div className="flex w-full max-w-lg flex-col gap-y-4">
             <Paragraph title="Library setup" />
-            <div className="h-fit w-full max-w-sm rounded-xl border p-2">
+            <div className="h-fit w-full max-w-lg rounded-xl border p-2">
               <Code code={uiLibrary} lang="bash" />
             </div>
           </div>
         )}
 
         {cssClass && (
-          <div className="flex w-full max-w-sm flex-col gap-y-4">
+          <div className="flex w-full max-w-lg flex-col gap-y-4">
             <Paragraph title="CSS setup" />
-            <div className="h-fit w-full max-w-sm rounded-xl border p-2">
+            <div className="h-fit w-full max-w-lg rounded-xl border p-2">
               <Code code={cssClass} lang="css" />
             </div>
           </div>
         )}
 
         {twConfig && (
-          <div className="flex w-full max-w-sm flex-col gap-y-4">
+          <div className="flex w-full max-w-lg flex-col gap-y-4">
             <Paragraph title="Tailwind setup" />
-            <div className="h-fit w-full max-w-sm rounded-xl border p-2">
+            <div className="h-fit w-full max-w-lg rounded-xl border p-2">
               <Code code={twConfig} lang="json" />
             </div>
           </div>
         )}
 
-        <div className="flex w-full max-w-sm flex-col gap-y-4">
+        <div className="flex w-full max-w-lg flex-col gap-y-4">
           <Paragraph title="Code" />
-          <div className="h-fit w-full max-w-sm rounded-xl border p-2">
+          <div className="h-fit w-full max-w-lg rounded-xl border p-2">
             <Code code={code} />
           </div>
         </div>

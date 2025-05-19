@@ -72,19 +72,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        <script
-          defer
-          src="https://cloud.umami.is/script.js"
-          data-website-id="2ecdc32f-b640-431d-acb9-8928bd759ed7"
-        ></script>
-      </head>
       <body className={manrope.className}>
         <SpeedInsights />
         <Analytics />
         <ThemeProvider
           attribute="class"
-          defaultTheme="dark"
           enableSystem
           disableTransitionOnChange
         >

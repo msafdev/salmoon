@@ -22,7 +22,7 @@ const ServiceCard = ({
           <p className="mb-1 hidden text-sm font-medium text-foreground xs:block">
             {title}
           </p>
-          <p className="line-clamp-3 text-xs text-muted-foreground">
+          <p className="line-clamp-3 text-sm text-muted-foreground">
             {description}
           </p>
         </div>

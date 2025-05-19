@@ -113,7 +113,7 @@ const EmailDetail = () => {
           >
             <motion.p
               key={activeValue}
-              className="translate-y-full text-center text-xs font-medium text-muted-foreground"
+              className="translate-y-full text-center text-sm font-medium text-muted-foreground"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}

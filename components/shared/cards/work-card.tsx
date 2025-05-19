@@ -14,7 +14,7 @@ const WorkCard = ({
   return (
     <div
       className={cn(
-        "anim group/work flex w-full flex-col gap-y-0.5 rounded-md bg-background py-2 text-xs sm:text-sm",
+        "anim group/work flex w-full flex-col gap-y-0.5 rounded-md bg-background py-2 text-sm sm:text-sm",
         className,
       )}
     >
@@ -22,10 +22,10 @@ const WorkCard = ({
         {company}
       </h3>
       <div className="flex w-full items-center justify-between gap-x-4">
-        <p className="anim line-clamp-1 text-xs font-medium text-muted-foreground">
+        <p className="anim line-clamp-1 text-sm font-medium text-muted-foreground">
           {title}
         </p>
-        <p className="anim line-clamp-1 font-mono text-xs text-muted-foreground">
+        <p className="anim line-clamp-1 font-mono text-sm text-muted-foreground">
           {duration}
         </p>
       </div>

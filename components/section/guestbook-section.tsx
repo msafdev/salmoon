@@ -37,31 +37,31 @@ const GuestbookCard = ({
   };
 
   return (
-    <div className="group/guestbook relative flex flex-col gap-y-3">
+    <div className="group/guestbook relative flex flex-col gap-y-2">
       <div className="flex w-full items-center gap-x-4">
         {user?.avatar_url && (
           <Image
             src={user.avatar_url}
             alt={user.name || "User avatar"}
-            width={32}
-            height={32}
+            width={36}
+            height={36}
             className="rounded-sm bg-muted object-cover"
             loading="lazy"
             typeof="image/webp"
           />
         )}
         <div className="flex flex-col">
-          <p className="min-h-4 text-xs font-semibold md:min-h-5 md:text-sm">
+          <p className="min-h-4 text-sm font-semibold md:min-h-5 md:text-sm">
             {user?.name}
           </p>
           <div className="flex items-center gap-x-2">
-            <p className="text-xs text-muted-foreground">
+            <span className="text-xs text-muted-foreground">
               {formatTimestamp(createdAt)}
-            </p>
+            </span>
           </div>
         </div>
       </div>
-      <p className="text-sm leading-none">{content}</p>
+      <p className="text-sm font-medium">{content}</p>
     </div>
   );
 };
@@ -95,7 +95,7 @@ const GuestbookSection = async () => {
     ) || {};
 
   return (
-    <div className="flex h-fit w-full max-w-sm flex-col gap-y-4">
+    <div className="flex h-fit w-full max-w-lg flex-col gap-y-6">
       {guestbook.map((item) => (
         <GuestbookCard
           key={item.id}

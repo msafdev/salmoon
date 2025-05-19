@@ -177,7 +177,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
         case "paragraph":
           return (
             <p
-              className="mb-4 text-xs text-muted-foreground md:text-sm"
+              className="mb-4 text-sm text-muted-foreground md:text-base"
               key={index}
             >
               {renderInlineStyles(child.children)}
@@ -186,7 +186,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
         case "block-quote":
           return (
             <blockquote
-              className="mb-4 border-l-2 border-primary px-4 py-1 text-xs font-medium italic text-muted-foreground md:text-sm"
+              className="mb-4 border-l-2 border-primary px-4 py-1 text-sm font-medium italic text-muted-foreground md:text-base"
               key={index}
             >
               {child.children[0].text}
@@ -197,7 +197,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           return (
             <div
               key={index}
-              className="mb-4 h-fit w-full max-w-sm rounded-xl border p-2"
+              className="mb-4 h-fit w-full max-w-lg rounded-xl border p-2"
             >
               <Code code={code} lang={lang as BundledLanguage} />
             </div>
@@ -206,7 +206,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           return (
             <div
               key={index}
-              className="mb-4 aspect-auto max-w-sm overflow-hidden rounded-lg border-[1.5px] shadow-sm"
+              className="mb-4 aspect-auto max-w-lg overflow-hidden rounded-lg border-[1.5px] shadow-sm"
             >
               <Image
                 src={child.src || ""}
@@ -229,7 +229,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       id={`${post?.slug}`}
       className="flex h-auto w-full grow flex-col items-center gap-y-16 md:gap-y-20 lg:gap-y-24"
     >
-      <div className="flex w-full max-w-sm items-center justify-between">
+      <div className="flex w-full max-w-lg items-center justify-between">
         <Link
           href={`/blog`}
           scroll={true}
@@ -237,7 +237,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           className="anim flex items-center gap-x-2 text-muted-foreground hover:text-foreground"
         >
           <MoveLeft className="h-5 w-5" />
-          <p className="text-xs font-medium md:text-sm">back to blog</p>
+          <p className="text-sm font-medium md:text-base">back to blog</p>
         </Link>
         <Button
           variant="ghost"
@@ -257,7 +257,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
         </Button>
       </div>
 
-      <div className="flex w-full max-w-sm flex-col">
+      <div className="flex w-full max-w-lg flex-col">
         <h1 className="mb-4 text-2xl font-semibold">{post?.title}</h1>
 
         <div className="relative aspect-video overflow-hidden rounded-lg border-[1.5px] shadow-sm">
@@ -274,7 +274,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       </div>
 
       {post?.updatedAt && (
-        <div className="flex w-full max-w-sm items-center justify-end">
+        <div className="flex w-full max-w-lg items-center justify-end">
           <p className="text-sm text-foreground">
             Last updated on {formatDate(post.updatedAt)}
           </p>

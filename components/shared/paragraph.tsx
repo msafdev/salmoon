@@ -20,10 +20,12 @@ const Paragraph = ({
   href?: string;
 }) => {
   return (
-    <div className="flex w-full max-w-sm flex-col gap-y-4">
+    <div className="flex w-full max-w-lg flex-col gap-y-2">
       <div className="flex w-full flex-col">
         <div className="flex h-8 w-full items-center justify-between gap-x-4">
-          <h2 className="text-base font-semibold">{title}</h2>
+          <h2 className="text-sm font-semibold uppercase text-foreground md:text-sm">
+            {title}
+          </h2>
           {link && (
             <Button size={"icon"} variant={"ghost"} className="size-8">
               <Link
@@ -48,7 +50,7 @@ const Paragraph = ({
         )}
       </div>
       {children && (
-        <div className="flex flex-col gap-y-4 text-xs text-muted-foreground md:text-sm">
+        <div className="flex flex-col gap-y-4 text-base font-medium text-muted-foreground md:text-lg">
           {children}
         </div>
       )}

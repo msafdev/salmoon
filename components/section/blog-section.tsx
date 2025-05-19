@@ -36,7 +36,7 @@ const BlogSection = ({ items }: { items: Edge[] | undefined }) => {
   return (
     <motion.div className="flex w-full flex-col gap-y-5">
       <div className="flex flex-col gap-x-3 gap-y-2">
-        <p className="text-sm font-semibold text-foreground md:text-sm">
+        <p className="text-sm font-semibold text-foreground md:text-base">
           Filter by
         </p>
         <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
@@ -48,7 +48,7 @@ const BlogSection = ({ items }: { items: Edge[] | undefined }) => {
                 selectedCategory === category
                   ? "text-foreground"
                   : "text-muted-foreground hover:text-foreground"
-              } md:text-sm`}
+              } md:text-base`}
             >
               {category === "uiux" ? "ui/ux" : category}
             </div>
@@ -69,7 +69,7 @@ const BlogSection = ({ items }: { items: Edge[] | undefined }) => {
                   slug={item.node.slug}
                   title={item.node.title}
                   createdAt={item.node.createdAt}
-                  className="text-xs sm:text-sm"
+                  className="text-sm sm:text-sm"
                 />
               </motion.div>
             ))}

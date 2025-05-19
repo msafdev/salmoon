@@ -106,7 +106,7 @@ const ChatBubble = () => {
                     : "bg-gray-200 text-gray-700"
                 }`}
               >
-                <span className="text-xs font-medium leading-none">
+                <span className="text-sm font-medium leading-none">
                   {message.message}
                 </span>
               </div>
