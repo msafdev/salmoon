@@ -10,10 +10,11 @@ import Link from "next/link";
 
 import { useToast } from "@/components/ui/use-toast";
 
+import { Magnetic } from "@/components/motion/magnetic";
+
 import { copyToClipboard } from "@/lib/utils";
 
 import { Button } from "../ui/button";
-import { Magnetic } from "@/components/motion/magnetic";
 
 const licorice = Licorice({
   subsets: ["latin"],
@@ -85,6 +86,7 @@ const Footer = () => {
                 className="text-white hover:bg-zinc-800 hover:text-white"
               >
                 <Link href={"/guestbook"} aria-label="My Guestbook">
+                  <span className="sr-only">Leave a mark on /guestbook</span>
                   guestbook
                 </Link>
               </Button>
@@ -93,7 +95,7 @@ const Footer = () => {
         </div>
 
         <div className="flex w-full flex-col-reverse items-center gap-x-8 gap-y-12 md:flex-row md:items-end">
-          <p className="font-mono text-sm text-primary-foreground/60 dark:text-primary/60 md:text-left text-center">
+          <p className="text-center font-mono text-sm text-primary-foreground/60 dark:text-primary/60 md:text-left">
             &copy; 2024 msaf. All rights reserved.
             <br />
             Icons by{" "}
@@ -112,7 +114,7 @@ const Footer = () => {
             <h2 className="text-center font-mono font-semibold uppercase text-primary-foreground dark:text-primary md:text-right">
               Actions
             </h2>
-            <div className="flex flex-col items-center gap-y-1 text-center font-medium text-sm text-muted-foreground md:items-end md:text-right">
+            <div className="flex flex-col items-center gap-y-1 text-center text-sm font-medium text-muted-foreground md:items-end md:text-right">
               <button
                 className="anim w-fit hover:text-primary-foreground dark:hover:text-primary"
                 onClick={scrollToTop}
@@ -139,7 +141,7 @@ const Footer = () => {
             <h2 className="text-center font-mono font-semibold uppercase text-primary-foreground dark:text-primary md:text-right">
               Misc
             </h2>
-            <div className="flex flex-col gap-y-1 text-center font-medium text-sm text-muted-foreground md:text-right">
+            <div className="flex flex-col gap-y-1 text-center text-sm font-medium text-muted-foreground md:text-right">
               <Link
                 href={"/secret"}
                 className="anim hover:text-primary-foreground dark:hover:text-primary"

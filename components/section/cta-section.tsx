@@ -10,9 +10,10 @@ const ActionSection = () => {
           Leave a mark{" "}
           <Link
             href="/guestbook"
-            aria-label="Guestbook"
+            aria-label="Leave a mark on /guestbook"
             className="anim underline underline-offset-2 hover:text-foreground active:text-foreground"
           >
+            <span className="sr-only">Leave a mark on /guestbook</span>
             here
           </Link>
           , view my code on{" "}
@@ -23,6 +24,7 @@ const ActionSection = () => {
             aria-label="Github"
             className="anim underline underline-offset-2 hover:text-foreground active:text-foreground"
           >
+            <span className="sr-only">My GitHub</span>
             Github
           </Link>
           , or check out how I'm doing on{" "}
@@ -33,6 +35,7 @@ const ActionSection = () => {
             aria-label="Read.cv"
             className="anim underline underline-offset-2 hover:text-foreground active:text-foreground"
           >
+            <span className="sr-only">My Read.cv</span>
             Read.cv
           </Link>
           .
