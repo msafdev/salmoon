@@ -3,7 +3,9 @@
 import { motion } from "framer-motion";
 import { X } from "lucide-react";
 
-import { useMemo } from "react";
+import { memo } from "react";
+
+import Image from "next/image";
 
 import {
   MorphingDialog,
@@ -23,7 +25,28 @@ const transition = {
   damping: 20,
 };
 
-const PlaceCard = ({ item }: { item: (typeof placeItems)[number] }) => (
+const sharedImageClass =
+  "aspect-square rounded-lg border-2 bg-border object-cover text-transparent shadow-md dark:border-border";
+
+const MobilePlaceCard = memo(
+  ({ item }: { item: (typeof placeItems)[number] }) => (
+    <div style={{ rotate: `${item.rotation}deg` }} className="flex-shrink-0">
+      <div
+        className={`${sharedImageClass} relative w-[24vw] min-w-16 max-w-24 overflow-hidden xs:w-28`}
+      >
+        <Image
+          src={item.src}
+          alt={`Image of place ${item.id}`}
+          fill
+          quality={70}
+          loading="lazy"
+        />
+      </div>
+    </div>
+  ),
+);
+
+const PlaceCard = memo(({ item }: { item: (typeof placeItems)[number] }) => (
   <motion.div
     initial={{ rotate: item.rotation }}
     whileHover={{ rotate: 0, scale: 1.05 }}
@@ -35,7 +58,7 @@ const PlaceCard = ({ item }: { item: (typeof placeItems)[number] }) => (
         <MorphingDialogImage
           src={item.src}
           alt={`Image of place ${item.id}`}
-          className="aspect-square w-20 min-w-16 rounded-lg border-2 bg-border object-cover text-transparent shadow-md dark:border-border sm:w-32"
+          className={`${sharedImageClass} w-32`}
         />
       </MorphingDialogTrigger>
       <MorphingDialogContainer>
@@ -52,21 +75,19 @@ const PlaceCard = ({ item }: { item: (typeof placeItems)[number] }) => (
       </MorphingDialogContainer>
     </MorphingDialog>
   </motion.div>
-);
+));
 
 const Places = () => {
   const { isDesktop, isMounted } = useIsDesktop(640);
+  if (!isMounted) return null;
 
-  const itemsToRender = useMemo(() => {
-    if (!isMounted) return [];
-    return isDesktop ? placeItems : placeItems.slice(0, 3);
-  }, [isDesktop, isMounted]);
+  const RenderedCard = isDesktop ? PlaceCard : MobilePlaceCard;
 
   return (
     <div className="relative mt-4 w-full max-w-full">
       <div className="mx-auto flex w-fit flex-row items-center gap-4 -space-x-8 overflow-visible px-4">
-        {itemsToRender.map((item) => (
-          <PlaceCard key={item.id} item={item} />
+        {placeItems.map((item) => (
+          <RenderedCard key={item.id} item={item} />
         ))}
       </div>
     </div>
