@@ -174,24 +174,28 @@ export const templateItems = [
     stack: ["Next", "Tailwind"],
     href: "https://macfolio-demo.vercel.app",
     img: "/images/macfolio.webp",
+    git: "https://github.com/msafdev/macfolio"
   },
   {
     title: "Linkify",
     stack: ["Next", "Tailwind"],
     href: "https://linkify-demo.vercel.app",
     img: "/images/linkify.webp",
+    git: "https://github.com/msafdev/linkify"
   },
   {
     title: "Compactfolio",
     stack: ["React", "Tailwind"],
     href: "https://compactfolio-demo.vercel.app",
     img: "/images/compactfolio.webp",
+    git: "https://github.com/msafdev/compactfolio"
   },
   {
     title: "Compactfolio",
     stack: ["Next", "Tailwind", "Velite"],
     href: "https://mdx-starter-theta.vercel.app",
     img: "/images/mdx.webp",
+    git: "https://github.com/msafdev/mdx-starter"
   },
 ];
 

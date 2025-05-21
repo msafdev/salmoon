@@ -28,6 +28,8 @@ export type MorphingDialogContextType = {
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
   uniqueId: string;
   triggerRef: React.RefObject<HTMLButtonElement | null>;
+  measurementsReady: boolean;
+  setMeasurementsReady: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 const MorphingDialogContext =
@@ -55,6 +57,7 @@ function MorphingDialogProvider({
   const [isOpen, setIsOpen] = useState(false);
   const uniqueId = useId();
   const triggerRef = useRef<HTMLButtonElement>(null!);
+  const [measurementsReady, setMeasurementsReady] = useState(false);
 
   const contextValue = useMemo(
     () => ({
@@ -62,8 +65,10 @@ function MorphingDialogProvider({
       setIsOpen,
       uniqueId,
       triggerRef,
+      measurementsReady,
+      setMeasurementsReady,
     }),
-    [isOpen, uniqueId],
+    [isOpen, uniqueId, measurementsReady],
   );
 
   return (
@@ -102,6 +107,11 @@ function MorphingDialogTrigger({
   const { setIsOpen, isOpen, uniqueId } = useMorphingDialog();
 
   const handleClick = useCallback(() => {
+    if (!isOpen) {
+      // Capture measurements before opening
+      const rect = triggerRef?.current?.getBoundingClientRect();
+    }
+
     setIsOpen(!isOpen);
   }, [isOpen, setIsOpen]);
 
@@ -183,16 +193,21 @@ function MorphingDialogContent({
   useEffect(() => {
     if (isOpen) {
       document.body.classList.add("overflow-hidden");
-      const focusableElements = containerRef.current?.querySelectorAll(
-        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])',
-      );
-      if (focusableElements && focusableElements.length > 0) {
-        setFirstFocusableElement(focusableElements[0] as HTMLElement);
-        setLastFocusableElement(
-          focusableElements[focusableElements.length - 1] as HTMLElement,
+
+      const timer = setTimeout(() => {
+        const focusableElements = containerRef.current?.querySelectorAll(
+          'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])',
         );
-        (focusableElements[0] as HTMLElement).focus();
-      }
+        if (focusableElements && focusableElements.length > 0) {
+          setFirstFocusableElement(focusableElements[0] as HTMLElement);
+          setLastFocusableElement(
+            focusableElements[focusableElements.length - 1] as HTMLElement,
+          );
+          (focusableElements[0] as HTMLElement).focus();
+        }
+      }, 10);
+
+      return () => clearTimeout(timer);
     } else {
       document.body.classList.remove("overflow-hidden");
       triggerRef.current?.focus();
@@ -361,6 +376,7 @@ function MorphingDialogImage({
   style,
 }: MorphingDialogImageProps) {
   const { uniqueId } = useMorphingDialog();
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   return (
     <motion.img
@@ -368,7 +384,13 @@ function MorphingDialogImage({
       alt={alt}
       className={cn(className)}
       layoutId={`dialog-img-${uniqueId}`}
-      style={style}
+      style={{
+        ...style,
+        aspectRatio: "1/1",
+        minWidth: "1px",
+        minHeight: "1px",
+      }}
+      onLoad={() => setImageLoaded(true)}
     />
   );
 }
