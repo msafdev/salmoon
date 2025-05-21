@@ -1,6 +1,6 @@
-import { RefObject, useEffect } from "react";
+import { RefObject, useEffect, useState } from "react";
 
-function useClickOutside<T extends HTMLElement>(
+export function useClickOutside<T extends HTMLElement>(
   ref: RefObject<T>,
   handler: (event: MouseEvent | TouchEvent) => void,
 ): void {
@@ -23,4 +23,19 @@ function useClickOutside<T extends HTMLElement>(
   }, [ref, handler]);
 }
 
-export default useClickOutside;
+export function useIsDesktop(breakpoint = 768) {
+  const [isDesktop, setIsDesktop] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+    const mediaQuery = window.matchMedia(`(min-width: ${breakpoint}px)`);
+    setIsDesktop(mediaQuery.matches);
+
+    const handler = (e: MediaQueryListEvent) => setIsDesktop(e.matches);
+    mediaQuery.addEventListener("change", handler);
+    return () => mediaQuery.removeEventListener("change", handler);
+  }, [breakpoint]);
+
+  return { isDesktop, isMounted };
+}

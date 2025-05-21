@@ -20,7 +20,7 @@ import React, {
 } from "react";
 import { createPortal } from "react-dom";
 
-import useClickOutside from "@/lib/hooks";
+import { useClickOutside } from "@/lib/hooks";
 import { cn } from "@/lib/utils";
 
 export type MorphingDialogContextType = {
