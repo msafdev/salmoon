@@ -17,7 +17,7 @@ import Semarang from "@/public/assets/semarang.webp";
 
 const Map = () => {
   return (
-    <div className="aspect-[5/3] w-full rounded-[16px] border-2 border-dashed p-2">
+    <div className="aspect-[5/3] w-full rounded-[12px] p-1 sm:rounded-[16px] border-2 border-dashed sm:p-2">
       <div className="group/map relative h-full w-full overflow-hidden rounded-[8px] bg-muted">
         <Image
           src={Semarang}
@@ -40,7 +40,7 @@ const Map = () => {
                 <MorphingDialogImage
                   src={item.src}
                   alt={`Image of place ${item.id}`}
-                  className="aspect-square h-auto w-[8vw] rounded-sm border border-zinc-100 object-cover xs:w-9"
+                  className="aspect-square h-auto w-6 rounded-sm border border-zinc-100 object-cover xs:w-9"
                 />
               </MorphingDialogTrigger>
               <MorphingDialogContainer>
