@@ -1,3 +1,5 @@
+"use client";
+
 import { X } from "lucide-react";
 
 import Image from "next/image";
@@ -12,12 +14,19 @@ import {
 } from "@/components/motion/morph-dialog";
 
 import { placeItems } from "@/lib/constants";
+import { useIsDesktop } from "@/lib/hooks";
 
 import Semarang from "@/public/assets/semarang.webp";
 
 const Map = () => {
+  const { isDesktop, isMounted } = useIsDesktop(768);
+
+  if (!isMounted) return null;
+
+  if (!isDesktop) return <InactiveMap />;
+
   return (
-    <div className="aspect-[5/3] w-full rounded-[12px] p-1 sm:rounded-[16px] border-2 border-dashed sm:p-2">
+    <div className="aspect-[5/3] w-full rounded-[16px] border-2 border-dashed p-2">
       <div className="group/map relative h-full w-full overflow-hidden rounded-[8px] bg-muted">
         <Image
           src={Semarang}
@@ -58,6 +67,25 @@ const Map = () => {
             </MorphingDialog>
           </div>
         ))}
+      </div>
+    </div>
+  );
+};
+
+const InactiveMap = () => {
+  return (
+    <div className="aspect-[5/3] w-full rounded-[12px] border-2 border-dashed p-1">
+      <div className="relative h-full w-full overflow-hidden rounded-[8px] bg-muted">
+        <Image
+          src={Semarang}
+          alt="Map of Semarang, Indonesia"
+          fill
+          className="object-cover dark:grayscale"
+          quality={70}
+          priority
+          sizes="100vw"
+          placeholder="blur"
+        />
       </div>
     </div>
   );

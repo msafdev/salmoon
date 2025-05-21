@@ -1,22 +1,13 @@
-"use client";
-
 import Image from "next/image";
 
 import { skillItems } from "@/lib/constants";
-import { useIsDesktop } from "@/lib/hooks";
 
 const Marquee = () => {
-  const { isDesktop, isMounted } = useIsDesktop(768);
-
-  if (!isMounted) return null;
-
-  if (!isDesktop) return <InactiveMarquee />;
-
   return (
     <div className="group/marquee relative mt-2 flex gap-x-8 overflow-hidden">
       <div className="absolute left-0 top-0 z-10 h-full w-8 bg-gradient-to-r from-background to-transparent" />
       <div className="absolute right-0 top-0 z-10 h-full w-8 bg-gradient-to-l from-background to-transparent" />
-      {Array(4)
+      {Array(5)
         .fill(0)
         .map((_, i) => (
           <div
@@ -30,18 +21,6 @@ const Marquee = () => {
             ))}
           </div>
         ))}
-    </div>
-  );
-};
-
-const InactiveMarquee = () => {
-  return (
-    <div className="mt-2 flex w-full items-center justify-around">
-      {skillItems.map((item, index) => (
-        <div key={index} className="block">
-          <Image src={item.icon} alt={item.name} width={24} height={24} />
-        </div>
-      ))}
     </div>
   );
 };
