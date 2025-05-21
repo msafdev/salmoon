@@ -37,7 +37,7 @@ const GuestbookForm = ({ user }: { user: User | null }) => {
               label: "Sign in with Google",
             },
           ].map(({ provider, action, label }) => (
-            <form key={provider} action={action} className="flex flex-1">
+            <form key={provider} action={action} className="flex flex-1 antialiased">
               <Button
                 type="submit"
                 className="flex w-full items-center gap-x-2"

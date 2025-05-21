@@ -1,4 +1,4 @@
-import Marquee from "@/components/shared/marquee";
+import Marquee from "@/components/motion/marquee";
 import Paragraph from "@/components/shared/paragraph";
 
 const SkillSection = () => {

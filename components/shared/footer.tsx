@@ -13,7 +13,7 @@ import { useToast } from "@/components/ui/use-toast";
 import { copyToClipboard } from "@/lib/utils";
 
 import { Button } from "../ui/button";
-import { Magnetic } from "@/components/shared/magnetic";
+import { Magnetic } from "@/components/motion/magnetic";
 
 const licorice = Licorice({
   subsets: ["latin"],

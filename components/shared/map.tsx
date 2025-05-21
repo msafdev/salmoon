@@ -12,7 +12,7 @@ import {
   MorphingDialogContent,
   MorphingDialogImage,
   MorphingDialogTrigger,
-} from "@/components/shared/morph-dialog";
+} from "@/components/motion/morph-dialog";
 
 import { placeItems } from "@/lib/constants";
 

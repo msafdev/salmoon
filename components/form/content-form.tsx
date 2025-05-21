@@ -69,9 +69,7 @@ const ContentForm = () => {
           disabled={loading}
           type="submit"
           size={"icon"}
-          className={`anim border px-3 py-2 ${
-            loading ? "bg-secondary/80" : "bg-secondary"
-          }`}
+          className="anim border border-border px-3 py-2"
           variant={"secondary"}
         >
           {loading ? (

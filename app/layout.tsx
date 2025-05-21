@@ -7,7 +7,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import Dock from "@/components/shared/dock";
 import Footer from "@/components/shared/footer";
-import { ThemeProvider } from "@/components/shared/theme-provider";
+import { ThemeProvider } from "@/components/theme-provider";
 
 import { Toaster } from "@/components/ui/toaster";
 
