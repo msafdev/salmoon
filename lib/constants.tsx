@@ -3,9 +3,9 @@ import { Beaker, Book, Hexagon, Home, MailOpen } from "lucide-react";
 import Figma from "@/public/icons/figma.png";
 import Git from "@/public/icons/git.png";
 import NextJS from "@/public/icons/nextjs.png";
+import Notion from "@/public/icons/notion.png";
 import React from "@/public/icons/react.png";
 import TailwindCSS from "@/public/icons/tailwindcss.png";
-import Notion from "@/public/icons/notion.png";
 import Vue from "@/public/icons/vue.png";
 import Webflow from "@/public/icons/webflow.png";
 
@@ -40,39 +40,31 @@ export const placeItems = [
     id: 1,
     src: "/images/places/place-1.webp",
     place: {
-      top: "54%",
-      left: "54%",
+      top: "48%",
+      left: "45%",
     },
   },
   {
     id: 2,
     src: "/images/places/place-2.webp",
     place: {
-      top: "66%",
-      left: "46%",
+      top: "65%",
+      left: "51%",
     },
   },
   {
     id: 3,
     src: "/images/places/place-3.webp",
     place: {
-      top: "71%",
-      left: "60%",
+      top: "31%",
+      left: "42%",
     },
   },
   {
     id: 4,
     src: "/images/places/place-4.webp",
     place: {
-      top: "37%",
-      left: "51%",
-    },
-  },
-  {
-    id: 5,
-    src: "/images/places/place-5.webp",
-    place: {
-      top: "17%",
+      top: "15%",
       left: "34%",
     },
   },

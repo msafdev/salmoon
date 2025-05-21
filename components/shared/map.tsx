@@ -16,7 +16,7 @@ import {
 import { placeItems } from "@/lib/constants";
 import { useIsDesktop } from "@/lib/hooks";
 
-import Semarang from "@/public/assets/semarang.webp";
+import Semarang from "@/public/assets/semarang.avif";
 
 const Map = () => {
   const { isDesktop, isMounted } = useIsDesktop(768);
@@ -33,7 +33,7 @@ const Map = () => {
           alt="Map of Semarang, Indonesia"
           fill
           className="object-cover transition-transform duration-500 group-hover/map:scale-100 dark:grayscale"
-          quality={70}
+          quality={90}
           priority
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           placeholder="blur"
@@ -49,7 +49,7 @@ const Map = () => {
                 <MorphingDialogImage
                   src={item.src}
                   alt={`Image of place ${item.id}`}
-                  className="aspect-square h-auto w-6 rounded-sm border border-zinc-100 text-transparent bg-zinc-100 object-cover xs:w-9"
+                  className="aspect-square h-auto w-6 rounded-sm border border-zinc-100 bg-zinc-100 object-cover text-transparent xs:w-9"
                 />
               </MorphingDialogTrigger>
               <MorphingDialogContainer>
