@@ -3,6 +3,8 @@
 import { motion } from "framer-motion";
 import { X } from "lucide-react";
 
+import { useMemo } from "react";
+
 import Image from "next/image";
 
 import {
@@ -26,10 +28,31 @@ const transition = {
 const sharedImageClass =
   "aspect-square rounded-lg border-2 bg-border object-cover text-transparent shadow-md dark:border-border";
 
+const Places = () => {
+  const { isDesktop, isMounted } = useIsDesktop(640);
+
+  const itemsToRender = useMemo(() => {
+    if (!isMounted) return [];
+    return isDesktop ? placeItems : placeItems.slice(0, 3);
+  }, [isDesktop, isMounted]);
+
+  const RenderedCard = isDesktop ? PlaceCard : MobilePlaceCard;
+
+  return (
+    <div className="relative mt-4 w-full max-w-full">
+      <div className="mx-auto flex w-fit flex-row items-center gap-4 -space-x-8 overflow-visible px-4">
+        {itemsToRender.map((item) => (
+          <RenderedCard key={item.id} item={item} />
+        ))}
+      </div>
+    </div>
+  );
+};
+
 const MobilePlaceCard = ({ item }: { item: (typeof placeItems)[number] }) => (
   <div style={{ rotate: `${item.rotation}deg` }} className="flex-shrink-0">
     <div
-      className={`${sharedImageClass} relative w-[24vw] min-w-16 max-w-24 overflow-hidden xs:w-28`}
+      className={`${sharedImageClass} relative w-[26vw] min-w-16 max-w-28 overflow-hidden xs:w-32`}
     >
       <Image
         src={item.src}
@@ -72,23 +95,5 @@ const PlaceCard = ({ item }: { item: (typeof placeItems)[number] }) => (
     </MorphingDialog>
   </motion.div>
 );
-
-const Places = () => {
-  const { isDesktop, isMounted } = useIsDesktop(640);
-
-  if (!isMounted) return null;
-
-  const RenderedCard = isDesktop ? PlaceCard : MobilePlaceCard;
-
-  return (
-    <div className="relative mt-4 w-full max-w-full">
-      <div className="mx-auto flex w-fit flex-row items-center gap-4 -space-x-8 overflow-visible px-4">
-        {placeItems.map((item) => (
-          <RenderedCard key={item.id} item={item} />
-        ))}
-      </div>
-    </div>
-  );
-};
 
 export default Places;
