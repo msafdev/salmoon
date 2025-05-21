@@ -1,5 +1,3 @@
-"use client";
-
 import { X } from "lucide-react";
 
 import Image from "next/image";
@@ -35,7 +33,7 @@ const Map = () => {
           <div
             key={item.id}
             style={{ top: item.place.top, left: item.place.left }}
-            className="absolute z-10 h-fit w-fit place-items-center"
+            className="absolute z-10 h-fit w-fit place-items-center hidden sm:block"
           >
             <MorphingDialog>
               <MorphingDialogTrigger>
