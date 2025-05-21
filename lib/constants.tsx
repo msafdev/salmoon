@@ -5,7 +5,7 @@ import Git from "@/public/icons/git.png";
 import NextJS from "@/public/icons/nextjs.png";
 import React from "@/public/icons/react.png";
 import TailwindCSS from "@/public/icons/tailwindcss.png";
-import Typescript from "@/public/icons/ts.png";
+import Notion from "@/public/icons/notion.png";
 import Vue from "@/public/icons/vue.png";
 import Webflow from "@/public/icons/webflow.png";
 
@@ -108,7 +108,7 @@ export const processItems = [
 export const skillItems = [
   { name: "Next", icon: NextJS },
   { name: "Tailwind", icon: TailwindCSS },
-  { name: "TypeScript", icon: Typescript },
+  { name: "Notion", icon: Notion },
   { name: "Git", icon: Git },
   { name: "Figma", icon: Figma },
   { name: "React", icon: React },
