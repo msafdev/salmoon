@@ -3,6 +3,8 @@
 import { motion } from "framer-motion";
 import { X } from "lucide-react";
 
+import { useMemo } from "react";
+
 import {
   MorphingDialog,
   MorphingDialogClose,
@@ -13,6 +15,7 @@ import {
 } from "@/components/motion/morph-dialog";
 
 import { placeItems } from "@/lib/constants";
+import { useIsDesktop } from "@/lib/hooks";
 
 const transition = {
   type: "spring",
@@ -22,7 +25,6 @@ const transition = {
 
 const PlaceCard = ({ item }: { item: (typeof placeItems)[number] }) => (
   <motion.div
-    key={item.id}
     initial={{ rotate: item.rotation }}
     whileHover={{ rotate: 0, scale: 1.05 }}
     transition={transition}
@@ -33,7 +35,7 @@ const PlaceCard = ({ item }: { item: (typeof placeItems)[number] }) => (
         <MorphingDialogImage
           src={item.src}
           alt={`Image of place ${item.id}`}
-          className="aspect-square w-[23vw] min-w-16 rounded-lg border-2 bg-border object-cover text-transparent shadow-md dark:border-border sm:w-32"
+          className="aspect-square w-20 min-w-16 rounded-lg border-2 bg-border object-cover text-transparent shadow-md dark:border-border sm:w-32"
         />
       </MorphingDialogTrigger>
       <MorphingDialogContainer>
@@ -53,10 +55,17 @@ const PlaceCard = ({ item }: { item: (typeof placeItems)[number] }) => (
 );
 
 const Places = () => {
+  const { isDesktop, isMounted } = useIsDesktop(640);
+
+  const itemsToRender = useMemo(() => {
+    if (!isMounted) return [];
+    return isDesktop ? placeItems : placeItems.slice(0, 3);
+  }, [isDesktop, isMounted]);
+
   return (
     <div className="relative mt-4 w-full max-w-full">
       <div className="mx-auto flex w-fit flex-row items-center gap-4 -space-x-8 overflow-visible px-4">
-        {placeItems.map((item) => (
+        {itemsToRender.map((item) => (
           <PlaceCard key={item.id} item={item} />
         ))}
       </div>
