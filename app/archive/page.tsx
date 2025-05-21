@@ -74,7 +74,7 @@ export default async function Page() {
       </div>
       <div className="flex w-full max-w-lg flex-col items-center gap-y-4">
         <Paragraph title="Free templates" />
-        <div className="flex w-full flex-col gap-y-6">
+        <div className="flex w-full flex-col gap-y-4">
           {templateItems.map((item, index) => (
             <ProjectCard {...item} key={index} />
           ))}

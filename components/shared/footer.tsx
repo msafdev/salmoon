@@ -12,6 +12,9 @@ import { useToast } from "@/components/ui/use-toast";
 
 import { copyToClipboard } from "@/lib/utils";
 
+import { Button } from "../ui/button";
+import { Magnetic } from "@/components/shared/magnetic";
+
 const licorice = Licorice({
   subsets: ["latin"],
   display: "swap",
@@ -42,9 +45,9 @@ const Footer = () => {
       >
         <div className="flex w-full flex-col items-center justify-between gap-4 text-primary-foreground dark:text-primary md:flex-row">
           <span className={`text-3xl ${licorice.className}`}>Salman</span>
-          <div className="flex flex-wrap items-center justify-center gap-x-3 text-sm text-primary-foreground/80 dark:text-primary/80">
+          <div className="flex flex-wrap items-center justify-center gap-y-3 text-sm text-primary-foreground/80 dark:text-primary/80">
             <Link
-              className="anim hover:text-primary-foreground dark:hover:text-primary"
+              className="anim px-3 hover:text-primary-foreground dark:hover:text-primary"
               href="https://twitter.com/sal__moon"
               target="_blank"
               rel="noopener noreferrer"
@@ -52,19 +55,8 @@ const Footer = () => {
             >
               x.com
             </Link>
-            <Dot size={12} />
             <Link
-              className="anim hover:text-primary-foreground dark:hover:text-primary"
-              href="https://papermark.io/view/cly0hd4dm00023b7qo9s5rn5i"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Curriculum Vitae"
-            >
-              cv
-            </Link>
-            <Dot size={12} />
-            <Link
-              className="anim hover:text-primary-foreground dark:hover:text-primary"
+              className="anim px-3 hover:text-primary-foreground dark:hover:text-primary"
               href="https://instagram.com/msalman_af"
               target="_blank"
               rel="noopener noreferrer"
@@ -72,9 +64,8 @@ const Footer = () => {
             >
               insta
             </Link>
-            <Dot size={12} />
             <Link
-              className="anim hover:text-primary-foreground dark:hover:text-primary"
+              className="anim px-3 hover:text-primary-foreground dark:hover:text-primary"
               href="https://linkedin.com/in/msafdev"
               target="_blank"
               rel="noopener noreferrer"
@@ -82,11 +73,27 @@ const Footer = () => {
             >
               linkedin
             </Link>
+            <Magnetic
+              intensity={0.2}
+              springOptions={{ bounce: 0.1 }}
+              actionArea="global"
+              range={100}
+            >
+              <Button
+                size={"sm"}
+                variant={"ghost"}
+                className="text-white hover:bg-zinc-800 hover:text-white"
+              >
+                <Link href={"/guestbook"} aria-label="My Guestbook">
+                  guestbook
+                </Link>
+              </Button>
+            </Magnetic>
           </div>
         </div>
 
         <div className="flex w-full flex-col-reverse items-center gap-x-8 gap-y-12 md:flex-row md:items-end">
-          <p className="font-mono text-sm text-primary-foreground/60 dark:text-primary/60 md:text-left">
+          <p className="font-mono text-sm text-primary-foreground/60 dark:text-primary/60 md:text-left text-center">
             &copy; 2024 msaf. All rights reserved.
             <br />
             Icons by{" "}
@@ -105,7 +112,7 @@ const Footer = () => {
             <h2 className="text-center font-mono font-semibold uppercase text-primary-foreground dark:text-primary md:text-right">
               Actions
             </h2>
-            <div className="flex flex-col items-center gap-y-1 text-center font-mono text-sm text-muted-foreground md:items-end md:text-right">
+            <div className="flex flex-col items-center gap-y-1 text-center font-medium text-sm text-muted-foreground md:items-end md:text-right">
               <button
                 className="anim w-fit hover:text-primary-foreground dark:hover:text-primary"
                 onClick={scrollToTop}
@@ -132,7 +139,7 @@ const Footer = () => {
             <h2 className="text-center font-mono font-semibold uppercase text-primary-foreground dark:text-primary md:text-right">
               Misc
             </h2>
-            <div className="flex flex-col gap-y-1 text-center font-mono text-sm text-muted-foreground md:text-right">
+            <div className="flex flex-col gap-y-1 text-center font-medium text-sm text-muted-foreground md:text-right">
               <Link
                 href={"/secret"}
                 className="anim hover:text-primary-foreground dark:hover:text-primary"

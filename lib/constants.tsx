@@ -35,6 +35,49 @@ export const navItems = [
   },
 ];
 
+export const placeItems = [
+  {
+    id: 1,
+    src: "/images/places/place-1.webp",
+    place: {
+      top: "54%",
+      left: "54%",
+    },
+  },
+  {
+    id: 2,
+    src: "/images/places/place-2.webp",
+    place: {
+      top: "66%",
+      left: "46%",
+    },
+  },
+  {
+    id: 3,
+    src: "/images/places/place-3.webp",
+    place: {
+      top: "71%",
+      left: "60%",
+    },
+  },
+  {
+    id: 4,
+    src: "/images/places/place-4.webp",
+    place: {
+      top: "37%",
+      left: "51%",
+    },
+  },
+  {
+    id: 5,
+    src: "/images/places/place-5.webp",
+    place: {
+      top: "17%",
+      left: "34%",
+    },
+  },
+];
+
 export const processItems = [
   {
     id: 1,
@@ -56,7 +99,7 @@ export const processItems = [
   },
   {
     id: 4,
-    name: "Finale",
+    name: "Deploy",
     description:
       "I thoroughly test the site for functionality and performance, then deploy it to a hosting of your choice.",
   },
@@ -160,9 +203,15 @@ export const templateItems = [
   },
   {
     title: "Compactfolio",
-    stack: ["Next", "Tailwind"],
+    stack: ["React", "Tailwind"],
     href: "https://compactfolio-demo.vercel.app",
     img: "/images/compactfolio.webp",
+  },
+  {
+    title: "Compactfolio",
+    stack: ["Next", "Tailwind", "Velite"],
+    href: "https://mdx-starter-theta.vercel.app",
+    img: "/images/mdx.webp",
   },
 ];
 

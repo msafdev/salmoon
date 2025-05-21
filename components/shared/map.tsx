@@ -1,11 +1,9 @@
 "use client";
 
-import { delay, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { X } from "lucide-react";
 
 import Image from "next/image";
-
-import Semarang from "@/public/assets/semarang.webp";
 
 import {
   MorphingDialog,
@@ -14,40 +12,16 @@ import {
   MorphingDialogContent,
   MorphingDialogImage,
   MorphingDialogTrigger,
-} from "./morph-dialog";
+} from "@/components/shared/morph-dialog";
 
-const placeItems = [
-  {
-    id: 1,
-    src: "/images/places/place-1.jpeg",
-    place: {
-      top: "37%",
-      left: "27%",
-    },
-  },
-  {
-    id: 2,
-    src: "/images/places/place-2.jpeg",
-    place: {
-      top: "56%",
-      left: "38%",
-    },
-  },
-  {
-    id: 3,
-    src: "/images/places/place-3.jpeg",
-    place: {
-      top: "64%",
-      left: "58%",
-    },
-  },
-];
+import { placeItems } from "@/lib/constants";
+
+import Semarang from "@/public/assets/semarang.webp";
 
 const Map = () => {
   return (
     <div className="aspect-[5/3] w-full rounded-[16px] border-2 border-dashed p-2">
       <div className="group/map relative h-full w-full overflow-hidden rounded-[8px] bg-muted">
-        {/* Background Map */}
         <Image
           src={Semarang}
           alt="Map of Semarang, Indonesia"
@@ -66,7 +40,6 @@ const Map = () => {
               scale: 0.8,
             }}
             animate={{ opacity: 1, scale: 1 }}
-            whileHover={{ y: -4 }}
             transition={{
               type: "easeInOut",
               stiffness: 200,
@@ -88,7 +61,7 @@ const Map = () => {
                 <MorphingDialogImage
                   src={item.src}
                   alt={`Image of place ${item.id}`}
-                  className="aspect-square w-[10vw] xs:size-12 rounded-lg border border-zinc-100 shadow-sm dark:border-zinc-300"
+                  className="aspect-square h-auto w-[8vw] rounded-sm border border-zinc-100 object-cover xs:size-9"
                 />
               </MorphingDialogTrigger>
               <MorphingDialogContainer>
@@ -96,7 +69,7 @@ const Map = () => {
                   <MorphingDialogImage
                     src={item.src}
                     alt={`Image of place ${item.id}`}
-                    className="h-auto w-[90vw] max-w-[300px] sm:max-w-[60vw] lg:w-auto rounded-[4px] object-cover lg:h-[70vh]"
+                    className="h-auto w-[90vw] max-w-[300px] rounded-[4px] object-cover sm:max-w-[60vw] lg:h-[70vh] lg:w-auto"
                   />
                 </MorphingDialogContent>
                 <MorphingDialogClose
