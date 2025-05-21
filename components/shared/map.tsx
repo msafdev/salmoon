@@ -14,17 +14,10 @@ import {
 } from "@/components/motion/morph-dialog";
 
 import { placeItems } from "@/lib/constants";
-import { useIsDesktop } from "@/lib/hooks";
 
 import Semarang from "@/public/assets/semarang.webp";
 
 const Map = () => {
-  const { isDesktop, isMounted } = useIsDesktop(768);
-
-  if (!isMounted) return null;
-
-  if (!isDesktop) return <InactiveMap />;
-
   return (
     <div className="aspect-[5/3] w-full rounded-[16px] border-2 border-dashed p-2">
       <div className="group/map relative h-full w-full overflow-hidden rounded-[8px] bg-muted">
@@ -33,7 +26,7 @@ const Map = () => {
           alt="Map of Semarang, Indonesia"
           fill
           className="object-cover transition-transform duration-500 group-hover/map:scale-100 dark:grayscale"
-          quality={85}
+          quality={70}
           priority
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           placeholder="blur"
@@ -42,14 +35,14 @@ const Map = () => {
           <div
             key={item.id}
             style={{ top: item.place.top, left: item.place.left }}
-            className="absolute z-10 hidden h-fit w-fit place-items-center md:block"
+            className="absolute z-10 h-fit w-fit place-items-center"
           >
             <MorphingDialog>
               <MorphingDialogTrigger>
                 <MorphingDialogImage
                   src={item.src}
                   alt={`Image of place ${item.id}`}
-                  className="aspect-square h-auto w-[8vw] rounded-sm border border-zinc-100 object-cover xs:size-9"
+                  className="aspect-square h-auto w-[8vw] rounded-sm border border-zinc-100 object-cover xs:w-9"
                 />
               </MorphingDialogTrigger>
               <MorphingDialogContainer>
@@ -67,25 +60,6 @@ const Map = () => {
             </MorphingDialog>
           </div>
         ))}
-      </div>
-    </div>
-  );
-};
-
-const InactiveMap = () => {
-  return (
-    <div className="aspect-[5/3] w-full rounded-[16px] border-2 border-dashed p-2">
-      <div className="relative h-full w-full overflow-hidden rounded-[8px] bg-muted">
-        <Image
-          src={Semarang}
-          alt="Map of Semarang, Indonesia"
-          fill
-          className="object-cover dark:grayscale"
-          quality={70}
-          priority
-          sizes="100vw"
-          placeholder="blur"
-        />
       </div>
     </div>
   );
