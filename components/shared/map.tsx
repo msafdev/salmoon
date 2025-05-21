@@ -81,7 +81,7 @@ const InactiveMap = () => {
           alt="Map of Semarang, Indonesia"
           fill
           className="object-cover dark:grayscale"
-          quality={85}
+          quality={70}
           priority
           sizes="100vw"
           placeholder="blur"
