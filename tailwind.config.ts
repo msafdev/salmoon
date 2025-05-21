@@ -87,14 +87,6 @@ const config = {
             backgroundPosition: "-200% 0",
           },
         },
-        "vinyl-spin": {
-          from: {
-            transform: "rotate(0deg)",
-          },
-          to: {
-            transform: "rotate(360deg)",
-          },
-        },
         marquee: {
           from: {
             transform: "translateX(0)",
@@ -103,27 +95,12 @@ const config = {
             transform: "translateX(calc(-100% - 32px))",
           },
         },
-        meteor: {
-          "0%": {
-            transform: "rotate(215deg) translateX(0)",
-            opacity: "1",
-          },
-          "70%": {
-            opacity: "1",
-          },
-          "100%": {
-            transform: "rotate(215deg) translateX(-500px)",
-            opacity: "0",
-          },
-        },
       },
       animation: {
         "background-shine": "background-shine 2.4s infinite linear",
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         marquee: "marquee 32s linear infinite",
-        "vinyl-spin": "vinyl-spin 3s linear infinite",
-        meteor: "meteor 5s linear infinite",
       },
     },
   },

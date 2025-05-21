@@ -4,18 +4,16 @@ import Paragraph from "@/components/shared/paragraph";
 
 const ActionSection = () => {
   return (
-    <div className="flex w-full max-w-lg flex-col gap-y-4">
+    <div className="flex w-full max-w-lg">
       <Paragraph title="Connect">
         <p>
-          See more of my work on{" "}
+          Leave a mark{" "}
           <Link
-            href={"https://twitter.com/msafdev"}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Twitter"
+            href="/guestbook"
+            aria-label="Guestbook"
             className="anim underline underline-offset-2 hover:text-foreground active:text-foreground"
           >
-            X
+            here
           </Link>
           , view my code on{" "}
           <Link
@@ -36,16 +34,6 @@ const ActionSection = () => {
             className="anim underline underline-offset-2 hover:text-foreground active:text-foreground"
           >
             Read.cv
-          </Link>{" "}
-          and{" "}
-          <Link
-            href={"https://www.papermark.io/view/cm605w61700036su48609mo7h"}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Papermark"
-            className="anim underline underline-offset-2 hover:text-foreground active:text-foreground"
-          >
-            Papermark
           </Link>
           .
         </p>

@@ -25,45 +25,43 @@ export default function Page() {
         </p>
       </Paragraph>
 
-      <Paragraph title="Before you start">
-        <p>
-          These components require{" "}
-          <Link
-            href="https://ui.shadcn.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="shadcn-ui"
-            className="font-medium text-foreground"
-          >
-            shadcn-ui
-          </Link>
-          ,{" "}
-          <Link
-            href="https://www.framer.com/motion/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="frame-motion"
-            className="font-medium text-foreground"
-          >
-            framer-motion
-          </Link>
-          , and{" "}
-          <Link
-            href="https://ui.shadcn.com/docs/dark-mode/next"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="next-themes"
-            className="font-medium text-foreground"
-          >
-            next-themes
-          </Link>{" "}
-          to work properly. Make sure you have them installed on your
-          development environment.
-        </p>
-      </Paragraph>
-
       <div className="flex w-full max-w-lg flex-col gap-y-4">
-        <Paragraph title="Have fun" />
+        <Paragraph title="Have fun">
+          <p>
+            These components require{" "}
+            <Link
+              href="https://ui.shadcn.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="shadcn-ui"
+              className="font-medium text-foreground"
+            >
+              shadcn-ui
+            </Link>
+            ,{" "}
+            <Link
+              href="https://www.framer.com/motion/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="frame-motion"
+              className="font-medium text-foreground"
+            >
+              framer-motion
+            </Link>
+            , and{" "}
+            <Link
+              href="https://ui.shadcn.com/docs/dark-mode/next"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="next-themes"
+              className="font-medium text-foreground"
+            >
+              next-themes
+            </Link>{" "}
+            to work properly. Make sure you have them installed on your
+            development environment.
+          </p>
+        </Paragraph>
         <div className="grid w-full max-w-lg grid-flow-dense gap-6 sm:grid-cols-2">
           {COMPONENTS.map((component, index) => (
             <LabCard

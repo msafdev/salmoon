@@ -1,17 +1,16 @@
-import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
-import { cn } from "@/lib/utils";
+import Image from "next/image";
+import Link from "next/link";
 
 const ProjectCard = ({
   href,
   title,
-  description,
-  className,
+  img,
 }: {
   href: string;
   title: string;
-  description: string;
-  className?: string;
+  img?: string;
 }) => {
   return (
     <Link
@@ -19,17 +18,25 @@ const ProjectCard = ({
       target="_blank"
       rel="noopener noreferrer"
       aria-label={title}
-      className={cn(
-        "anim group/project flex w-full flex-col gap-y-0.5 rounded-md bg-background py-2 text-sm hover:bg-accent hover:pl-3 sm:text-sm",
-        className,
-      )}
+      className="group/card relative w-full overflow-hidden"
     >
-      <h3 className="anim font-semibold text-foreground group-hover/project:text-accent-foreground">
-        {title}
-      </h3>
-      <p className="anim line-clamp-1 font-mono text-sm text-muted-foreground">
-        {description}
-      </p>
+      {img && (
+        <div className="aspect-video h-auto w-full rounded-[16px] border-2 border-dashed p-2">
+          <div className="relative h-full w-full overflow-hidden rounded-[8px] shadow-sm">
+            <Image
+              src={img}
+              alt={`${title} showcase image.`}
+              fill
+              className=""
+            />
+          </div>
+        </div>
+      )}
+      <div className="anim-slow absolute -top-8 right-3 group-hover/card:top-3">
+        <div className="grid size-7 place-items-center rounded-xl bg-primary/30 text-primary-foreground backdrop-blur">
+          <ArrowRight className="-rotate-45" size={16} />
+        </div>
+      </div>
     </Link>
   );
 };

@@ -56,7 +56,7 @@
     @apply no-scrollbar;
   }
   * {
-    @apply border-border;
+    @apply border-border dark:border-zinc-700;
   }
   body {
     @apply m-0 min-w-64 overflow-x-hidden bg-background p-0 text-foreground;

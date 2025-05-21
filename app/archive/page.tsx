@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 
+import AltProjectCard from "@/components/shared/cards/alt-project-card";
 import BlogCard from "@/components/shared/cards/blog-card";
 import ProjectCard from "@/components/shared/cards/project-card";
 import WorkCard from "@/components/shared/cards/work-card";
@@ -29,7 +30,7 @@ export default async function Page() {
           have grown as a person.
         </p>
       </Paragraph>
-      <div className="flex w-full max-w-lg flex-col items-center gap-y-6">
+      <div className="flex w-full max-w-lg flex-col items-center gap-y-4">
         <Paragraph title="What i wrote" link href="/blog" />
         <div className="grid w-full grid-cols-1 gap-3 sm:grid-cols-2">
           {recentPosts &&
@@ -67,13 +68,13 @@ export default async function Page() {
         <Paragraph title="Side projects" />
         <div className="flex w-full flex-col">
           {projectItems.reverse().map((item, index) => (
-            <ProjectCard {...item} key={index} />
+            <AltProjectCard {...item} key={index} />
           ))}
         </div>
       </div>
       <div className="flex w-full max-w-lg flex-col items-center gap-y-4">
         <Paragraph title="Free templates" />
-        <div className="flex w-full flex-col">
+        <div className="flex w-full flex-col gap-y-6">
           {templateItems.map((item, index) => (
             <ProjectCard {...item} key={index} />
           ))}

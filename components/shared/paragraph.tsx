@@ -23,11 +23,11 @@ const Paragraph = ({
     <div className="flex w-full max-w-lg flex-col gap-y-2">
       <div className="flex w-full flex-col">
         <div className="flex h-8 w-full items-center justify-between gap-x-4">
-          <h2 className="text-sm font-semibold uppercase text-foreground md:text-sm">
+          <h2 className="text-sm leading-none font-semibold uppercase text-foreground">
             {title}
           </h2>
           {link && (
-            <Button size={"icon"} variant={"ghost"} className="size-8">
+            <Button size={"icon"} variant={"ghost"} className="size-7">
               <Link
                 href={href}
                 aria-label={`Go to ${href}`}
@@ -50,7 +50,7 @@ const Paragraph = ({
         )}
       </div>
       {children && (
-        <div className="flex flex-col gap-y-4 text-base font-medium text-muted-foreground md:text-lg">
+        <div className="flex flex-col gap-y-4 text-sm md:text-base font-medium text-muted-foreground">
           {children}
         </div>
       )}

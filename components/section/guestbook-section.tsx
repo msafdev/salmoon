@@ -95,7 +95,7 @@ const GuestbookSection = async () => {
     ) || {};
 
   return (
-    <div className="flex h-fit w-full max-w-lg flex-col gap-y-6">
+    <div className="flex h-fit w-full max-w-lg flex-col gap-y-4">
       {guestbook.map((item) => (
         <GuestbookCard
           key={item.id}

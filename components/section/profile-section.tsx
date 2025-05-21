@@ -1,8 +1,6 @@
-import Image from "next/image";
-
 import { Profile } from "@/components/shared/profile";
 
-import Map from "@/public/assets/map.webp";
+import Map from "../shared/map";
 
 const ProfileSection = () => {
   return (
@@ -24,25 +22,14 @@ const ProfileSection = () => {
         </div>
       </div>
 
-      <p className="w-full text-base font-medium text-muted-foreground md:text-lg">
+      <p className="w-full text-base font-medium text-muted-foreground">
         I am a fullstack engineer based in{" "}
         <span className="text-foreground">Indonesia</span>, specifically in
         Semarang. In my free time, I enjoy listening to music and exploring new
         places.
       </p>
 
-      <div className="aspect-[5/3] w-full rounded-[16px] border-2 border-dashed p-2">
-        <div className="group/map relative h-full w-full overflow-hidden rounded-[8px] bg-muted">
-          <Image
-            src={Map}
-            alt="Map of Semarang, Indonesia"
-            fill
-            className="anim object-cover group-hover/map:scale-100 dark:grayscale"
-            quality={60}
-            placeholder="blur"
-          />
-        </div>
-      </div>
+      <Map />
     </div>
   );
 };

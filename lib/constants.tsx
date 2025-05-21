@@ -18,26 +18,47 @@ export const navItems = [
   },
   {
     id: 2,
-    label: "Guestbook",
-    href: "/guestbook",
-    icon: <MailOpen className="h-full w-full" />,
-  },
-  {
-    id: 3,
     label: "Lab",
     href: "/lab",
     icon: <Beaker className="h-full w-full" />,
   },
   {
-    id: 4,
+    id: 3,
     label: "Archive",
     href: "/archive",
     icon: <Book className="h-full w-full" />,
   },
   {
-    id: 5,
+    id: 4,
     label: "Theme",
     icon: <Hexagon className="h-full w-full" />,
+  },
+];
+
+export const processItems = [
+  {
+    id: 1,
+    name: "Discovery",
+    description:
+      "I begin by understanding your goals and technical requirements to create a clear roadmap for your product.",
+  },
+  {
+    id: 2,
+    name: "Design",
+    description:
+      "I will craft intuitive, user-friendly interfaces that align with your brand and optimize the user experience.",
+  },
+  {
+    id: 3,
+    name: "Development",
+    description:
+      "Using modern technologies like Next.js, I will bring your design to life with responsive and performant code.",
+  },
+  {
+    id: 4,
+    name: "Finale",
+    description:
+      "I thoroughly test the site for functionality and performance, then deploy it to a hosting of your choice.",
   },
 ];
 
@@ -106,14 +127,9 @@ export const creditList = [
 
 export const projectItems = [
   {
-    title: "Pameraja",
-    href: "https://pameraja.vercel.app",
-    description: "Place to share your links and ideas.",
-  },
-  {
     title: "Gem",
     href: "https://gem.msaf.tech",
-    description: "Curated list of trending online games.",
+    description: "Curated list of simple randomized games.",
   },
   {
     title: "Zap",
@@ -125,43 +141,37 @@ export const projectItems = [
     href: "https://bg.msaf.tech",
     description: "Handpicked modern background patterns.",
   },
-  {
-    title: "UI",
-    href: "https://ui.msaf.tech",
-    description: "Beautiful and modern UI components.",
-  },
 ];
 
 export const recentProjects = projectItems.slice(1, projectItems.length);
 
 export const templateItems = [
   {
-    title: "Linkify",
-    stack: ["Next", "Tailwind"],
-    href: "https://linkify-demo.vercel.app",
-    description: "Linktree inspired portfolio.",
-  },
-  {
-    title: "Nextbase",
-    stack: ["Next", "Tailwind", "Supabase"],
-    href: "https://nextbase-demo.vercel.app",
-    description: "Next.js and Supabase starter.",
-  },
-  {
     title: "Macfolio",
     stack: ["Next", "Tailwind"],
     href: "https://macfolio-demo.vercel.app",
-    description: "MacOS inspired portfolio.",
+    img: "/images/macfolio.webp",
+  },
+  {
+    title: "Linkify",
+    stack: ["Next", "Tailwind"],
+    href: "https://linkify-demo.vercel.app",
+    img: "/images/linkify.webp",
   },
   {
     title: "Compactfolio",
     stack: ["Next", "Tailwind"],
     href: "https://compactfolio-demo.vercel.app",
-    description: "Compact and minimal portfolio.",
+    img: "/images/compactfolio.webp",
   },
 ];
 
 export const workItems = [
+  {
+    title: "Fullstack Developer",
+    company: "ANIHOST",
+    duration: "Jan 25 - Present",
+  },
   {
     title: "Founder",
     company: "Oddin",
@@ -170,7 +180,7 @@ export const workItems = [
   {
     title: "Fullstack Developer",
     company: "Airestate",
-    duration: "Oct 24 - Present",
+    duration: "Oct 24 - Dec 24",
   },
   {
     title: "Frontend Developer",

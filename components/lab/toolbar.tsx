@@ -23,10 +23,10 @@ const Toolbar = () => {
       <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
         <motion.div
           initial={false}
-          animate={{ width: mode === "default" ? 111 : 264 }}
+          animate={{ width: mode === "default" ? 84 : 254 }}
           transition={transition}
           layout
-          className="h-full w-full overflow-hidden rounded-xl border bg-popover text-popover-foreground"
+          className="h-full w-full overflow-hidden rounded-[16px] border bg-popover text-popover-foreground"
         >
           <AnimatePresence mode="wait">
             {mode === "default" ? (
@@ -39,24 +39,25 @@ const Toolbar = () => {
                   duration: 0.2,
                   delay: mode === "default" ? 0 : 0.2,
                 }}
-                className="flex items-center p-2"
+                className="flex items-center p-1"
               >
                 <Button
                   variant={"ghost"}
                   size={"icon"}
+                  className="rounded-[12px]"
                   aria-label="Make schedule"
                   onClick={() => setMode("schedule")}
                 >
-                  <User className="h-5 w-5" />
+                  <User className="size-4" />
                 </Button>
-                <div className="mx-2 h-9 w-[1px] bg-border" />
                 <Button
                   variant={"ghost"}
                   size={"icon"}
+                  className="rounded-[12px]"
                   onClick={() => setMode("search")}
                   aria-label="Search notes"
                 >
-                  <Search className="h-5 w-5" />
+                  <Search className="size-4" />
                 </Button>
               </motion.div>
             ) : mode === "search" ? (
@@ -69,19 +70,20 @@ const Toolbar = () => {
                   duration: 0.2,
                   delay: mode === "search" ? 0 : 0.2,
                 }}
-                className="flex items-center p-2"
+                className="flex items-center p-1"
               >
                 <Button
                   variant={"ghost"}
                   size={"icon"}
+                  className="rounded-[12px]"
                   onClick={() => setMode("default")}
                   aria-label="Back button"
                 >
-                  <ArrowLeft className="h-5 w-5" />
+                  <ArrowLeft className="size-4" />
                 </Button>
                 <div className="relative min-w-52">
                   <input
-                    className="h-auto w-full rounded-lg bg-transparent p-2 focus:outline-none"
+                    className="h-auto w-full rounded-lg bg-transparent p-1 focus:outline-none"
                     placeholder="Search notes"
                   />
                 </div>
@@ -96,15 +98,16 @@ const Toolbar = () => {
                   duration: 0.2,
                   delay: mode === "schedule" ? 0 : 0.2,
                 }}
-                className="flex items-center p-2"
+                className="flex items-center p-1"
               >
                 <Button
                   variant={"ghost"}
                   size={"icon"}
+                  className="rounded-[12px]"
                   onClick={() => setMode("default")}
                   aria-label="Back button"
                 >
-                  <ArrowLeft className="h-5 w-5" />
+                  <ArrowLeft className="size-4" />
                 </Button>
                 <div className="relative flex min-w-52 items-center">
                   <span className="mr-auto px-3 text-sm font-medium text-muted-foreground">
@@ -115,9 +118,9 @@ const Toolbar = () => {
                     size={"icon"}
                     onClick={() => setMode("default")}
                     aria-label="Placeholder button"
-                    className="hover:bg-red-500/20"
+                    className="hover:bg-red-500/20 rounded-[12px]"
                   >
-                    <X className="h-5 w-5 text-red-600" />
+                    <X className="size-4 text-red-600" />
                   </Button>
                 </div>
               </motion.div>
