@@ -33,7 +33,7 @@ export type MorphingDialogContextType = {
 const MorphingDialogContext =
   React.createContext<MorphingDialogContextType | null>(null);
 
-function useMorphingDialog() {
+export function useMorphingDialog() {
   const context = useContext(MorphingDialogContext);
   if (!context) {
     throw new Error(

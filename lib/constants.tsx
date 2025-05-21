@@ -39,34 +39,22 @@ export const placeItems = [
   {
     id: 1,
     src: "/images/places/place-1.webp",
-    place: {
-      top: "48%",
-      left: "45%",
-    },
+    rotation: -5,
   },
   {
     id: 2,
     src: "/images/places/place-2.webp",
-    place: {
-      top: "65%",
-      left: "51%",
-    },
+    rotation: 8,
   },
   {
     id: 3,
     src: "/images/places/place-3.webp",
-    place: {
-      top: "31%",
-      left: "42%",
-    },
+    rotation: -3,
   },
   {
     id: 4,
     src: "/images/places/place-4.webp",
-    place: {
-      top: "15%",
-      left: "34%",
-    },
+    rotation: 11,
   },
 ];
 

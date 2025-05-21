@@ -1,11 +1,10 @@
+import Places from "@/components/shared/places";
 import { Profile } from "@/components/shared/profile";
-
-import Map from "../shared/map";
 
 const ProfileSection = () => {
   return (
-    <div className="flex w-full max-w-lg flex-col items-center gap-y-4">
-      <div className="flex w-full flex-col gap-y-4">
+    <div className="flex w-full flex-col items-center gap-y-4">
+      <div className="flex w-full max-w-lg flex-col gap-y-4">
         <Profile />
 
         <div className="flex flex-col gap-y-1 md:gap-y-0">
@@ -22,7 +21,7 @@ const ProfileSection = () => {
         </div>
       </div>
 
-      <p className="w-full text-base font-medium text-muted-foreground">
+      <p className="w-full max-w-lg text-base font-medium text-muted-foreground">
         I am a fullstack engineer based in
         <span className="text-foreground">
           <span className="mx-1 text-sm font-bold leading-none">🇮🇩</span>
@@ -32,7 +31,7 @@ const ProfileSection = () => {
         and exploring new places.
       </p>
 
-      <Map />
+      <Places />
     </div>
   );
 };
