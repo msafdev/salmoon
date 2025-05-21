@@ -16,7 +16,7 @@ const ActionSection = () => {
             <span className="sr-only">Leave a mark on /guestbook</span>
             here
           </Link>
-          , view my code on{" "}
+          , view my codes on{" "}
           <Link
             href={"https://github.com/msafdev"}
             target="_blank"

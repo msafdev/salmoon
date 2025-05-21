@@ -4,12 +4,20 @@ import { skillItems } from "@/lib/constants";
 
 const Marquee = () => {
   return (
-    <div className="group/marquee relative mt-2 flex w-full justify-around gap-x-2 overflow-hidden">
-      <div className="absolute left-0 top-0 z-10 h-full w-8 bg-gradient-to-r from-background to-transparent md:w-16" />
-      <div className="absolute right-0 top-0 z-10 h-full w-8 bg-gradient-to-l from-background to-transparent md:w-16" />
+    <div className="group/marquee relative mt-2 flex w-full justify-around gap-x-2">
+      <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-8 bg-gradient-to-r from-background to-transparent md:w-16" />
+      <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-8 bg-gradient-to-l from-background to-transparent md:w-16" />
       {skillItems.map((item, index) => (
-        <div key={index} className="grid min-w-4 place-items-center">
+        <div
+          key={index}
+          className="anim group/marquee-item relative grid h-fit min-w-4 place-items-center rounded-lg p-1 hover:bg-accent sm:p-2"
+        >
           <Image src={item.icon} alt={item.name} width={28} height={28} />
+          <div className="anim-slow absolute -bottom-8 z-10 flex h-6 items-center rounded border bg-card px-1.5 opacity-0 group-hover/marquee-item:opacity-100 shadow-sm">
+            <span className="text-xs font-semibold leading-none text-card-foreground">
+              {item.name}
+            </span>
+          </div>
         </div>
       ))}
     </div>

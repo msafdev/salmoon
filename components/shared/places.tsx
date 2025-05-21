@@ -33,7 +33,7 @@ const Places = () => {
 
   const itemsToRender = useMemo(() => {
     if (!isMounted) return [];
-    return isDesktop ? placeItems : placeItems.slice(0, 3);
+    return isDesktop ? placeItems : placeItems.slice(1, 4);
   }, [isDesktop, isMounted]);
 
   const RenderedCard = isDesktop ? PlaceCard : MobilePlaceCard;

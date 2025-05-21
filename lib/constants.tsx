@@ -1,11 +1,10 @@
-import { Beaker, Book, Hexagon, Home, MailOpen } from "lucide-react";
+import { Beaker, Book, Hexagon, Home } from "lucide-react";
 
 import Figma from "@/public/icons/figma.png";
-import Git from "@/public/icons/git.png";
+import Github from "@/public/icons/github.png";
 import NextJS from "@/public/icons/nextjs.png";
 import Notion from "@/public/icons/notion.png";
-import React from "@/public/icons/react.png";
-import TailwindCSS from "@/public/icons/tailwindcss.png";
+import Slack from "@/public/icons/slack.png";
 import Vue from "@/public/icons/vue.png";
 import Webflow from "@/public/icons/webflow.png";
 
@@ -87,11 +86,10 @@ export const processItems = [
 
 export const skillItems = [
   { name: "Next", icon: NextJS },
-  { name: "Tailwind", icon: TailwindCSS },
-  { name: "Notion", icon: Notion },
-  { name: "Git", icon: Git },
   { name: "Figma", icon: Figma },
-  { name: "React", icon: React },
+  { name: "Notion", icon: Notion },
+  { name: "Slack", icon: Slack },
+  { name: "Github", icon: Github },
   { name: "Vue", icon: Vue },
   { name: "Webflow", icon: Webflow },
 ];
@@ -174,28 +172,28 @@ export const templateItems = [
     stack: ["Next", "Tailwind"],
     href: "https://macfolio-demo.vercel.app",
     img: "/images/macfolio.webp",
-    git: "https://github.com/msafdev/macfolio"
+    git: "https://github.com/msafdev/macfolio",
   },
   {
     title: "Linkify",
     stack: ["Next", "Tailwind"],
     href: "https://linkify-demo.vercel.app",
     img: "/images/linkify.webp",
-    git: "https://github.com/msafdev/linkify"
+    git: "https://github.com/msafdev/linkify",
   },
   {
     title: "Compactfolio",
     stack: ["React", "Tailwind"],
     href: "https://compactfolio-demo.vercel.app",
     img: "/images/compactfolio.webp",
-    git: "https://github.com/msafdev/compactfolio"
+    git: "https://github.com/msafdev/compactfolio",
   },
   {
     title: "Compactfolio",
     stack: ["Next", "Tailwind", "Velite"],
     href: "https://mdx-starter-theta.vercel.app",
     img: "/images/mdx.webp",
-    git: "https://github.com/msafdev/mdx-starter"
+    git: "https://github.com/msafdev/mdx-starter",
   },
 ];
 
