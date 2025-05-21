@@ -38,22 +38,22 @@ export const navItems = [
 export const placeItems = [
   {
     id: 1,
-    src: "/images/places/place-1.webp",
+    src: "/images/places/place-1.avif",
     rotation: -5,
   },
   {
     id: 2,
-    src: "/images/places/place-2.webp",
+    src: "/images/places/place-2.avif",
     rotation: 8,
   },
   {
     id: 3,
-    src: "/images/places/place-3.webp",
+    src: "/images/places/place-3.avif",
     rotation: -3,
   },
   {
     id: 4,
-    src: "/images/places/place-4.webp",
+    src: "/images/places/place-4.avif",
     rotation: 11,
   },
 ];
