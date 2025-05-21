@@ -107,11 +107,6 @@ function MorphingDialogTrigger({
   const { setIsOpen, isOpen, uniqueId } = useMorphingDialog();
 
   const handleClick = useCallback(() => {
-    if (!isOpen) {
-      // Capture measurements before opening
-      const rect = triggerRef?.current?.getBoundingClientRect();
-    }
-
     setIsOpen(!isOpen);
   }, [isOpen, setIsOpen]);
 
