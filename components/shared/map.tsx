@@ -49,7 +49,7 @@ const Map = () => {
                 <MorphingDialogImage
                   src={item.src}
                   alt={`Image of place ${item.id}`}
-                  className="aspect-square h-auto w-6 rounded-sm border border-zinc-100 object-cover xs:w-9"
+                  className="aspect-square h-auto w-6 rounded-sm border border-zinc-100 text-transparent bg-zinc-100 object-cover xs:w-9"
                 />
               </MorphingDialogTrigger>
               <MorphingDialogContainer>
