@@ -376,7 +376,7 @@ function MorphingDialogImage({
   style,
 }: MorphingDialogImageProps) {
   const { uniqueId } = useMorphingDialog();
-  const [imageLoaded, setImageLoaded] = useState(false);
+  const [_, setImageLoaded] = useState(false);
 
   return (
     <motion.img
