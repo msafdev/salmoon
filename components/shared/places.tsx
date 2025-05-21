@@ -3,8 +3,6 @@
 import { motion } from "framer-motion";
 import { X } from "lucide-react";
 
-import { memo } from "react";
-
 import Image from "next/image";
 
 import {
@@ -28,25 +26,23 @@ const transition = {
 const sharedImageClass =
   "aspect-square rounded-lg border-2 bg-border object-cover text-transparent shadow-md dark:border-border";
 
-const MobilePlaceCard = memo(
-  ({ item }: { item: (typeof placeItems)[number] }) => (
-    <div style={{ rotate: `${item.rotation}deg` }} className="flex-shrink-0">
-      <div
-        className={`${sharedImageClass} relative w-[24vw] min-w-16 max-w-24 overflow-hidden xs:w-28`}
-      >
-        <Image
-          src={item.src}
-          alt={`Image of place ${item.id}`}
-          fill
-          quality={70}
-          loading="lazy"
-        />
-      </div>
+const MobilePlaceCard = ({ item }: { item: (typeof placeItems)[number] }) => (
+  <div style={{ rotate: `${item.rotation}deg` }} className="flex-shrink-0">
+    <div
+      className={`${sharedImageClass} relative w-[24vw] min-w-16 max-w-24 overflow-hidden xs:w-28`}
+    >
+      <Image
+        src={item.src}
+        alt={`Image of place ${item.id}`}
+        fill
+        quality={70}
+        loading="lazy"
+      />
     </div>
-  ),
+  </div>
 );
 
-const PlaceCard = memo(({ item }: { item: (typeof placeItems)[number] }) => (
+const PlaceCard = ({ item }: { item: (typeof placeItems)[number] }) => (
   <motion.div
     initial={{ rotate: item.rotation }}
     whileHover={{ rotate: 0, scale: 1.05 }}
@@ -75,10 +71,11 @@ const PlaceCard = memo(({ item }: { item: (typeof placeItems)[number] }) => (
       </MorphingDialogContainer>
     </MorphingDialog>
   </motion.div>
-));
+);
 
 const Places = () => {
   const { isDesktop, isMounted } = useIsDesktop(640);
+
   if (!isMounted) return null;
 
   const RenderedCard = isDesktop ? PlaceCard : MobilePlaceCard;
