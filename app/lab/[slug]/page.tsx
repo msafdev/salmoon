@@ -9,7 +9,7 @@ import Paragraph from "@/components/shared/paragraph";
 import { Button } from "@/components/ui/button";
 
 import { COMPONENTS } from "@/lib/data";
-import { getFilePathAndConfig } from "@/lib/functions";
+import { getFilePathAndConfig } from "@/lib/server";
 
 export async function generateStaticParams() {
   const componentSlugs = COMPONENTS.map((component) => ({

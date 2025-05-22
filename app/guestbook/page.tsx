@@ -7,7 +7,6 @@ import dynamic from "next/dynamic";
 
 import Paragraph from "@/components/shared/paragraph";
 
-// Optimize dynamic imports with preloading and more specific loading options
 const GuestbookForm = dynamic(
   () => import("@/components/form/guestbook-form"),
   {

@@ -7,9 +7,11 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import Dock from "@/components/shared/dock";
 import Footer from "@/components/shared/footer";
-import { ThemeProvider } from "@/components/theme-provider";
 
 import { Toaster } from "@/components/ui/toaster";
+
+import QueryProvider from "@/components/query-provider";
+import { ThemeProvider } from "@/components/theme-provider";
 
 import "./globals.css";
 import NotFound from "./not-found";
@@ -81,24 +83,26 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <NextTopLoader
-            color="#2299DD"
-            initialPosition={0.08}
-            easing="ease"
-            speed={300}
-            showSpinner={false}
-            height={2}
-            shadow="0 0 20px #2299DD, 0 0 10px #2299DD"
-            zIndex={100}
-          />
+          <QueryProvider>
+            <NextTopLoader
+              color="#2299DD"
+              initialPosition={0.08}
+              easing="ease"
+              speed={300}
+              showSpinner={false}
+              height={2}
+              shadow="0 0 20px #2299DD, 0 0 10px #2299DD"
+              zIndex={100}
+            />
 
-          <div className="relative flex min-h-[100svh] flex-col items-center justify-center">
-            <div className="pointer-events-none fixed left-0 top-0 z-50 h-8 w-full bg-gradient-to-b from-background to-transparent md:h-10 lg:h-12" />
-            <main className="flex h-auto w-full grow flex-col py-16 md:py-20 lg:py-24">
-              {children}
-            </main>
-            <Dock />
-          </div>
+            <div className="relative flex min-h-[100svh] flex-col items-center justify-center">
+              <div className="pointer-events-none fixed left-0 top-0 z-50 h-8 w-full bg-gradient-to-b from-background to-transparent md:h-10 lg:h-12" />
+              <main className="flex h-auto w-full grow flex-col py-16 md:py-20 lg:py-24">
+                {children}
+              </main>
+              <Dock />
+            </div>
+          </QueryProvider>
           <Footer />
           <Toaster />
         </ThemeProvider>
