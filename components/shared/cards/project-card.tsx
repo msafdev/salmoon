@@ -23,7 +23,7 @@ const ProjectCard = ({
               src={img}
               alt={`${title} showcase image.`}
               fill
-              className="group-hover/card:grayscale-0 dark:grayscale"
+              className="group-hover/card:grayscale-0 dark:grayscale object-cover"
             />
           </div>
         </div>
