@@ -32,7 +32,7 @@ export default async function Page() {
       </Paragraph>
       <div className="flex w-full max-w-lg flex-col items-center gap-y-4">
         <Paragraph title="Featured posts" link href="/blog" />
-        <div className="grid w-full grid-cols-1 gap-3 sm:grid-cols-2">
+        <div className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2">
           {sortedPosts ? (
             sortedPosts
               .slice(0, 2)
