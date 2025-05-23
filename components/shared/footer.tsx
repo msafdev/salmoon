@@ -83,7 +83,7 @@ const Footer = () => {
               <Button
                 size={"sm"}
                 variant={"ghost"}
-                className="text-white hover:bg-transparent hover:text-white"
+                className="text-white hover:bg-transparent hover:text-white pr-0"
               >
                 <Link href={"/guestbook"} aria-label="My Guestbook">
                   <span className="sr-only">Leave a mark on /guestbook</span>
