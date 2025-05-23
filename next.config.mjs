@@ -8,12 +8,6 @@ export default {
         protocol: "https",
         hostname: "avatars.githubusercontent.com",
       },
-      {
-        protocol: "https",
-        hostname: "salmoon.vercel.app",
-        port: "",
-        pathname: "**",
-      },
     ],
   },
   webpack: (config) => {
