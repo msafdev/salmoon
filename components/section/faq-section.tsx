@@ -1,5 +1,4 @@
 import Accordion from "@/components/motion/accordion";
-import Paragraph from "@/components/shared/paragraph";
 
 const FaqSection = () => {
   return (

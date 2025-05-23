@@ -1,13 +1,12 @@
-import { getPosts } from "@/lib/gql";
+import { posts } from "#site/content";
 
 export const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 
 export default async function sitemap() {
-  const posts = await getPosts();
   let blogs =
     posts?.map((post) => ({
-      url: `${baseUrl}/blog/${post.node.slug}`,
-      lastModified: post.node.updatedAt,
+      url: `${baseUrl}/post/${post.slug}`,
+      lastModified: post.date,
       priority: 0.5,
     })) ?? [];
 
@@ -15,7 +14,7 @@ export default async function sitemap() {
     "/",
     "/about",
     "/lab",
-    "/blog",
+    "/post",
     "/material",
     "/secret",
     "/guestbook",

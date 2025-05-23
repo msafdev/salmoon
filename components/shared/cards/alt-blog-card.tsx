@@ -32,7 +32,7 @@ const AltBlogCard = ({
 }) => {
   return (
     <Link
-      href={`/blog/${slug}`}
+      href={`/${slug}`}
       className={cn(
         "anim group/blog flex w-full items-center justify-between py-1 text-sm sm:text-sm",
         className,

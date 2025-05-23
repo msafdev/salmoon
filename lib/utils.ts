@@ -12,3 +12,12 @@ export function copyToClipboard(text: string) {
 export function scrollToTop() {
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
+
+export function extractCode(children: any): string {
+  if (typeof children === "string") return children;
+  if (Array.isArray(children)) return children.map(extractCode).join("");
+  if (typeof children === "object" && children?.props?.children) {
+    return extractCode(children.props.children);
+  }
+  return "";
+}

@@ -50,7 +50,7 @@ const Paragraph = ({
         )}
       </div>
       {children && (
-        <div className="flex flex-col gap-y-4 text-sm md:text-base font-medium text-muted-foreground">
+        <div className="flex flex-col gap-y-4 text-sm md:text-base text-muted-foreground">
           {children}
         </div>
       )}

@@ -27,7 +27,7 @@ const AltProjectCard = ({
       <h3 className="anim font-semibold text-foreground group-hover/project:text-accent-foreground">
         {title}
       </h3>
-      <p className="anim line-clamp-1 font-mono text-sm text-muted-foreground">
+      <p className="anim line-clamp-1 text-sm font-medium text-muted-foreground">
         {description}
       </p>
     </Link>

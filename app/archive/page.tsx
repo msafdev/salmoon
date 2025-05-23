@@ -1,3 +1,5 @@
+import { posts } from "#site/content";
+
 import { Metadata } from "next";
 
 import AltProjectCard from "@/components/shared/cards/alt-project-card";
@@ -7,16 +9,14 @@ import WorkCard from "@/components/shared/cards/work-card";
 import Paragraph from "@/components/shared/paragraph";
 
 import { projectItems, templateItems, workItems } from "@/lib/constants";
-import { getPosts } from "@/lib/gql";
+import { sortPosts } from "@/lib/velite";
 
 export const metadata: Metadata = {
   title: "Archive",
 };
 
 export default async function Page() {
-  const posts = await getPosts();
-
-  const recentPosts = posts ? posts.reverse().slice(0, 4) : [];
+  const sortedPosts = sortPosts(posts.filter((post) => post.published));
 
   return (
     <section
@@ -31,20 +31,15 @@ export default async function Page() {
         </p>
       </Paragraph>
       <div className="flex w-full max-w-lg flex-col items-center gap-y-4">
-        <Paragraph title="What i wrote" link href="/blog" />
+        <Paragraph title="Featured posts" link href="/blog" />
         <div className="grid w-full grid-cols-1 gap-3 sm:grid-cols-2">
-          {recentPosts &&
-            recentPosts
-              .slice(0, 4)
-              .map((item, index) => (
-                <BlogCard
-                  slug={item.node.slug}
-                  title={item.node.title}
-                  url={item.node.thumbnail.url}
-                  createdAt={item.node.createdAt}
-                  key={index}
-                />
-              ))}
+          {sortedPosts ? (
+            sortedPosts
+              .slice(0, 2)
+              .map((item) => <BlogCard key={item.slug} {...item} />)
+          ) : (
+            <p>Nothing to see here</p>
+          )}
         </div>
       </div>
       <div className="flex w-full max-w-lg flex-col items-center gap-y-4">

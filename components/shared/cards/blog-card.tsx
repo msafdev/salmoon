@@ -12,19 +12,19 @@ export const formatDate = (dateString: string) => {
 const BlogCard = ({
   title,
   slug,
-  url,
-  createdAt,
+  image,
+  date,
   className,
 }: {
   title: string;
   slug: string;
-  url: string;
-  createdAt: string;
+  image: string;
+  date: string;
   className?: string;
 }) => {
   return (
     <Link
-      href={`/blog/${slug}`}
+      href={`/${slug}`}
       className={cn(
         "anim group/blog grid w-full grid-cols-2 gap-2 text-sm sm:text-sm",
         className,
@@ -32,7 +32,7 @@ const BlogCard = ({
     >
       <div className="relative col-span-full aspect-[8/5] h-auto w-full overflow-hidden rounded-sm bg-muted">
         <Image
-          src={url}
+          src={image}
           alt={`Thumbnail of ${title}`}
           fill
           className="anim scale-100 object-cover group-hover/blog:scale-125"
@@ -43,7 +43,7 @@ const BlogCard = ({
           {title}
         </h3>
         <p className="anim font-mono text-sm text-muted-foreground">
-          {formatDate(createdAt)}
+          {formatDate(date)}
         </p>
       </div>
     </Link>

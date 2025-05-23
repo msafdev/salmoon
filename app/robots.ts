@@ -8,10 +8,10 @@ export default function robots(): MetadataRoute.Robots {
         allow: ["/"],
       },
       {
-        userAgent: ["Applebot", "Bingbot"],
+        userAgent: "Bingbot",
         disallow: ["/"],
       },
     ],
-    sitemap: "https://msaf.tech/sitemap.xml",
+    sitemap: "https://salmoon.vercel.app/sitemap.xml",
   };
 }

@@ -86,7 +86,8 @@
   }
 
   ::selection {
-    background: hsl(var(--selection));
+    background: hsl(var(--accent));
+    color: hsl(var(--foreground));
   }
 }
 
@@ -104,17 +105,61 @@
 
 .shiki {
   background-color: transparent !important;
-  @apply py-4 pl-6;
+  @apply py-4 pl-4;
+
+  &:hover {
+    .line {
+      @apply md:opacity-40;
+    }
+
+    .line:hover {
+      @apply opacity-100;
+    }
+  }
+
   code {
     @apply pr-6;
   }
+
   .line {
+    @apply transition-opacity duration-300 md:cursor-pointer;
+
     &.highlighted,
     &.diff {
-      @apply -ml-6 inline-block w-[calc(100%+(theme(spacing.12)+theme(spacing.6)))] pl-6;
+      @apply -ml-4 inline-block w-[calc(100%+(theme(spacing.12)+theme(spacing.6)))] pl-3.5 leading-normal;
     }
     &.highlighted {
-      @apply bg-primary mix-blend-difference dark:bg-accent;
+      @apply border-l-2 border-zinc-500 bg-zinc-200 dark:border-zinc-500 dark:bg-zinc-800;
+    }
+    &.diff {
+      &.add,
+      &.remove {
+        span:first-child::before {
+          @apply -ml-4 inline-flex w-4;
+        }
+      }
+      &.add {
+        @apply bg-blue-500/20 before:text-blue-500;
+        span:first-child::before {
+          @apply -translate-x-8 text-blue-500 content-["+"];
+        }
+      }
+      &.remove {
+        @apply bg-red-500/20 *:!text-red-600 before:text-red-500 dark:bg-red-700/20 *:dark:!text-red-300;
+        span:first-child::before {
+          @apply -translate-x-8 text-red-500 content-["-"];
+        }
+      }
+    }
+  }
+
+  counter-reset: step;
+  counter-increment: step 0;
+
+  .line {
+    &::before {
+      counter-increment: step;
+      @apply mr-6 inline-block w-4 border-transparent text-right text-zinc-600 content-[counter(step)];
     }
   }
 }
@@ -122,6 +167,21 @@
 .dark .shiki,
 .dark .shiki span {
   color: var(--shiki-dark) !important;
+}
+
+.no-line-shine {
+  .shiki {
+    &:hover {
+      .line {
+        @apply cursor-auto !opacity-100;
+      }
+    }
+  }
+}
+
+.no-line-numbers .line::before {
+  content: none !important;
+  display: none !important;
 }
 
 .detail-text span {

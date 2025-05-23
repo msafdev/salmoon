@@ -1,0 +1,59 @@
+---
+title: MDX Cheatsheet
+description: Typography and syntax highlighting within MDX components.
+date: 2025-05-14
+tags: ["code", "mdx"]
+published: true
+image: "/post/architecture.webp"
+author: "Salman"
+author_image: "https://avatars.githubusercontent.com/u/116475964?v=4"
+author_email: "faris.kocak@gmail.com"
+---
+
+## Rehype Pretty Code
+
+[`rehype-pretty-code`](https://github.com/atomiks/rehype-pretty-code) is a Rehype plugin powered by the
+[`shiki`](https://github.com/shikijs/shiki) syntax highlighter that provides beautiful code blocks for Markdown or MDX. It works on both the server at build-time (avoiding runtime syntax highlighting) and on the client for dynamic highlighting.
+
+## Editor-Grade Highlighting
+
+<span className="text-zinc-400/80 mix-blend-plus-lighter">
+  Enjoy the accuracy and granularity of VS Code's syntax highlighting engine and
+  the popularity of its themes ecosystem — use any VS Code theme you want!
+</span>
+
+## Line Numbers and Line Highlighting
+
+You can highlight specific lines or words using `[!code highlight]`, track diffs using `[!code ++]` and `[!code --]`, and even highlight a word using `[!code word:"refs"]`
+
+```ts
+import { useFloating } from "@floating-ui/react";
+
+function MyComponent() {
+  const { refs, floatingStyles } = useFloating(); // [!code highlight]
+
+  return (
+    <>
+      <div ref={refs.setReference} /> /* [!code highlight:2] */
+      <div ref={refs.setFloating} style={floatingStyles} />
+    </>
+  );
+}
+```
+
+---
+
+```py
+import math
+
+radius = 2 # [!code --]
+radius = 5 # [!code ++]
+area = math.pi * radius**2
+print(f"The area of the circle is: {area}")
+```
+
+---
+
+```bash
+npm install rehype-pretty-code
+```

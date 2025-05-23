@@ -3,7 +3,7 @@ import { MoveLeft, Share2 } from "lucide-react";
 import Link from "next/link";
 
 import Code from "@/components/shared/code";
-import LabCard from "@/components/shared/lab-card";
+import LabCard from "@/components/shared/cards/lab-card";
 import Paragraph from "@/components/shared/paragraph";
 
 import { Button } from "@/components/ui/button";
@@ -60,7 +60,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             className="h-9 w-9 text-muted-foreground"
           >
             <Link
-              href={`https://x.com/intent/tweet?text=${item?.name}&url=https://msaf.tech/lab/${item?.slug}`}
+              href={`https://x.com/intent/tweet?text=${item?.name}&url=https://salmoon.vercel.app/lab/${item?.slug}`}
               target="_blank"
               rel="noopener noreferrer"
               scroll={true}
@@ -81,7 +81,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
         {uiLibrary && (
           <div className="flex w-full max-w-lg flex-col gap-y-4">
             <Paragraph title="Library setup" />
-            <div className="h-fit w-full max-w-lg rounded-xl border p-2">
+            <div className="h-fit w-full max-w-lg rounded-[12px] border border-dashed p-1 sm:rounded-[16px] sm:border-2 sm:p-2">
               <Code code={uiLibrary} lang="bash" />
             </div>
           </div>
@@ -90,7 +90,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
         {cssClass && (
           <div className="flex w-full max-w-lg flex-col gap-y-4">
             <Paragraph title="CSS setup" />
-            <div className="h-fit w-full max-w-lg rounded-xl border p-2">
+            <div className="h-fit w-full max-w-lg rounded-[12px] border border-dashed p-1 sm:rounded-[16px] sm:border-2 sm:p-2">
               <Code code={cssClass} lang="css" />
             </div>
           </div>
@@ -99,7 +99,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
         {twConfig && (
           <div className="flex w-full max-w-lg flex-col gap-y-4">
             <Paragraph title="Tailwind setup" />
-            <div className="h-fit w-full max-w-lg rounded-xl border p-2">
+            <div className="h-fit w-full max-w-lg rounded-[12px] border border-dashed p-1 sm:rounded-[16px] sm:border-2 sm:p-2">
               <Code code={twConfig} lang="json" />
             </div>
           </div>
@@ -107,8 +107,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
 
         <div className="flex w-full max-w-lg flex-col gap-y-4">
           <Paragraph title="Code" />
-          <div className="h-fit w-full max-w-lg rounded-xl border p-2">
-            <Code code={code} />
+          <div className="h-fit w-full max-w-lg rounded-[12px] border border-dashed p-1 sm:rounded-[16px] sm:border-2 sm:p-2">
+            <Code code={code} lang="tsx" />
           </div>
         </div>
       </div>

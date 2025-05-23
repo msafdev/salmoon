@@ -36,7 +36,9 @@ const Page = () => {
             >
               <p className="text-muted-foreground">{item.category}</p>
               <MoveRight className="size-3 text-foreground" />
-              <p className="text-foreground">{item.items.join(", ")}</p>
+              <p className="font-medium text-foreground">
+                {item.items.join(", ")}
+              </p>
             </li>
           ))}
         </ul>
@@ -58,7 +60,7 @@ const Page = () => {
                       target="_blank"
                       aria-label={`Link to ${person.name}`}
                       rel="noopener noreferrer"
-                      className="text-foreground underline-offset-2 hover:underline"
+                      className="font-medium text-foreground underline-offset-2 hover:underline"
                     >
                       {person.name}
                     </Link>
@@ -85,7 +87,7 @@ const Page = () => {
               className="group/bookmark flex items-center gap-x-3 py-1"
             >
               <MoveRight className="text-foreground" size={12} />
-              <p className="anim w-full pr-5 text-sm text-muted-foreground group-hover/bookmark:text-foreground sm:text-sm">
+              <p className="anim w-full pr-5 text-sm font-medium text-muted-foreground group-hover/bookmark:text-foreground sm:text-sm">
                 {item.title}
               </p>
             </Link>

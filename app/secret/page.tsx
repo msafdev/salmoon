@@ -1,10 +1,10 @@
 import { Metadata } from "next";
 
 import QuoteCard from "@/components/shared/cards/quote-card";
-import TrackCard from "@/components/shared/cards/track-card";
 import Paragraph from "@/components/shared/paragraph";
 
 import MovieSection from "@/components/section/movie-section";
+import TrackSection from "@/components/section/track-section";
 
 export const metadata: Metadata = {
   title: "Secret",
@@ -31,7 +31,7 @@ export default async function Page() {
             that I've been playing the most.
           </p>
         </Paragraph>
-        <TrackCard />
+        <TrackSection />
       </div>
       <div className="flex w-full max-w-lg flex-col gap-y-4">
         <Paragraph title="Top Movies">

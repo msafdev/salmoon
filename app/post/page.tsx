@@ -1,23 +1,26 @@
+import { posts } from "#site/content";
+
 import { Metadata } from "next";
 
-import BlogSection from "@/components/section/blog-section";
+import BlogSection from "@/components/section/post-section";
 
-import { getPosts } from "@/lib/gql";
+import { getAllTags, sortTagsByCount } from "@/lib/velite";
 
 export const metadata: Metadata = {
-  title: "Blog",
+  title: "Post",
 };
 
 export default async function Page() {
-  const posts = await getPosts();
-
+  const tags = getAllTags(posts);
+  const sortedTags = sortTagsByCount(tags);
+  
   return (
     <section
-      id="blog"
+      id="post"
       className="flex h-auto w-full grow flex-col items-center gap-y-16 md:gap-y-20 lg:gap-y-24"
     >
       <div className="flex w-full max-w-lg flex-col items-center gap-y-4">
-        <BlogSection items={posts?.reverse()} />
+        <BlogSection items={posts?.reverse()} tags={sortedTags} />
       </div>
     </section>
   );

@@ -25,35 +25,6 @@ export type TWConfig = {
   [key: string]: object;
 };
 
-export const TW_CONFIG: TWConfig = {
-  ["background-shine"]: {
-    animation: {
-      "background-shine": "background-shine 2s infinite linear",
-    },
-    keyframes: {
-      "background-shine": {
-        "0%": {
-          backgroundPosition: "0 0",
-        },
-        "100%": {
-          backgroundPosition: "-200% 0",
-        },
-      },
-    },
-  },
-  ["marquee"]: {
-    animation: {
-      marquee: "marquee 40s linear infinite",
-    },
-    keyframes: {
-      marquee: {
-        from: { transform: "translateX(0)" },
-        to: { transform: "translateX(calc(-100% - 16px))" },
-      },
-    },
-  },
-};
-
 export const COMPONENTS: ComponentType[] = [
   {
     name: "Timeline",

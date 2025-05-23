@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
 
-import LabCard from "@/components/shared/lab-card";
+import LabCard from "@/components/shared/cards/lab-card";
 import Paragraph from "@/components/shared/paragraph";
 
 import { COMPONENTS } from "@/lib/data";

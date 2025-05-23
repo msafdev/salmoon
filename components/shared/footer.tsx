@@ -14,7 +14,7 @@ import { Magnetic } from "@/components/motion/magnetic";
 
 import { copyToClipboard } from "@/lib/utils";
 
-import { Button } from "../ui/button";
+import { Button } from "@/components/ui/button";
 
 const licorice = Licorice({
   subsets: ["latin"],
@@ -83,7 +83,7 @@ const Footer = () => {
               <Button
                 size={"sm"}
                 variant={"ghost"}
-                className="text-white hover:bg-zinc-800 hover:text-white"
+                className="text-white hover:bg-transparent hover:text-white"
               >
                 <Link href={"/guestbook"} aria-label="My Guestbook">
                   <span className="sr-only">Leave a mark on /guestbook</span>

@@ -29,7 +29,7 @@ const ProcessSection = () => {
                   </span>
                   {item.name}
                 </h3>
-                <p className="text-sm font-medium text-muted-foreground md:text-base">
+                <p className="text-sm text-muted-foreground md:text-base">
                   {item.description}
                 </p>
               </div>

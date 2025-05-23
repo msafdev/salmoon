@@ -42,12 +42,12 @@ const GuestbookForm = ({ user }: { user: User | null }) => {
   return (
     <div className="flex flex-col">
       {user ? (
-        <div className="flex w-full flex-col gap-y-1">
+        <div className="flex w-full flex-col gap-y-2">
           <ContentForm />
           <button
             onClick={handleSignOut}
             disabled={signOutMutation.isPending}
-            className="text-left text-sm text-muted-foreground transition-colors hover:text-foreground disabled:opacity-50"
+            className="text-left text-sm w-fit text-muted-foreground transition-colors hover:text-foreground disabled:opacity-50"
           >
             {signOutMutation.isPending ? (
               <span className="flex items-center gap-1">

@@ -8,12 +8,12 @@ import { useMemo } from "react";
 import Image from "next/image";
 
 import {
-  MorphingDialog,
-  MorphingDialogClose,
-  MorphingDialogContainer,
-  MorphingDialogContent,
-  MorphingDialogImage,
-  MorphingDialogTrigger,
+  MorphDialog,
+  MorphDialogClose,
+  MorphDialogContainer,
+  MorphDialogContent,
+  MorphDialogImage,
+  MorphDialogTrigger,
 } from "@/components/motion/morph-dialog";
 
 import { placeItems } from "@/lib/constants";
@@ -72,27 +72,27 @@ const PlaceCard = ({ item }: { item: (typeof placeItems)[number] }) => (
     transition={transition}
     className="flex-shrink-0"
   >
-    <MorphingDialog>
-      <MorphingDialogTrigger>
-        <MorphingDialogImage
+    <MorphDialog>
+      <MorphDialogTrigger>
+        <MorphDialogImage
           src={item.src}
           alt={`Image of place ${item.id}`}
           className={`${sharedImageClass} w-32`}
         />
-      </MorphingDialogTrigger>
-      <MorphingDialogContainer>
-        <MorphingDialogContent className="relative">
-          <MorphingDialogImage
+      </MorphDialogTrigger>
+      <MorphDialogContainer>
+        <MorphDialogContent className="relative">
+          <MorphDialogImage
             src={item.src}
             alt={`Image of place ${item.id}`}
             className="h-auto w-[90vw] max-w-[300px] rounded-lg object-cover md:max-w-[60vw] lg:h-[70vh] lg:w-auto"
           />
-        </MorphingDialogContent>
-        <MorphingDialogClose className="fixed right-6 top-6 h-fit w-fit rounded-full bg-white p-1">
+        </MorphDialogContent>
+        <MorphDialogClose className="fixed right-6 top-6 h-fit w-fit rounded-full bg-white p-1">
           <X className="h-5 w-5 text-zinc-500" />
-        </MorphingDialogClose>
-      </MorphingDialogContainer>
-    </MorphingDialog>
+        </MorphDialogClose>
+      </MorphDialogContainer>
+    </MorphDialog>
   </motion.div>
 );
 

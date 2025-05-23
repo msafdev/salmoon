@@ -8,6 +8,20 @@ import Slack from "@/public/icons/slack.png";
 import Vue from "@/public/icons/vue.png";
 import Webflow from "@/public/icons/webflow.png";
 
+export const siteItems = {
+  name: "Salman",
+  url: "https://salmoon.vercel.app",
+  description: "Nextjs 14 blog template velite, tailwind and shadcn",
+  author: "Salman",
+  links: {
+    twitter: "https://twitter.com/msafdev",
+    github: "https://github.com/msafdev",
+    personalSite: "https://salmoon.vercel.app",
+  },
+};
+
+export type SiteConfig = typeof siteItems;
+
 export const navItems = [
   {
     id: 1,
@@ -247,7 +261,7 @@ export const toolItems = [
   },
   {
     category: "Device",
-    items: ["iPhone XR", "ASUS TUF FX505DT"],
+    items: ["iPhone XR", "Lenovo LOQ 15IRX9"],
   },
   {
     category: "Shell",
@@ -255,7 +269,7 @@ export const toolItems = [
   },
   {
     category: "Browser",
-    items: ["Firefox", "Safari"],
+    items: ["Firefox", "Brave"],
   },
   {
     category: "Development",

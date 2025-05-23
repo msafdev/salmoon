@@ -5,7 +5,7 @@ import { Tilt } from "@/components/ui/tilt";
 
 const MovieCard = ({ title, url }: { title: string; url: string }) => {
   return (
-    <div className="group/section flex w-full flex-col gap-y-2">
+    <div className="group/section flex w-full flex-col gap-y-1.5">
       <Tilt
         rotationFactor={6}
         isRevese
@@ -35,7 +35,7 @@ const MovieCard = ({ title, url }: { title: string; url: string }) => {
           className="object-cover grayscale duration-700 group-hover:grayscale-0"
         />
       </Tilt>
-      <h3 className="font-mono text-sm font-medium leading-none text-foreground sm:text-sm sm:leading-none">
+      <h3 className="text-sm font-semibold leading-none text-foreground sm:text-sm sm:leading-none">
         {title}
       </h3>
     </div>

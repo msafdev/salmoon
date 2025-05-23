@@ -1,3 +1,5 @@
+import "@/styles/globals.css";
+
 import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
 import NextTopLoader from "nextjs-toploader";
@@ -13,7 +15,6 @@ import { Toaster } from "@/components/ui/toaster";
 import QueryProvider from "@/components/query-provider";
 import { ThemeProvider } from "@/components/theme-provider";
 
-import "./globals.css";
 import NotFound from "./not-found";
 import { baseUrl } from "./sitemap";
 
