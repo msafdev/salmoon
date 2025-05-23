@@ -116,7 +116,7 @@ export default async function PostPage({ params }: PostPageProps) {
 
         {/* Cover Image */}
         <div className="mb-6 aspect-video h-auto w-full rounded-[12px] border-2 border-dashed p-1 sm:rounded-[16px] sm:p-2">
-          <div className="relative h-full w-full overflow-hidden rounded-[8px] shadow-sm">
+          <div className="relative h-full w-full overflow-hidden rounded-[8px]">
             <Image src={post.image} alt={`${post.title} cover image.`} fill className="object-cover" />
           </div>
         </div>

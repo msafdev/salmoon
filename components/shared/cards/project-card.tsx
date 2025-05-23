@@ -7,18 +7,18 @@ const ProjectCard = ({
   href,
   title,
   img,
-  git
+  git,
 }: {
   href: string;
   title: string;
   img: string;
-  git: string
+  git: string;
 }) => {
   return (
     <div className="group/card relative w-full overflow-hidden">
       {img && (
         <div className="aspect-video h-auto w-full rounded-[12px] border-2 border-dashed p-1 sm:rounded-[16px] sm:p-2">
-          <div className="relative h-full w-full overflow-hidden rounded-[8px] shadow-sm">
+          <div className="relative h-full w-full overflow-hidden rounded-[8px]">
             <Image
               src={img}
               alt={`${title} showcase image.`}
