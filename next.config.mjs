@@ -10,7 +10,9 @@ export default {
       },
       {
         protocol: "https",
-        hostname: "**",
+        hostname: "salmoon.vercel.app",
+        port: "",
+        pathname: "**",
       },
     ],
   },
