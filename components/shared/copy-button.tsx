@@ -39,7 +39,9 @@ const CopyButton = ({
       size={"icon"}
       className={className}
       onClick={handleClick}
+      aria-label="Copy to clipboard"
     >
+      <span className="sr-only">Copy to clipboard</span>
       {isCopied ? (
         <Check className="h-3.5 w-3.5" />
       ) : (
