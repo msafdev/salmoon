@@ -30,12 +30,12 @@ const BlogCard = ({
         className,
       )}
     >
-      <div className="relative col-span-full aspect-[8/5] h-auto w-full overflow-hidden rounded-sm bg-muted">
+      <div className="relative col-span-full aspect-[8/5] h-auto w-full overflow-hidden rounded-lg bg-muted">
         <Image
           src={image}
           alt={`Thumbnail of ${title}`}
           fill
-          className="anim scale-100 object-cover group-hover/blog:scale-125"
+          className="anim scale-105 object-cover group-hover/blog:scale-110"
         />
       </div>
       <div className="col-span-full flex h-full flex-col justify-center">
