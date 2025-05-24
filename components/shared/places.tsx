@@ -58,7 +58,7 @@ const MobilePlaceCard = ({ item }: { item: (typeof placeItems)[number] }) => (
         src={item.src}
         alt={`Image of place ${item.id}`}
         fill
-        quality={70}
+        quality={75}
         loading="lazy"
       />
     </div>

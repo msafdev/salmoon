@@ -23,11 +23,10 @@ const ProjectCard = ({
             <Image
               src={img}
               alt={`${title} showcase image.`}
-              fill
               className="object-cover group-hover/card:grayscale-0 dark:grayscale"
-              loading="lazy"
-              sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
               placeholder="blur"
+              loading="lazy"
+              fill
             />
           </div>
         </div>
