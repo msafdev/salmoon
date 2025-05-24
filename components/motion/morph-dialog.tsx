@@ -20,6 +20,8 @@ import React, {
 } from "react";
 import { createPortal } from "react-dom";
 
+import Image, { StaticImageData } from "next/image";
+
 import { useClickOutside } from "@/lib/hooks";
 import { cn } from "@/lib/utils";
 
@@ -32,15 +34,14 @@ export type MorphDialogContextType = {
   setMeasurementsReady: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-const MorphDialogContext =
-  React.createContext<MorphDialogContextType | null>(null);
+const MorphDialogContext = React.createContext<MorphDialogContextType | null>(
+  null,
+);
 
 export function useMorphDialog() {
   const context = useContext(MorphDialogContext);
   if (!context) {
-    throw new Error(
-      "useMorphDialog must be used within a MorphDialogProvider",
-    );
+    throw new Error("useMorphDialog must be used within a MorphDialogProvider");
   }
   return context;
 }
@@ -358,7 +359,7 @@ function MorphDialogDescription({
 }
 
 export type MorphDialogImageProps = {
-  src: string;
+  src: StaticImageData;
   alt: string;
   className?: string;
   style?: React.CSSProperties;
@@ -374,9 +375,7 @@ function MorphDialogImage({
   const [_, setImageLoaded] = useState(false);
 
   return (
-    <motion.img
-      src={src}
-      alt={alt}
+    <motion.div
       className={cn(className)}
       layoutId={`dialog-img-${uniqueId}`}
       style={{
@@ -384,9 +383,20 @@ function MorphDialogImage({
         aspectRatio: "1/1",
         minWidth: "1px",
         minHeight: "1px",
+        position: "relative",
+        overflow: "hidden",
       }}
       onLoad={() => setImageLoaded(true)}
-    />
+    >
+      <Image
+        src={src}
+        alt={alt}
+        fill
+        placeholder="blur"
+        sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+        className="object-cover"
+      />
+    </motion.div>
   );
 }
 

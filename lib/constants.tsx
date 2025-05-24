@@ -8,6 +8,18 @@ import Slack from "@/public/icons/slack.png";
 import Vue from "@/public/icons/vue.png";
 import Webflow from "@/public/icons/webflow.png";
 
+// Static Work Imports
+import Compacfolio from "@/public/images/compactfolio.webp";
+import Linkify from "@/public/images/linkify.webp";
+import Macfolio from "@/public/images/macfolio.webp";
+import MDX from "@/public/images/mdx.webp";
+
+// Static Place Imports
+import Place1 from "@/public/images/places/place-1.avif"
+import Place2 from "@/public/images/places/place-2.avif"
+import Place3 from "@/public/images/places/place-3.avif"
+import Place4 from "@/public/images/places/place-4.avif"
+
 export const siteItems = {
   name: "Salman",
   url: "https://salmoon.vercel.app",
@@ -51,22 +63,22 @@ export const navItems = [
 export const placeItems = [
   {
     id: 1,
-    src: "/images/places/place-1.avif",
+    src: Place1,
     rotation: -5,
   },
   {
     id: 2,
-    src: "/images/places/place-2.avif",
+    src: Place2,
     rotation: 8,
   },
   {
     id: 3,
-    src: "/images/places/place-3.avif",
+    src: Place3,
     rotation: -3,
   },
   {
     id: 4,
-    src: "/images/places/place-4.avif",
+    src: Place4,
     rotation: 11,
   },
 ];
@@ -185,28 +197,28 @@ export const templateItems = [
     title: "Macfolio",
     stack: ["Next", "Tailwind"],
     href: "https://macfolio-demo.vercel.app",
-    img: "/images/macfolio.webp",
+    img: Macfolio,
     git: "https://github.com/msafdev/macfolio",
   },
   {
     title: "Linkify",
     stack: ["Next", "Tailwind"],
     href: "https://linkify-demo.vercel.app",
-    img: "/images/linkify.webp",
+    img: Linkify,
     git: "https://github.com/msafdev/linkify",
   },
   {
     title: "Compactfolio",
     stack: ["React", "Tailwind"],
     href: "https://compactfolio-demo.vercel.app",
-    img: "/images/compactfolio.webp",
+    img: Compacfolio,
     git: "https://github.com/msafdev/compactfolio",
   },
   {
-    title: "Compactfolio",
+    title: "Mdx Starter",
     stack: ["Next", "Tailwind", "Velite"],
     href: "https://mdx-starter-theta.vercel.app",
-    img: "/images/mdx.webp",
+    img: MDX,
     git: "https://github.com/msafdev/mdx-starter",
   },
 ];
