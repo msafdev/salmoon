@@ -14,7 +14,7 @@ const Template = ({ children }: { children: React.ReactNode }) => {
         filter: "blur(0px)",
       }}
       exit={{ opacity: 0, filter: "blur(4px)" }}
-      transition={{ ease: "easeInOut", duration: 1 }}
+      transition={{ ease: "easeInOut", duration: 0.4 }}
       className="flex h-auto w-full grow flex-col"
     >
       {children}
