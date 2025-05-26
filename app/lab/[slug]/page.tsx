@@ -1,9 +1,10 @@
+import "@/styles/lab.css";
 import { MoveLeft, Share2 } from "lucide-react";
 
 import Link from "next/link";
 
-import Code from "@/components/shared/code";
 import LabCard from "@/components/shared/cards/lab-card";
+import Code from "@/components/shared/code";
 import Paragraph from "@/components/shared/paragraph";
 
 import { Button } from "@/components/ui/button";

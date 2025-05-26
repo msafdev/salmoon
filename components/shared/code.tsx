@@ -1,3 +1,4 @@
+import "@/styles/shiki.css";
 import { codeToHtml } from "shiki";
 import type { BundledLanguage } from "shiki";
 

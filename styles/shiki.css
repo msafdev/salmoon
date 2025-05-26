@@ -1,0 +1,63 @@
+.shiki {
+  background-color: transparent !important;
+  @apply py-4 pl-4;
+
+  code {
+    @apply pr-6;
+  }
+
+  .line {
+    @apply transition-opacity duration-300 md:cursor-pointer;
+
+    &.highlighted,
+    &.diff {
+      @apply -ml-4 inline-block w-[calc(100%+(theme(spacing.12)+theme(spacing.6)))] pl-3.5 leading-normal;
+    }
+
+    &.highlighted {
+      @apply border-l-2 border-zinc-500 bg-gradient-to-r from-zinc-200 from-80% to-transparent dark:border-zinc-500 dark:from-zinc-800;
+    }
+
+    &.diff.add {
+      @apply bg-gradient-to-r from-blue-500/20 from-80% to-transparent before:text-blue-500;
+      span:first-child::before {
+        @apply inline-flex w-4 -translate-x-8 text-blue-500 content-["+"];
+      }
+    }
+
+    &.diff.remove {
+      @apply bg-gradient-to-r from-red-500/20 from-80% to-transparent *:!text-red-600 before:text-red-500 dark:from-red-700/20 *:dark:!text-red-300;
+      span:first-child::before {
+        @apply inline-flex w-4 -translate-x-8 text-red-500 content-["-"];
+      }
+    }
+
+    &::before {
+      counter-increment: step;
+      @apply mr-6 inline-block w-4 border-transparent text-right text-zinc-600 content-[counter(step)];
+    }
+  }
+
+  &:hover .line {
+    @apply md:opacity-40;
+  }
+  &:hover .line:hover {
+    @apply opacity-100;
+  }
+
+  counter-reset: step;
+}
+
+.dark .shiki,
+.dark .shiki span {
+  color: var(--shiki-dark) !important;
+}
+
+.no-line-shine .shiki:hover .line {
+  @apply cursor-auto !opacity-100;
+}
+
+.no-line-numbers .line::before {
+  content: none !important;
+  display: none !important;
+}

@@ -1,0 +1,7 @@
+.detail-text span {
+  transition: color 0.3s;
+}
+
+.detail-text:has(span.active) span:not(.active) {
+  color: hsl(var(--muted-foreground));
+}

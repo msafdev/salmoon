@@ -49,15 +49,16 @@
     --ring: 240 4.9% 83.9%;
     --selection: 240 100% 50%;
   }
-}
 
-@layer base {
   html {
     @apply no-scrollbar;
   }
-  * {
-    @apply border-border dark:border-zinc-700;
+
+  *,
+  body {
+    @apply border-border;
   }
+
   body {
     @apply m-0 min-w-64 overflow-x-hidden bg-background p-0 text-foreground;
   }
@@ -67,11 +68,9 @@
   .anim {
     @apply transition-all duration-300 ease-in-out;
   }
-
   .anim-slow {
     @apply transition-all duration-500 ease-in-out;
   }
-
   .anim-fast {
     @apply transition-all duration-200 ease-in-out;
   }
@@ -92,111 +91,11 @@
 }
 
 @layer utilities {
-  /* Hide scrollbar for Chrome, Safari and Opera */
   .no-scrollbar::-webkit-scrollbar {
     display: none;
   }
-  /* Hide scrollbar for IE, Edge and Firefox */
   .no-scrollbar {
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
-  }
-}
-
-.shiki {
-  background-color: transparent !important;
-  @apply py-4 pl-4;
-
-  &:hover {
-    .line {
-      @apply md:opacity-40;
-    }
-
-    .line:hover {
-      @apply opacity-100;
-    }
-  }
-
-  code {
-    @apply pr-6;
-  }
-
-  .line {
-    @apply transition-opacity duration-300 md:cursor-pointer;
-
-    &.highlighted,
-    &.diff {
-      @apply -ml-4 inline-block w-[calc(100%+(theme(spacing.12)+theme(spacing.6)))] pl-3.5 leading-normal;
-    }
-    &.highlighted {
-      @apply border-l-2 border-zinc-500 bg-gradient-to-r to-transparent from-80% from-zinc-200 dark:border-zinc-500 dark:from-zinc-800;
-    }
-    &.diff {
-      &.add,
-      &.remove {
-        span:first-child::before {
-          @apply -ml-4 inline-flex w-4;
-        }
-      }
-      &.add {
-        @apply bg-gradient-to-r from-80% to-transparent from-blue-500/20 before:text-blue-500;
-        span:first-child::before {
-          @apply -translate-x-8 text-blue-500 content-["+"];
-        }
-      }
-      &.remove {
-        @apply bg-gradient-to-r from-80% to-transparent from-red-500/20 *:!text-red-600 before:text-red-500 dark:from-red-700/20 *:dark:!text-red-300;
-        span:first-child::before {
-          @apply -translate-x-8 text-red-500 content-["-"];
-        }
-      }
-    }
-  }
-
-  counter-reset: step;
-  counter-increment: step 0;
-
-  .line {
-    &::before {
-      counter-increment: step;
-      @apply mr-6 inline-block w-4 border-transparent text-right text-zinc-600 content-[counter(step)];
-    }
-  }
-}
-
-.dark .shiki,
-.dark .shiki span {
-  color: var(--shiki-dark) !important;
-}
-
-.no-line-shine {
-  .shiki {
-    &:hover {
-      .line {
-        @apply cursor-auto !opacity-100;
-      }
-    }
-  }
-}
-
-.no-line-numbers .line::before {
-  content: none !important;
-  display: none !important;
-}
-
-.detail-text span {
-  transition: color 0.3s;
-}
-
-.detail-text:has(span.active) span:not(.active) {
-  color: hsl(var(--muted-foreground));
-}
-
-@layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 }
