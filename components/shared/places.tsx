@@ -33,7 +33,7 @@ const Places = () => {
 
   const itemsToRender = useMemo(() => {
     if (!isMounted) return [];
-    return isDesktop ? placeItems : placeItems.slice(1, 3);
+    return isDesktop ? placeItems : placeItems.slice(1, 4);
   }, [isDesktop, isMounted]);
 
   const RenderedCard = isDesktop ? PlaceCard : MobilePlaceCard;
@@ -52,7 +52,7 @@ const Places = () => {
 const MobilePlaceCard = ({ item }: { item: (typeof placeItems)[number] }) => (
   <div style={{ rotate: `${item.rotation}deg` }} className="flex-shrink-0">
     <div
-      className={`${sharedImageClass} relative w-[40vw] min-w-28 max-w-36 overflow-hidden xs:w-32`}
+      className={`${sharedImageClass} relative w-[26vw] min-w-16 max-w-28 overflow-hidden xs:w-32`}
     >
       <Image
         src={item.src}

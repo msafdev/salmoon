@@ -64,7 +64,7 @@ const maskVariant = {
 
 const MemoCard = () => {
   const matches = useMediaQuery("(max-width: 768px)");
-  
+
   return (
     <motion.div
       className="relative w-full max-w-md cursor-pointer"
@@ -81,22 +81,21 @@ const MemoCard = () => {
       />
 
       {/* Memo Card */}
-      <div className="space-y-6 md:space-y-8 rounded-xl border bg-card p-6 md:p-8 text-card-foreground shadow-none">
+      <div className="space-y-6 rounded-xl border bg-card p-6 text-card-foreground shadow-none md:space-y-8 md:p-8">
         <div className="space-y-4 md:space-y-6">
-          <h3 className="text-lg font-bold">Founder memo</h3>
+          <h3 className="text-lg font-bold">Founder's Memo</h3>
           <p className="text-sm font-medium leading-relaxed text-muted-foreground">
-            The current structure is designed for clarity and scalability.
-            Routes, API logic, components, and utilities are all properly
-            organized to support a growing codebase.
+            I am only human, and I recognize that I can make mistakes. Some of
+            the information here might become outdated or incomplete over time.
           </p>
           <p className="text-sm font-medium leading-relaxed text-muted-foreground">
-            Avoid flat or inconsistent setups that lead to confusion. Clear file
-            naming and separation of concerns help the team move faster and
-            cleaner.
+            If you ever notice errors, inconsistencies, or ways to improve these
+            materials, please don't hesitate to reach out or contribute your
+            insights, your feedback is invaluable.
           </p>
           <p className="text-sm font-medium leading-relaxed text-muted-foreground">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quia
-            pariatur ducimus praesentium.
+            From the bottom of my heart, thank you for your support, your trust,
+            and for being part of this journey.
           </p>
         </div>
 

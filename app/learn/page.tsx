@@ -16,14 +16,10 @@ export default function Page() {
       className="flex flex-col items-center gap-y-16 md:gap-y-20 lg:gap-y-24"
     >
       <div className="flex w-full max-w-lg flex-col gap-y-4">
-        <Paragraph title="Learn with me">
+        <Paragraph title="Learn">
           <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur
-            debitis ipsa quasi magnam suscipit ratione obcaecati!
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            Repellendus, voluptatum ab.
+            Everything here is made by me, with care, to help you learn without
+            the fluff or confusion.
           </p>
         </Paragraph>
 

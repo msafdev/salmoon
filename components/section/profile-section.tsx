@@ -21,9 +21,9 @@ const ProfileSection = () => {
         </div>
       </div>
 
-      <p className="w-full max-w-lg text-base text-muted-foreground">
+      <p className="w-full max-w-lg text-sm text-muted-foreground md:text-base">
         I am a fullstack engineer based in
-        <span className="text-foreground font-medium">
+        <span className="font-medium text-foreground">
           <span className="mx-1 text-sm font-bold leading-none">🇮🇩</span>
           Indonesia
         </span>
