@@ -393,7 +393,7 @@ function MorphDialogImage({
         alt={alt}
         fill
         placeholder="blur"
-        sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+        sizes="(max-width: 768px) 50vw, (max-width: 1280px) 40vw, 30vw"
         className="object-cover"
       />
     </motion.div>
