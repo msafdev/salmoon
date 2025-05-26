@@ -1,20 +1,18 @@
 "use client";
 
 import { useInView } from "framer-motion";
-import { Dot } from "lucide-react";
 
 import { useRef } from "react";
 
 import { Licorice } from "next/font/google";
 import Link from "next/link";
 
+import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
 
 import { Magnetic } from "@/components/motion/magnetic";
 
 import { copyToClipboard } from "@/lib/utils";
-
-import { Button } from "@/components/ui/button";
 
 const licorice = Licorice({
   subsets: ["latin"],
@@ -83,7 +81,7 @@ const Footer = () => {
               <Button
                 size={"sm"}
                 variant={"ghost"}
-                className="text-white hover:bg-transparent hover:text-white pr-0"
+                className="pr-0 text-white hover:bg-transparent hover:text-white"
               >
                 <Link href={"/guestbook"} aria-label="My Guestbook">
                   <span className="sr-only">Leave a mark on /guestbook</span>
@@ -143,6 +141,12 @@ const Footer = () => {
             </h2>
             <div className="flex flex-col gap-y-1 text-center text-sm font-medium text-muted-foreground md:text-right">
               <Link
+                href={"/learn"}
+                className="anim hover:text-primary-foreground dark:hover:text-primary"
+              >
+                Learn
+              </Link>
+              <Link
                 href={"/secret"}
                 className="anim hover:text-primary-foreground dark:hover:text-primary"
               >
@@ -153,12 +157,6 @@ const Footer = () => {
                 className="anim hover:text-primary-foreground dark:hover:text-primary"
               >
                 Material
-              </Link>
-              <Link
-                href={"/retrospect"}
-                className="anim hover:text-primary-foreground dark:hover:text-primary"
-              >
-                Retrospect
               </Link>
             </div>
           </div>

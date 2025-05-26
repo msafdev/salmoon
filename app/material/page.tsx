@@ -84,7 +84,7 @@ const Page = () => {
               aria-label={`Link to ${item.title}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="group/bookmark flex items-center gap-x-3 py-1"
+              className="group/bookmark flex w-fit items-center gap-x-3 py-1"
             >
               <MoveRight className="text-foreground" size={12} />
               <p className="anim w-full pr-5 text-sm font-medium text-muted-foreground group-hover/bookmark:text-foreground sm:text-sm">

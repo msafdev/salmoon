@@ -41,7 +41,7 @@ export async function generateMetadata({
   return {
     title: post.title,
     description: post.description,
-    authors: { name: siteItems.author },
+    authors: { name: siteItems.name },
     openGraph: {
       title: post.title,
       description: post.description,
@@ -83,7 +83,7 @@ export default async function PostPage({ params }: PostPageProps) {
       id={`${post.slug}`}
       className="flex h-auto w-full grow flex-col items-center gap-y-16 md:gap-y-20 lg:gap-y-24"
     >
-      <div className="flex w-full max-w-lg items-center justify-between px-4">
+      <div className="flex w-full max-w-lg items-center justify-between">
         <Link
           href={`/post`}
           scroll={true}
@@ -91,7 +91,7 @@ export default async function PostPage({ params }: PostPageProps) {
           className="anim flex items-center gap-x-2 text-muted-foreground hover:text-foreground"
         >
           <MoveLeft className="h-5 w-5" />
-          <p className="text-sm font-medium md:text-base">back to blog</p>
+          <p className="text-sm font-medium md:text-base">Go back</p>
         </Link>
         <Button
           variant="ghost"
@@ -112,12 +112,19 @@ export default async function PostPage({ params }: PostPageProps) {
       </div>
 
       <div className="flex w-full max-w-lg flex-col">
-        <h1 className="mb-6 text-3xl font-bold">{post.title}</h1>
+        <h1 className="mb-6 text-xl font-bold sm:text-2xl md:text-3xl">
+          {post.title}
+        </h1>
 
         {/* Cover Image */}
         <div className="mb-6 aspect-video h-auto w-full rounded-[12px] border-2 border-dashed p-1 sm:rounded-[16px] sm:p-2">
           <div className="relative h-full w-full overflow-hidden rounded-[8px]">
-            <Image src={post.image} alt={`${post.title} cover image.`} fill className="object-cover" />
+            <Image
+              src={post.image}
+              alt={`${post.title} cover image.`}
+              fill
+              className="object-cover"
+            />
           </div>
         </div>
 
@@ -130,9 +137,11 @@ export default async function PostPage({ params }: PostPageProps) {
             </AvatarFallback>
           </Avatar>
           <div className="flex flex-col">
-            <p className="text-sm font-medium text-foreground">{post.author}</p>
+            <p className="text-sm font-medium text-foreground">
+              {siteItems.name}
+            </p>
             <p className="text-xs font-medium text-muted-foreground">
-              {post.author_email}
+              {siteItems.role}
             </p>
           </div>
         </div>

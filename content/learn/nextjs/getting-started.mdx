@@ -1,0 +1,148 @@
+---
+title: Getting Started
+description: A short introduction of some sort.
+tags: ["next"]
+chapter: 1
+published: true
+---
+
+## Introduction
+
+Next.js is a React framework for building scalable, high-performance web applications. It offers features like server-side rendering, static site generation, API routes, and more — all with a great developer experience.
+
+In this guide, you'll learn:
+
+- System requirements
+- How to install and scaffold a Next.js app
+- The difference between the `app/` and `pages/` directories
+- How to run your development server
+
+---
+
+## System Requirements
+
+Before starting, make sure your environment meets the following requirements:
+
+- **Node.js** version `18.17` or higher
+- **npm**, `pnpm`, or `yarn`
+- A code editor like Visual Studio Code
+
+To verify you have Node.js and npm installed:
+
+```bash
+node -v
+npm -v
+```
+
+If needed, install Node.js from [nodejs.org](https://nodejs.org).
+
+---
+
+## Installation
+
+To create a new Next.js project, use the official `create-next-app` CLI:
+
+```bash
+npx create-next-app@latest my-next-app
+```
+
+The CLI will ask you a few questions:
+
+- JavaScript or TypeScript
+- App Router (`app/`) or Pages Router (`pages/`)
+- Whether to include Tailwind CSS, ESLint, and other options
+
+Navigate into your new project folder:
+
+```bash
+cd my-next-app
+```
+
+Start the development server:
+
+```bash
+npm run dev
+```
+
+Then open your browser to [http://localhost:3000](http://localhost:3000).
+
+---
+
+## App vs Pages Directory
+
+Next.js supports two routing paradigms:
+
+### Pages Directory
+
+The original routing system.
+
+- File-based routing
+- `pages/index.tsx` maps to `/`
+- Supports API routes (`pages/api/`)
+- Client components by default
+- Manual layout management
+
+### App Directory
+
+Introduced as the App Router in Next.js 13 and stabilized in 13.4.
+
+- File-based routing with nested folders
+- Native support for layouts (`layout.tsx`)
+- Server components enabled by default
+- Supports loading and error states
+- Recommended for new projects
+
+| Feature           | `pages/` directory    | `app/` directory           |
+| ----------------- | --------------------- | -------------------------- |
+| Routing system    | File-based            | File-based                 |
+| Server components | Not supported         | Supported                  |
+| Layouts           | Manual via `_app.tsx` | Nested, built-in           |
+| Loading UI        | Not built-in          | Built-in via `loading.tsx` |
+| Error handling    | Custom `_error.tsx`   | Built-in via `error.tsx`   |
+| Recommended for   | Legacy/simple apps    | New applications           |
+
+> For new projects, the `app/` directory is recommended for its flexibility and modern features.
+
+---
+
+## Project Structure
+
+When using the `app/` directory, your project might look like this:
+
+```
+my-app/
+├── app/
+│   ├── layout.tsx
+│   ├── page.tsx
+│   └── about/
+│       └── page.tsx
+├── public/
+├── styles/
+├── next.config.js
+├── package.json
+```
+
+Each folder under `app/` defines a route. You can also add:
+
+- `layout.tsx` - for nested layouts
+- `loading.tsx` - for loading UI during route transitions
+- `error.tsx` - for route-specific error handling
+
+---
+
+## Next Steps
+
+Once your project is running, here are a few things you can do:
+
+- Add Tailwind CSS: `npx tailwindcss init -p`
+- Create dynamic routes using file-based syntax (e.g. `[slug].tsx`, `[...slug].tsx`)
+- Learn about route handlers (or API routes if you're using `pages/` dir)
+- Deploy your site using [Vercel](https://vercel.com)
+
+For full documentation, visit the [Next.js docs](https://nextjs.org/docs).
+
+---
+
+## Summary
+
+Next.js offers two routing systems with different capabilities. The `app/` directory unlocks powerful features like server components and nested layouts, while the `pages/` directory provides a stable, familiar structure for simpler apps. Either way, you're building on a strong, modern React foundation.

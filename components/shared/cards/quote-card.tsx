@@ -56,9 +56,9 @@ const QuoteCard = () => {
               className="flex flex-col gap-y-2"
             >
               <p className="text-sm font-medium">{item.quote}</p>
-              <code className="text-sm font-normal text-muted-foreground">
+              <p className="text-sm font-medium text-muted-foreground">
                 {item.author}
-              </code>
+              </p>
             </motion.blockquote>
           ))}
         </AnimatePresence>

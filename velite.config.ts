@@ -4,6 +4,9 @@ import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypePrettyCode from "rehype-pretty-code";
 import rehypeSlug from "rehype-slug";
 
+import rehypeToc from "@stefanprobst/rehype-extract-toc";
+import rehypeTocExtract from "@stefanprobst/rehype-extract-toc/mdx";
+
 const computedFields = <T extends { slug: string }>(data: T) => ({
   ...data,
   slugAsParams: data.slug.split("/").slice(1).join("/"),
@@ -22,9 +25,22 @@ const posts = defineCollection({
       published: s.boolean().default(true),
       tags: s.array(s.string()).optional(),
       body: s.mdx(),
-      author: s.string().max(99),
-      author_image: s.string().max(99),
-      author_email: s.string().max(99),
+    })
+    .transform(computedFields),
+});
+
+const learns = defineCollection({
+  name: "Learn",
+  pattern: "learn/**/*.mdx",
+  schema: s
+    .object({
+      slug: s.path(),
+      title: s.string().max(99),
+      description: s.string().max(999).optional(),
+      chapter: s.number().min(1),
+      published: s.boolean().default(true),
+      tags: s.array(s.string()).optional(),
+      body: s.mdx(),
     })
     .transform(computedFields),
 });
@@ -38,9 +54,11 @@ export default defineConfig({
     name: "[name]-[hash:6].[ext]",
     clean: true,
   },
-  collections: { posts },
+  collections: { posts, learns },
   mdx: {
     rehypePlugins: [
+      rehypeToc,
+      [rehypeTocExtract, { name: "toc" }],
       rehypeSlug,
       [rehypePrettyCode],
       [

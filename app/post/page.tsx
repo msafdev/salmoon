@@ -4,7 +4,7 @@ import { Metadata } from "next";
 
 import BlogSection from "@/components/section/post-section";
 
-import { getAllTags, sortTagsByCount } from "@/lib/velite";
+import { getAllTags, sortTagsByCount } from "@/velite/post";
 
 export const metadata: Metadata = {
   title: "Post",

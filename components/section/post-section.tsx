@@ -7,8 +7,6 @@ import { useState } from "react";
 
 import AltBlogCard from "@/components/shared/cards/alt-blog-card";
 
-import { Edge, categoryType } from "@/lib/types";
-
 const BlogSection = ({
   items,
   tags,

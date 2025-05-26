@@ -5,6 +5,8 @@ import * as runtime from "react/jsx-runtime";
 
 import Image from "next/image";
 
+import { Toc } from "@stefanprobst/rehype-extract-toc";
+
 import Code from "@/components/shared/code";
 
 import {
@@ -22,7 +24,10 @@ type ComponentsProps = React.HTMLAttributes<HTMLElement>;
 
 const useMDXComponent = (code: string) => {
   const fn = new Function(code);
-  return fn({ ...runtime }).default;
+  return {
+    Component: fn({ ...runtime }).default,
+    TableOfContents: fn({ ...runtime }).toc as Toc,
+  };
 };
 
 export const globalComponents = {
@@ -101,7 +106,7 @@ export const globalComponents = {
     const lang = (props as any)?.["data-language"];
 
     return (
-      <div className="w-full max-w-lg rounded-[12px] border border-dashed p-1 sm:rounded-[16px] sm:border-2 sm:p-2">
+      <div className="w-full mb-4 max-w-lg rounded-[12px] border border-dashed p-1 sm:rounded-[16px] sm:border-2 sm:p-2">
         <Code
           code={rawCode.trim()}
           lang={lang}
@@ -216,7 +221,8 @@ interface MDXProps {
 }
 
 export function Mdx({ code, components, ...props }: MDXProps) {
-  const Component = useMDXComponent(code);
+  const { Component } = useMDXComponent(code);
+
   return (
     <div className="mdx">
       <Component
@@ -225,4 +231,10 @@ export function Mdx({ code, components, ...props }: MDXProps) {
       />
     </div>
   );
+}
+
+export function MDXToC({ code }: { code: string }) {
+  const { TableOfContents } = useMDXComponent(code);
+
+  return TableOfContents;
 }

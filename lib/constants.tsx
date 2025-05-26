@@ -7,32 +7,29 @@ import Notion from "@/public/icons/notion.png";
 import Slack from "@/public/icons/slack.png";
 import Vue from "@/public/icons/vue.png";
 import Webflow from "@/public/icons/webflow.png";
-
 // Static Work Imports
 import Compacfolio from "@/public/images/compactfolio.webp";
 import Linkify from "@/public/images/linkify.webp";
 import Macfolio from "@/public/images/macfolio.webp";
 import MDX from "@/public/images/mdx.webp";
-
 // Static Place Imports
-import Place1 from "@/public/images/places/place-1.avif"
-import Place2 from "@/public/images/places/place-2.avif"
-import Place3 from "@/public/images/places/place-3.avif"
-import Place4 from "@/public/images/places/place-4.avif"
+import Place1 from "@/public/images/places/place-1.avif";
+import Place2 from "@/public/images/places/place-2.avif";
+import Place3 from "@/public/images/places/place-3.avif";
+import Place4 from "@/public/images/places/place-4.avif";
 
 export const siteItems = {
-  name: "Salman",
+  name: "Salman Alfarisi",
   url: "https://salmoon.vercel.app",
   description: "Nextjs 14 blog template velite, tailwind and shadcn",
-  author: "Salman",
+  role: "Fullstack Engineer",
   links: {
-    twitter: "https://twitter.com/msafdev",
+    twitter: "https://twitter.com/sal__moon",
     github: "https://github.com/msafdev",
+    email: "salmanalfarisi261002@gmail.com",
     personalSite: "https://salmoon.vercel.app",
   },
 };
-
-export type SiteConfig = typeof siteItems;
 
 export const navItems = [
   {

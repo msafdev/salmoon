@@ -25,7 +25,7 @@ const WorkCard = ({
         <p className="anim line-clamp-1 text-sm font-medium text-muted-foreground">
           {title}
         </p>
-        <p className="anim line-clamp-1 font-mono text-sm text-muted-foreground">
+        <p className="xs:block hidden anim line-clamp-1 font-medium text-xs text-muted-foreground">
           {duration}
         </p>
       </div>

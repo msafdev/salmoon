@@ -9,6 +9,7 @@ export type categoryType =
 type Thumbnail = {
   url: string;
 };
+
 type Post = {
   id: string;
   title: string;

@@ -9,7 +9,7 @@ import WorkCard from "@/components/shared/cards/work-card";
 import Paragraph from "@/components/shared/paragraph";
 
 import { projectItems, templateItems, workItems } from "@/lib/constants";
-import { sortPosts } from "@/lib/velite";
+import { sortPosts } from "@/velite/post";
 
 export const metadata: Metadata = {
   title: "Archive",
