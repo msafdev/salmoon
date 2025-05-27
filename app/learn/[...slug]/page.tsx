@@ -115,7 +115,7 @@ export default async function LearnPage({ params }: LearnPageProps) {
         </div>
 
         <div className="flex w-full max-w-sm flex-col lg:max-w-md xl:max-w-lg">
-          <div className="mb-6 flex flex-col sm:gap-y-1">
+          <div className="mb-6 flex flex-col gap-y-0.5 sm:gap-y-1">
             <h1 className="text-xl font-bold sm:text-2xl md:text-3xl">
               {learn.title}
             </h1>
@@ -172,11 +172,11 @@ export default async function LearnPage({ params }: LearnPageProps) {
           </div>
         ) : (
           <div className="flex flex-col items-center">
-            <div className="h-24 md:h-36 w-0.5 bg-gradient-to-b from-transparent to-green-500/20" />
+            <div className="h-24 w-0.5 bg-gradient-to-b from-transparent to-green-500/20 md:h-36" />
             <div className="rounded-full bg-green-500/20 p-4">
               <CheckCheck size={24} className="text-green-500" />
             </div>
-            <h3 className="mt-4 text-center md:mt-6 text-xs font-medium">
+            <h3 className="mt-4 text-center text-xs font-medium md:mt-6">
               You have finished everything in this course
             </h3>
           </div>

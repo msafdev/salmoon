@@ -1,22 +1,22 @@
 import { Beaker, Book, Brain, Hexagon, Home } from "lucide-react";
 
-import Figma from "@/public/icons/figma.png";
-import Github from "@/public/icons/github.png";
-import NextJS from "@/public/icons/nextjs.png";
-import Notion from "@/public/icons/notion.png";
-import Slack from "@/public/icons/slack.png";
-import Vue from "@/public/icons/vue.png";
-import Webflow from "@/public/icons/webflow.png";
-// Static Work Imports
-import Compacfolio from "@/public/images/compactfolio.webp";
-import Linkify from "@/public/images/linkify.webp";
-import Macfolio from "@/public/images/macfolio.webp";
-import MDX from "@/public/images/mdx.webp";
+import Figma from "@/public/icons/figma.svg";
+import Next from "@/public/icons/next.svg";
+import Python from "@/public/icons/python.svg";
+import React from "@/public/icons/react.svg";
+import Supabase from "@/public/icons/supabase.svg";
+import Vue from "@/public/icons/vue.svg";
+import Webflow from "@/public/icons/webflow.svg";
 // Static Place Imports
 import Place1 from "@/public/images/places/place-1.avif";
 import Place2 from "@/public/images/places/place-2.avif";
 import Place3 from "@/public/images/places/place-3.avif";
 import Place4 from "@/public/images/places/place-4.avif";
+// Static Work Imports
+import Compacfolio from "@/public/images/templates/compactfolio.webp";
+import Linkify from "@/public/images/templates/linkify.webp";
+import Macfolio from "@/public/images/templates/macfolio.webp";
+import MDX from "@/public/images/templates/mdx.webp";
 
 export const siteItems = {
   name: "Salman Alfarisi",
@@ -114,12 +114,12 @@ export const processItems = [
 ];
 
 export const skillItems = [
-  { name: "Next", icon: NextJS },
+  { name: "Next", icon: Next },
+  { name: "Python", icon: Python },
   { name: "Figma", icon: Figma },
-  { name: "Notion", icon: Notion },
-  { name: "Slack", icon: Slack },
-  { name: "Github", icon: Github },
   { name: "Vue", icon: Vue },
+  { name: "Supabase", icon: Supabase },
+  { name: "React", icon: React },
   { name: "Webflow", icon: Webflow },
 ];
 
@@ -292,11 +292,11 @@ export const toolItems = [
   },
   {
     category: "Productivity",
-    items: ["Notion", "Obsidian"],
+    items: ["Express", "Obsidian"],
   },
   {
     category: "Others",
-    items: ["Jira", "Postman", "Slack"],
+    items: ["Jira", "Postman", "Notion"],
   },
 ];
 
