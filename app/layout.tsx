@@ -1,6 +1,7 @@
 import "@/styles/globals.css";
 
 import type { Metadata } from "next";
+import dynamic from "next/dynamic";
 import { Manrope } from "next/font/google";
 import NextTopLoader from "nextjs-toploader";
 
@@ -8,7 +9,6 @@ import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import Dock from "@/components/shared/dock";
-import Footer from "@/components/shared/footer";
 
 import { Toaster } from "@/components/ui/toaster";
 
@@ -17,6 +17,10 @@ import { ThemeProvider } from "@/components/theme-provider";
 
 import NotFound from "./not-found";
 import { baseUrl } from "./sitemap";
+
+const Footer = dynamic(() => import("@/components/shared/footer"), {
+  ssr: false,
+});
 
 const manrope = Manrope({
   subsets: ["latin"],
