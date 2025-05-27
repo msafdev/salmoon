@@ -66,6 +66,7 @@ const Dock = () => {
             }}
           />
         )}
+
         {navItems.map((item) =>
           item.href ? (
             <Link
@@ -88,7 +89,7 @@ const Dock = () => {
                 {item.label}
               </span>
             </Link>
-          ) : (
+          ) : item.function === "toggle-theme" ?  (
             <button
               key={item.id}
               onClick={() => {
@@ -102,7 +103,7 @@ const Dock = () => {
                 {item.label}
               </span>
             </button>
-          ),
+          ) : (null)
         )}
       </div>
     </motion.div>

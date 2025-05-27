@@ -16,7 +16,7 @@ export default async function sitemap() {
     "/lab",
     "/post",
     "/material",
-    "/secret",
+    "/personal",
     "/guestbook",
   ].map((route) => ({
     url: `${baseUrl}${route}`,

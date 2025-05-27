@@ -7,7 +7,7 @@ import MovieSection from "@/components/section/movie-section";
 import TrackSection from "@/components/section/track-section";
 
 export const metadata: Metadata = {
-  title: "Secret",
+  title: "Personal",
 };
 
 export default async function Page() {

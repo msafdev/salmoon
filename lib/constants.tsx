@@ -1,4 +1,4 @@
-import { Beaker, Book, Brain, Hexagon, Home } from "lucide-react";
+import { Archive, Beaker, GraduationCap, Hexagon, Home } from "lucide-react";
 
 import Figma from "@/public/icons/figma.svg";
 import Next from "@/public/icons/next.svg";
@@ -40,25 +40,26 @@ export const navItems = [
   },
   {
     id: 2,
+    label: "Archive",
+    href: "/archive",
+    icon: <Archive className="h-full w-full" />,
+  },
+  {
+    id: 3,
     label: "Lab",
     href: "/lab",
     icon: <Beaker className="h-full w-full" />,
   },
   {
-    id: 3,
+    id: 4,
     label: "Learn",
     href: "/learn",
-    icon: <Brain className="h-full w-full" />,
-  },
-  {
-    id: 4,
-    label: "Archive",
-    href: "/archive",
-    icon: <Book className="h-full w-full" />,
+    icon: <GraduationCap className="h-full w-full" />,
   },
   {
     id: 5,
     label: "Theme",
+    function: "toggle-theme",
     icon: <Hexagon className="h-full w-full" />,
   },
 ];
@@ -229,7 +230,7 @@ export const templateItems = [
 export const workItems = [
   {
     title: "Fullstack Developer",
-    company: "ANIHOST",
+    company: "Awan Network Indonesia",
     duration: "Jan 25 - Present",
   },
   {

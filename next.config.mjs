@@ -20,6 +20,10 @@ export default {
         protocol: "https",
         hostname: "i.pinimg.com",
       },
+      {
+        protocol: "https",
+        hostname: "lh3.googleusercontent.com",
+      },
     ],
   },
   webpack: (config) => {

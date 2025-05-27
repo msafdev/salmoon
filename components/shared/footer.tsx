@@ -141,16 +141,22 @@ const Footer = () => {
             </h2>
             <div className="flex flex-col gap-y-1 text-center text-sm font-medium text-muted-foreground md:text-right">
               <Link
-                href={"/secret"}
-                className="anim hover:text-primary-foreground dark:hover:text-primary"
-              >
-                Secret
-              </Link>
-              <Link
                 href={"/material"}
                 className="anim hover:text-primary-foreground dark:hover:text-primary"
               >
                 Material
+              </Link>
+              <Link
+                href={"/personal"}
+                className="anim hover:text-primary-foreground dark:hover:text-primary"
+              >
+                Personal
+              </Link>
+              <Link
+                href={"/attribution"}
+                className="anim hover:text-primary-foreground dark:hover:text-primary"
+              >
+                Attribution
               </Link>
             </div>
           </div>
