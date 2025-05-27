@@ -12,7 +12,7 @@ const ProjectSection = () => {
       </Paragraph>
 
       <div className="flex w-full flex-col gap-y-4">
-        {templateItems.slice(0, 3).map((item, index) => (
+        {templateItems.slice(0, 2).map((item, index) => (
           <ProjectCard key={index} {...item} />
         ))}
       </div>

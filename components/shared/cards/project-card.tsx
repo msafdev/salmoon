@@ -31,13 +31,13 @@ const ProjectCard = ({
           </div>
         </div>
       )}
-      <div className="anim-slow absolute right-3 top-3 space-y-2 group-hover/card:top-3 md:-top-full">
+      <div className="anim-slow absolute right-3 top-3 space-y-2 group-hover/card:md:top-6 md:-top-full md:right-6">
         <Link
           href={href}
           target="_blank"
           rel="noopener noreferrer"
           aria-label={title}
-          className="grid size-7 place-items-center rounded-xl bg-primary/30 text-primary-foreground backdrop-blur"
+          className="grid size-7 place-items-center rounded-xl bg-primary/30 text-primary-foreground backdrop-blur dark:bg-accent/30 dark:text-accent-foreground"
         >
           <ArrowRight className="-rotate-45" size={16} />
         </Link>
@@ -46,7 +46,7 @@ const ProjectCard = ({
           target="_blank"
           rel="noopener noreferrer"
           aria-label={title}
-          className="grid size-7 place-items-center rounded-xl bg-primary/30 text-primary-foreground backdrop-blur"
+          className="grid size-7 place-items-center rounded-xl bg-primary/30 text-primary-foreground backdrop-blur dark:bg-accent/30 dark:text-accent-foreground"
         >
           <Github size={16} />
         </Link>

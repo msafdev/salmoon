@@ -1,4 +1,4 @@
-import { Beaker, Book, Hexagon, Home } from "lucide-react";
+import { Beaker, Book, Brain, Hexagon, Home } from "lucide-react";
 
 import Figma from "@/public/icons/figma.png";
 import Github from "@/public/icons/github.png";
@@ -46,12 +46,18 @@ export const navItems = [
   },
   {
     id: 3,
+    label: "Learn",
+    href: "/learn",
+    icon: <Brain className="h-full w-full" />,
+  },
+  {
+    id: 4,
     label: "Archive",
     href: "/archive",
     icon: <Book className="h-full w-full" />,
   },
   {
-    id: 4,
+    id: 5,
     label: "Theme",
     icon: <Hexagon className="h-full w-full" />,
   },
@@ -198,18 +204,18 @@ export const templateItems = [
     git: "https://github.com/msafdev/macfolio",
   },
   {
-    title: "Linkify",
-    stack: ["Next", "Tailwind"],
-    href: "https://linkify-demo.vercel.app",
-    img: Linkify,
-    git: "https://github.com/msafdev/linkify",
-  },
-  {
     title: "Compactfolio",
     stack: ["React", "Tailwind"],
     href: "https://compactfolio-demo.vercel.app",
     img: Compacfolio,
     git: "https://github.com/msafdev/compactfolio",
+  },
+  {
+    title: "Linkify",
+    stack: ["Next", "Tailwind"],
+    href: "https://linkify-demo.vercel.app",
+    img: Linkify,
+    git: "https://github.com/msafdev/linkify",
   },
   {
     title: "Mdx Starter",
