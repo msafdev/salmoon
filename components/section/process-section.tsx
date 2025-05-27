@@ -23,12 +23,14 @@ const ProcessSection = () => {
                 </span>
               </div>
               <div className="col-span-full flex flex-col gap-y-2 sm:col-span-4">
-                <h3 className="text-sm font-semibold text-foreground">
-                  <span className="mr-2 text-sm font-medium text-muted-foreground sm:hidden">
+                <div className="flex">
+                  <div className="mr-2 inline min-w-6 shrink-0 text-sm font-medium text-muted-foreground sm:hidden">
                     0{index + 1}.
-                  </span>
-                  {item.name}
-                </h3>
+                  </div>
+                  <h3 className="text-sm font-semibold text-foreground">
+                    {item.name}
+                  </h3>
+                </div>
                 <p className="text-sm text-muted-foreground md:text-base">
                   {item.description}
                 </p>

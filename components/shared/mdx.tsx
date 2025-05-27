@@ -106,7 +106,7 @@ export const globalComponents = {
     const lang = (props as any)?.["data-language"];
 
     return (
-      <div className="mb-4 w-full max-w-lg rounded-[12px] border border-dashed p-1 sm:rounded-[16px] sm:border-2 sm:p-2">
+      <div className="w-full mb-4 max-w-lg rounded-[12px] border border-dashed p-1 sm:rounded-[16px] sm:border-2 sm:p-2">
         <Code
           code={rawCode.trim()}
           lang={lang}
@@ -133,9 +133,12 @@ export const globalComponents = {
     />
   ),
   li: ({ className, ...props }: React.HTMLAttributes<HTMLLIElement>) => (
-    <li className={cn("mt-2 flex items-start gap-2", className)} {...props}>
-      <ArrowRight size={12} className="mt-[5px] !text-foreground" />
-      <p className="text-sm [&>p]:mb-0 [&>p]:text-sm" />
+    <li className="mt-2 flex items-start gap-2">
+      <ArrowRight size={12} className="mt-[5px] !text-foreground shrink-0" />
+      <span
+        className={cn("text-sm [&>p]:mb-0 [&>p]:text-sm", className)}
+        {...props}
+      />
     </li>
   ),
   strong: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => (

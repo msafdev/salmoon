@@ -43,7 +43,7 @@ const Dock = () => {
     },
   };
 
-  const initialX = activeTab !== null ? (activeTab - 1) * 40 : 0;
+  const initialX = activeTab !== null ? (activeTab - 1) * 36 : 0;
 
   return (
     <motion.div
@@ -55,9 +55,9 @@ const Dock = () => {
       <div className="relative flex items-center">
         {activeTab !== null && (
           <motion.span
-            className="absolute bottom-0 top-0 z-[99] w-10 rounded-[12px] bg-primary/40 mix-blend-difference outline-none ring-0 dark:bg-primary/20"
+            className="absolute bottom-0 top-0 z-[99] w-9 rounded-[12px] bg-primary/40 mix-blend-difference outline-none ring-0 dark:bg-primary/20"
             initial={{ translateX: initialX, opacity: 0, scale: 0 }}
-            animate={{ translateX: (activeTab - 1) * 40, opacity: 1, scale: 1 }}
+            animate={{ translateX: (activeTab - 1) * 36, opacity: 1, scale: 1 }}
             transition={{
               type: "spring",
               bounce: 0.2,
@@ -77,7 +77,7 @@ const Dock = () => {
                 activeTab === item.id
                   ? "text-foreground"
                   : "text-muted-foreground"
-              } group/dock relative size-10 p-3 text-sm transition-all duration-300 ease-in-out focus-visible:outline-none`}
+              } group/dock relative size-9 p-3 text-sm transition-all duration-300 ease-in-out focus-visible:outline-none`}
               style={{
                 WebkitTapHighlightColor: "transparent",
               }}
@@ -94,7 +94,7 @@ const Dock = () => {
               onClick={() => {
                 setTheme(theme === "dark" ? "light" : "dark");
               }}
-              className={`group/dock relative size-10 p-3 text-sm text-yellow-500 transition-all duration-300 ease-in-out focus-visible:outline-none dark:text-indigo-600 [&>svg]:fill-yellow-400 dark:[&>svg]:fill-indigo-500`}
+              className={`group/dock relative size-9 p-3 text-sm text-yellow-500 transition-all duration-300 ease-in-out focus-visible:outline-none dark:text-indigo-600 [&>svg]:fill-yellow-400 dark:[&>svg]:fill-indigo-500`}
               aria-label="Change theme button"
             >
               {item.icon}
