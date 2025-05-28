@@ -1,4 +1,3 @@
-import "@/styles/lab.css";
 import { MoveLeft, Share2 } from "lucide-react";
 
 import Link from "next/link";

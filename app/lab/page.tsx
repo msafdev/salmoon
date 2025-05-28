@@ -1,3 +1,5 @@
+import "@/styles/lab.css";
+
 import { Metadata } from "next";
 import Link from "next/link";
 
