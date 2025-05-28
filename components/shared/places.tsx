@@ -60,6 +60,7 @@ const MobilePlaceCard = ({ item }: { item: (typeof placeItems)[number] }) => (
         fill
         quality={75}
         loading="lazy"
+        sizes="(max-width: 768px) 30vw"
       />
     </div>
   </div>
