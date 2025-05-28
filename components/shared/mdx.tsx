@@ -1,3 +1,4 @@
+import "@/styles/mdx.css";
 import { ArrowRight } from "lucide-react";
 
 import * as React from "react";
@@ -73,7 +74,7 @@ export const globalComponents = {
     <a
       className={cn("text-primary hover:underline", className)}
       href={href}
-      target={props.target || "_self"}
+      target="_blank"
       rel={props.target === "_blank" ? "noopener noreferrer" : undefined}
       aria-label={typeof children === "string" ? children : undefined}
       {...props}
@@ -84,7 +85,7 @@ export const globalComponents = {
   blockquote: ({ className, ...props }: ComponentsProps) => (
     <blockquote
       className={cn(
-        "mb-4 border-l-2 border-primary px-4 py-1 text-sm font-medium italic text-muted-foreground md:text-base [&>p]:mb-0",
+        "mb-4 border-s-2 border-zinc-500 bg-gradient-to-r from-zinc-500/20 to-transparent px-4 py-2 text-sm text-zinc-600 dark:text-zinc-400 md:text-base [&>p]:mb-0",
         className,
       )}
       {...props}
@@ -106,7 +107,7 @@ export const globalComponents = {
     const lang = (props as any)?.["data-language"];
 
     return (
-      <div className="w-full mb-4 max-w-lg rounded-[12px] border border-dashed p-1 sm:rounded-[16px] sm:border-2 sm:p-2">
+      <div className="mb-4 w-full max-w-lg rounded-[12px] border border-dashed p-1 sm:rounded-[16px] sm:border-2 sm:p-2">
         <Code
           code={rawCode.trim()}
           lang={lang}
@@ -134,7 +135,7 @@ export const globalComponents = {
   ),
   li: ({ className, ...props }: React.HTMLAttributes<HTMLLIElement>) => (
     <li className="mt-2 flex items-start gap-2">
-      <ArrowRight size={12} className="mt-[5px] !text-foreground shrink-0" />
+      <ArrowRight size={12} className="mt-[5px] shrink-0 !text-foreground" />
       <span
         className={cn("text-sm [&>p]:mb-0 [&>p]:text-sm", className)}
         {...props}

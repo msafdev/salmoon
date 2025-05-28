@@ -1,13 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { cn } from "@/lib/utils";
-
-export const formatDate = (dateString: string) => {
-  const date = new Date(dateString);
-  const formattedDate = `${date.getDate()}/${date.getMonth() + 1}/${String(date.getFullYear()).slice(-2)}`;
-  return formattedDate;
-};
+import { cn, formatDate } from "@/lib/utils";
 
 const BlogCard = ({
   title,
@@ -38,12 +32,12 @@ const BlogCard = ({
           className="anim scale-105 object-cover group-hover/blog:scale-110"
         />
       </div>
-      <div className="col-span-full flex h-full flex-col justify-center">
+      <div className="col-span-full flex h-full flex-col justify-center gap-0.5">
         <h3 className="anim line-clamp-1 font-semibold text-foreground group-hover/blog:text-accent-foreground">
           {title}
         </h3>
-        <p className="anim font-mono text-sm text-muted-foreground">
-          {formatDate(date)}
+        <p className="anim text-xs font-medium text-muted-foreground">
+          {formatDate(date, "long")}
         </p>
       </div>
     </Link>

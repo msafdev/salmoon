@@ -87,7 +87,7 @@ const TableOfContents = ({ toc, className }: TableOfContentsProps) => {
           <button
             onClick={() => scrollToHeading(id)}
             className={cn(
-              "text-left w-fit text-xs font-medium transition-colors duration-300 hover:text-foreground lg:text-sm",
+              "w-fit text-left text-xs font-medium transition-colors duration-300 hover:text-foreground lg:text-sm",
               {
                 "text-foreground": isActive,
                 "text-muted-foreground": !isActive,
@@ -101,7 +101,9 @@ const TableOfContents = ({ toc, className }: TableOfContentsProps) => {
             {item.value}
           </button>
           {item.children && item.children.length > 0 && (
-            <ul className="mt-2 space-y-2 w-fit">{renderTocItems(item.children)}</ul>
+            <ul className="mt-2 w-fit space-y-2">
+              {renderTocItems(item.children)}
+            </ul>
           )}
         </li>
       );
@@ -113,7 +115,7 @@ const TableOfContents = ({ toc, className }: TableOfContentsProps) => {
   return (
     <div className={cn("sticky left-16 top-16 h-fit", className)}>
       <div>
-        <h3 className="mb-3 text-sm font-semibold tracking-wide lg:text-base text-nowrap">
+        <h3 className="mb-3 text-nowrap text-sm font-semibold tracking-wide lg:text-base">
           On this page
         </h3>
         <nav>

@@ -31,7 +31,7 @@ const ProjectCard = ({
           </div>
         </div>
       )}
-      <div className="anim-slow absolute right-3 top-3 space-y-2 group-hover/card:md:top-6 md:-top-full md:right-6">
+      <div className="anim-slow absolute right-3 top-3 space-y-2 md:-top-full md:right-6 group-hover/card:md:top-6">
         <Link
           href={href}
           target="_blank"

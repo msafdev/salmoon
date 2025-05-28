@@ -21,7 +21,9 @@ export function Toaster() {
             <div className="grid gap-1">
               {title && <ToastTitle>{title}</ToastTitle>}
               {description && (
-                <ToastDescription className="text-muted-foreground">{description}</ToastDescription>
+                <ToastDescription className="text-muted-foreground">
+                  {description}
+                </ToastDescription>
               )}
             </div>
             {action}

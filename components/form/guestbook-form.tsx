@@ -47,7 +47,7 @@ const GuestbookForm = ({ user }: { user: User | null }) => {
           <button
             onClick={handleSignOut}
             disabled={signOutMutation.isPending}
-            className="text-left text-sm w-fit text-muted-foreground transition-colors hover:text-foreground disabled:opacity-50"
+            className="w-fit text-left text-sm text-muted-foreground transition-colors hover:text-foreground disabled:opacity-50"
           >
             {signOutMutation.isPending ? (
               <span className="flex items-center gap-1">

@@ -22,6 +22,41 @@ export function extractCode(children: any): string {
   return "";
 }
 
+export const formatDate = (
+  dateString: string,
+  format: "short" | "long" = "short",
+) => {
+  const date = new Date(dateString);
+
+  if (isNaN(date.getTime())) return "Invalid Date";
+
+  const day = date.getDate().toString().padStart(2, "0");
+  const monthIndex = date.getMonth();
+  const year = date.getFullYear();
+  const shortYear = year.toString().slice(-2);
+
+  if (format === "long") {
+    const monthNames = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ];
+    return `${day} ${monthNames[monthIndex]} ${year}`;
+  }
+
+  // Default to short format
+  return `${day}/${monthIndex + 1}/${shortYear}`;
+};
+
 export const formatTimestamp = (timestamp: string): string => {
   const timeDiff = Date.now() - new Date(timestamp).getTime();
   const seconds = Math.floor(timeDiff / 1000);

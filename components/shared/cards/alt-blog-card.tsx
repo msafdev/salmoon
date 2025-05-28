@@ -1,23 +1,6 @@
-import Image from "next/image";
 import Link from "next/link";
 
-import { cn } from "@/lib/utils";
-
-export const formatDate = (dateString: string) => {
-  const date = new Date(dateString);
-  const options: Intl.DateTimeFormatOptions = {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  };
-  const formattedDate = date.toLocaleDateString("en-GB", options);
-  return formattedDate;
-};
-
-export const altFormatDate = (dateString: string) => {
-  const date = new Date(dateString);
-  return `${date.getDate()}/${date.getMonth() + 1}/${String(date.getFullYear()).slice(-2)}`;
-};
+import { cn, formatDate } from "@/lib/utils";
 
 const AltBlogCard = ({
   title,
@@ -38,11 +21,11 @@ const AltBlogCard = ({
         className,
       )}
     >
-      <p className="anim hidden font-medium text-sm text-muted-foreground xs:block">
-        {formatDate(createdAt)}
+      <p className="anim hidden text-sm font-medium text-muted-foreground xs:block">
+        {formatDate(createdAt, "long")}
       </p>
-      <p className="anim block font-medium text-sm text-muted-foreground xs:hidden">
-        {altFormatDate(createdAt)}
+      <p className="anim block text-sm font-medium text-muted-foreground xs:hidden">
+        {formatDate(createdAt, "short")}
       </p>
       <h3 className="anim line-clamp-1 pr-0 font-semibold text-foreground group-hover/blog:pr-3">
         {title}

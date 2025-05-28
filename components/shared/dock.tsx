@@ -89,7 +89,7 @@ const Dock = () => {
                 {item.label}
               </span>
             </Link>
-          ) : item.function === "toggle-theme" ?  (
+          ) : item.function === "toggle-theme" ? (
             <button
               key={item.id}
               onClick={() => {
@@ -103,7 +103,7 @@ const Dock = () => {
                 {item.label}
               </span>
             </button>
-          ) : (null)
+          ) : null,
         )}
       </div>
     </motion.div>

@@ -1,4 +1,5 @@
 import { posts } from "#site/content";
+import { sortPosts } from "@/velite/post";
 
 import { Metadata } from "next";
 
@@ -9,7 +10,6 @@ import WorkCard from "@/components/shared/cards/work-card";
 import Paragraph from "@/components/shared/paragraph";
 
 import { projectItems, templateItems, workItems } from "@/lib/constants";
-import { sortPosts } from "@/velite/post";
 
 export const metadata: Metadata = {
   title: "Archive",
@@ -17,6 +17,8 @@ export const metadata: Metadata = {
 
 export default async function Page() {
   const sortedPosts = sortPosts(posts.filter((post) => post.published));
+
+  console.log("Sorted posts:", sortedPosts);
 
   return (
     <section
@@ -31,14 +33,19 @@ export default async function Page() {
         </p>
       </Paragraph>
       <div className="flex w-full max-w-lg flex-col items-center gap-y-4">
-        <Paragraph title="Featured posts" link href="/blog" />
+        <Paragraph title="Featured posts" link href="/post" />
         <div className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2">
-          {sortedPosts ? (
+          {sortedPosts.length > 0 ? (
             sortedPosts
               .slice(0, 2)
               .map((item) => <BlogCard key={item.slug} {...item} />)
           ) : (
-            <p>Nothing to see here</p>
+            <blockquote className="col-span-full border-s-2 border-zinc-500 bg-gradient-to-r from-zinc-500/20 to-transparent px-4 py-2">
+              <p className="text-sm font-medium italic leading-normal text-zinc-600 dark:text-zinc-400">
+                Nothing to see here yet! Check back later for some exciting
+                content.
+              </p>
+            </blockquote>
           )}
         </div>
       </div>

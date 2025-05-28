@@ -1,10 +1,9 @@
 import { posts } from "#site/content";
+import { getAllTags, sortTagsByCount } from "@/velite/post";
 
 import { Metadata } from "next";
 
 import BlogSection from "@/components/section/post-section";
-
-import { getAllTags, sortTagsByCount } from "@/velite/post";
 
 export const metadata: Metadata = {
   title: "Post",
@@ -13,7 +12,7 @@ export const metadata: Metadata = {
 export default async function Page() {
   const tags = getAllTags(posts);
   const sortedTags = sortTagsByCount(tags);
-  
+
   return (
     <section
       id="post"

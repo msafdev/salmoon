@@ -23,7 +23,7 @@ const Paragraph = ({
     <div className="flex w-full max-w-lg flex-col gap-y-2">
       <div className="flex w-full flex-col">
         <div className="flex h-8 w-full items-center justify-between gap-x-4">
-          <h2 className="text-sm leading-none font-semibold uppercase text-foreground">
+          <h2 className="text-sm font-semibold uppercase leading-none text-foreground">
             {title}
           </h2>
           {link && (
@@ -50,7 +50,7 @@ const Paragraph = ({
         )}
       </div>
       {children && (
-        <div className="flex flex-col gap-y-4 text-sm md:text-base text-muted-foreground">
+        <div className="flex flex-col gap-y-4 text-sm text-muted-foreground md:text-base">
           {children}
         </div>
       )}

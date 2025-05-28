@@ -10,7 +10,7 @@ type GuestbookCardProps = {
 
 const GuestbookCard = ({ entry }: GuestbookCardProps) => {
   console.log("GuestbookCard entry:", entry);
-  
+
   return (
     <div className="group/guestbook relative flex flex-col gap-y-2">
       <div className="flex w-full items-center gap-x-4">

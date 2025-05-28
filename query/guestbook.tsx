@@ -4,22 +4,25 @@ import { createClient } from "@/supabase/client";
 
 import { useQuery } from "@tanstack/react-query";
 
-export interface GuestbookEntry {
+export type GuestbookEntry = {
   id: string;
   content: string;
   user_id: string | null;
   created_at: string;
-}
+};
 
-export interface UserProfile {
+export type UserProfile = {
   id: string;
   name: string | null;
   avatar_url: string | null;
-}
+};
 
-export interface GuestbookWithUser extends Omit<GuestbookEntry, "user_id"> {
+export type GuestbookWithUser = {
+  id: string;
+  content: string;
+  created_at: string;
   user: UserProfile | null;
-}
+};
 
 const fetchGuestbook = async (): Promise<GuestbookWithUser[]> => {
   const supabase = createClient();
@@ -33,7 +36,6 @@ const fetchGuestbook = async (): Promise<GuestbookWithUser[]> => {
   if (guestbookError) throw guestbookError;
   if (!guestbook?.length) return [];
 
-  // Get unique user IDs
   const userIds = Array.from(
     new Set(guestbook.map((item) => item.user_id).filter(Boolean)),
   );
@@ -47,7 +49,6 @@ const fetchGuestbook = async (): Promise<GuestbookWithUser[]> => {
     }));
   }
 
-  // Fetch user profiles
   const { data: users, error: usersError } = await supabase
     .from("profile")
     .select("id, name, avatar_url")
@@ -73,8 +74,8 @@ export const useGuestbook = () => {
   return useQuery({
     queryKey: ["guestbook"],
     queryFn: fetchGuestbook,
-    staleTime: 1000 * 60 * 5, // 5 minutes
-    gcTime: 1000 * 60 * 10, // 10 minutes
+    staleTime: 1000 * 60 * 5,
+    gcTime: 1000 * 60 * 10,
     retry: 2,
     retryDelay: (attemptIndex) => Math.min(1000 * 2 ** attemptIndex, 30000),
   });

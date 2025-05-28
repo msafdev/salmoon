@@ -178,18 +178,13 @@ export const creditList = [
 
 export const projectItems = [
   {
-    title: "Gem",
-    href: "https://gem.msaf.tech",
-    description: "Curated list of simple randomized games.",
-  },
-  {
     title: "Zap",
-    href: "https://zap.msaf.tech",
+    href: "https://zap-salmoon.vercel.app",
     description: "Modern alternative to Pagespeed Insights.",
   },
   {
     title: "Background",
-    href: "https://bg.msaf.tech",
+    href: "https://bg-snippet.vercel.app",
     description: "Handpicked modern background patterns.",
   },
 ];
@@ -230,7 +225,7 @@ export const templateItems = [
 export const workItems = [
   {
     title: "Fullstack Developer",
-    company: "Awan Network Indonesia",
+    company: "Anihost",
     duration: "Jan 25 - Present",
   },
   {

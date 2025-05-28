@@ -118,7 +118,7 @@ const Toolbar = () => {
                     size={"icon"}
                     onClick={() => setMode("default")}
                     aria-label="Placeholder button"
-                    className="hover:bg-red-500/20 rounded-[12px]"
+                    className="rounded-[12px] hover:bg-red-500/20"
                   >
                     <X className="size-4 text-red-600" />
                   </Button>

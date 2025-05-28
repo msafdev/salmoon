@@ -151,7 +151,7 @@ export default async function LearnPage({ params }: LearnPageProps) {
           <div className="flex w-full max-w-sm items-center justify-between lg:max-w-md xl:max-w-lg">
             {prev && (
               <Button
-                className="flex items-center border-dashed"
+                className="flex items-center border-2 border-dashed"
                 variant={"outline"}
               >
                 <Link href={`/learn/${prev.slugAsParams}`}>
@@ -161,7 +161,7 @@ export default async function LearnPage({ params }: LearnPageProps) {
             )}
             {next && (
               <Button
-                className="ml-auto flex items-center border-dashed"
+                className="ml-auto flex items-center border-2 border-dashed"
                 variant={"outline"}
               >
                 <Link href={`/learn/${next.slugAsParams}`}>
