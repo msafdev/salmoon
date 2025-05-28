@@ -27,6 +27,7 @@ const ProjectCard = ({
               placeholder="blur"
               loading="lazy"
               fill
+              sizes="(max-width: 768px) 40vw, 30vw"
             />
           </div>
         </div>
