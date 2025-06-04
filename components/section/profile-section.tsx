@@ -22,12 +22,9 @@ const ProfileSection = () => {
       </div>
 
       <p className="w-full max-w-lg text-sm text-muted-foreground md:text-base">
-        I am a fullstack engineer based in
-        <span className="font-medium text-foreground">
-          <span className="mx-1 text-sm font-bold leading-none">🇮🇩</span>
-          Indonesia
-        </span>
-        , specifically in Semarang. In my free time, I enjoy listening to music
+        I am a fullstack engineer based in{" "}
+        <span className="font-medium text-foreground">Indonesia</span>,
+        specifically in Semarang. In my free time, I enjoy listening to music
         and exploring new places.
       </p>
 
