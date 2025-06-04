@@ -18,8 +18,6 @@ export const metadata: Metadata = {
 export default async function Page() {
   const sortedPosts = sortPosts(posts.filter((post) => post.published));
 
-  console.log("Sorted posts:", sortedPosts);
-
   return (
     <section
       id="archive"

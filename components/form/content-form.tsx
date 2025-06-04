@@ -19,9 +19,8 @@ const ContentForm = () => {
 
     try {
       await addContentMutation.mutateAsync(content);
+    } finally {
       setContent("");
-    } catch (error) {
-      console.error("Submit error:", error);
     }
   };
 
