@@ -93,7 +93,7 @@ const Footer = () => {
         </div>
 
         <div className="flex w-full flex-col-reverse items-center gap-x-8 gap-y-12 md:flex-row md:items-end">
-          <p className="text-center font-mono text-sm text-primary-foreground/60 dark:text-primary/60 md:text-left">
+          <p className="text-center text-sm font-medium text-primary-foreground/60 dark:text-foreground/60 md:text-left">
             &copy; 2024 msaf. All rights reserved.
             <br />
             Icons by{" "}
@@ -102,7 +102,7 @@ const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Icons8"
-              className="hover:text-foreground"
+              className="anim hover:text-primary-foreground dark:hover:text-primary"
             >
               Icons8
             </Link>
@@ -112,7 +112,7 @@ const Footer = () => {
             <h2 className="text-center font-mono font-semibold uppercase text-primary-foreground dark:text-primary md:text-right">
               Actions
             </h2>
-            <div className="flex flex-col items-center gap-y-1 text-center text-sm font-medium text-muted-foreground md:items-end md:text-right">
+            <div className="flex flex-col items-center gap-y-1 text-center text-sm font-medium text-primary-foreground/60 dark:text-foreground/60 md:items-end md:text-right">
               <button
                 className="anim w-fit hover:text-primary-foreground dark:hover:text-primary"
                 onClick={scrollToTop}
@@ -139,7 +139,7 @@ const Footer = () => {
             <h2 className="text-center font-mono font-semibold uppercase text-primary-foreground dark:text-primary md:text-right">
               Misc
             </h2>
-            <div className="flex flex-col gap-y-1 text-center text-sm font-medium text-muted-foreground md:text-right">
+            <div className="flex flex-col gap-y-1 text-center text-sm font-medium text-primary-foreground/60 dark:text-foreground/60 md:text-right">
               <Link
                 href={"/material"}
                 className="anim hover:text-primary-foreground dark:hover:text-primary"

@@ -25,7 +25,7 @@ const Marquee = () => {
             sizes="10vw"
           />
           <div className="anim-slow absolute -bottom-8 z-10 flex h-6 items-center rounded border bg-card px-1.5 opacity-0 shadow-sm group-hover/marquee-item:opacity-100">
-            <span className="text-xs font-semibold leading-none text-card-foreground">
+            <span className="text-xs font-medium font-mono leading-none text-card-foreground">
               {item.name}
             </span>
           </div>
