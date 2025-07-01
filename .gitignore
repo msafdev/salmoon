@@ -43,3 +43,7 @@ next-env.d.ts
 
 # Velite
 .velite
+
+# Lock files
+bun.lockb
+package-lock.json
