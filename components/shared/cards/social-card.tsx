@@ -39,7 +39,7 @@ const SocialCard = ({
     <Link
       href={href}
       className={cn(
-        "anim group grid aspect-[4/3] h-auto w-auto min-w-16 flex-1 cursor-pointer place-items-center rounded bg-muted text-muted-foreground",
+        "anim group flex aspect-[4/3] h-auto w-auto min-w-16 flex-1 cursor-pointer items-center justify-center rounded bg-muted text-muted-foreground",
         colorVariant[name],
       )}
       target={target}
