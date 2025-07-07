@@ -201,7 +201,7 @@
     position: relative;
     z-index: 10;
     pointer-events: all;
-    transform: translateX(0.4px);
+    transform: translateX(0.43px);
   }
 
   /* Thumb styling for Firefox */
@@ -216,7 +216,7 @@
     position: relative;
     z-index: 10;
     pointer-events: all;
-    transform: translateX(0.4px);
+    transform: translateX(0.43px);
   }
 
   /* Thumb styling for IE/Edge Legacy */
@@ -231,7 +231,7 @@
     position: relative;
     z-index: 10;
     pointer-events: all;
-    transform: translateX(0.4px);
+    transform: translateX(0.43px);
   }
 
   /* Focus states */
@@ -250,5 +250,54 @@
   /* Remove dotted outline in Firefox */
   .range-thumb::-moz-focus-outer {
     border: 0;
+  }
+}
+
+@media (width <= 64rem) {
+  /* Thumb styling for WebKit browsers (Chrome, Safari, Edge Chromium) */
+  .range-thumb::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 16px;
+    width: 32px;
+    border-radius: 4px;
+    background-color: hsl(var(--card));
+    cursor: pointer;
+    border: 2px solid hsl(var(--border));
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 10;
+    pointer-events: all;
+    transform: translateX(0px);
+  }
+
+  /* Thumb styling for Firefox */
+  .range-thumb::-moz-range-thumb {
+    height: 16px;
+    width: 32px;
+    border-radius: 4px;
+    background-color: hsl(var(--card));
+    cursor: pointer;
+    border: 2px solid hsl(var(--border));
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 10;
+    pointer-events: all;
+    transform: translateX(0px);
+  }
+
+  /* Thumb styling for IE/Edge Legacy */
+  .range-thumb::-ms-thumb {
+    height: 16px;
+    width: 32px;
+    border-radius: 4px;
+    background-color: hsl(var(--card));
+    cursor: pointer;
+    border: 2px solid hsl(var(--border));
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 10;
+    pointer-events: all;
+    transform: translateX(0px);
   }
 }
