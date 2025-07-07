@@ -1,12 +1,14 @@
 import { Archive, Beaker, GraduationCap, Hexagon, Home } from "lucide-react";
 
-import Figma from "@/public/icons/figma.svg";
-import Next from "@/public/icons/next.svg";
-import Python from "@/public/icons/python.svg";
-import React from "@/public/icons/react.svg";
-import Supabase from "@/public/icons/supabase.svg";
-import Vue from "@/public/icons/vue.svg";
-import Webflow from "@/public/icons/webflow.svg";
+import {
+  TbBrandGithub,
+  TbBrandInstagram,
+  TbBrandLinkedin,
+  TbBrandTwitter,
+  TbFileSpark,
+  TbMailHeart,
+} from "react-icons/tb";
+
 // Static Place Imports
 import Place1 from "@/public/images/places/place-1.avif";
 import Place2 from "@/public/images/places/place-2.avif";
@@ -114,14 +116,53 @@ export const processItems = [
   },
 ];
 
-export const skillItems = [
-  { name: "Next", icon: Next },
-  { name: "Python", icon: Python },
-  { name: "Figma", icon: Figma },
-  { name: "Vue", icon: Vue },
-  { name: "Supabase", icon: Supabase },
-  { name: "React", icon: React },
-  { name: "Webflow", icon: Webflow },
+export const socialItems = [
+  { name: "mail", href: "/contact", icon: TbMailHeart },
+  {
+    name: "twitter",
+    href: "https://twitter.com/msafdev",
+    icon: TbBrandTwitter,
+    target: "_blank",
+    rel: "noopener noreferrer",
+  },
+  {
+    name: "github",
+    href: "https://github.com/msafdev",
+    icon: TbBrandGithub,
+    target: "_blank",
+    rel: "noopener noreferrer",
+  },
+  {
+    name: "instagram",
+    href: "https://instagram.com/msalman_af",
+    icon: TbBrandInstagram,
+    target: "_blank",
+    rel: "noopener noreferrer",
+  },
+  {
+    name: "linkedin",
+    href: "https://linkedin.com/in/msafdev",
+    icon: TbBrandLinkedin,
+    target: "_blank",
+    rel: "noopener noreferrer",
+  },
+  {
+    name: "readcv",
+    href: "https://read.cv/msafdev",
+    icon: TbFileSpark,
+    target: "_blank",
+    rel: "noopener noreferrer",
+  },
+];
+
+export const clientItems = [
+  "/static/airestate.svg",
+  "/static/contra.svg",
+  "/static/dev-different.svg",
+  "/static/siap-kerja.svg",
+  "/static/mandiri.svg",
+  "/static/bangkit.svg",
+  "/static/mitratel.svg",
 ];
 
 export const creditList = [

@@ -45,33 +45,27 @@ const Footer = () => {
         <div className="flex w-full flex-col items-center justify-between gap-4 text-primary-foreground dark:text-primary md:flex-row">
           <span className={`text-3xl ${licorice.className}`}>Salman</span>
           <div className="flex flex-wrap items-center justify-center gap-y-3 text-sm text-primary-foreground/80 dark:text-primary/80">
-            <Link
+            <button
               className="anim px-3 hover:text-primary-foreground dark:hover:text-primary"
-              href="https://twitter.com/sal__moon"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Twitter / X.com"
+              aria-label="Back on top"
+              onClick={scrollToTop}
             >
-              x.com
-            </Link>
-            <Link
+              top
+            </button>
+            <button
               className="anim px-3 hover:text-primary-foreground dark:hover:text-primary"
-              href="https://instagram.com/msalman_af"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Instagram"
+              aria-label="Copy my email"
+              onClick={() => {
+                copyToClipboard("salmanalfarisi261002@gmail.com");
+                toast({
+                  title: "Copied to clipboard",
+                  description: "😉 please use it wisely!",
+                  duration: 2000,
+                });
+              }}
             >
-              insta
-            </Link>
-            <Link
-              className="anim px-3 hover:text-primary-foreground dark:hover:text-primary"
-              href="https://linkedin.com/in/msafdev"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Free Reusable Components"
-            >
-              linkedin
-            </Link>
+              email
+            </button>
             <Magnetic
               intensity={0.2}
               springOptions={{ bounce: 0.1 }}
@@ -110,36 +104,41 @@ const Footer = () => {
 
           <div className="flex flex-col gap-y-3 md:ml-auto">
             <h2 className="text-center font-mono font-semibold uppercase text-primary-foreground dark:text-primary md:text-right">
-              Actions
+              Resources
             </h2>
-            <div className="flex flex-col items-center gap-y-1 text-center text-sm font-medium text-primary-foreground/60 dark:text-foreground/60 md:items-end md:text-right">
-              <button
-                className="anim w-fit hover:text-primary-foreground dark:hover:text-primary"
-                onClick={scrollToTop}
+            <div className="flex flex-col items-center gap-y-2 text-center text-sm font-medium text-primary-foreground/60 dark:text-foreground/60 md:items-end md:text-right">
+              <Link
+                href={"/material"}
+                className="anim hover:text-primary-foreground dark:hover:text-primary"
               >
-                Back to top
-              </button>
-              <button
-                className="anim w-fit hover:text-primary-foreground dark:hover:text-primary"
-                onClick={() => {
-                  copyToClipboard("salmanalfarisi261002@gmail.com");
-                  toast({
-                    title: "Copied to clipboard",
-                    description: "😉 please use it wisely!",
-                    duration: 2000,
-                  });
-                }}
+                Starter Kit
+              </Link>
+              <Link
+                href={"/material"}
+                className="anim hover:text-primary-foreground dark:hover:text-primary"
               >
-                Copy my email
-              </button>
+                Notion
+              </Link>
+              <Link
+                href={"/material"}
+                className="anim hover:text-primary-foreground dark:hover:text-primary"
+              >
+                Analytics
+              </Link>
             </div>
           </div>
 
           <div className="flex flex-col gap-y-3">
             <h2 className="text-center font-mono font-semibold uppercase text-primary-foreground dark:text-primary md:text-right">
-              Misc
+              Site
             </h2>
-            <div className="flex flex-col gap-y-1 text-center text-sm font-medium text-primary-foreground/60 dark:text-foreground/60 md:text-right">
+            <div className="flex flex-col gap-y-2 text-center text-sm font-medium text-primary-foreground/60 dark:text-foreground/60 md:text-right">
+              <Link
+                href={"/bucket-list"}
+                className="anim hover:text-primary-foreground dark:hover:text-primary"
+              >
+                Bucket List
+              </Link>
               <Link
                 href={"/material"}
                 className="anim hover:text-primary-foreground dark:hover:text-primary"

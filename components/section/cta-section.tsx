@@ -1,45 +1,24 @@
-import Link from "next/link";
-
+import SocialCard, { Name } from "@/components/shared/cards/social-card";
 import Paragraph from "@/components/shared/paragraph";
+
+import { socialItems } from "@/lib/constants";
 
 const ActionSection = () => {
   return (
-    <div className="flex w-full max-w-lg">
-      <Paragraph title="Connect">
-        <p>
-          Leave a mark{" "}
-          <Link
-            href="/guestbook"
-            aria-label="Leave a mark on /guestbook"
-            className="anim underline underline-offset-2 hover:text-foreground active:text-foreground"
-          >
-            <span className="sr-only">Leave a mark on /guestbook</span>
-            here
-          </Link>
-          , view my codes on{" "}
-          <Link
-            href={"https://github.com/msafdev"}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Github"
-            className="anim underline underline-offset-2 hover:text-foreground active:text-foreground"
-          >
-            <span className="sr-only">My GitHub</span>
-            Github
-          </Link>
-          , or check out how I'm doing on{" "}
-          <Link
-            href={"https://read.cv/msafdev"}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Read.cv"
-            className="anim underline underline-offset-2 hover:text-foreground active:text-foreground"
-          >
-            <span className="sr-only">My Read.cv</span>
-            Read.cv
-          </Link>
-          .
-        </p>
+    <div className="flex w-full max-w-lg flex-col gap-y-4">
+      <Paragraph title="Let's connect">
+        <div className="grid w-full grid-cols-3 flex-wrap items-center gap-2 xs:grid-cols-6">
+          {socialItems.map((item) => (
+            <SocialCard
+              key={item.name}
+              href={item.href}
+              target={item.target}
+              rel={item.rel}
+              icon={item.icon}
+              name={item.name as Name}
+            />
+          ))}
+        </div>
       </Paragraph>
     </div>
   );

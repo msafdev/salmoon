@@ -7,7 +7,7 @@ import Paragraph from "@/components/shared/paragraph";
 
 import { Skeleton } from "@/components/ui/skeleton";
 
-import { Button } from "../ui/button";
+import { Button } from "@/components/ui/button";
 
 const LoadingSkeleton = () => (
   <div className="flex h-fit w-full max-w-lg flex-col gap-y-4">

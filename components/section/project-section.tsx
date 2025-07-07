@@ -7,8 +7,11 @@ const ProjectSection = () => {
   return (
     <div className="flex w-full max-w-lg flex-col items-center gap-y-4">
       <Paragraph title="Free templates" link href="/archive">
-        A collection of open-sourced templates built for speed and simplicity.
-        Browse and use them freely in your own projects.
+        <p>
+          A collection of <span className="text-foreground">open-sources</span>{" "}
+          templates built for speed and simplicity. Browse and use them freely
+          in your own projects.
+        </p>
       </Paragraph>
 
       <div className="flex w-full flex-col gap-y-4">

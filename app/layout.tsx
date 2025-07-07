@@ -2,7 +2,7 @@ import "@/styles/globals.css";
 
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
-import { Manrope } from "next/font/google";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import NextTopLoader from "nextjs-toploader";
 
 import { Analytics } from "@vercel/analytics/react";
@@ -22,8 +22,8 @@ const Footer = dynamic(() => import("@/components/shared/footer"), {
   ssr: false,
 });
 
-const manrope = Manrope({
-  subsets: ["latin"],
+const inter = Plus_Jakarta_Sans({
+  subsets: ["latin-ext"],
   weight: ["200", "300", "400", "500", "600", "700"],
 });
 
@@ -35,13 +35,24 @@ export const metadata: Metadata = {
     template: "Msafdev | %s",
   },
   keywords: [
-    "salmoon",
-    "salman",
+    "muhammad salman alfarisi",
     "msafdev",
     "msaf",
-    "portfolio",
-    "design",
-    "website",
+    "salmoon",
+    "salman alfarisi",
+    "fullstack developer",
+    "product designer",
+    "UI/UX",
+    "frontend",
+    "backend",
+    "react developer",
+    "nextjs developer",
+    "freelance developer",
+    "web developer indonesia",
+    "portfolio developer",
+    "hire fullstack developer",
+    "design engineer",
+    "software engineer portfolio",
   ],
   verification: {
     google: "o2JC_24yWCXt25B4cLk_3kF-RTSQDBNab7JNqh33cHU",
@@ -79,7 +90,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={manrope.className}>
+      <body className={inter.className}>
         <SpeedInsights />
         <Analytics />
         <ThemeProvider

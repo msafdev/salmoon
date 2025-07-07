@@ -1,4 +1,4 @@
-import { ArrowRight, Earth, Github, Globe } from "lucide-react";
+import { ArrowRight, Github } from "lucide-react";
 
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
 import Image from "next/image";
@@ -27,7 +27,7 @@ const ProjectCard = ({
               placeholder="blur"
               loading="lazy"
               fill
-              sizes="(max-width: 768px) 40vw, 30vw"
+              sizes="(max-width: 640px) 80vw, 60vw"
             />
           </div>
         </div>

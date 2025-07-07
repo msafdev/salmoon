@@ -8,7 +8,7 @@ import { Caveat } from "next/font/google";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 const caveat = Caveat({
-  subsets: ["latin"],
+  subsets: ["latin-ext"],
   display: "swap",
   weight: ["400", "500", "600", "700"],
 });

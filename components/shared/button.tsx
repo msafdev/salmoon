@@ -1,7 +1,5 @@
 "use client";
 
-import { ContainerIcon } from "lucide-react";
-
 import Link from "next/link";
 
 import { cn } from "@/lib/utils";
@@ -25,26 +23,28 @@ const Button = ({
   [x: string]: any;
   asLink?: boolean;
   href?: string;
-  size?: "sm" | "md" | "lg" | "icon";
+  size?: "sm" | "md" | "lg" | "icon" | "fit";
 }) => {
   const buttonSizes = {
     sm: "px-3 h-9",
     md: "px-4 h-10",
     lg: "px-6 h-11",
     icon: "px-4 py-3 h-10 w-fit",
+    fit: "px-3 h-9 w-fit",
   };
 
   const containerSizes = {
     sm: "w-full",
     md: "w-full",
     lg: "w-full",
+    fit: "w-fit",
     icon: "w-fit",
   };
 
   return (
     <div
       className={cn(
-        "group/button whitespace-nowrap rounded-lg bg-gradient-to-b from-zinc-200 to-zinc-300 p-[1px] dark:from-zinc-700 dark:to-zinc-800",
+        "group/button whitespace-nowrap rounded-lg bg-gradient-to-b from-zinc-200 to-zinc-300 p-[1px] outline-none ring-0 ring-border focus-visible:ring-2 focus-visible:ring-offset-2 dark:from-zinc-700 dark:to-zinc-800",
         containerSizes[size],
       )}
     >
@@ -52,7 +52,7 @@ const Button = ({
         onClick={onClick}
         type={type}
         className={cn(
-          `anim flex w-full items-center justify-center gap-x-2 rounded-[calc(var(--radius)-1px)] bg-gradient-to-b from-card/80 to-card/90 text-sm font-medium text-black transition-all duration-300 ease-in-out group-hover/button:from-card/70 group-hover/button:to-card/80 dark:text-white ${
+          `anim flex w-full items-center justify-center gap-x-2 rounded-[calc(var(--radius)-1px)] bg-gradient-to-b from-card/80 to-card/90 text-sm font-medium text-black outline-none ring-0 ring-border transition-all duration-300 ease-in-out focus-visible:ring-2 focus-visible:ring-offset-2 group-hover/button:from-card/70 group-hover/button:to-card/80 dark:text-white ${
             disabled ? "cursor-not-allowed" : "cursor-pointer"
           }`,
           buttonSizes[size],

@@ -53,7 +53,6 @@ export const formatDate = (
     return `${day} ${monthNames[monthIndex]} ${year}`;
   }
 
-  // Default to short format
   return `${day}/${monthIndex + 1}/${shortYear}`;
 };
 
@@ -78,4 +77,36 @@ export const formatTimestamp = (timestamp: string): string => {
   return unit
     ? `${unit.value} ${unit.value > 1 ? unit.plural : unit.singular} ago`
     : "just now";
+};
+
+export const formatCurrency = (
+  value: number | string,
+  options?: {
+    locale?: string;
+    currency?: string;
+    minimumFractionDigits?: number;
+    maximumFractionDigits?: number;
+  },
+): string => {
+  const {
+    locale = "id-ID",
+    currency = "IDR",
+    minimumFractionDigits = 0,
+    maximumFractionDigits = 0,
+  } = options || {};
+
+  const num = typeof value === "string" ? parseFloat(value) : value;
+  if (isNaN(num)) return "";
+
+  return new Intl.NumberFormat(locale, {
+    style: "currency",
+    currency,
+    minimumFractionDigits,
+    maximumFractionDigits,
+  }).format(num);
+};
+
+export const parseCurrency = (input: string): number => {
+  const cleaned = input.replace(/[^\d.,-]/g, "").replace(",", ".");
+  return parseFloat(cleaned) || 0;
 };

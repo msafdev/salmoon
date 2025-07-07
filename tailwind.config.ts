@@ -71,6 +71,23 @@ const config = {
             height: "var(--radix-accordion-content-height)",
           },
         },
+        shake: {
+          "0%": {
+            transform: "translateX(0)",
+          },
+          "25%": {
+            transform: "translateX(3px)",
+          },
+          "50%": {
+            transform: "translateX(0)",
+          },
+          "75%": {
+            transform: "translateX(3px)",
+          },
+          "100%": {
+            transform: "translateX(0)",
+          },
+        },
         "accordion-up": {
           from: {
             height: "var(--radix-accordion-content-height)",
@@ -87,20 +104,12 @@ const config = {
             backgroundPosition: "-200% 0",
           },
         },
-        marquee: {
-          from: {
-            transform: "translateX(0)",
-          },
-          to: {
-            transform: "translateX(calc(-100% - 32px))",
-          },
-        },
       },
       animation: {
         "background-shine": "background-shine 2.4s infinite linear",
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        marquee: "marquee 16s linear infinite",
+        shake: "shake 0.4s infinite",
       },
     },
   },

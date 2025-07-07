@@ -11,11 +11,11 @@ const CreditCard = () => {
         transformOrigin: "center center",
       }}
       springOptions={{
-        stiffness: 26.7,
-        damping: 4.1,
-        mass: 0.2,
+        stiffness: 12.7,
+        damping: 1.1,
+        mass: 0.4,
       }}
-      className="flex aspect-[1.586/1] w-full max-w-64 flex-col rounded-lg bg-gradient-to-br from-zinc-700 from-20% via-rose-500 via-80% to-orange-400 p-3 shadow-sm dark:from-zinc-200 dark:via-violet-500 dark:to-purple-800"
+      className="flex aspect-[1.586/1] w-full max-w-64 cursor-default flex-col rounded-lg bg-gradient-to-br from-zinc-700 from-20% via-rose-500 via-80% to-orange-400 p-3 shadow-sm dark:from-zinc-200 dark:via-violet-500 dark:to-purple-800"
     >
       <div className="flex w-full items-center justify-between">
         <Asterisk className="size-5 text-orange-600 text-primary-foreground dark:text-violet-600" />
