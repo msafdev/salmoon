@@ -156,13 +156,13 @@ export const socialItems = [
 ];
 
 export const clientItems = [
-  "/static/airestate.svg",
-  "/static/contra.svg",
-  "/static/dev-different.svg",
-  "/static/siap-kerja.svg",
-  "/static/mandiri.svg",
-  "/static/bangkit.svg",
-  "/static/mitratel.svg",
+  "/assets/companies/airestate.svg",
+  "/assets/companies/contra.svg",
+  "/assets/companies/dev-different.svg",
+  "/assets/companies/siap-kerja.svg",
+  "/assets/companies/mandiri.svg",
+  "/assets/companies/bangkit.svg",
+  "/assets/companies/mitratel.svg",
 ];
 
 export const creditList = [
