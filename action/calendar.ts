@@ -1,8 +1,6 @@
 "use server";
 
 import { Contact } from "@/types/contact-types";
-import { add, format, formatISO, isAfter, isBefore, parse } from "date-fns";
-import { fromZonedTime, toZonedTime } from "date-fns-tz";
 import { google } from "googleapis";
 
 import { revalidatePath } from "next/cache";
@@ -10,6 +8,16 @@ import { revalidatePath } from "next/cache";
 import { calendar_v3 as googleCalendar } from "@googleapis/calendar";
 
 import { TIMEZONE, buildDateSlots } from "@/lib/calendar";
+import {
+  add,
+  format,
+  formatISO,
+  fromZonedTime,
+  isAfter,
+  isBefore,
+  parse,
+  toZonedTime,
+} from "@/lib/date";
 
 const SCOPES = [
   "https://www.googleapis.com/auth/calendar",
@@ -40,7 +48,7 @@ export const getAvailableSlots = async (date: string) => {
     const calendar = await initGoogleCalendar();
     if (!calendar) return { error: "❌ Calendar not initialized" };
 
-    const dayDate = parse(date, "yyyyMMdd", new Date());
+    const dayDate = parse(date, "yyyyMMdd");
     const dateSlots = buildDateSlots(dayDate);
 
     const { data } = await calendar.events.list({

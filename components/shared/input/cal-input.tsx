@@ -1,7 +1,6 @@
 "use client";
 
 import { getAvailableSlots } from "@/action/calendar";
-import { format } from "date-fns";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
 import { useEffect, useMemo, useState } from "react";
@@ -9,6 +8,7 @@ import { useEffect, useMemo, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 
+import { format } from "@/lib/date";
 import { cn } from "@/lib/utils";
 
 interface CalInputProps {
@@ -186,7 +186,7 @@ export default function CalInput({
     }
 
     return (
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
+      <div className="grid grid-cols-2 gap-2 md:grid-cols-4">
         {availableSlots.map((time) => (
           <Button
             type="button"
