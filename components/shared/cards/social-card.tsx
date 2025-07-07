@@ -45,6 +45,7 @@ const SocialCard = ({
       target={target}
       rel={rel}
     >
+      <span className="sr-only">Button to {href}</span>
       {React.createElement(icon, {
         className: "size-4 group-hover:size-5 anim will-change-transform",
       })}
