@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@googleapis/calendar": "^10.0.1",
-    "@radix-ui/react-avatar": "^1.0.4",
+    "@radix-ui/react-avatar": "^1.1.10",
     "@radix-ui/react-label": "^2.1.0",
     "@radix-ui/react-popover": "^1.0.7",
     "@radix-ui/react-slot": "^1.0.2",
