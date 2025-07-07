@@ -13,7 +13,7 @@
     "@googleapis/calendar": "^10.0.1",
     "@radix-ui/react-avatar": "^1.0.4",
     "@radix-ui/react-label": "^2.1.0",
-    "@radix-ui/react-popover": "^1.0.7",
+    "@radix-ui/react-popover": "^1.1.14",
     "@radix-ui/react-slot": "^1.0.2",
     "@radix-ui/react-toast": "^1.1.5",
     "@stefanprobst/rehype-extract-toc": "^3.0.0",
