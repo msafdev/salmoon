@@ -45,7 +45,7 @@ const ContentForm = () => {
           disabled={addContentMutation.isPending || !content.trim()}
           type="submit"
           size="icon"
-          className="anim border border-border px-3 py-2"
+          className="border border-border px-3 py-2"
           variant="secondary"
         >
           {addContentMutation.isPending ? (

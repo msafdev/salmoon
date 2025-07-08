@@ -4,6 +4,8 @@ import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
 
+import { cn } from "@/lib/utils";
+
 const Paragraph = ({
   title,
   from,
@@ -11,6 +13,7 @@ const Paragraph = ({
   children,
   link = false,
   href = "/",
+  className,
 }: {
   title: string;
   from?: string;
@@ -18,9 +21,10 @@ const Paragraph = ({
   children?: React.ReactNode;
   link?: boolean;
   href?: string;
+  className?: string;
 }) => {
   return (
-    <div className="flex w-full max-w-lg flex-col gap-y-2">
+    <div className={cn("flex w-full max-w-lg flex-col gap-y-2", className)}>
       <div className="flex w-full flex-col">
         <div className="flex h-8 w-full items-center justify-between gap-x-4">
           <h2 className="text-sm font-semibold uppercase leading-none text-foreground">

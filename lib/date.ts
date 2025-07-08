@@ -1,4 +1,22 @@
 /**
+ * Full month names.
+ */
+export const monthNames = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
+
+/**
  * Add time to a Date object.
  */
 export function add(

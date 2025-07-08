@@ -201,7 +201,7 @@
     position: relative;
     z-index: 10;
     pointer-events: all;
-    transform: translateX(0.43px);
+    transform: translateX(0.3px);
   }
 
   /* Thumb styling for Firefox */
@@ -216,7 +216,7 @@
     position: relative;
     z-index: 10;
     pointer-events: all;
-    transform: translateX(0.43px);
+    transform: translateX(0.3px);
   }
 
   /* Thumb styling for IE/Edge Legacy */
@@ -231,7 +231,7 @@
     position: relative;
     z-index: 10;
     pointer-events: all;
-    transform: translateX(0.43px);
+    transform: translateX(0.3px);
   }
 
   /* Focus states */

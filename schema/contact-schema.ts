@@ -1,42 +1,43 @@
-import {
-  Building,
-  CircleFadingPlus,
-  Frame,
-  Globe,
-  HeartHandshake,
-  PanelsTopLeft,
-  Rss,
-  Shuffle,
-  Sparkle,
-  User,
-} from "lucide-react";
 import validator from "validator";
 import { z } from "zod";
+
+import {
+  PiBuildingOfficeDuotone,
+  PiDevToLogoDuotone,
+  PiGlobeHemisphereWestDuotone,
+  PiGridFourDuotone,
+  PiHandHeartDuotone,
+  PiMegaphoneDuotone,
+  PiNotePencilDuotone,
+  PiShootingStarDuotone,
+  PiTextAaDuotone,
+  PiUserCircleDashedDuotone,
+} from "react-icons/pi";
 
 export const userType = [
   {
     label: "Business",
     value: "business",
-    icon: Building,
+    icon: PiBuildingOfficeDuotone,
     description: "You're representing a company, organization, or startup.",
   },
   {
     label: "Individual",
     value: "individual",
-    icon: User,
+    icon: PiUserCircleDashedDuotone,
     description: "You're a freelancer, hobbyist, or solo creator.",
   },
   {
     label: "Non-profit",
     value: "non-profit",
-    icon: HeartHandshake,
+    icon: PiHandHeartDuotone,
     description:
       "You're part of a charitable, educational, or community-driven organization.",
   },
   {
     label: "Other",
     value: "other",
-    icon: Globe,
+    icon: PiGlobeHemisphereWestDuotone,
     description: "None of the above? Let's find the right fit together.",
   },
 ];
@@ -45,32 +46,32 @@ export const serviceType = [
   {
     label: "UI/UX Design",
     value: "design",
-    icon: Frame,
+    icon: PiGridFourDuotone,
   },
   {
     label: "Web Development",
     value: "webdev",
-    icon: PanelsTopLeft,
+    icon: PiDevToLogoDuotone,
   },
   {
     label: "Technical SEO",
     value: "seo",
-    icon: Rss,
+    icon: PiTextAaDuotone,
   },
   {
     label: "Brand Strategy",
     value: "branding",
-    icon: Shuffle,
+    icon: PiMegaphoneDuotone,
   },
   {
     label: "Content Writing",
     value: "content",
-    icon: CircleFadingPlus,
+    icon: PiNotePencilDuotone,
   },
   {
     label: "Others",
     value: "other",
-    icon: Sparkle,
+    icon: PiShootingStarDuotone,
   },
 ];
 

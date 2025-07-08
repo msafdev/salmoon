@@ -1,6 +1,7 @@
 "use client";
 
 import { getAvailableSlots } from "@/action/calendar";
+import { AnimatePresence, motion } from "framer-motion";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
 import { useEffect, useMemo, useState } from "react";
@@ -17,6 +18,23 @@ interface CalInputProps {
   value?: string;
 }
 
+const monthNames = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
+
+const dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
 export default function CalInput({
   className = "",
   onChange,
@@ -28,24 +46,8 @@ export default function CalInput({
   );
   const [selectedTime, setSelectedTime] = useState<string | null>(null);
   const [availableSlots, setAvailableSlots] = useState<string[]>([]);
+  const [slotCache, setSlotCache] = useState<Record<string, string[]>>({});
   const [loadingSlots, setLoadingSlots] = useState(false);
-
-  const monthNames = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ];
-
-  const dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
   const { daysInMonth, firstDayOfMonth, today } = useMemo(() => {
     const year = currentDate.getFullYear();
@@ -57,23 +59,32 @@ export default function CalInput({
   }, [currentDate]);
 
   useEffect(() => {
-    if (value) {
-      const date = new Date(value);
-      setSelectedDate(date);
-      setSelectedTime(format(date, "HH:mm"));
+    if (!value) return;
 
-      const formatted = format(date, "yyyyMMdd");
+    const date = new Date(value);
+    const formatted = format(date, "yyyyMMdd");
 
-      getAvailableSlots(formatted)
-        .then((res) => setAvailableSlots(res.data || []))
-        .catch(() => setAvailableSlots([]))
-        .finally(() => setLoadingSlots(false));
+    setSelectedDate(date);
+    setSelectedTime(format(date, "HH:mm"));
+
+    if (slotCache[formatted]) {
+      setAvailableSlots(slotCache[formatted]);
+      return;
     }
+
+    setLoadingSlots(true);
+    getAvailableSlots(formatted)
+      .then((res) => {
+        const data = res.data || [];
+        setAvailableSlots(data);
+        setSlotCache((prev) => ({ ...prev, [formatted]: data }));
+      })
+      .catch(() => setAvailableSlots([]))
+      .finally(() => setLoadingSlots(false));
   }, [value]);
 
   const navigateMonth = (direction: "prev" | "next") => {
     setSelectedDate(null);
-
     setCurrentDate((prev) => {
       const newDate = new Date(prev);
       newDate.setMonth(prev.getMonth() + (direction === "next" ? 1 : -1));
@@ -87,16 +98,22 @@ export default function CalInput({
       currentDate.getMonth(),
       day,
     );
+    const formatted = format(selected, "yyyyMMdd");
 
     setSelectedDate(selected);
     setSelectedTime(null);
+
+    if (slotCache[formatted]) {
+      setAvailableSlots(slotCache[formatted]);
+      return;
+    }
+
     setLoadingSlots(true);
-
-    const formatted = format(selected, "yyyyMMdd");
-
     try {
       const res = await getAvailableSlots(formatted);
-      setAvailableSlots(res.data || []);
+      const data = res.data || [];
+      setAvailableSlots(data);
+      setSlotCache((prev) => ({ ...prev, [formatted]: data }));
     } catch (err) {
       console.error("Failed to fetch slots", err);
       setAvailableSlots([]);
@@ -112,10 +129,17 @@ export default function CalInput({
     const finalDate = new Date(selectedDate);
     finalDate.setHours(Number(hour));
     finalDate.setMinutes(Number(minute));
-
     const isoString = finalDate.toISOString();
+
     setSelectedTime(time);
     onChange(isoString);
+  };
+
+  const handleReset = () => {
+    setSelectedDate(null);
+    setSelectedTime(null);
+    setAvailableSlots([]);
+    if (onChange) onChange("");
   };
 
   const isDateDisabled = (day: number) => {
@@ -145,7 +169,6 @@ export default function CalInput({
     for (let day = 1; day <= daysInMonth; day++) {
       const isDisabled = isDateDisabled(day);
       const isSelected = isDateSelected(day);
-
       days.push(
         <button
           type="button"
@@ -154,7 +177,7 @@ export default function CalInput({
           disabled={isDisabled}
           className={cn(
             "aspect-square w-full rounded text-xs font-medium",
-            "outline-none focus-visible:ring-2 focus-visible:ring-border",
+            "outline-none hover:bg-primary/10 hover:text-foreground focus-visible:ring-2 focus-visible:ring-border",
             isDisabled && "text-muted-foreground",
             isSelected && "bg-primary/10 text-foreground",
             !isSelected && !isDisabled && "text-foreground",
@@ -208,56 +231,90 @@ export default function CalInput({
   };
 
   return (
-    <div className={cn("space-y-2", className)}>
-      <div className="flex items-center justify-between">
-        <h3 className="font-semibold text-foreground">
-          {monthNames[currentDate.getMonth()]}{" "}
-          <span className="text-muted-foreground">
-            {currentDate.getFullYear()}
-          </span>
-        </h3>
-        <div className="flex items-center gap-1">
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={() => navigateMonth("prev")}
-            className="size-8 p-0"
+    <div className={cn("w-full", className)}>
+      <AnimatePresence mode="wait">
+        {!selectedDate ? (
+          <motion.div
+            key="calendar"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="space-y-2"
           >
-            <ArrowLeft className="size-4" />
-          </Button>
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={() => navigateMonth("next")}
-            className="size-8 p-0"
-          >
-            <ArrowRight className="size-4" />
-          </Button>
-        </div>
-      </div>
-
-      {/* Calendar Body */}
-      <div className="space-y-3 sm:rounded sm:bg-muted">
-        <div className="grid grid-cols-7 sm:gap-1 sm:px-2 sm:pt-4">
-          {dayNames.map((day) => (
-            <div
-              key={day}
-              className="flex h-6 w-full items-center justify-center"
-            >
-              <span className="text-xs font-medium uppercase text-muted-foreground">
-                {day}
-              </span>
+            <div className="flex items-center justify-between">
+              <h3 className="font-semibold text-foreground">
+                {monthNames[currentDate.getMonth()]}{" "}
+                <span className="text-muted-foreground">
+                  {currentDate.getFullYear()}
+                </span>
+              </h3>
+              <div className="flex items-center gap-1">
+                <Button
+                  type="button"
+                  variant="ghost"
+                  size="icon"
+                  onClick={() => navigateMonth("prev")}
+                  className="size-8 p-0"
+                >
+                  <ArrowLeft className="size-4" />
+                </Button>
+                <Button
+                  type="button"
+                  variant="ghost"
+                  size="icon"
+                  onClick={() => navigateMonth("next")}
+                  className="size-8 p-0"
+                >
+                  <ArrowRight className="size-4" />
+                </Button>
+              </div>
             </div>
-          ))}
-        </div>
 
-        <div className="grid grid-cols-7 sm:gap-1 sm:p-2">
-          {renderCalendarDays()}
-        </div>
-      </div>
+            <div className="space-y-3 sm:rounded sm:bg-muted">
+              <div className="grid grid-cols-7 sm:gap-1 sm:px-2 sm:pt-4">
+                {dayNames.map((day) => (
+                  <div
+                    key={day}
+                    className="flex h-6 w-full items-center justify-center"
+                  >
+                    <span className="text-xs font-medium uppercase text-muted-foreground">
+                      {day}
+                    </span>
+                  </div>
+                ))}
+              </div>
+              <div className="grid grid-cols-7 sm:gap-1 sm:p-2">
+                {renderCalendarDays()}
+              </div>
+            </div>
+          </motion.div>
+        ) : (
+          <motion.div
+            key="time-selection"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="space-y-2"
+          >
+            <div className="flex items-center justify-between">
+              <h3 className="font-semibold text-foreground">Select Time</h3>
+              <Button
+                type="button"
+                variant="ghost"
+                size="icon"
+                onClick={handleReset}
+                className="size-8 p-0"
+              >
+                <ArrowLeft className="size-4" />
+              </Button>
+            </div>
 
-      {/* Time Slots: only shown if a date is selected */}
-      {selectedDate && renderTimeSlots()}
+            {renderTimeSlots()}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

@@ -1,5 +1,16 @@
-import { Archive, Beaker, GraduationCap, Hexagon, Home } from "lucide-react";
-
+import {
+  PiArchiveDuotone,
+  PiCircleDuotone,
+  PiGithubLogoDuotone,
+  PiGraduationCapDuotone,
+  PiHouseDuotone,
+  PiInstagramLogoDuotone,
+  PiLightningDuotone,
+  PiLinkedinLogoDuotone,
+  PiReadCvLogoDuotone,
+  PiRocketLaunchDuotone,
+  PiTwitterLogoDuotone,
+} from "react-icons/pi";
 import {
   TbBrandGithub,
   TbBrandInstagram,
@@ -38,31 +49,31 @@ export const navItems = [
     id: 1,
     label: "Home",
     href: "/",
-    icon: <Home className="h-full w-full" />,
+    icon: <PiHouseDuotone className="h-full w-full" />,
   },
   {
     id: 2,
     label: "Archive",
     href: "/archive",
-    icon: <Archive className="h-full w-full" />,
+    icon: <PiArchiveDuotone className="h-full w-full" />,
   },
   {
     id: 3,
     label: "Lab",
     href: "/lab",
-    icon: <Beaker className="h-full w-full" />,
+    icon: <PiLightningDuotone className="h-full w-full" />,
   },
   {
     id: 4,
     label: "Learn",
     href: "/learn",
-    icon: <GraduationCap className="h-full w-full" />,
+    icon: <PiGraduationCapDuotone className="h-full w-full" />,
   },
   {
     id: 5,
     label: "Theme",
     function: "toggle-theme",
-    icon: <Hexagon className="h-full w-full" />,
+    icon: <PiCircleDuotone className="h-full w-full" />,
   },
 ];
 
@@ -117,39 +128,39 @@ export const processItems = [
 ];
 
 export const socialItems = [
-  { name: "mail", href: "/contact", icon: TbMailHeart },
+  { name: "mail", href: "/contact", icon: PiRocketLaunchDuotone },
   {
     name: "twitter",
     href: "https://twitter.com/msafdev",
-    icon: TbBrandTwitter,
+    icon: PiTwitterLogoDuotone,
     target: "_blank",
     rel: "noopener noreferrer",
   },
   {
     name: "github",
     href: "https://github.com/msafdev",
-    icon: TbBrandGithub,
+    icon: PiGithubLogoDuotone,
     target: "_blank",
     rel: "noopener noreferrer",
   },
   {
     name: "instagram",
     href: "https://instagram.com/msalman_af",
-    icon: TbBrandInstagram,
+    icon: PiInstagramLogoDuotone,
     target: "_blank",
     rel: "noopener noreferrer",
   },
   {
     name: "linkedin",
     href: "https://linkedin.com/in/msafdev",
-    icon: TbBrandLinkedin,
+    icon: PiLinkedinLogoDuotone,
     target: "_blank",
     rel: "noopener noreferrer",
   },
   {
     name: "readcv",
     href: "https://read.cv/msafdev",
-    icon: TbFileSpark,
+    icon: PiReadCvLogoDuotone,
     target: "_blank",
     rel: "noopener noreferrer",
   },

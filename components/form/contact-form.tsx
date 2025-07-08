@@ -5,7 +5,12 @@ import { contactSchema, serviceType, userType } from "@/schema/contact-schema";
 import { Contact } from "@/types/contact-types";
 import { useFormik } from "formik";
 import { AnimatePresence, motion } from "framer-motion";
-import { Asterisk, ChevronLeft, ChevronRight } from "lucide-react";
+import {
+  Asterisk,
+  ChevronLeft,
+  ChevronRight,
+  LoaderCircle,
+} from "lucide-react";
 import { toFormikValidationSchema } from "zod-formik-adapter";
 
 import { useState } from "react";
@@ -85,6 +90,17 @@ const ContactForm = () => {
 
     const errors = await formik.validateForm();
 
+    if (step === 3) {
+      const date = new Date(formik.values.meeting_date);
+      const isValidDate = !isNaN(date.getTime());
+      const hasTime = date.getHours() !== 0 || date.getMinutes() !== 0;
+
+      if (!isValidDate || !hasTime) {
+        formik.setFieldError("meeting_date", "Please pick a time.");
+        return false;
+      }
+    }
+
     const hasErrors = fieldsToValidate.some((field) => errors[field]);
 
     return !hasErrors;
@@ -94,8 +110,12 @@ const ContactForm = () => {
     const isValid = await validateCurrentStep();
 
     if (isValid) {
-      setDirection(1);
-      setStep((prev) => Math.min(prev + 1, steps.length - 1));
+      if (step === steps.length - 1) {
+        formik.submitForm();
+      } else {
+        setDirection(1);
+        setStep((prev) => Math.min(prev + 1, steps.length - 1));
+      }
     } else {
       toast({
         title: "Please fill the required fields",
@@ -147,7 +167,7 @@ const ContactForm = () => {
                         : "bg-accent"
                     }`}
                   >
-                    <type.icon className="mb-4 size-4" />
+                    <type.icon className="mb-4 size-5" />
                     <h3 className="mb-1 text-left text-sm font-semibold">
                       {type.label}
                     </h3>
@@ -330,12 +350,12 @@ const ContactForm = () => {
           <Button
             type="button"
             size="fit"
-            onClick={step !== steps.length - 1 ? handleNext : formik.submitForm}
-            disabled={formik.isSubmitting}
+            onClick={handleNext}
+            disabled={formik.isSubmitting || addCalendarMutation.isPending}
           >
             {step === steps.length - 1 ? (
-              formik.isSubmitting ? (
-                "Loading..."
+              formik.isSubmitting || addCalendarMutation.isPending ? (
+                <LoaderCircle className="size-4 animate-spin" />
               ) : (
                 "Submit"
               )

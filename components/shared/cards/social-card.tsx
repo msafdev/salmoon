@@ -39,7 +39,7 @@ const SocialCard = ({
     <Link
       href={href}
       className={cn(
-        "anim group flex aspect-[4/3] h-auto w-auto min-w-16 flex-1 cursor-pointer items-center justify-center rounded bg-muted text-muted-foreground",
+        "anim group flex aspect-video xs:aspect-square h-auto w-auto min-w-16 flex-1 cursor-pointer items-center justify-center rounded bg-muted text-muted-foreground",
         colorVariant[name],
       )}
       target={target}
@@ -47,7 +47,7 @@ const SocialCard = ({
     >
       <span className="sr-only">Button to {href}</span>
       {React.createElement(icon, {
-        className: "size-4 group-hover:size-5 anim will-change-transform",
+        className: "size-5 group-hover:size-6 anim will-change-transform",
       })}
     </Link>
   );
