@@ -25,6 +25,8 @@ const calendarMutation = () => {
           duration: 2000,
         });
       } else if (response?.data) {
+        router.push("/contact/success");
+
         toast({
           title: "Success",
           description: response.data,
@@ -32,7 +34,6 @@ const calendarMutation = () => {
         });
 
         queryClient.invalidateQueries({ queryKey: ["meetings"] });
-        router.push("/contact/success");
       }
     },
     onError: () => {
