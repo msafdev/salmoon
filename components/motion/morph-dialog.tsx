@@ -1,6 +1,5 @@
 "use client";
 
-import { XIcon } from "lucide-react";
 import {
   AnimatePresence,
   MotionConfig,
@@ -24,6 +23,7 @@ import Image, { StaticImageData } from "next/image";
 
 import { useClickOutside } from "@/lib/hooks";
 import { cn } from "@/lib/utils";
+import { PiXBold } from "react-icons/pi";
 
 export type MorphDialogContextType = {
   isOpen: boolean;
@@ -433,7 +433,7 @@ function MorphDialogClose({
       exit="exit"
       variants={variants}
     >
-      {children || <XIcon size={24} />}
+      {children || <PiXBold size={24} />}
     </motion.button>
   );
 }

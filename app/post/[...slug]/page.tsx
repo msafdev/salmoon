@@ -1,5 +1,6 @@
 import { posts } from "#site/content";
-import { MoveLeft, Share2 } from "lucide-react";
+
+import { PiArrowLeft,  PiShareNetworkDuotone } from "react-icons/pi";
 
 import { Metadata } from "next";
 import Image from "next/image";
@@ -90,7 +91,7 @@ export default async function PostPage({ params }: PostPageProps) {
           aria-label={`Go back to /post`}
           className="anim flex items-center gap-x-2 text-muted-foreground hover:text-foreground"
         >
-          <MoveLeft className="h-5 w-5" />
+          <PiArrowLeft className="h-5 w-5" />
           <p className="text-sm font-medium md:text-base">Go back</p>
         </Link>
         <Button
@@ -106,7 +107,7 @@ export default async function PostPage({ params }: PostPageProps) {
             scroll={true}
             aria-label={`Tweet about ${post?.title}`}
           >
-            <Share2 className="h-5 w-5" />
+            <PiShareNetworkDuotone className="h-5 w-5" />
           </Link>
         </Button>
       </div>

@@ -1,9 +1,9 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { Check, LoaderCircle } from "lucide-react";
 
 import { useEffect, useState } from "react";
+import { PiArrowClockwiseBold, PiCheckBold } from "react-icons/pi";
 
 const TransactionButton = () => {
   const [loading, setLoading] = useState(false);
@@ -17,9 +17,9 @@ const TransactionButton = () => {
   }, []);
 
   const icon = loading ? (
-    <LoaderCircle size={14} className="animate-spin" />
+    <PiArrowClockwiseBold size={14} className="animate-spin" />
   ) : (
-    <Check size={14} />
+    <PiCheckBold size={14} />
   );
   const label = loading ? "Processing transaction" : "Transaction successful";
 

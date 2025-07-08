@@ -1,6 +1,5 @@
-import { MoveRight } from "lucide-react";
-
 import React from "react";
+import { PiArrowRightBold } from "react-icons/pi";
 
 import { Metadata } from "next";
 import Link from "next/link";
@@ -35,7 +34,7 @@ const Page = () => {
               className="flex items-center gap-x-3 text-sm sm:text-sm"
             >
               <p className="text-muted-foreground">{item.category}</p>
-              <MoveRight className="size-3 text-foreground" />
+              <PiArrowRightBold className="size-3 text-foreground" />
               <p className="font-medium text-foreground">
                 {item.items.join(", ")}
               </p>
@@ -50,7 +49,7 @@ const Page = () => {
             <li key={index} className="flex items-start text-sm sm:text-sm">
               <div className="flex items-center">
                 <p className="text-muted-foreground">{item.category}</p>
-                <MoveRight className="mx-3 size-3 text-foreground" />
+                <PiArrowRightBold className="mx-3 size-3 text-foreground" />
               </div>
               <div className="flex flex-wrap items-center gap-y-1">
                 {item.items.map((person, index) => (
@@ -86,7 +85,7 @@ const Page = () => {
               rel="noopener noreferrer"
               className="group/bookmark flex w-fit items-center gap-x-3 py-1"
             >
-              <MoveRight className="text-foreground" size={12} />
+              <PiArrowRightBold className="text-foreground" size={12} />
               <p className="anim w-full pr-5 text-sm font-medium text-muted-foreground group-hover/bookmark:text-foreground sm:text-sm">
                 {item.title}
               </p>

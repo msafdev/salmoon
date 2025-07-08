@@ -1,9 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Globe, Smartphone } from "lucide-react";
 
 import { useState } from "react";
+import { PiDeviceMobileCameraDuotone, PiGlobeDuotone } from "react-icons/pi";
 
 import { cn } from "@/lib/utils";
 
@@ -11,13 +11,13 @@ const chipItems = [
   {
     id: 1,
     label: "Website",
-    icon: <Globe className="h-3.5 w-3.5" />,
+    icon: <PiGlobeDuotone className="h-3.5 w-3.5" />,
     selected: false,
   },
   {
     id: 2,
     label: "Mobile",
-    icon: <Smartphone className="h-3.5 w-3.5" />,
+    icon: <PiDeviceMobileCameraDuotone className="h-3.5 w-3.5" />,
     selected: false,
   },
 ];

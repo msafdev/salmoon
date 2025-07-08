@@ -1,13 +1,13 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { RefreshCcw } from "lucide-react";
 
 import { useState } from "react";
 
 import { Button } from "@/components/ui/button";
 
 import { quoteItems } from "@/lib/constants";
+import { PiClockCounterClockwiseBold } from "react-icons/pi";
 
 const QuoteCard = () => {
   const [active, setActive] = useState<number>(0);
@@ -40,7 +40,7 @@ const QuoteCard = () => {
           variant="ghost"
           size="icon"
         >
-          <RefreshCcw size={16} />
+          <PiClockCounterClockwiseBold size={16} />
         </Button>
       </div>
       <div className="relative flex w-full flex-col">

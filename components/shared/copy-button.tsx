@@ -1,8 +1,7 @@
 "use client";
 
-import { Check, ClipboardList } from "lucide-react";
-
 import { useState } from "react";
+import { PiCheckBold, PiClipboardDuotone } from "react-icons/pi";
 
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
@@ -43,9 +42,9 @@ const CopyButton = ({
     >
       <span className="sr-only">Copy to clipboard</span>
       {isCopied ? (
-        <Check className="h-3.5 w-3.5" />
+        <PiCheckBold className="h-3.5 w-3.5" />
       ) : (
-        <ClipboardList className="h-3.5 w-3.5" />
+        <PiClipboardDuotone className="h-3.5 w-3.5" />
       )}
     </Button>
   );

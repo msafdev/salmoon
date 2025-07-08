@@ -1,9 +1,8 @@
 "use client";
 
-import { X } from "lucide-react";
-
 import { type VariantProps, cva } from "class-variance-authority";
 import * as React from "react";
+import { PiXBold } from "react-icons/pi";
 
 import * as ToastPrimitives from "@radix-ui/react-toast";
 
@@ -85,7 +84,7 @@ const ToastClose = React.forwardRef<
     toast-close=""
     {...props}
   >
-    <X className="h-4 w-4" />
+    <PiXBold className="h-4 w-4" />
   </ToastPrimitives.Close>
 ));
 ToastClose.displayName = ToastPrimitives.Close.displayName;

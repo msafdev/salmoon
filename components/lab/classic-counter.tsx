@@ -1,9 +1,9 @@
 "use client";
 
 import { MotionValue, motion, useSpring, useTransform } from "framer-motion";
-import { Minus, Plus } from "lucide-react";
 
 import { useEffect, useState } from "react";
+import { PiMinusBold, PiPlusBold } from "react-icons/pi";
 
 import { Button } from "@/components/ui/button";
 
@@ -52,10 +52,10 @@ const ClassicCounter = () => {
         variant="secondary"
         size="icon"
         className="size-7 rounded-full p-1.5"
-        onClick={() => setCount(count + 1)}
-        aria-label="Increment counter"
+        onClick={() => count > 0 && count < 999 && setCount(count - 1)}
+        aria-label="Decrement counter"
       >
-        <Plus />
+        <PiMinusBold />
       </Button>
       <div className="relative flex h-24 items-center overflow-hidden">
         {[100, 10, 1].map((place) => (
@@ -67,10 +67,10 @@ const ClassicCounter = () => {
         variant="secondary"
         size="icon"
         className="size-7 rounded-full p-1.5"
-        onClick={() => count > 0 && count < 999 && setCount(count - 1)}
-        aria-label="Decrement counter"
+        onClick={() => setCount(count + 1)}
+        aria-label="Increment counter"
       >
-        <Minus />
+        <PiPlusBold />
       </Button>
     </div>
   );

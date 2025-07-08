@@ -1,4 +1,4 @@
-import { MoveRight } from "lucide-react";
+import { PiArrowRightBold } from "react-icons/pi";
 
 import Link from "next/link";
 
@@ -37,7 +37,7 @@ const Paragraph = ({
                 aria-label={`Go to ${href}`}
                 className="h-full w-full p-1.5"
               >
-                <MoveRight className="h-full w-full" />
+                <PiArrowRightBold className="h-full w-full" />
               </Link>
             </Button>
           )}
@@ -45,7 +45,7 @@ const Paragraph = ({
         {from && to && (
           <code className="flex items-center text-sm text-muted-foreground">
             {from}
-            <MoveRight
+            <PiArrowRightBold
               size={12}
               className="mx-2 inline-block text-foreground"
             />

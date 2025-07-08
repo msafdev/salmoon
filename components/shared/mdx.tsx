@@ -1,7 +1,7 @@
 import "@/styles/mdx.css";
-import { ArrowRight } from "lucide-react";
 
 import * as React from "react";
+import { PiArrowRightBold } from "react-icons/pi";
 import * as runtime from "react/jsx-runtime";
 
 import Image from "next/image";
@@ -135,7 +135,10 @@ export const globalComponents = {
   ),
   li: ({ className, ...props }: React.HTMLAttributes<HTMLLIElement>) => (
     <li className="mt-2 flex items-start gap-2">
-      <ArrowRight size={12} className="mt-[5px] shrink-0 !text-foreground" />
+      <PiArrowRightBold
+        size={12}
+        className="mt-[5px] shrink-0 !text-foreground"
+      />
       <span
         className={cn("text-sm [&>p]:mb-0 [&>p]:text-sm", className)}
         {...props}

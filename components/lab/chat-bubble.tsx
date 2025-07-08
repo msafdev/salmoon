@@ -1,9 +1,9 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { Plus } from "lucide-react";
 
 import { useState } from "react";
+import { PiPlusBold } from "react-icons/pi";
 
 type chatProps = {
   id: number;
@@ -66,7 +66,7 @@ const ChatBubble = () => {
           aria-label="Add message"
           className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-secondary/80 p-1.5 text-secondary-foreground hover:bg-secondary"
         >
-          <Plus className="h-full w-full" />
+          <PiPlusBold className="h-full w-full" />
         </button>
       </div>
       <ul className="flex flex-col gap-y-4">

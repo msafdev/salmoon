@@ -1,9 +1,14 @@
 "use client";
 
 import { AnimatePresence, MotionConfig, motion } from "framer-motion";
-import { ArrowLeft, Search, User, X } from "lucide-react";
 
 import React, { useState } from "react";
+import {
+  PiArrowLeftBold,
+  PiMagnifyingGlassDuotone,
+  PiUserDuotone,
+  PiXBold,
+} from "react-icons/pi";
 
 import { Button } from "@/components/ui/button";
 
@@ -48,7 +53,7 @@ const Toolbar = () => {
                   aria-label="Make schedule"
                   onClick={() => setMode("schedule")}
                 >
-                  <User className="size-4" />
+                  <PiUserDuotone className="size-4" />
                 </Button>
                 <Button
                   variant={"ghost"}
@@ -57,7 +62,7 @@ const Toolbar = () => {
                   onClick={() => setMode("search")}
                   aria-label="Search notes"
                 >
-                  <Search className="size-4" />
+                  <PiMagnifyingGlassDuotone className="size-4" />
                 </Button>
               </motion.div>
             ) : mode === "search" ? (
@@ -79,7 +84,7 @@ const Toolbar = () => {
                   onClick={() => setMode("default")}
                   aria-label="Back button"
                 >
-                  <ArrowLeft className="size-4" />
+                  <PiArrowLeftBold className="size-4" />
                 </Button>
                 <div className="relative min-w-52">
                   <input
@@ -107,7 +112,7 @@ const Toolbar = () => {
                   onClick={() => setMode("default")}
                   aria-label="Back button"
                 >
-                  <ArrowLeft className="size-4" />
+                  <PiArrowLeftBold className="size-4" />
                 </Button>
                 <div className="relative flex min-w-52 items-center">
                   <span className="mr-auto px-3 text-sm font-medium text-muted-foreground">
@@ -120,7 +125,7 @@ const Toolbar = () => {
                     aria-label="Placeholder button"
                     className="rounded-[12px] hover:bg-red-500/20"
                   >
-                    <X className="size-4 text-red-600" />
+                    <PiXBold className="size-4 text-red-600" />
                   </Button>
                 </div>
               </motion.div>

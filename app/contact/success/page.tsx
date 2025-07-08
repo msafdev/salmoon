@@ -1,8 +1,7 @@
 "use client";
 
-import { BadgeCheck } from "lucide-react";
-
 import { useEffect } from "react";
+import { PiSealCheckFill } from "react-icons/pi";
 
 import { useRouter } from "next/navigation";
 
@@ -23,7 +22,7 @@ export default function ContactSuccessPage() {
       className="relative flex h-auto grow flex-col items-center justify-center gap-y-12 px-4 py-24 text-center md:gap-y-16"
     >
       <div className="flex flex-col items-center">
-        <BadgeCheck className="mb-2 size-14 fill-green-500 text-background" />
+        <PiSealCheckFill className="mb-2 size-10 text-green-500" />
         <h1 className="mb-2 text-xl font-semibold md:text-2xl">
           Meeting Scheduled
         </h1>

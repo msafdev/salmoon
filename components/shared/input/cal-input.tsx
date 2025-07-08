@@ -2,9 +2,9 @@
 
 import { getAvailableSlots } from "@/action/calendar";
 import { AnimatePresence, motion } from "framer-motion";
-import { ArrowLeft, ArrowRight } from "lucide-react";
 
 import { useEffect, useMemo, useState } from "react";
+import { PiArrowLeftBold, PiArrowRightBold } from "react-icons/pi";
 
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -257,7 +257,7 @@ export default function CalInput({
                   onClick={() => navigateMonth("prev")}
                   className="size-8 p-0"
                 >
-                  <ArrowLeft className="size-4" />
+                  <PiArrowLeftBold className="size-4" />
                 </Button>
                 <Button
                   type="button"
@@ -266,7 +266,7 @@ export default function CalInput({
                   onClick={() => navigateMonth("next")}
                   className="size-8 p-0"
                 >
-                  <ArrowRight className="size-4" />
+                  <PiArrowRightBold className="size-4" />
                 </Button>
               </div>
             </div>
@@ -307,7 +307,7 @@ export default function CalInput({
                 onClick={handleReset}
                 className="size-8 p-0"
               >
-                <ArrowLeft className="size-4" />
+                <PiArrowLeftBold className="size-4" />
               </Button>
             </div>
 

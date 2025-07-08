@@ -1,10 +1,9 @@
-import { MoveRight } from "lucide-react";
-
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
 
 import { cn } from "@/lib/utils";
+import { PiArrowRightBold } from "react-icons/pi";
 
 const LabCard = ({
   children,
@@ -50,7 +49,7 @@ const LabCard = ({
             scroll={true}
             aria-label={`Go to /lab/${slug}`}
           >
-            <MoveRight className="h-4 w-4" />
+            <PiArrowRightBold className="h-4 w-4" />
           </Link>
         </Button>
       )}

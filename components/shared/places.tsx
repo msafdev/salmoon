@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { X } from "lucide-react";
 
 import { useMemo } from "react";
 
@@ -18,6 +17,7 @@ import {
 
 import { placeItems } from "@/lib/constants";
 import { useIsDesktop } from "@/lib/hooks";
+import { PiXBold } from "react-icons/pi";
 
 const transition = {
   type: "spring",
@@ -90,7 +90,7 @@ const PlaceCard = ({ item }: { item: (typeof placeItems)[number] }) => (
           />
         </MorphDialogContent>
         <MorphDialogClose className="fixed right-6 top-6 h-fit w-fit rounded-full bg-white p-1">
-          <X className="h-5 w-5 text-zinc-500" />
+          <PiXBold className="h-5 w-5 text-zinc-500" />
         </MorphDialogClose>
       </MorphDialogContainer>
     </MorphDialog>

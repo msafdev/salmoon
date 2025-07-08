@@ -5,15 +5,16 @@ import { contactSchema, serviceType, userType } from "@/schema/contact-schema";
 import { Contact } from "@/types/contact-types";
 import { useFormik } from "formik";
 import { AnimatePresence, motion } from "framer-motion";
-import {
-  Asterisk,
-  ChevronLeft,
-  ChevronRight,
-  LoaderCircle,
-} from "lucide-react";
 import { toFormikValidationSchema } from "zod-formik-adapter";
 
 import { useState } from "react";
+import {
+  PiArrowClockwiseBold,
+  PiArrowElbowDownLeftBold,
+  PiArrowLeftBold,
+  PiArrowRightBold,
+  PiAsteriskBold,
+} from "react-icons/pi";
 
 import Button from "@/components/shared/button";
 import CalInput from "@/components/shared/input/cal-input";
@@ -150,7 +151,7 @@ const ContactForm = () => {
               <Label className="relative text-foreground">
                 What kind of business are you?
                 <span className="absolute -top-0.5 translate-x-1">
-                  <Asterisk className="size-3 text-red-600" />
+                  <PiAsteriskBold className="size-3 text-red-600" />
                 </span>
               </Label>
               <div className="grid gap-3 md:grid-cols-2">
@@ -208,7 +209,7 @@ const ContactForm = () => {
             <Label className="relative text-foreground">
               What do you need?
               <span className="absolute -top-0.5 translate-x-1">
-                <Asterisk className="size-3 text-red-600" />
+                <PiAsteriskBold className="size-3 text-red-600" />
               </span>
             </Label>
             <div className="grid gap-3 xs:grid-cols-2">
@@ -254,7 +255,7 @@ const ContactForm = () => {
               <Label className="relative text-foreground">
                 Name
                 <span className="absolute -top-0.5 translate-x-1">
-                  <Asterisk className="size-3 text-red-600" />
+                  <PiAsteriskBold className="size-3 text-red-600" />
                 </span>
               </Label>
               <Input
@@ -271,7 +272,7 @@ const ContactForm = () => {
               <Label className="relative text-foreground">
                 Phone number
                 <span className="absolute -top-0.5 translate-x-1">
-                  <Asterisk className="size-3 text-red-600" />
+                  <PiAsteriskBold className="size-3 text-red-600" />
                 </span>
               </Label>
               <Input
@@ -288,7 +289,7 @@ const ContactForm = () => {
               <Label className="relative text-foreground">
                 Email
                 <span className="absolute -top-0.5 translate-x-1">
-                  <Asterisk className="size-3 text-red-600" />
+                  <PiAsteriskBold className="size-3 text-red-600" />
                 </span>
               </Label>
               <Input
@@ -305,7 +306,7 @@ const ContactForm = () => {
               <Label className="relative text-foreground">
                 How can i help?
                 <span className="absolute -top-0.5 translate-x-1">
-                  <Asterisk className="size-3 text-red-600" />
+                  <PiAsteriskBold className="size-3 text-red-600" />
                 </span>
               </Label>
               <Textarea
@@ -344,7 +345,7 @@ const ContactForm = () => {
             onClick={handleBack}
             disabled={step === 0}
           >
-            <ChevronLeft className="size-4" /> Back
+            <PiArrowLeftBold className="size-4" />
           </Button>
 
           <Button
@@ -355,13 +356,13 @@ const ContactForm = () => {
           >
             {step === steps.length - 1 ? (
               formik.isSubmitting || addCalendarMutation.isPending ? (
-                <LoaderCircle className="size-4 animate-spin" />
+                <PiArrowClockwiseBold className="size-4 animate-spin" />
               ) : (
-                "Submit"
+                <PiArrowElbowDownLeftBold className="size-4" />
               )
             ) : (
               <>
-                Next <ChevronRight className="size-4" />
+                <PiArrowRightBold className="size-4" />
               </>
             )}
           </Button>

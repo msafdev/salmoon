@@ -1,6 +1,12 @@
 import { learns } from "#site/content";
 import { getPrevAndNext } from "@/velite/learn";
-import { CheckCheck, MoveLeft, MoveRight, Share2 } from "lucide-react";
+
+import {
+  PiArrowLeftBold,
+  PiArrowRightBold,
+  PiChecksDuotone,
+  PiShareNetworkDuotone,
+} from "react-icons/pi";
 
 import { Metadata } from "next";
 import Link from "next/link";
@@ -93,7 +99,7 @@ export default async function LearnPage({ params }: LearnPageProps) {
             aria-label={`Go back to /learn`}
             className="anim flex items-center gap-x-2 text-muted-foreground hover:text-foreground"
           >
-            <MoveLeft className="h-5 w-5" />
+            <PiArrowLeftBold className="h-5 w-5" />
             <p className="text-sm font-medium md:text-base">Go back</p>
           </Link>
           <Button
@@ -109,7 +115,7 @@ export default async function LearnPage({ params }: LearnPageProps) {
               scroll
               aria-label={`Tweet about ${learn?.title}`}
             >
-              <Share2 className="h-5 w-5" />
+              <PiShareNetworkDuotone className="h-5 w-5" />
             </Link>
           </Button>
         </div>
@@ -155,7 +161,8 @@ export default async function LearnPage({ params }: LearnPageProps) {
                 variant={"outline"}
               >
                 <Link href={`/learn/${prev.slugAsParams}`}>
-                  <MoveLeft className="mr-2 inline" size={16} /> {prev.title}
+                  <PiArrowLeftBold className="mr-2 inline" size={16} />{" "}
+                  {prev.title}
                 </Link>
               </Button>
             )}
@@ -165,7 +172,8 @@ export default async function LearnPage({ params }: LearnPageProps) {
                 variant={"outline"}
               >
                 <Link href={`/learn/${next.slugAsParams}`}>
-                  {next.title} <MoveRight className="ml-2 inline" size={16} />
+                  {next.title}{" "}
+                  <PiArrowRightBold className="ml-2 inline" size={16} />
                 </Link>
               </Button>
             )}
@@ -174,7 +182,7 @@ export default async function LearnPage({ params }: LearnPageProps) {
           <div className="flex flex-col items-center">
             <div className="h-24 w-0.5 bg-gradient-to-b from-transparent to-green-500/20 md:h-36" />
             <div className="rounded-full bg-green-500/20 p-4">
-              <CheckCheck size={24} className="text-green-500" />
+              <PiChecksDuotone size={24} className="text-green-500" />
             </div>
             <h3 className="mt-4 text-center text-xs font-medium md:mt-6">
               You have finished everything in this course

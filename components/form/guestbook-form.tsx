@@ -1,7 +1,8 @@
 "use client";
 
 import authMutation from "@/mutation/auth.mutation";
-import { LoaderCircle } from "lucide-react";
+
+import { PiArrowClockwiseBold } from "react-icons/pi";
 
 import Image from "next/image";
 
@@ -51,7 +52,7 @@ const GuestbookForm = ({ user }: { user: User | null }) => {
           >
             {signOutMutation.isPending ? (
               <span className="flex items-center gap-1">
-                <LoaderCircle className="size-3 animate-spin" />
+                <PiArrowClockwiseBold className="size-3 animate-spin" />
                 Signing out...
               </span>
             ) : (
@@ -69,7 +70,7 @@ const GuestbookForm = ({ user }: { user: User | null }) => {
                 className="flex w-full items-center gap-x-2 disabled:cursor-not-allowed disabled:opacity-50"
               >
                 {mutation.isPending ? (
-                  <LoaderCircle className="size-4 animate-spin" />
+                  <PiArrowClockwiseBold className="size-4 animate-spin" />
                 ) : (
                   <Image
                     src={`/icons/${provider}.png`}

@@ -1,9 +1,12 @@
 "use client";
 
 import contentMutation from "@/mutation/content.mutation";
-import { ArrowRight, LoaderCircle } from "lucide-react";
 
 import { useState } from "react";
+import {
+  PiArrowClockwiseBold,
+  PiArrowElbowDownLeftBold,
+} from "react-icons/pi";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -49,9 +52,9 @@ const ContentForm = () => {
           variant="secondary"
         >
           {addContentMutation.isPending ? (
-            <LoaderCircle className="size-4 animate-spin" />
+            <PiArrowClockwiseBold className="size-4 animate-spin" />
           ) : (
-            <ArrowRight className="size-4" />
+            <PiArrowElbowDownLeftBold className="size-4" />
           )}
         </Button>
       </div>

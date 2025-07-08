@@ -1,4 +1,4 @@
-import { ArrowRight, Github } from "lucide-react";
+import { PiArrowRightBold, PiGithubLogoDuotone } from "react-icons/pi";
 
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
 import Image from "next/image";
@@ -40,7 +40,7 @@ const ProjectCard = ({
           aria-label={title}
           className="grid size-7 place-items-center rounded-xl bg-primary/30 text-primary-foreground backdrop-blur dark:bg-accent/30 dark:text-accent-foreground"
         >
-          <ArrowRight className="-rotate-45" size={16} />
+          <PiArrowRightBold className="-rotate-45" size={16} />
         </Link>
         <Link
           href={git}
@@ -49,7 +49,7 @@ const ProjectCard = ({
           aria-label={title}
           className="grid size-7 place-items-center rounded-xl bg-primary/30 text-primary-foreground backdrop-blur dark:bg-accent/30 dark:text-accent-foreground"
         >
-          <Github size={16} />
+          <PiGithubLogoDuotone size={16} />
         </Link>
       </div>
     </div>

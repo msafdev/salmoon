@@ -1,9 +1,14 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { Globe, Link, Mail, User } from "lucide-react";
 
 import React, { useCallback, useEffect, useRef, useState } from "react";
+import {
+  PiGlobeDuotone,
+  PiInstagramLogoDuotone,
+  PiMailboxDuotone,
+  PiUserDuotone,
+} from "react-icons/pi";
 
 import { Button } from "@/components/ui/button";
 
@@ -127,10 +132,10 @@ const EmailDetail = () => {
 
       <div className="flex items-center">
         {[
-          { value: "name", Icon: User },
-          { value: "email", Icon: Mail },
-          { value: "instagram", Icon: Link },
-          { value: "site", Icon: Globe },
+          { value: "name", Icon: PiUserDuotone },
+          { value: "email", Icon: PiMailboxDuotone },
+          { value: "instagram", Icon: PiInstagramLogoDuotone },
+          { value: "site", Icon: PiGlobeDuotone },
         ].map(({ value, Icon }) => (
           <Button
             key={value}
