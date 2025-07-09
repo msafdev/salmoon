@@ -16,11 +16,11 @@ const SectionWrapper = ({
   id,
   children,
   className = "flex h-auto w-full grow flex-col",
-  staggerDelay = 0.1,
-  duration = 1,
+  staggerDelay = 0.2,
+  duration = 0.6,
 }: StaggerWrapperProps) => {
   const childrenArray = Children.toArray(children);
-  const isMultipleChildren = childrenArray.length > 1;
+  const isMultipleChildren = childrenArray.length > 0;
 
   const containerVariants = {
     initial: {},
@@ -108,7 +108,11 @@ const SectionWrapper = ({
       id={id}
     >
       {childrenArray.map((child, index) => (
-        <motion.div key={index} variants={childVariants}>
+        <motion.div
+          key={index}
+          variants={childVariants}
+          className="flex w-full max-w-lg flex-col items-center"
+        >
           {child}
         </motion.div>
       ))}

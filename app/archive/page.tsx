@@ -9,6 +9,8 @@ import ProjectCard from "@/components/shared/cards/project-card";
 import WorkCard from "@/components/shared/cards/work-card";
 import Paragraph from "@/components/shared/paragraph";
 
+import SectionWrapper from "@/components/motion/section-wrapper";
+
 import { projectItems, templateItems, workItems } from "@/lib/constants";
 
 export const metadata: Metadata = {
@@ -19,7 +21,7 @@ export default async function Page() {
   const sortedPosts = sortPosts(posts.filter((post) => post.published));
 
   return (
-    <section
+    <SectionWrapper
       id="archive"
       className="flex h-auto grow flex-col items-center gap-y-16 px-4 md:gap-y-20 lg:gap-y-24"
     >
@@ -30,7 +32,8 @@ export default async function Page() {
           have grown as a person.
         </p>
       </Paragraph>
-      <div className="flex w-full max-w-lg flex-col items-center gap-y-4">
+
+      <div className="space-y-4 w-full">
         <Paragraph title="Featured posts" link href="/post" />
         <div className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2">
           {sortedPosts.length > 0 ? (
@@ -47,7 +50,8 @@ export default async function Page() {
           )}
         </div>
       </div>
-      <div className="flex w-full max-w-lg flex-col items-center gap-y-4">
+
+      <div className="space-y-4 w-full">
         <Paragraph title="Career path">
           <p>
             Beside working as a freelance developer, I have pursued various
@@ -64,7 +68,8 @@ export default async function Page() {
           ))}
         </div>
       </div>
-      <div className="flex w-full max-w-lg flex-col items-center gap-y-4">
+
+      <div className="space-y-4 w-full">
         <Paragraph title="Side projects" />
         <div className="flex w-full flex-col">
           {projectItems.reverse().map((item, index) => (
@@ -72,7 +77,8 @@ export default async function Page() {
           ))}
         </div>
       </div>
-      <div className="flex w-full max-w-lg flex-col items-center gap-y-4">
+
+      <div className="space-y-4 w-full">
         <Paragraph title="Free templates" />
         <div className="flex w-full flex-col gap-y-4">
           {templateItems.map((item, index) => (
@@ -80,6 +86,6 @@ export default async function Page() {
           ))}
         </div>
       </div>
-    </section>
+    </SectionWrapper>
   );
 }

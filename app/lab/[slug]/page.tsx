@@ -1,4 +1,4 @@
-import { PiArrowRightBold, PiShareNetworkDuotone } from "react-icons/pi";
+import { PiArrowLeftBold, PiShareNetworkDuotone } from "react-icons/pi";
 
 import Link from "next/link";
 
@@ -40,7 +40,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
   return (
     <section
       id={`lab-${item?.slug}`}
-      className="flex h-auto w-full grow flex-col items-center gap-y-16 md:gap-y-20 lg:gap-y-24"
+      className="flex h-auto w-full grow flex-col items-center gap-y-16 px-4 md:gap-y-20 lg:gap-y-24"
     >
       <div className="flex w-full max-w-lg flex-col gap-y-10 md:gap-y-12 lg:gap-y-16">
         <div className="flex w-full max-w-lg items-center justify-between">
@@ -50,7 +50,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             aria-label={`Go back to /lab`}
             className="anim flex items-center gap-x-2 text-muted-foreground hover:text-foreground"
           >
-            <PiArrowRightBold className="h-5 w-5" />
+            <PiArrowLeftBold className="h-5 w-5" />
             <p className="text-sm font-medium md:text-base">Go back</p>
           </Link>
           <Button
@@ -71,7 +71,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           </Button>
         </div>
 
-        <div className="flex w-full max-w-lg flex-col gap-y-4">
+        <div className="w-full space-y-4">
           <Paragraph title={`${item?.name}`} />
           <LabCard gridClass="default-card" className="min-h-72">
             <item.child />
@@ -79,7 +79,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
         </div>
 
         {uiLibrary && (
-          <div className="flex w-full max-w-lg flex-col gap-y-4">
+          <div className="w-full space-y-4">
             <Paragraph title="Library setup" />
             <div className="h-fit w-full max-w-lg rounded-[12px] border border-dashed p-1 sm:rounded-[16px] sm:border-2 sm:p-2">
               <Code code={uiLibrary} lang="bash" />
@@ -88,7 +88,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
         )}
 
         {cssClass && (
-          <div className="flex w-full max-w-lg flex-col gap-y-4">
+          <div className="w-full space-y-4">
             <Paragraph title="CSS setup" />
             <div className="h-fit w-full max-w-lg rounded-[12px] border border-dashed p-1 sm:rounded-[16px] sm:border-2 sm:p-2">
               <Code code={cssClass} lang="css" />
@@ -97,7 +97,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
         )}
 
         {twConfig && (
-          <div className="flex w-full max-w-lg flex-col gap-y-4">
+          <div className="w-full space-y-4">
             <Paragraph title="Tailwind setup" />
             <div className="h-fit w-full max-w-lg rounded-[12px] border border-dashed p-1 sm:rounded-[16px] sm:border-2 sm:p-2">
               <Code code={twConfig} lang="json" />
@@ -105,7 +105,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           </div>
         )}
 
-        <div className="flex w-full max-w-lg flex-col gap-y-4">
+        <div className="w-full space-y-4">
           <Paragraph title="Code" />
           <div className="h-fit w-full max-w-lg rounded-[12px] border border-dashed p-1 sm:rounded-[16px] sm:border-2 sm:p-2">
             <Code code={code} lang="tsx" />

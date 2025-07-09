@@ -6,6 +6,8 @@ import Link from "next/link";
 import LabCard from "@/components/shared/cards/lab-card";
 import Paragraph from "@/components/shared/paragraph";
 
+import SectionWrapper from "@/components/motion/section-wrapper";
+
 import { COMPONENTS } from "@/lib/data";
 
 export const metadata: Metadata = {
@@ -16,9 +18,9 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <section
+    <SectionWrapper
       id="lab"
-      className="flex h-auto grow flex-col items-center gap-y-16 md:gap-y-20 lg:gap-y-24"
+      className="flex flex-col items-center gap-y-16 px-4 md:gap-y-20 lg:gap-y-24"
     >
       <Paragraph title="My humble abode">
         <p>
@@ -27,7 +29,7 @@ export default function Page() {
         </p>
       </Paragraph>
 
-      <div className="flex w-full max-w-lg flex-col gap-y-4">
+      <div className="w-full space-y-4">
         <Paragraph title="Have fun">
           <p>
             These components require{" "}
@@ -77,6 +79,6 @@ export default function Page() {
           ))}
         </div>
       </div>
-    </section>
+    </SectionWrapper>
   );
 }

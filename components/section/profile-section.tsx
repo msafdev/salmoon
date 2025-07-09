@@ -3,25 +3,22 @@ import { Profile } from "@/components/shared/profile";
 
 const ProfileSection = () => {
   return (
-    <div className="flex w-full flex-col items-center gap-y-4">
-      <div className="flex w-full max-w-lg flex-col gap-y-4">
-        <Profile />
+    <div className="w-full space-y-4">
+      <Profile />
+      <div className="space-y-1 md:space-y-0">
+        <div className="flex items-center gap-x-2">
+          <h1 className="text-base font-semibold leading-none md:text-lg">
+            Salman Alfarisi
+          </h1>
 
-        <div className="flex flex-col gap-y-1 md:gap-y-0">
-          <div className="flex items-center gap-x-2">
-            <h1 className="text-base font-semibold leading-none md:text-lg">
-              Salman Alfarisi
-            </h1>
-
-            <CheckmarkIcon />
-          </div>
-          <p className="text-xs font-medium leading-none text-muted-foreground md:text-sm">
-            Fullstack Engineer
-          </p>
+          <CheckmarkIcon />
         </div>
+        <p className="text-xs font-medium leading-none text-muted-foreground md:text-sm">
+          Fullstack Engineer
+        </p>
       </div>
 
-      <p className="w-full max-w-lg text-sm text-muted-foreground md:text-base">
+      <p className="w-full max-w-lg pb-4 text-sm text-muted-foreground md:text-base">
         I am a fullstack engineer based in{" "}
         <span className="font-medium text-foreground">Indonesia</span>,
         specifically in Semarang. In my free time, I enjoy listening to music

@@ -3,6 +3,7 @@ import { getAllTags, sortTagsByCount } from "@/velite/post";
 
 import { Metadata } from "next";
 
+import SectionWrapper from "@/components/motion/section-wrapper";
 import BlogSection from "@/components/section/post-section";
 
 export const metadata: Metadata = {
@@ -14,13 +15,13 @@ export default async function Page() {
   const sortedTags = sortTagsByCount(tags);
 
   return (
-    <section
+    <SectionWrapper
       id="post"
-      className="flex h-auto w-full grow flex-col items-center gap-y-16 md:gap-y-20 lg:gap-y-24"
+      className="flex flex-col items-center gap-y-16 px-4 md:gap-y-20 lg:gap-y-24"
     >
-      <div className="flex w-full max-w-lg flex-col items-center gap-y-4">
+      <div className="w-full space-y-4">
         <BlogSection items={posts?.reverse()} tags={sortedTags} />
       </div>
-    </section>
+    </SectionWrapper>
   );
 }

@@ -45,7 +45,7 @@ const GuestbookSection = () => {
   }
 
   return (
-    <div className="flex h-fit w-full max-w-lg flex-col gap-y-4">
+    <div className="space-y-4 w-full">
       {guestbookData.map((entry, index) => (
         <GuestbookCard key={entry.id} entry={entry} index={index} />
       ))}

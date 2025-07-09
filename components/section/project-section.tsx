@@ -5,7 +5,7 @@ import { templateItems } from "@/lib/constants";
 
 const ProjectSection = () => {
   return (
-    <div className="flex w-full max-w-lg flex-col items-center gap-y-4">
+    <div className="space-y-4 w-full">
       <Paragraph title="Free templates" link href="/archive">
         <p>
           A collection of <span className="text-foreground">open-sources</span>{" "}

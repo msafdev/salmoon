@@ -6,7 +6,7 @@ import { processItems } from "@/lib/constants";
 
 const ProcessSection = () => {
   return (
-    <div className="flex w-full max-w-lg flex-col gap-y-4">
+    <div className="space-y-4 w-full">
       <Paragraph title="My process">
         <p>
           A step-by-step approach to building high-quality web applications.

@@ -3,6 +3,7 @@ import { Metadata } from "next";
 import QuoteCard from "@/components/shared/cards/quote-card";
 import Paragraph from "@/components/shared/paragraph";
 
+import SectionWrapper from "@/components/motion/section-wrapper";
 import MovieSection from "@/components/section/movie-section";
 import TrackSection from "@/components/section/track-section";
 
@@ -12,7 +13,7 @@ export const metadata: Metadata = {
 
 export default async function Page() {
   return (
-    <section
+    <SectionWrapper
       id="secret"
       className="flex h-auto grow flex-col items-center gap-y-16 px-4 md:gap-y-20 lg:gap-y-24"
     >
@@ -24,7 +25,7 @@ export default async function Page() {
         </p>
       </Paragraph>
       <QuoteCard />
-      <div className="flex w-full max-w-lg flex-col gap-y-4">
+      <div className="w-full space-y-4">
         <Paragraph title="Top Tracks">
           <p>
             I listen to a lot of music, and I like to keep track of the songs
@@ -33,7 +34,7 @@ export default async function Page() {
         </Paragraph>
         <TrackSection />
       </div>
-      <div className="flex w-full max-w-lg flex-col gap-y-4">
+      <div className="w-full space-y-4">
         <Paragraph title="Top Movies">
           <p>
             Movies have a way of transporting us to different worlds, making us
@@ -43,6 +44,6 @@ export default async function Page() {
         </Paragraph>
         <MovieSection />
       </div>
-    </section>
+    </SectionWrapper>
   );
 }

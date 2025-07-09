@@ -4,7 +4,7 @@ import { Cursor } from "@/components/ui/cursor";
 
 export function Profile() {
   return (
-    <div className="w-fit overflow-hidden">
+    <div className="relative w-fit">
       <Cursor
         attachToParent
         variants={{
@@ -16,11 +16,11 @@ export function Profile() {
           ease: "easeInOut",
           duration: 0.15,
         }}
-        className="-top-16 left-0 p-0 md:-top-20"
+        className="left-0 p-0"
       >
         <div className="relative flex items-center rounded-full bg-primary/30 px-2.5 py-1.5 text-white backdrop-blur-sm">
-          <div className="mr-2 size-2 rounded-full bg-green-500" />
-          <span className="font-mono text-xs font-semibold uppercase leading-none">
+          <div className="mr-2 size-2 shrink-0 rounded-full bg-green-500" />
+          <span className="text-nowrap font-mono text-xs font-semibold uppercase leading-none">
             Available for work
           </span>
         </div>

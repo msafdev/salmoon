@@ -26,7 +26,7 @@ const BlogSection = ({
       : items?.filter((item) => item?.tags?.includes(selectedTag));
 
   return (
-    <motion.div className="flex w-full flex-col gap-y-5">
+    <>
       <div className="flex flex-col gap-x-3 gap-y-2">
         <p className="text-sm font-semibold text-foreground md:text-base">
           Filter by
@@ -67,7 +67,7 @@ const BlogSection = ({
             ))}
         </AnimatePresence>
       </div>
-    </motion.div>
+    </>
   );
 };
 

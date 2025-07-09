@@ -6,7 +6,7 @@ import { clientItems } from "@/lib/constants";
 
 const ClientSection = () => {
   return (
-    <div className="flex w-full max-w-lg flex-col items-start gap-y-4">
+    <div className="space-y-4 w-full">
       <Paragraph title="Trusted by all">
         <p>
           I have been in these fields for{" "}

@@ -5,6 +5,7 @@ import { Metadata } from "next";
 import Paragraph from "@/components/shared/paragraph";
 
 import GuestbookForm from "@/components/form/guestbook-form";
+import SectionWrapper from "@/components/motion/section-wrapper";
 import GuestbookSection from "@/components/section/guestbook-section";
 
 export const metadata: Metadata = {
@@ -17,11 +18,11 @@ const Page = async () => {
   const { data: userData } = await supabase.auth.getUser();
 
   return (
-    <section
+    <SectionWrapper
       id="guestbook"
-      className="flex h-auto grow flex-col items-center gap-y-16 px-4 md:gap-y-20 lg:gap-y-24"
+      className="flex flex-col items-center gap-y-16 px-4 md:gap-y-20 lg:gap-y-24"
     >
-      <div className="flex flex-col gap-y-4">
+      <div className="w-full space-y-4">
         <Paragraph title="Guestbook">
           <p>
             Leave me a trace of your visit, could be a message, a quote, or a
@@ -31,7 +32,7 @@ const Page = async () => {
         <GuestbookForm user={userData.user} />
       </div>
       <GuestbookSection />
-    </section>
+    </SectionWrapper>
   );
 };
 

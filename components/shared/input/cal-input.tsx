@@ -218,9 +218,9 @@ export default function CalInput({
             size="sm"
             onClick={() => handleTimeSelect(time)}
             className={cn(
-              "anim text-xs hover:bg-primary/10",
+              "anim text-xs hover:bg-primary/10 dark:hover:bg-primary/20",
               selectedTime === time &&
-                "bg-primary/10 text-foreground hover:bg-primary/10",
+                "bg-primary/10 text-foreground hover:bg-primary/10 dark:bg-primary/20 dark:hover:bg-primary/20",
             )}
           >
             {time}

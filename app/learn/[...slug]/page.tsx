@@ -88,7 +88,7 @@ export default async function LearnPage({ params }: LearnPageProps) {
   const { prev, next } = getPrevAndNext(learns, learn);
 
   return (
-    <article id={learn.slug} className="relative flex h-auto w-full grow">
+    <article id={learn.slug} className="relative flex h-auto w-full grow px-4">
       <TableOfContents toc={tableOfContents} />
 
       <div className="flex w-full flex-col items-center gap-y-16 md:gap-y-20 lg:gap-y-24">

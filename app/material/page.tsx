@@ -6,6 +6,8 @@ import Link from "next/link";
 
 import Paragraph from "@/components/shared/paragraph";
 
+import SectionWrapper from "@/components/motion/section-wrapper";
+
 import { inspoItems, resourceItems, toolItems } from "@/lib/constants";
 
 export const metadata: Metadata = {
@@ -14,7 +16,7 @@ export const metadata: Metadata = {
 
 const Page = () => {
   return (
-    <section
+    <SectionWrapper
       id="material"
       className="flex h-auto grow flex-col items-center gap-y-16 px-4 md:gap-y-20 lg:gap-y-24"
     >
@@ -25,7 +27,8 @@ const Page = () => {
           use and recommend.
         </p>
       </Paragraph>
-      <div className="flex w-full max-w-lg flex-col gap-y-4">
+
+      <div className="w-full space-y-4">
         <h2 className="text-base font-semibold">Workstation</h2>
         <ul className="flex flex-col gap-y-3">
           {toolItems.map((item, index) => (
@@ -42,9 +45,10 @@ const Page = () => {
           ))}
         </ul>
       </div>
-      <div className="flex w-full max-w-lg flex-col gap-y-4">
+
+      <div className="w-full space-y-4">
         <h2 className="text-base font-semibold">Inspiration</h2>
-        <ul className="flex flex-col gap-y-2">
+        <ul className="space-y-2">
           {inspoItems.map((item, index) => (
             <li key={index} className="flex items-start text-sm sm:text-sm">
               <div className="flex items-center">
@@ -73,9 +77,10 @@ const Page = () => {
           ))}
         </ul>
       </div>
-      <div className="flex w-full max-w-lg flex-col gap-y-3">
+
+      <div className="w-full space-y-4">
         <h2 className="text-base font-semibold">Resources</h2>
-        <div className="flex flex-col">
+        <div className="space-y-2">
           {resourceItems.map((item, index) => (
             <Link
               key={index}
@@ -93,7 +98,7 @@ const Page = () => {
           ))}
         </div>
       </div>
-    </section>
+    </SectionWrapper>
   );
 };
 

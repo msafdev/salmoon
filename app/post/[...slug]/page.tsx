@@ -1,6 +1,6 @@
 import { posts } from "#site/content";
 
-import { PiArrowLeft,  PiShareNetworkDuotone } from "react-icons/pi";
+import { PiArrowLeft, PiShareNetworkDuotone } from "react-icons/pi";
 
 import { Metadata } from "next";
 import Image from "next/image";
@@ -82,7 +82,7 @@ export default async function PostPage({ params }: PostPageProps) {
   return (
     <article
       id={`${post.slug}`}
-      className="flex h-auto w-full grow flex-col items-center gap-y-16 md:gap-y-20 lg:gap-y-24"
+      className="flex h-auto w-full grow flex-col items-center gap-y-16 px-4 md:gap-y-20 lg:gap-y-24"
     >
       <div className="flex w-full max-w-lg items-center justify-between">
         <Link
