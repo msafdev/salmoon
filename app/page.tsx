@@ -1,3 +1,4 @@
+import SectionWrapper from "@/components/motion/section-wrapper";
 import ClientSection from "@/components/section/client-section";
 import ActionSection from "@/components/section/cta-section";
 import ProcessSection from "@/components/section/process-section";
@@ -6,7 +7,7 @@ import ProjectSection from "@/components/section/project-section";
 
 export default function Page() {
   return (
-    <section
+    <SectionWrapper
       id="home"
       className="flex flex-col items-center gap-y-16 px-4 md:gap-y-20 lg:gap-y-24"
     >
@@ -15,6 +16,6 @@ export default function Page() {
       <ProcessSection />
       <ProjectSection />
       <ActionSection />
-    </section>
+    </SectionWrapper>
   );
 }
