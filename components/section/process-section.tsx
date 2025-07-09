@@ -1,5 +1,7 @@
 import Paragraph from "@/components/shared/paragraph";
 
+import ProcessItem from "@/components/motion/process-item";
+
 import { processItems } from "@/lib/constants";
 
 const ProcessSection = () => {
@@ -13,32 +15,7 @@ const ProcessSection = () => {
         </p>
       </Paragraph>
 
-      <div className="flex w-full flex-col gap-y-4">
-        {processItems.map((item, index) => (
-          <div key={index}>
-            <div className="grid grid-cols-5 gap-4">
-              <div className="hidden sm:flex">
-                <span className="text-sm font-medium text-muted-foreground">
-                  0{index + 1}.
-                </span>
-              </div>
-              <div className="col-span-full flex flex-col gap-y-2 sm:col-span-4">
-                <div className="flex">
-                  <div className="mr-2 inline min-w-6 shrink-0 text-sm font-medium text-muted-foreground sm:hidden">
-                    0{index + 1}.
-                  </div>
-                  <h3 className="text-sm font-semibold text-foreground">
-                    {item.name}
-                  </h3>
-                </div>
-                <p className="text-sm text-muted-foreground md:text-base">
-                  {item.description}
-                </p>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
+      <ProcessItem />
     </div>
   );
 };
