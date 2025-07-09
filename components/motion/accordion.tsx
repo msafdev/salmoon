@@ -87,7 +87,11 @@ function Accordion({
 }: AccordionProps) {
   return (
     <MotionConfig transition={transition}>
-      <div className={cn("relative", className)} aria-orientation="vertical">
+      <div
+        className={cn("relative", className)}
+        aria-orientation="vertical"
+        role="tablist"
+      >
         <AccordionProvider
           variants={variants}
           expandedValue={expandedValue}

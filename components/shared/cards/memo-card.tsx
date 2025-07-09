@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { useMediaQuery } from "usehooks-ts";
 
 import { Caveat } from "next/font/google";
+import Image from "next/image";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
@@ -75,10 +76,20 @@ const MemoCard = () => {
     >
       {/* Shadow Layer */}
       <motion.div
-        className="absolute inset-0 -z-10 rounded-xl opacity-10 dark:opacity-20"
-        style={{ backgroundImage: `url(/assets/grain.webp)` }}
+        className="absolute inset-0 -z-10 overflow-hidden rounded-xl"
         variants={maskVariant}
-      />
+      >
+        <Image
+          src="/assets/grain.webp"
+          alt="grain texture"
+          fill
+          className="object-cover opacity-10 dark:opacity-10 dark:invert"
+          priority={false}
+          quality={60}
+          loading="lazy"
+          unoptimized
+        />
+      </motion.div>
 
       {/* Memo Card */}
       <div className="space-y-6 rounded-xl border bg-card p-6 text-card-foreground shadow-none md:space-y-8 md:p-8">
@@ -111,6 +122,7 @@ const MemoCard = () => {
               <AvatarImage
                 src="/assets/ava.webp"
                 alt="Salman's avatar image."
+                loading="lazy"
               />
               <AvatarFallback className="size-8">MS</AvatarFallback>
             </Avatar>
