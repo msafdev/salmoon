@@ -39,6 +39,7 @@ const QuoteCard = () => {
           className="size-8 hover:bg-transparent"
           variant="ghost"
           size="icon"
+          aria-label="Refresh quote"
         >
           <PiClockCounterClockwiseBold size={16} />
         </Button>

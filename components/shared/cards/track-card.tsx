@@ -18,7 +18,7 @@ const TrackCard = ({ track }: { track: Track }) => {
           src={track.album.images[0].url}
           alt={track.album.name}
           fill
-          sizes="(max-width: 768px) 66vw, 33vw"
+          sizes="(max-width: 768px) 44vw, 33vw"
           className="object-cover"
         />
       </div>
