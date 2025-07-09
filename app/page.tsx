@@ -1,8 +1,8 @@
+import ClientSection from "@/components/section/client-section";
 import ActionSection from "@/components/section/cta-section";
 import ProcessSection from "@/components/section/process-section";
 import ProfileSection from "@/components/section/profile-section";
 import ProjectSection from "@/components/section/project-section";
-import ClientSection from "@/components/section/client-section";
 
 export default function Page() {
   return (
