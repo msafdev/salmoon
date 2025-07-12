@@ -5,10 +5,10 @@ import { templateItems } from "@/lib/constants";
 
 const ProjectSection = () => {
   return (
-    <div className="space-y-4 w-full">
+    <div className="w-full space-y-4">
       <Paragraph title="Free templates" link href="/archive">
         <p>
-          A collection of <span className="text-foreground">open-sources</span>{" "}
+          A collection of <span className="text-foreground">open-sourced</span>{" "}
           templates built for speed and simplicity. Browse and use them freely
           in your own projects.
         </p>

@@ -26,6 +26,14 @@ const MovieSection = () => {
       title: "The Truman Show",
       url: "https://i.pinimg.com/736x/fd/3a/2f/fd3a2ff80b489fdd23a434433edaae64.jpg",
     },
+    {
+      title: "Oldboy",
+      url: "https://i.pinimg.com/1200x/0d/71/0b/0d710bd9a345560506096b7e0b9d78fc.jpg",
+    },
+    {
+      title: "Fight Club",
+      url: "https://i.pinimg.com/1200x/1f/fb/c5/1ffbc51e71c7ec40a944d760b6c99f5a.jpg",
+    },
   ];
 
   return (

@@ -145,7 +145,7 @@ export const socialItems = [
   },
   {
     name: "instagram",
-    href: "https://instagram.com/msalman_af",
+    href: "https://instagram.com/salmonelaf",
     icon: PiInstagramLogoDuotone,
     target: "_blank",
     rel: "noopener noreferrer",

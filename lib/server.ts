@@ -25,5 +25,23 @@ export async function getFilePathAndConfig(item: ComponentType) {
   const cssClass = item.cssClass;
   const uiLibrary = item.uiLibrary;
 
-  return { code, twConfig, uiLibrary, cssClass };
+  const exampleCodes = await Promise.all(
+    item.example.map(async (ex) => {
+      if (!ex.path)
+        return { name: ex.name, code: "// Example filePath missing" };
+
+      const examplePath = `./components/lab/examples/${item.slug.replace(/\s+/g, "")}/${ex.path}.tsx`;
+
+      const exampleCode = await readFilePath(examplePath).catch(() => {
+        return `// ${ex.name} example not found`;
+      });
+
+      return {
+        name: ex.name,
+        code: exampleCode,
+      };
+    }),
+  );
+
+  return { code, twConfig, uiLibrary, cssClass, exampleCodes };
 }

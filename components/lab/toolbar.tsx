@@ -1,140 +1,308 @@
 "use client";
 
-import { AnimatePresence, MotionConfig, motion } from "framer-motion";
+import { MotionConfig, motion } from "framer-motion";
 
-import React, { useState } from "react";
-import {
-  PiArrowLeftBold,
-  PiMagnifyingGlassDuotone,
-  PiUserDuotone,
-  PiXBold,
-} from "react-icons/pi";
+import React, {
+  createContext,
+  forwardRef,
+  useCallback,
+  useContext,
+  useState,
+} from "react";
 
-import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
-const transition = {
+type ToolbarMode = string;
+type ToolbarPosition = "center" | "top" | "bottom" | "left" | "right";
+
+interface ToolbarTransition {
+  type?: "spring" | "tween";
+  bounce?: number;
+  duration?: number;
+  stiffness?: number;
+  damping?: number;
+}
+
+interface ToolbarContextValue {
+  mode: ToolbarMode;
+  setMode: (mode: ToolbarMode) => void;
+  transition: ToolbarTransition;
+  onModeChange?: (mode: ToolbarMode, previousMode: ToolbarMode) => void;
+}
+
+interface ToolbarProps {
+  defaultMode?: ToolbarMode;
+  mode?: ToolbarMode;
+  onModeChange?: (mode: ToolbarMode, previousMode: ToolbarMode) => void;
+  position?: ToolbarPosition;
+  transition?: ToolbarTransition;
+  className?: string;
+  children: React.ReactNode;
+}
+
+interface ToolbarContentProps {
+  mode: ToolbarMode;
+  className?: string;
+  children: React.ReactNode;
+}
+
+interface ToolbarInputProps {
+  placeholder?: string;
+  value?: string;
+  onChange?: (value: string) => void;
+  onSubmit?: (value: string) => void;
+  className?: string;
+  autoFocus?: boolean;
+  layoutId?: string;
+}
+
+interface ToolbarItemProps {
+  children: React.ReactNode;
+  className?: string;
+  onClick?: () => void;
+  label?: string;
+  disabled?: boolean;
+}
+
+interface ToolbarNavigationProps {
+  targetMode?: ToolbarMode;
+  className?: string;
+  label?: string;
+  onClick?: () => void;
+  children: React.ReactNode;
+}
+
+const ToolbarContext = createContext<ToolbarContextValue | null>(null);
+
+const useToolbar = () => {
+  const context = useContext(ToolbarContext);
+  
+  if (!context) {
+    throw new Error("Toolbar components must be used within Toolbar");
+  }
+  return context;
+};
+
+const defaultTransition: ToolbarTransition = {
   type: "spring",
-  bounce: 0.3,
-  duration: 0.4,
+  stiffness: 300,
+  damping: 30,
+  duration: 0.3,
 };
 
-type modeType = "search" | "default" | "schedule";
+const positionClasses = {
+  center: "absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2",
+  top: "absolute left-1/2 top-4 -translate-x-1/2",
+  bottom: "absolute left-1/2 bottom-4 -translate-x-1/2",
+  left: "absolute left-4 top-1/2 -translate-y-1/2",
+  right: "absolute right-4 top-1/2 -translate-y-1/2",
+};
 
-const Toolbar = () => {
-  const [mode, setMode] = useState<modeType>("default");
+const separatorClasses = {
+  horizontal: "w-4 h-px my-1 mx-auto border-y",
+  vertical: "h-4 w-px mx-1 my-auto border-x",
+};
 
-  return (
-    <MotionConfig transition={transition}>
-      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-        <motion.div
-          initial={false}
-          animate={{ width: mode === "default" ? 84 : 254 }}
-          transition={transition}
-          layout
-          className="h-full w-full overflow-hidden rounded-[16px] border bg-popover text-popover-foreground"
-        >
-          <AnimatePresence mode="wait">
-            {mode === "default" ? (
+const Toolbar = forwardRef<HTMLDivElement, ToolbarProps>(
+  (
+    {
+      defaultMode = "default",
+      mode: controlledMode,
+      onModeChange,
+      position = "center",
+      transition = defaultTransition,
+      className,
+      children,
+      ...props
+    },
+    ref,
+  ) => {
+    const [internalMode, setInternalMode] = useState(defaultMode);
+    const mode = controlledMode ?? internalMode;
+
+    const setMode = useCallback(
+      (newMode: ToolbarMode) => {
+        const previousMode = mode;
+        if (controlledMode === undefined) {
+          setInternalMode(newMode);
+        }
+        onModeChange?.(newMode, previousMode);
+      },
+      [mode, controlledMode, onModeChange],
+    );
+
+    return (
+      <ToolbarContext.Provider
+        value={{ mode, setMode, transition, onModeChange }}
+      >
+        <MotionConfig transition={transition}>
+          <div
+            className={cn(positionClasses[position], className)}
+            ref={ref}
+            {...props}
+          >
+            <motion.div
+              layout
+              className={cn(
+                "inline-flex overflow-hidden rounded-2xl border bg-popover text-popover-foreground shadow",
+              )}
+              transition={{
+                layout: {
+                  type: "spring",
+                  stiffness: 500,
+                  damping: 30,
+                  duration: 0.3,
+                },
+              }}
+            >
               <motion.div
                 key={mode}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
+                initial={{ opacity: 0, x: -10 }}
+                animate={{ opacity: 1, x: 0 }}
                 transition={{
                   duration: 0.2,
-                  delay: mode === "default" ? 0 : 0.2,
+                  ease: "easeOut",
+                  delay: 0.1,
                 }}
-                className="flex items-center p-1"
+                className="flex w-full flex-col items-stretch"
               >
-                <Button
-                  variant={"ghost"}
-                  size={"icon"}
-                  className="rounded-[12px]"
-                  aria-label="Make schedule"
-                  onClick={() => setMode("schedule")}
-                >
-                  <PiUserDuotone className="size-4" />
-                </Button>
-                <Button
-                  variant={"ghost"}
-                  size={"icon"}
-                  className="rounded-[12px]"
-                  onClick={() => setMode("search")}
-                  aria-label="Search notes"
-                >
-                  <PiMagnifyingGlassDuotone className="size-4" />
-                </Button>
+                {children}
               </motion.div>
-            ) : mode === "search" ? (
-              <motion.div
-                key={mode}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{
-                  duration: 0.2,
-                  delay: mode === "search" ? 0 : 0.2,
-                }}
-                className="flex items-center p-1"
-              >
-                <Button
-                  variant={"ghost"}
-                  size={"icon"}
-                  className="rounded-[12px]"
-                  onClick={() => setMode("default")}
-                  aria-label="Back button"
-                >
-                  <PiArrowLeftBold className="size-4" />
-                </Button>
-                <div className="relative min-w-52">
-                  <input
-                    className="h-auto w-full rounded-lg bg-transparent p-1 focus:outline-none"
-                    placeholder="Search notes"
-                  />
-                </div>
-              </motion.div>
-            ) : (
-              <motion.div
-                key={mode}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{
-                  duration: 0.2,
-                  delay: mode === "schedule" ? 0 : 0.2,
-                }}
-                className="flex items-center p-1"
-              >
-                <Button
-                  variant={"ghost"}
-                  size={"icon"}
-                  className="rounded-[12px]"
-                  onClick={() => setMode("default")}
-                  aria-label="Back button"
-                >
-                  <PiArrowLeftBold className="size-4" />
-                </Button>
-                <div className="relative flex min-w-52 items-center">
-                  <span className="mr-auto px-3 text-sm font-medium text-muted-foreground">
-                    John Doe's Birthday
-                  </span>
-                  <Button
-                    variant={"ghost"}
-                    size={"icon"}
-                    onClick={() => setMode("default")}
-                    aria-label="Placeholder button"
-                    className="rounded-[12px] hover:bg-red-500/20"
-                  >
-                    <PiXBold className="size-4 text-red-600" />
-                  </Button>
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </motion.div>
+            </motion.div>
+          </div>
+        </MotionConfig>
+      </ToolbarContext.Provider>
+    );
+  },
+);
+Toolbar.displayName = "Toolbar";
+
+const ToolbarContent = forwardRef<HTMLDivElement, ToolbarContentProps>(
+  ({ mode: contentMode, className, children, ...props }, ref) => {
+    const { mode } = useToolbar();
+
+    if (mode !== contentMode) return null;
+
+    return (
+      <div
+        className={cn("flex w-full items-center p-1", className)}
+        ref={ref}
+        {...props}
+      >
+        {children}
       </div>
-    </MotionConfig>
-  );
-};
+    );
+  },
+);
+ToolbarContent.displayName = "ToolbarContent";
 
-export default Toolbar;
+const ToolbarInput = forwardRef<HTMLInputElement, ToolbarInputProps>(
+  (
+    {
+      placeholder,
+      value,
+      onChange,
+      onSubmit,
+      className,
+      autoFocus = true,
+      ...props
+    },
+    ref,
+  ) => {
+    const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+      if (e.key === "Enter" && onSubmit) {
+        onSubmit(e.currentTarget.value);
+      }
+    };
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+      onChange?.(e.target.value);
+    };
+
+    return (
+      <div className="relative min-w-0 flex-1">
+        <input
+          ref={ref}
+          value={value}
+          onChange={handleChange}
+          onKeyDown={handleKeyDown}
+          placeholder={placeholder}
+          className={cn(
+            "h-9 w-full rounded-xl border-0 bg-transparent px-3 py-1",
+            "outline-none ring-0 ring-border focus-visible:ring-0",
+            "text-sm placeholder:text-muted-foreground",
+            className,
+          )}
+          autoFocus={autoFocus}
+          {...props}
+        />
+      </div>
+    );
+  },
+);
+ToolbarInput.displayName = "ToolbarInput";
+
+const ToolbarItem = forwardRef<HTMLDivElement, ToolbarItemProps>(
+  ({ children, className, label, onClick, ...props }, ref) => {
+    return (
+      <div
+        ref={ref}
+        className={cn("flex items-center", className)}
+        onClick={onClick}
+        {...props}
+      >
+        {children}
+      </div>
+    );
+  },
+);
+ToolbarItem.displayName = "ToolbarItem";
+
+const ToolbarNavigation = forwardRef<HTMLButtonElement, ToolbarNavigationProps>(
+  ({ targetMode, children, onClick, className, ...props }, ref) => {
+    const { setMode } = useToolbar();
+
+    return (
+      <button
+        ref={ref}
+        className={cn(
+          "inline-flex h-9 w-9 items-center justify-center rounded-xl transition-colors hover:bg-accent hover:text-accent-foreground",
+          "outline-none ring-0 ring-border focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-0",
+          "text-sm font-medium text-foreground",
+          className,
+        )}
+        onClick={
+          onClick ? onClick : targetMode ? () => setMode(targetMode) : undefined
+        }
+        aria-label={`Set toolbar mode to ${targetMode}`}
+        {...props}
+      >
+        {children}
+      </button>
+    );
+  },
+);
+ToolbarNavigation.displayName = "ToolbarNavigation";
+
+const ToolbarSeparator = forwardRef<
+  HTMLDivElement,
+  { className?: string; variants?: "vertical" | "horizontal" }
+>(({ className, variants = "vertical", ...props }, ref) => {
+  return (
+    <div
+      ref={ref}
+      className={cn("shrink-0", className, separatorClasses[variants])}
+      {...props}
+    />
+  );
+});
+ToolbarSeparator.displayName = "ToolbarSeparator";
+
+export {
+  Toolbar,
+  ToolbarContent,
+  ToolbarItem,
+  ToolbarInput,
+  ToolbarSeparator,
+  ToolbarNavigation,
+};

@@ -1,5 +1,7 @@
 import "@/styles/lab.css";
 
+import { createElement } from "react";
+
 import { Metadata } from "next";
 import Link from "next/link";
 
@@ -40,9 +42,19 @@ export default function Page() {
               aria-label="shadcn-ui"
               className="font-medium text-foreground"
             >
-              shadcn-ui
+              shadcn-ui@<span className="text-xs font-semibold">2.8.0</span>
             </Link>
             ,{" "}
+            <Link
+              href="https://react-icons.github.io/react-icons"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="react-icons"
+              className="font-medium text-foreground"
+            >
+              react-icons
+            </Link>
+            , and{" "}
             <Link
               href="https://www.framer.com/motion/"
               target="_blank"
@@ -51,16 +63,6 @@ export default function Page() {
               className="font-medium text-foreground"
             >
               framer-motion
-            </Link>
-            , and{" "}
-            <Link
-              href="https://ui.shadcn.com/docs/dark-mode/next"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="next-themes"
-              className="font-medium text-foreground"
-            >
-              next-themes
             </Link>{" "}
             to work properly. Make sure you have them installed on your
             development environment.
@@ -74,7 +76,11 @@ export default function Page() {
               slug={component.slug}
               gridClass={component.gridClass}
             >
-              <component.child />
+              {component.example &&
+                Array.isArray(component.example) &&
+                component.example[0] &&
+                component.example[0].child &&
+                createElement(component.example[0].child)}
             </LabCard>
           ))}
         </div>

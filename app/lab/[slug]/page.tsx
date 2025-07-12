@@ -1,4 +1,11 @@
-import { PiArrowLeftBold, PiShareNetworkDuotone } from "react-icons/pi";
+import {
+  PiArrowLeftBold,
+  PiCodeBlockDuotone,
+  PiGithubLogoDuotone,
+  PiGridFourDuotone,
+  PiShareNetworkDuotone,
+  PiStarDuotone,
+} from "react-icons/pi";
 
 import Link from "next/link";
 
@@ -7,6 +14,9 @@ import Code from "@/components/shared/code";
 import Paragraph from "@/components/shared/paragraph";
 
 import { Button } from "@/components/ui/button";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+
+import CodeWrapper from "@/components/motion/code-wrapper";
 
 import { COMPONENTS } from "@/lib/data";
 import { getFilePathAndConfig } from "@/lib/server";
@@ -34,7 +44,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
     );
   }
 
-  const { code, twConfig, uiLibrary, cssClass } =
+  const { code, twConfig, uiLibrary, cssClass, exampleCodes } =
     await getFilePathAndConfig(item);
 
   return (
@@ -42,16 +52,16 @@ export default async function Page({ params }: { params: { slug: string } }) {
       id={`lab-${item?.slug}`}
       className="flex h-auto w-full grow flex-col items-center gap-y-16 px-4 md:gap-y-20 lg:gap-y-24"
     >
-      <div className="flex w-full max-w-lg flex-col gap-y-10 md:gap-y-12 lg:gap-y-16">
-        <div className="flex w-full max-w-lg items-center justify-between">
+      <div className="w-full max-w-lg space-y-10 md:space-y-12 lg:space-y-16">
+        <div className="flex w-full items-center justify-between">
           <Link
             href={`/lab`}
             scroll={true}
             aria-label={`Go back to /lab`}
             className="anim flex items-center gap-x-2 text-muted-foreground hover:text-foreground"
           >
-            <PiArrowLeftBold className="h-5 w-5" />
-            <p className="text-sm font-medium md:text-base">Go back</p>
+            <PiArrowLeftBold className="size-4" />
+            <p className="text-sm font-medium">Go back</p>
           </Link>
           <Button
             variant="ghost"
@@ -66,16 +76,69 @@ export default async function Page({ params }: { params: { slug: string } }) {
               scroll={true}
               aria-label={`Share /lab/${item?.slug}`}
             >
-              <PiShareNetworkDuotone className="h-5 w-5" />
+              <PiShareNetworkDuotone className="size-4" />
             </Link>
           </Button>
         </div>
 
-        <div className="w-full space-y-4">
-          <Paragraph title={`${item?.name}`} />
-          <LabCard gridClass="default-card" className="min-h-72">
-            <item.child />
-          </LabCard>
+        <div className="w-full space-y-10 md:space-y-12 lg:space-y-16">
+          <Paragraph title={item.name}>
+            <p>{item.description}</p>
+            <div className="flex flex-col gap-y-3">
+              <Link
+                href={`https://github.com/msafdev/salmoon/tree/main/components/lab/${item.slug}.tsx`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="anim inline-flex w-fit items-center gap-2 text-sm font-medium hover:text-foreground"
+                aria-label="Star the repository"
+              >
+                <PiStarDuotone />
+                Star
+              </Link>
+              <Link
+                href={`https://github.com/msafdev/salmoon/tree/main/lib/utils.ts`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="anim inline-flex w-fit items-center gap-2 text-sm font-medium hover:text-foreground"
+                aria-label="Util files"
+              >
+                <PiGithubLogoDuotone />
+                Utils
+              </Link>
+            </div>
+          </Paragraph>
+          {item.example.map((example, index) => (
+            <div className="w-full space-y-2" key={index}>
+              <Tabs defaultValue="preview">
+                <TabsList className="gap-8 bg-transparent p-0">
+                  <TabsTrigger
+                    className="gap-2 px-0 data-[state=active]:shadow-none"
+                    value="preview"
+                  >
+                    <PiGridFourDuotone />
+                    Preview
+                  </TabsTrigger>
+                  <TabsTrigger
+                    className="gap-2 px-0 data-[state=active]:shadow-none"
+                    value="code"
+                  >
+                    <PiCodeBlockDuotone />
+                    Code
+                  </TabsTrigger>
+                </TabsList>
+                <TabsContent value="preview">
+                  <LabCard gridClass={item.gridClass} className="min-h-72">
+                    <example.child />
+                  </LabCard>
+                </TabsContent>
+                <TabsContent value="code">
+                  <div className="h-fit w-full max-w-lg rounded-[12px] border border-dashed p-1 sm:rounded-[16px] sm:border-2 sm:p-2">
+                    <Code code={exampleCodes[index].code} lang="tsx" />
+                  </div>
+                </TabsContent>
+              </Tabs>
+            </div>
+          ))}
         </div>
 
         {uiLibrary && (
@@ -108,7 +171,9 @@ export default async function Page({ params }: { params: { slug: string } }) {
         <div className="w-full space-y-4">
           <Paragraph title="Code" />
           <div className="h-fit w-full max-w-lg rounded-[12px] border border-dashed p-1 sm:rounded-[16px] sm:border-2 sm:p-2">
-            <Code code={code} lang="tsx" />
+            <CodeWrapper>
+              <Code code={code} lang="tsx" />
+            </CodeWrapper>
           </div>
         </div>
       </div>

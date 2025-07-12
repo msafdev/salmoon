@@ -64,7 +64,7 @@ const ChatBubble = () => {
         <button
           onClick={addMessage}
           aria-label="Add message"
-          className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-secondary/80 p-1.5 text-secondary-foreground hover:bg-secondary"
+          className="inline-flex size-8 items-center justify-center rounded-full bg-secondary/80 p-1.5 text-secondary-foreground hover:bg-secondary"
         >
           <PiPlusBold className="h-full w-full" />
         </button>

@@ -91,8 +91,8 @@ export default async function PostPage({ params }: PostPageProps) {
           aria-label={`Go back to /post`}
           className="anim flex items-center gap-x-2 text-muted-foreground hover:text-foreground"
         >
-          <PiArrowLeft className="h-5 w-5" />
-          <p className="text-sm font-medium md:text-base">Go back</p>
+          <PiArrowLeft className="size-4" />
+          <p className="text-sm font-medium">Go back</p>
         </Link>
         <Button
           variant="ghost"
@@ -107,7 +107,7 @@ export default async function PostPage({ params }: PostPageProps) {
             scroll={true}
             aria-label={`Tweet about ${post?.title}`}
           >
-            <PiShareNetworkDuotone className="h-5 w-5" />
+            <PiShareNetworkDuotone className="size-4" />
           </Link>
         </Button>
       </div>

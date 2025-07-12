@@ -47,7 +47,7 @@ export default async function Code({
 
       <div className="pointer-events-none absolute right-0 top-0 z-0 h-full w-6 bg-gradient-to-r from-transparent to-[#f7f7f7] dark:to-[#101010]" />
 
-      <CopyButton string={code} className="absolute right-2 top-2 h-8 w-8" />
+      <CopyButton string={code} className="absolute right-2 top-2 size-8" />
     </div>
   );
 }

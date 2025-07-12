@@ -99,8 +99,8 @@ export default async function LearnPage({ params }: LearnPageProps) {
             aria-label={`Go back to /learn`}
             className="anim flex items-center gap-x-2 text-muted-foreground hover:text-foreground"
           >
-            <PiArrowLeftBold className="h-5 w-5" />
-            <p className="text-sm font-medium md:text-base">Go back</p>
+            <PiArrowLeftBold className="size-4" />
+            <p className="text-sm font-medium">Go back</p>
           </Link>
           <Button
             variant="ghost"
@@ -115,7 +115,7 @@ export default async function LearnPage({ params }: LearnPageProps) {
               scroll
               aria-label={`Tweet about ${learn?.title}`}
             >
-              <PiShareNetworkDuotone className="h-5 w-5" />
+              <PiShareNetworkDuotone className="size-4" />
             </Link>
           </Button>
         </div>
