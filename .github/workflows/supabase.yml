@@ -2,7 +2,7 @@ name: Ping Supabase to Prevent Pausing
 
 on:
   schedule:
-    - cron: '0 9 * * 1,4'
+    - cron: '0 9 * * 1,4' # Runs at 9:00 AM UTC every Monday and Thursday
   workflow_dispatch: # Allows manual triggering from the GitHub UI
 
 jobs:
@@ -18,7 +18,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '19' 
+          node-version: '18' # Use Node.js 18
 
       # Step 3: Install Supabase Client
       - name: Install Supabase Client
@@ -27,18 +27,22 @@ jobs:
       # Step 4: Ping Supabase
       - name: Ping Supabase
         env:
-          SUPABASE_URL: ${{ secrets.SUPABASE_URL }} 
-          SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }} 
+          SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }} # Supabase project URL
+          SUPABASE_KEY: ${{ secrets.NEXT_SERVICE_ROLE_KEY }} # Supabase service role key
         run: |
           node -e "
           (async () => {
             try {
+              // Debugging: Log environment variables (optional)
+              console.log('Supabase URL:', process.env.SUPABASE_URL);
+              console.log('Supabase Key:', process.env.SUPABASE_KEY);
+
               // Import Supabase client
               const { createClient } = require('@supabase/supabase-js');
               const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_KEY);
 
-              // Ping Supabase by querying a table (e.g., 'guestbook')
-              const { data, error } = await supabase.from('guestbook').select('*').limit(5);
+              // Ping Supabase by querying a table (e.g., 'songs')
+              const { data, error } = await supabase.from('your_table').select('*').limit(10);
 
               // Handle errors
               if (error) throw error;
@@ -52,4 +56,3 @@ jobs:
             }
           })();
           "
-
