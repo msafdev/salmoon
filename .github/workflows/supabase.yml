@@ -27,16 +27,12 @@ jobs:
       # Step 4: Ping Supabase
       - name: Ping Supabase
         env:
-          SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }} 
-          SUPABASE_KEY: ${{ secrets.NEXT_SERVICE_ROLE_KEY }} 
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }} 
+          SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }} 
         run: |
           node -e "
           (async () => {
             try {
-              // Debugging: Log environment variables (optional)
-              console.log('Supabase URL:', process.env.SUPABASE_URL);
-              console.log('Supabase Key:', process.env.SUPABASE_KEY);
-
               // Import Supabase client
               const { createClient } = require('@supabase/supabase-js');
               const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_KEY);
