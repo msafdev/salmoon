@@ -19,8 +19,8 @@ import {
 import Button from "@/components/shared/button";
 import CalInput from "@/components/shared/input/cal-input";
 import MultiSlider from "@/components/shared/input/multi-slider";
+import { Input } from "@/components/shared/input/number-input";
 
-import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/components/ui/use-toast";
@@ -148,9 +148,9 @@ const ContactForm = () => {
         {step === 0 && (
           <>
             <div className="space-y-3">
-              <Label className="relative text-foreground">
+              <Label className="relative w-fit text-foreground">
                 What kind of business are you?
-                <span className="absolute -top-0.5 translate-x-1">
+                <span className="absolute -right-4 -top-0.5">
                   <PiAsteriskBold className="size-3 text-red-600" />
                 </span>
               </Label>
@@ -162,7 +162,7 @@ const ContactForm = () => {
                     onClick={() =>
                       formik.setFieldValue("user_type", type.value)
                     }
-                    className={`anim flex w-full flex-col justify-center rounded p-3 outline-none ring-0 ring-border focus-visible:ring-2 focus-visible:ring-offset-2 ${
+                    className={`anim flex w-full flex-col justify-center rounded p-3 outline-none ring-0 ring-ring/40 focus-visible:ring-2 focus-visible:ring-offset-2 ${
                       formik.values.user_type === type.value
                         ? "bg-primary text-primary-foreground"
                         : "bg-accent"
@@ -206,9 +206,9 @@ const ContactForm = () => {
 
         {step === 1 && (
           <div className="space-y-3">
-            <Label className="relative text-foreground">
+            <Label className="relative w-fit text-foreground">
               What do you need?
-              <span className="absolute -top-0.5 translate-x-1">
+              <span className="absolute -right-4 -top-0.5">
                 <PiAsteriskBold className="size-3 text-red-600" />
               </span>
             </Label>
@@ -232,7 +232,7 @@ const ContactForm = () => {
                     key={type.label}
                     type="button"
                     onClick={toggleSelection}
-                    className={`anim flex w-full items-center gap-x-3 rounded px-3 py-4 outline-none ring-0 ring-border focus-visible:ring-2 focus-visible:ring-offset-2 ${
+                    className={`anim flex w-full items-center gap-x-3 rounded px-3 py-4 outline-none ring-0 ring-ring/40 focus-visible:ring-2 focus-visible:ring-offset-2 ${
                       isSelected
                         ? "bg-primary text-primary-foreground"
                         : "bg-accent"
@@ -252,9 +252,9 @@ const ContactForm = () => {
         {step === 2 && (
           <div className="grid grid-cols-2 gap-4">
             <div className="space-y-3">
-              <Label className="relative text-foreground">
+              <Label className="relative w-fit text-foreground">
                 Name
-                <span className="absolute -top-0.5 translate-x-1">
+                <span className="absolute -right-4 -top-0.5">
                   <PiAsteriskBold className="size-3 text-red-600" />
                 </span>
               </Label>
@@ -269,9 +269,9 @@ const ContactForm = () => {
               />
             </div>
             <div className="space-y-3">
-              <Label className="relative text-foreground">
+              <Label className="relative w-fit text-foreground">
                 Phone number
-                <span className="absolute -top-0.5 translate-x-1">
+                <span className="absolute -right-4 -top-0.5">
                   <PiAsteriskBold className="size-3 text-red-600" />
                 </span>
               </Label>
@@ -286,9 +286,9 @@ const ContactForm = () => {
               />
             </div>
             <div className="col-span-full space-y-3">
-              <Label className="relative text-foreground">
+              <Label className="relative w-fit text-foreground">
                 Email
-                <span className="absolute -top-0.5 translate-x-1">
+                <span className="absolute -right-4 -top-0.5">
                   <PiAsteriskBold className="size-3 text-red-600" />
                 </span>
               </Label>
@@ -303,9 +303,9 @@ const ContactForm = () => {
               />
             </div>
             <div className="col-span-full space-y-3">
-              <Label className="relative text-foreground">
+              <Label className="relative w-fit text-foreground">
                 How can i help?
-                <span className="absolute -top-0.5 translate-x-1">
+                <span className="absolute -right-4 -top-0.5">
                   <PiAsteriskBold className="size-3 text-red-600" />
                 </span>
               </Label>

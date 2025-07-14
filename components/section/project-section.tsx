@@ -1,9 +1,14 @@
+import { projects } from "@/.velite";
+import { getProjects } from "@/velite/project";
+
 import ProjectCard from "@/components/shared/cards/project-card";
 import Paragraph from "@/components/shared/paragraph";
 
-import { templateItems } from "@/lib/constants";
-
 const ProjectSection = () => {
+  const allProjects = getProjects(
+    projects.filter((project) => project.published),
+  );
+
   return (
     <div className="w-full space-y-4">
       <Paragraph title="Free templates" link href="/archive">
@@ -15,7 +20,7 @@ const ProjectSection = () => {
       </Paragraph>
 
       <div className="flex w-full flex-col gap-y-4">
-        {templateItems.slice(0, 2).map((item, index) => (
+        {allProjects.slice(0, 2).map((item, index) => (
           <ProjectCard key={index} {...item} />
         ))}
       </div>

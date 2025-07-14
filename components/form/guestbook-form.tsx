@@ -63,7 +63,7 @@ const GuestbookForm = ({ user }: { user: User | null }) => {
       ) : (
         <div className="flex flex-wrap items-center gap-3">
           {authProviders.map(({ provider, label, mutation }) => (
-            <div key={provider} className="flex flex-1 antialiased">
+            <div key={provider} className="flex flex-1">
               <Button
                 onClick={() => handleSignIn(provider)}
                 disabled={mutation.isPending}

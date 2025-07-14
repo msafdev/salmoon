@@ -47,7 +47,7 @@ export default function ProcessItem() {
   const containerRef = useRef(null);
   const isInView = useInView(containerRef, {
     once: true,
-    margin: "20% 0px",
+    margin: "-10% 0px",
   });
 
   return (

@@ -1,4 +1,5 @@
 import "@/styles/mdx.css";
+import { cn } from "@/lib/utils";
 
 import * as React from "react";
 import { PiArrowRightBold } from "react-icons/pi";
@@ -19,7 +20,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 
-import { cn, extractCode } from "@/lib/utils";
+import { extractCode } from "@/lib/functions";
 
 type ComponentsProps = React.HTMLAttributes<HTMLElement>;
 

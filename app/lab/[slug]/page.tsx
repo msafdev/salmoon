@@ -7,6 +7,7 @@ import {
   PiStarDuotone,
 } from "react-icons/pi";
 
+import { Metadata } from "next";
 import Link from "next/link";
 
 import LabCard from "@/components/shared/cards/lab-card";
@@ -21,15 +22,56 @@ import CodeWrapper from "@/components/motion/code-wrapper";
 import { COMPONENTS } from "@/lib/data";
 import { getFilePathAndConfig } from "@/lib/server";
 
-export async function generateStaticParams() {
-  const componentSlugs = COMPONENTS.map((component) => ({
-    slug: component.slug,
-  }));
-
-  return componentSlugs;
+interface LabPageProps {
+  params: {
+    slug: string;
+  };
 }
 
-export const dynamicParams = false;
+function getComponentBySlug(slug: string) {
+  return COMPONENTS.find((component) => component.slug === slug);
+}
+
+export async function generateMetadata({
+  params,
+}: LabPageProps): Promise<Metadata> {
+  const item = getComponentBySlug(params.slug);
+
+  if (!item) {
+    return {
+      title: "Component Not Found",
+      description: "This UI component does not exist.",
+    };
+  }
+
+  const ogSearchParams = new URLSearchParams();
+  ogSearchParams.set("title", item.name);
+
+  return {
+    title: item.name,
+    description: item.description,
+    openGraph: {
+      title: item.name,
+      description: item.description,
+      type: "article",
+      url: `/lab/${item.slug}`,
+      images: [
+        {
+          url: `/api/og/lab?${ogSearchParams.toString()}`,
+          width: 1200,
+          height: 630,
+          alt: item.name,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: item.name,
+      description: item.description,
+      images: [`/api/og/lab?${ogSearchParams.toString()}`],
+    },
+  };
+}
 
 export default async function Page({ params }: { params: { slug: string } }) {
   const item = COMPONENTS.find((component) => component.slug === params.slug);
@@ -37,7 +79,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
   if (!item) {
     return (
       <section className="pad-x flex h-auto w-full grow flex-col items-center justify-center">
-        <h2 className="text-center text-xl font-semibold text-accent-foreground">
+        <h2 className="text-center text-lg font-semibold text-accent-foreground">
           Component Not Found
         </h2>
       </section>
@@ -107,6 +149,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
               </Link>
             </div>
           </Paragraph>
+          
           {item.example.map((example, index) => (
             <div className="w-full space-y-2" key={index}>
               <Tabs defaultValue="preview">
@@ -168,14 +211,16 @@ export default async function Page({ params }: { params: { slug: string } }) {
           </div>
         )}
 
-        <div className="w-full space-y-4">
-          <Paragraph title="Code" />
-          <div className="h-fit w-full max-w-lg rounded-[12px] border border-dashed p-1 sm:rounded-[16px] sm:border-2 sm:p-2">
-            <CodeWrapper>
-              <Code code={code} lang="tsx" />
-            </CodeWrapper>
+        {item.primitive && (
+          <div className="w-full space-y-4">
+            <Paragraph title="Code" />
+            <div className="h-fit w-full max-w-lg rounded-[12px] border border-dashed p-1 sm:rounded-[16px] sm:border-2 sm:p-2">
+              <CodeWrapper>
+                <Code code={code} lang="tsx" />
+              </CodeWrapper>
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </section>
   );

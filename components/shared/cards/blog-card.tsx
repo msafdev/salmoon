@@ -1,7 +1,9 @@
+import { cn } from "@/lib/utils";
+
 import Image from "next/image";
 import Link from "next/link";
 
-import { cn, formatDate } from "@/lib/utils";
+import { formatDate } from "@/lib/functions";
 
 const BlogCard = ({
   title,

@@ -33,7 +33,7 @@ interface StaggerProps extends Omit<MotionProps, "variants"> {
   trigger?: boolean;
   inView?: boolean;
   once?: boolean;
-  rootMargin?: string;
+  margin?: string;
 }
 
 const defaultContainerVariants = (delay = 0.1) => ({
@@ -93,7 +93,7 @@ const Stagger = forwardRef<HTMLElement, StaggerProps>(
       trigger,
       inView = false,
       once = true,
-      rootMargin = "-20% 0px -20% 0px",
+      margin = "0px",
       ...props
     },
     _ref,
@@ -101,8 +101,10 @@ const Stagger = forwardRef<HTMLElement, StaggerProps>(
     const localRef = useRef(null);
     const isInView = useInView(localRef, {
       once,
-      margin: rootMargin,
+      /* eslint-disable  @typescript-eslint/no-explicit-any */
+      margin: margin as any,
     });
+
     const [internalKey, setInternalKey] = useState(0);
 
     useEffect(() => {

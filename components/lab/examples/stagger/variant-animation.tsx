@@ -3,6 +3,8 @@
 import { useState } from "react";
 import { PiArrowLeftBold, PiArrowRightBold } from "react-icons/pi";
 
+import { Button } from "@/components/ui/button";
+
 import Stagger from "@/components/lab/stagger";
 
 type Direction = "left" | "right";
@@ -19,26 +21,30 @@ export const VariantAnimation = () => {
 
   const handleClick = (dir: Direction) => {
     setDirection(dir);
-    setToggle((prev) => !prev); 
+    setToggle((prev) => !prev);
   };
 
   return (
     <div className="space-y-4">
       <div className="flex items-center justify-between">
-        <button
+        <Button
+          size="icon"
+          variant="ghost"
           onClick={() => handleClick("left")}
-          className="inline-flex size-8 items-center justify-center whitespace-nowrap rounded-md bg-transparent text-sm font-medium transition-colors hover:bg-secondary hover:text-secondary-foreground"
+          className="size-8"
           aria-label="Animate from left"
         >
           <PiArrowLeftBold size={14} />
-        </button>
-        <button
+        </Button>
+        <Button
+          size="icon"
+          variant="ghost"
           onClick={() => handleClick("right")}
-          className="inline-flex size-8 items-center justify-center whitespace-nowrap rounded-md bg-transparent text-sm font-medium transition-colors hover:bg-secondary hover:text-secondary-foreground"
+          className="size-8"
           aria-label="Animate from right"
         >
           <PiArrowRightBold size={14} />
-        </button>
+        </Button>
       </div>
 
       <Stagger

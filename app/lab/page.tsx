@@ -34,17 +34,27 @@ export default function Page() {
       <div className="w-full space-y-4">
         <Paragraph title="Have fun">
           <p>
-            These components require{" "}
+            Most of these components require{" "}
             <Link
-              href="https://ui.shadcn.com/"
+              href="https://ui.shadcn.com"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="shadcn-ui"
+              aria-label="shadcn"
               className="font-medium text-foreground"
             >
-              shadcn-ui@<span className="text-xs font-semibold">2.8.0</span>
+              shadcn
             </Link>
             ,{" "}
+            <Link
+              href="https://framer.com/motion"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="frame-motion"
+              className="font-medium text-foreground"
+            >
+              framer-motion
+            </Link>
+            , and{" "}
             <Link
               href="https://react-icons.github.io/react-icons"
               target="_blank"
@@ -53,16 +63,6 @@ export default function Page() {
               className="font-medium text-foreground"
             >
               react-icons
-            </Link>
-            , and{" "}
-            <Link
-              href="https://www.framer.com/motion/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="frame-motion"
-              className="font-medium text-foreground"
-            >
-              framer-motion
             </Link>{" "}
             to work properly. Make sure you have them installed on your
             development environment.
@@ -78,9 +78,11 @@ export default function Page() {
             >
               {component.example &&
                 Array.isArray(component.example) &&
-                component.example[0] &&
-                component.example[0].child &&
-                createElement(component.example[0].child)}
+                component.example[component.thumbnail ?? 0] &&
+                component.example[component.thumbnail ?? 0].child &&
+                createElement(
+                  component.example[component.thumbnail ?? 0].child,
+                )}{" "}
             </LabCard>
           ))}
         </div>

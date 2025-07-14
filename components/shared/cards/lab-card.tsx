@@ -9,20 +9,20 @@ import { cn } from "@/lib/utils";
 const LabCard = ({
   children,
   slug,
-  gridClass = "regular-card",
   button = false,
   className = "",
+  gridClass = "regular-card",
 }: {
   children: React.ReactNode;
   slug?: string;
-  gridClass?: "regular-card" | "medium-card" | "large-card" | "default-card";
   button?: boolean;
   className?: string;
+  gridClass?: "regular-card" | "medium-card" | "large-card" | "default-card";
 }) => {
   const size: { [key: string]: string } = {
     "regular-card": "aspect-[5/4] sm:aspect-square",
     "medium-card": "aspect-square sm:aspect-square",
-    "large-card": "aspect-[4/5] md:aspect-[4/3] sm:col-span-2",
+    "large-card": "aspect-square md:aspect-[4/3] sm:col-span-2",
     "default-card": "",
   };
 

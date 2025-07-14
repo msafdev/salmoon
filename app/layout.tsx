@@ -2,7 +2,7 @@ import "@/styles/globals.css";
 
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
-import { Plus_Jakarta_Sans } from "next/font/google";
+import { Caveat, Licorice, Plus_Jakarta_Sans } from "next/font/google";
 import NextTopLoader from "nextjs-toploader";
 
 import { Analytics } from "@vercel/analytics/react";
@@ -22,9 +22,24 @@ const Footer = dynamic(() => import("@/components/shared/footer"), {
   ssr: false,
 });
 
-const inter = Plus_Jakarta_Sans({
+const plusJakarta = Plus_Jakarta_Sans({
   subsets: ["latin-ext"],
   weight: ["200", "300", "400", "500", "600", "700"],
+  variable: "--font-jakarta-plus",
+});
+
+const licorice = Licorice({
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["400"],
+  variable: "--font-licorice",
+});
+
+const caveat = Caveat({
+  subsets: ["latin-ext"],
+  display: "swap",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-caveat",
 });
 
 export const metadata: Metadata = {
@@ -89,8 +104,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
+    <html
+      lang="en"
+      className={`${plusJakarta.variable} ${licorice.variable} ${caveat.variable} antialiased`}
+    >
+      <body className="font-jakarta-plus">
         <SpeedInsights />
         <Analytics />
         <ThemeProvider

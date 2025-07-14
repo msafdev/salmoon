@@ -1,5 +1,6 @@
 "use client";
 
+import { cn } from "@/lib/utils";
 import { MotionConfig, motion } from "framer-motion";
 
 import React, {
@@ -10,7 +11,7 @@ import React, {
   useState,
 } from "react";
 
-import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
 
 type ToolbarMode = string;
 type ToolbarPosition = "center" | "top" | "bottom" | "left" | "right";
@@ -64,9 +65,8 @@ interface ToolbarItemProps {
   disabled?: boolean;
 }
 
-interface ToolbarNavigationProps {
+interface ToolbarButtonProps extends React.ComponentPropsWithoutRef<"button"> {
   targetMode?: ToolbarMode;
-  className?: string;
   label?: string;
   onClick?: () => void;
   children: React.ReactNode;
@@ -76,7 +76,7 @@ const ToolbarContext = createContext<ToolbarContextValue | null>(null);
 
 const useToolbar = () => {
   const context = useContext(ToolbarContext);
-  
+
   if (!context) {
     throw new Error("Toolbar components must be used within Toolbar");
   }
@@ -229,7 +229,7 @@ const ToolbarInput = forwardRef<HTMLInputElement, ToolbarInputProps>(
           placeholder={placeholder}
           className={cn(
             "h-9 w-full rounded-xl border-0 bg-transparent px-3 py-1",
-            "outline-none ring-0 ring-border focus-visible:ring-0",
+            "outline-none ring-0 ring-ring/40 focus-visible:ring-0",
             "text-sm placeholder:text-muted-foreground",
             className,
           )}
@@ -258,31 +258,32 @@ const ToolbarItem = forwardRef<HTMLDivElement, ToolbarItemProps>(
 );
 ToolbarItem.displayName = "ToolbarItem";
 
-const ToolbarNavigation = forwardRef<HTMLButtonElement, ToolbarNavigationProps>(
-  ({ targetMode, children, onClick, className, ...props }, ref) => {
+const ToolbarButton = forwardRef<HTMLButtonElement, ToolbarButtonProps>(
+  ({ targetMode, onClick, label, children, className, ...props }, ref) => {
     const { setMode } = useToolbar();
 
+    const handleClick =
+      onClick ?? (targetMode ? () => setMode(targetMode) : undefined);
+
     return (
-      <button
+      <Button
         ref={ref}
-        className={cn(
-          "inline-flex h-9 w-9 items-center justify-center rounded-xl transition-colors hover:bg-accent hover:text-accent-foreground",
-          "outline-none ring-0 ring-border focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-0",
-          "text-sm font-medium text-foreground",
-          className,
-        )}
-        onClick={
-          onClick ? onClick : targetMode ? () => setMode(targetMode) : undefined
+        variant="ghost"
+        size="icon"
+        onClick={handleClick}
+        aria-label={
+          label ||
+          (targetMode ? `Set toolbar mode to ${targetMode}` : undefined)
         }
-        aria-label={`Set toolbar mode to ${targetMode}`}
+        className={cn("rounded-xl", className)}
         {...props}
       >
         {children}
-      </button>
+      </Button>
     );
   },
 );
-ToolbarNavigation.displayName = "ToolbarNavigation";
+ToolbarButton.displayName = "ToolbarButton";
 
 const ToolbarSeparator = forwardRef<
   HTMLDivElement,
@@ -304,5 +305,5 @@ export {
   ToolbarItem,
   ToolbarInput,
   ToolbarSeparator,
-  ToolbarNavigation,
+  ToolbarButton,
 };

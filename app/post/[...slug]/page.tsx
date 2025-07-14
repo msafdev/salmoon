@@ -1,5 +1,6 @@
 import { posts } from "#site/content";
 
+import { LuBadgeCheck } from "react-icons/lu";
 import { PiArrowLeft, PiShareNetworkDuotone } from "react-icons/pi";
 
 import { Metadata } from "next";
@@ -131,12 +132,22 @@ export default async function PostPage({ params }: PostPageProps) {
 
         {/* Profile */}
         <div className="mb-1 flex items-center gap-3">
-          <Avatar className="rounded-md border">
-            <AvatarImage src="https://github.com/msafdev.png" alt="@msafdev" />
-            <AvatarFallback className="rounded-md text-muted-foreground">
-              MS
-            </AvatarFallback>
-          </Avatar>
+          <div className="relative">
+            <Avatar className="rounded-md border">
+              <AvatarImage
+                src="https://github.com/msafdev.png"
+                alt="@msafdev"
+              />
+              <AvatarFallback className="rounded-md text-muted-foreground">
+                MS
+              </AvatarFallback>
+            </Avatar>
+
+            <LuBadgeCheck
+              size={20}
+              className="absolute -bottom-1.5 -right-1.5 fill-green-500 text-background"
+            />
+          </div>
           <div className="flex flex-col">
             <p className="text-sm font-medium text-foreground">
               {siteItems.name}

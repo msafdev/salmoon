@@ -1,30 +1,28 @@
 import { PiArrowRightBold, PiGithubLogoDuotone } from "react-icons/pi";
 
-import { StaticImport } from "next/dist/shared/lib/get-img-props";
 import Image from "next/image";
 import Link from "next/link";
 
 const ProjectCard = ({
-  href,
+  demo,
   title,
-  img,
-  git,
+  image,
+  github,
 }: {
-  href: string;
+  demo: string;
   title: string;
-  img: StaticImport;
-  git: string;
+  image: string;
+  github: string;
 }) => {
   return (
     <div className="group/card relative w-full overflow-hidden">
-      {img && (
+      {image && (
         <div className="aspect-video h-auto w-full rounded-[12px] border-2 border-dashed p-1 sm:rounded-[16px] sm:p-2">
           <div className="relative h-full w-full overflow-hidden rounded-[8px]">
             <Image
-              src={img}
+              src={image}
               alt={`${title} showcase image.`}
               className="object-cover group-hover/card:grayscale-0 dark:grayscale"
-              placeholder="blur"
               loading="lazy"
               fill
               sizes="(max-width: 640px) 80vw, 60vw"
@@ -34,7 +32,7 @@ const ProjectCard = ({
       )}
       <div className="anim-slow absolute right-3 top-3 space-y-2 md:-top-full md:right-6 group-hover/card:md:top-6">
         <Link
-          href={href}
+          href={demo}
           target="_blank"
           rel="noopener noreferrer"
           aria-label={title}
@@ -43,7 +41,7 @@ const ProjectCard = ({
           <PiArrowRightBold className="-rotate-45" size={16} />
         </Link>
         <Link
-          href={git}
+          href={github}
           target="_blank"
           rel="noopener noreferrer"
           aria-label={title}

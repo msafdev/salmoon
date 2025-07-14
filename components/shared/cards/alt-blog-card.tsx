@@ -1,6 +1,8 @@
+import { cn } from "@/lib/utils";
+
 import Link from "next/link";
 
-import { cn, formatDate } from "@/lib/utils";
+import { formatDate } from "@/lib/functions";
 
 const AltBlogCard = ({
   title,

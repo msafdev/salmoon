@@ -1,5 +1,6 @@
-import { posts } from "#site/content";
+import { posts, projects } from "#site/content";
 import { sortPosts } from "@/velite/post";
+import { getProjects } from "@/velite/project";
 
 import { Metadata } from "next";
 
@@ -11,7 +12,7 @@ import Paragraph from "@/components/shared/paragraph";
 
 import SectionWrapper from "@/components/motion/section-wrapper";
 
-import { projectItems, templateItems, workItems } from "@/lib/constants";
+import { projectItems, workItems } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Archive",
@@ -19,6 +20,9 @@ export const metadata: Metadata = {
 
 export default async function Page() {
   const sortedPosts = sortPosts(posts.filter((post) => post.published));
+  const allProjects = getProjects(
+    projects.filter((project) => project.published),
+  );
 
   return (
     <SectionWrapper
@@ -33,7 +37,7 @@ export default async function Page() {
         </p>
       </Paragraph>
 
-      <div className="space-y-4 w-full">
+      <div className="w-full space-y-4">
         <Paragraph title="Featured posts" link href="/post" />
         <div className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2">
           {sortedPosts.length > 0 ? (
@@ -51,7 +55,7 @@ export default async function Page() {
         </div>
       </div>
 
-      <div className="space-y-4 w-full">
+      <div className="w-full space-y-4">
         <Paragraph title="Career path">
           <p>
             Beside working as a freelance developer, I have pursued various
@@ -69,7 +73,7 @@ export default async function Page() {
         </div>
       </div>
 
-      <div className="space-y-4 w-full">
+      <div className="w-full space-y-4">
         <Paragraph title="Side projects" />
         <div className="flex w-full flex-col">
           {projectItems.reverse().map((item, index) => (
@@ -78,10 +82,10 @@ export default async function Page() {
         </div>
       </div>
 
-      <div className="space-y-4 w-full">
+      <div className="w-full space-y-4">
         <Paragraph title="Free templates" />
         <div className="flex w-full flex-col gap-y-4">
-          {templateItems.map((item, index) => (
+          {allProjects.map((item, index) => (
             <ProjectCard {...item} key={index} />
           ))}
         </div>

@@ -6,7 +6,7 @@ import { PiCheckBold, PiClipboardDuotone } from "react-icons/pi";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
 
-import { copyToClipboard } from "@/lib/utils";
+import { copyToClipboard } from "@/lib/functions";
 
 const CopyButton = ({
   className,

@@ -13,8 +13,8 @@ import {
 
 import {
   Toolbar,
+  ToolbarButton,
   ToolbarContent,
-  ToolbarNavigation,
   ToolbarSeparator,
 } from "@/components/lab/toolbar";
 
@@ -30,43 +30,43 @@ export const BasicToolbar = () => {
       }}
     >
       <ToolbarContent mode="default">
-        <ToolbarNavigation targetMode="info" label="Info">
+        <ToolbarButton targetMode="info" label="Info">
           <PiInfoBold size={16} />
-        </ToolbarNavigation>
-        <ToolbarNavigation targetMode="rich-text" label="Rich Text">
+        </ToolbarButton>
+        <ToolbarButton targetMode="rich-text" label="Rich Text">
           <PiTextBBold size={16} />
-        </ToolbarNavigation>
+        </ToolbarButton>
       </ToolbarContent>
 
       <ToolbarContent mode="rich-text">
-        <ToolbarNavigation targetMode="default">
+        <ToolbarButton targetMode="default">
           <PiArrowLeftBold size={16} />
-        </ToolbarNavigation>
+        </ToolbarButton>
         <ToolbarSeparator />
-        <ToolbarNavigation>
+        <ToolbarButton onClick={() => console.log("Italic clicked")}>
           <PiTextItalicBold size={16} />
-        </ToolbarNavigation>
-        <ToolbarNavigation>
+        </ToolbarButton>
+        <ToolbarButton onClick={() => console.log("Text Aa clicked")}>
           <PiTextAaBold size={16} />
-        </ToolbarNavigation>
-        <ToolbarNavigation>
+        </ToolbarButton>
+        <ToolbarButton onClick={() => console.log("Underline clicked")}>
           <PiTextUnderlineBold size={16} />
-        </ToolbarNavigation>
+        </ToolbarButton>
         <ToolbarSeparator />
-        <ToolbarNavigation>
+        <ToolbarButton onClick={() => console.log("Align Left clicked")}>
           <PiTextAlignLeftBold size={16} />
-        </ToolbarNavigation>
-        <ToolbarNavigation>
+        </ToolbarButton>
+        <ToolbarButton onClick={() => console.log("Bold clicked")}>
           <PiTextTBold size={16} />
-        </ToolbarNavigation>
+        </ToolbarButton>
       </ToolbarContent>
 
       <ToolbarContent mode="info">
-        <ToolbarNavigation targetMode="default">
+        <ToolbarButton targetMode="default">
           <PiArrowLeftBold size={16} />
-        </ToolbarNavigation>
+        </ToolbarButton>
         <div className="flex min-w-36 flex-1 items-center px-2 md:min-w-48">
-          <span className="mr-auto text-sm font-medium text-muted-foreground text-nowrap">
+          <span className="mr-auto text-nowrap text-sm font-medium text-muted-foreground">
             John's Birthday
           </span>
         </div>

@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 import Image from "next/image";
 
-import { formatTimestamp } from "@/lib/utils";
+import { formatTimestamp } from "@/lib/functions";
 
 type GuestbookCardProps = {
   entry: GuestbookWithUser;

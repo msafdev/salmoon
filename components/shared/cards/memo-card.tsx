@@ -3,16 +3,9 @@
 import { motion } from "framer-motion";
 import { useMediaQuery } from "usehooks-ts";
 
-import { Caveat } from "next/font/google";
 import Image from "next/image";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-
-const caveat = Caveat({
-  subsets: ["latin-ext"],
-  display: "swap",
-  weight: ["400", "500", "600", "700"],
-});
 
 const spring = {
   type: "spring",
@@ -112,7 +105,7 @@ const MemoCard = () => {
 
         <div className="flex items-center justify-between">
           <p
-            className={`${caveat.className} -rotate-3 text-center font-semibold leading-none`}
+            className={`font-cave -rotate-3 text-center font-semibold leading-none`}
           >
             With love, <br />
             Salman

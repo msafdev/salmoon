@@ -4,7 +4,6 @@ import { useInView } from "framer-motion";
 
 import { useRef } from "react";
 
-import { Licorice } from "next/font/google";
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
@@ -12,13 +11,7 @@ import { useToast } from "@/components/ui/use-toast";
 
 import { Magnetic } from "@/components/motion/magnetic";
 
-import { copyToClipboard } from "@/lib/utils";
-
-const licorice = Licorice({
-  subsets: ["latin"],
-  display: "swap",
-  weight: ["400"],
-});
+import { copyToClipboard } from "@/lib/functions";
 
 const Footer = () => {
   const { toast } = useToast();
@@ -43,17 +36,17 @@ const Footer = () => {
         }`}
       >
         <div className="flex w-full flex-col items-center justify-between gap-4 text-primary-foreground dark:text-primary md:flex-row">
-          <span className={`text-3xl ${licorice.className}`}>Salman</span>
-          <div className="flex flex-wrap items-center justify-center gap-y-3 text-sm text-primary-foreground/80 dark:text-primary/80">
+          <span className={`font-licorice text-3xl`}>Salman</span>
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-sm text-primary-foreground/80 dark:text-primary/80">
             <button
-              className="anim px-3 hover:text-primary-foreground dark:hover:text-primary"
+              className="anim hover:text-primary-foreground dark:hover:text-primary"
               aria-label="Back on top"
               onClick={scrollToTop}
             >
               top
             </button>
             <button
-              className="anim px-3 hover:text-primary-foreground dark:hover:text-primary"
+              className="anim hover:text-primary-foreground dark:hover:text-primary"
               aria-label="Copy my email"
               onClick={() => {
                 copyToClipboard("salmanalfarisi261002@gmail.com");
@@ -75,7 +68,7 @@ const Footer = () => {
               <Button
                 size={"sm"}
                 variant={"ghost"}
-                className="pr-0 text-white hover:bg-transparent hover:text-white"
+                className="h-fit w-fit p-0 text-white hover:bg-transparent hover:text-white"
               >
                 <Link href={"/guestbook"} aria-label="My Guestbook">
                   <span className="sr-only">Leave a mark on /guestbook</span>

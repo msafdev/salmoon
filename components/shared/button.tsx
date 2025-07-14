@@ -44,7 +44,7 @@ const Button = ({
   return (
     <div
       className={cn(
-        "group/button whitespace-nowrap rounded-lg bg-gradient-to-b from-zinc-200 to-zinc-300 p-[1px] outline-none ring-0 ring-border focus-visible:ring-2 focus-visible:ring-offset-2 dark:from-zinc-700 dark:to-zinc-800",
+        "group/button whitespace-nowrap rounded-lg bg-gradient-to-b from-zinc-200 to-zinc-300 p-[1px] outline-none ring-0 ring-ring/40 focus-visible:ring-2 focus-visible:ring-offset-2 dark:from-zinc-700 dark:to-zinc-800",
         containerSizes[size],
       )}
     >
@@ -52,7 +52,7 @@ const Button = ({
         onClick={onClick}
         type={type}
         className={cn(
-          `anim flex w-full items-center justify-center gap-x-2 rounded-[calc(var(--radius)-1px)] bg-gradient-to-b from-card/80 to-card/90 text-sm font-medium text-black outline-none ring-0 ring-border transition-all duration-300 ease-in-out focus-visible:ring-2 focus-visible:ring-offset-2 group-hover/button:from-card/70 group-hover/button:to-card/80 dark:text-white ${
+          `anim flex w-full items-center justify-center gap-x-2 rounded-[calc(var(--radius)-1px)] bg-gradient-to-b from-card/80 to-card/90 text-sm font-medium text-black outline-none ring-0 ring-ring/40 transition-all duration-300 ease-in-out focus-visible:ring-2 focus-visible:ring-offset-2 group-hover/button:from-card/70 group-hover/button:to-card/80 dark:text-white ${
             disabled ? "cursor-not-allowed" : "cursor-pointer"
           }`,
           buttonSizes[size],

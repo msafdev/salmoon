@@ -7,7 +7,7 @@ import {
   Toolbar,
   ToolbarContent,
   ToolbarItem,
-  ToolbarNavigation,
+  ToolbarButton,
 } from "@/components/lab/toolbar";
 
 export const DynamicToolbar = () => {
@@ -25,13 +25,13 @@ export const DynamicToolbar = () => {
     <Toolbar defaultMode="default" mode={mode}>
       <ToolbarContent mode="default" className="min-w-52">
         <ToolbarItem className="flex w-full items-center justify-center">
-          <ToolbarNavigation
+          <ToolbarButton
             onClick={handleClick}
             className="w-full items-center gap-2 rounded-[12px]"
           >
             <PiPlusCircleDuotone size={16} />
             Create Index
-          </ToolbarNavigation>
+          </ToolbarButton>
         </ToolbarItem>
       </ToolbarContent>
 

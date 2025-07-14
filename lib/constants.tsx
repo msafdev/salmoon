@@ -11,14 +11,6 @@ import {
   PiRocketLaunchDuotone,
   PiTwitterLogoDuotone,
 } from "react-icons/pi";
-import {
-  TbBrandGithub,
-  TbBrandInstagram,
-  TbBrandLinkedin,
-  TbBrandTwitter,
-  TbFileSpark,
-  TbMailHeart,
-} from "react-icons/tb";
 
 // Static Place Imports
 import Place1 from "@/public/images/places/place-1.avif";
@@ -242,37 +234,6 @@ export const projectItems = [
 ];
 
 export const recentProjects = projectItems.slice(1, projectItems.length);
-
-export const templateItems = [
-  {
-    title: "Macfolio",
-    stack: ["Next", "Tailwind"],
-    href: "https://macfolio-demo.vercel.app",
-    img: Macfolio,
-    git: "https://github.com/msafdev/macfolio",
-  },
-  {
-    title: "Compactfolio",
-    stack: ["React", "Tailwind"],
-    href: "https://compactfolio-demo.vercel.app",
-    img: Compacfolio,
-    git: "https://github.com/msafdev/compactfolio",
-  },
-  {
-    title: "Linkify",
-    stack: ["Next", "Tailwind"],
-    href: "https://linkify-demo.vercel.app",
-    img: Linkify,
-    git: "https://github.com/msafdev/linkify",
-  },
-  {
-    title: "Mdx Starter",
-    stack: ["Next", "Tailwind", "Velite"],
-    href: "https://mdx-starter-theta.vercel.app",
-    img: MDX,
-    git: "https://github.com/msafdev/mdx-starter",
-  },
-];
 
 export const workItems = [
   {
