@@ -2,7 +2,7 @@ import TrackCard from "@/components/shared/cards/track-card";
 
 import { topTracks } from "@/lib/spotify";
 
-const TrackSection = async () => {
+const TrackGroup = async () => {
   const tracks = await topTracks();
 
   return (
@@ -14,4 +14,4 @@ const TrackSection = async () => {
   );
 };
 
-export default TrackSection;
+export default TrackGroup;

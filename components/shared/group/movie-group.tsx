@@ -1,6 +1,6 @@
 import MovieCard from "@/components/shared/cards/movie-card";
 
-const MovieSection = () => {
+const MovieGroup = () => {
   const movies = [
     {
       title: "Hacksaw Ridge",
@@ -45,4 +45,4 @@ const MovieSection = () => {
   );
 };
 
-export default MovieSection;
+export default MovieGroup;

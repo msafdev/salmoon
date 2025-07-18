@@ -2,6 +2,8 @@
 
 import { motion } from "framer-motion";
 
+import { PiXBold } from "react-icons/pi";
+
 import { useMemo } from "react";
 
 import Image from "next/image";
@@ -15,9 +17,8 @@ import {
   MorphDialogTrigger,
 } from "@/components/motion/morph-dialog";
 
+import { useDesktop } from "@/hooks/use-desktop";
 import { placeItems } from "@/lib/constants";
-import { useIsDesktop } from "@/lib/hooks";
-import { PiXBold } from "react-icons/pi";
 
 const transition = {
   type: "spring",
@@ -26,10 +27,10 @@ const transition = {
 };
 
 const sharedImageClass =
-  "aspect-square rounded-lg border-2 bg-border object-cover text-transparent shadow-md dark:border-border";
+  "aspect-square rounded-lg border-2 bg-border object-cover text-transparent shadow-md";
 
 const Places = () => {
-  const { isDesktop, isMounted } = useIsDesktop(640);
+  const { isDesktop, isMounted } = useDesktop(640);
 
   const itemsToRender = useMemo(() => {
     if (!isMounted) return [];

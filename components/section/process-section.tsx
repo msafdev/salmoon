@@ -1,8 +1,6 @@
 import Paragraph from "@/components/shared/paragraph";
 
-import ProcessItem from "@/components/motion/process-item";
-
-import { processItems } from "@/lib/constants";
+import ProcessGroup from "@/components/shared/group/process-group";
 
 const ProcessSection = () => {
   return (
@@ -15,7 +13,7 @@ const ProcessSection = () => {
         </p>
       </Paragraph>
 
-      <ProcessItem />
+      <ProcessGroup />
     </div>
   );
 };

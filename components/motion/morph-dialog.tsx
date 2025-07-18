@@ -21,7 +21,7 @@ import { createPortal } from "react-dom";
 
 import Image, { StaticImageData } from "next/image";
 
-import { useClickOutside } from "@/lib/hooks";
+import { useClickOutside } from "@/hooks/use-click";
 import { cn } from "@/lib/utils";
 import { PiXBold } from "react-icons/pi";
 

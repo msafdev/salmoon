@@ -1,6 +1,6 @@
 import { Badge } from "@/components/ui/badge";
 
-export const SolidBadge = () => {
+export const BasicBadge = () => {
   return (
     <div className="flex flex-wrap items-center justify-center gap-2">
       <Badge className="h-6">Default</Badge>

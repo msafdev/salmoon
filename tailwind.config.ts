@@ -24,7 +24,6 @@ const config = {
       },
       fontFamily: {
         "jakarta-plus": ["var(--font-jakarta-plus)"],
-        licorice: ["var(--font-licorice)"],
         caveat: ["var(--font-caveat)"],
       },
       colors: {
@@ -86,6 +85,30 @@ const config = {
             height: "var(--radix-accordion-content-height)",
           },
         },
+        "accordion-up": {
+          from: {
+            height: "var(--radix-accordion-content-height)",
+          },
+          to: {
+            height: "0",
+          },
+        },
+        "toast-progress": {
+          "0%": {
+            width: "100%",
+          },
+          "100%": {
+            width: "0%",
+          },
+        },
+        "background-shine": {
+          "0%": {
+            backgroundPosition: "0 0",
+          },
+          "100%": {
+            backgroundPosition: "-200% 0",
+          },
+        },
         shake: {
           "0%": {
             transform: "translateX(0)",
@@ -103,27 +126,13 @@ const config = {
             transform: "translateX(0)",
           },
         },
-        "accordion-up": {
-          from: {
-            height: "var(--radix-accordion-content-height)",
-          },
-          to: {
-            height: "0",
-          },
-        },
-        "background-shine": {
-          "0%": {
-            backgroundPosition: "0 0",
-          },
-          "100%": {
-            backgroundPosition: "-200% 0",
-          },
-        },
       },
       animation: {
-        "background-shine": "background-shine 2.4s infinite linear",
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "toast-progress":
+          "toast-progress var(--toast-duration) linear forwards",
+        "background-shine": "background-shine 2.4s infinite linear",
         shake: "shake 0.4s infinite",
       },
     },

@@ -1,24 +1,28 @@
 "use client";
 
-import contentMutation from "@/mutation/content.mutation";
-
-import { useState } from "react";
+import { LuBadgeX } from "react-icons/lu";
 import {
   PiArrowClockwiseBold,
   PiArrowElbowDownLeftBold,
+  PiSignOutDuotone,
 } from "react-icons/pi";
 
+import { useState } from "react";
+
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/shared/input/number-input";
+import { Textarea } from "@/components/ui/textarea";
+
+import authMutation from "@/mutation/auth.mutation";
+import contentMutation from "@/mutation/content.mutation";
 
 const ContentForm = () => {
   const [content, setContent] = useState("");
   const { addContentMutation } = contentMutation();
 
+  const { signOutMutation } = authMutation();
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
-    if (!content.trim()) return;
 
     try {
       await addContentMutation.mutateAsync(content);
@@ -33,28 +37,44 @@ const ContentForm = () => {
       onSubmit={handleSubmit}
       id="content-form"
     >
-      <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
-        <Input
-          placeholder="Leave a message..."
-          name="content"
-          id="content"
-          type="text"
-          value={content}
-          onChange={(e) => setContent(e.target.value)}
-          className="w-auto min-w-0 flex-1"
-          disabled={addContentMutation.isPending}
-        />
+      <Textarea
+        placeholder="Leave a message..."
+        name="content"
+        id="content"
+        value={content}
+        onChange={(e) => setContent(e.target.value)}
+        className="w-full rounded-b-none min-h-24"
+        disabled={addContentMutation.isPending}
+      />
+      <div className="flex items-center justify-between gap-x-2">
         <Button
-          disabled={addContentMutation.isPending || !content.trim()}
+          onClick={() => signOutMutation.mutate()}
+          disabled={signOutMutation.isPending}
           type="submit"
           size="icon"
-          className="border border-border px-3 py-2"
           variant="secondary"
+          className="size-9 rotate-180 rounded-b-none"
+        >
+          {signOutMutation.isPending ? (
+            <PiArrowClockwiseBold className="size-4 animate-spin" />
+          ) : (
+            <PiSignOutDuotone className="size-4" />
+          )}
+        </Button>
+        <Button
+          disabled={addContentMutation.isPending}
+          type="submit"
+          size="sm"
+          variant="secondary"
+          className="rounded-t-none"
         >
           {addContentMutation.isPending ? (
             <PiArrowClockwiseBold className="size-4 animate-spin" />
           ) : (
-            <PiArrowElbowDownLeftBold className="size-4" />
+            <>
+              <span>Enter</span>
+              <PiArrowElbowDownLeftBold className="size-4" />
+            </>
           )}
         </Button>
       </div>

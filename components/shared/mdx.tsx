@@ -1,8 +1,6 @@
-import "@/styles/mdx.css";
-import { cn } from "@/lib/utils";
+import { PiArrowRightBold } from "react-icons/pi";
 
 import * as React from "react";
-import { PiArrowRightBold } from "react-icons/pi";
 import * as runtime from "react/jsx-runtime";
 
 import Image from "next/image";
@@ -21,6 +19,8 @@ import {
 } from "@/components/ui/table";
 
 import { extractCode } from "@/lib/functions";
+import { cn } from "@/lib/utils";
+import "@/styles/mdx.css";
 
 type ComponentsProps = React.HTMLAttributes<HTMLElement>;
 
@@ -86,7 +86,7 @@ export const globalComponents = {
   blockquote: ({ className, ...props }: ComponentsProps) => (
     <blockquote
       className={cn(
-        "mb-4 border-s-2 border-zinc-500 bg-gradient-to-r from-zinc-500/20 to-transparent px-4 py-2 text-sm text-zinc-600 dark:text-zinc-400 md:text-base [&>p]:mb-0",
+        "mdx mb-4 border-s-2 border-zinc-500 bg-gradient-to-r from-zinc-500/20 to-transparent px-4 py-2 text-sm text-zinc-600 dark:text-zinc-400 md:text-base [&>p]:mb-0",
         className,
       )}
       {...props}
@@ -94,7 +94,10 @@ export const globalComponents = {
   ),
   code: ({ className, children, ...props }: ComponentsProps) => (
     <code
-      className={cn("font-mono text-sm text-foreground", className)}
+      className={cn(
+        "rounded-md border border-border bg-muted px-1.5 py-0.5 font-mono text-foreground text-sm",
+        className,
+      )}
       {...props}
     >
       {children}
@@ -108,7 +111,7 @@ export const globalComponents = {
     const lang = (props as any)?.["data-language"];
 
     return (
-      <div className="mb-4 w-full max-w-lg rounded-[12px] border border-dashed p-1 sm:rounded-[16px] sm:border-2 sm:p-2">
+      <div className="mb-4 h-fit w-full max-w-lg rounded border-2 border-dashed p-1 sm:p-2">
         <Code
           code={rawCode.trim()}
           lang={lang}
@@ -165,7 +168,7 @@ export const globalComponents = {
     <hr className={cn("my-6 border-muted", className)} {...props} />
   ),
   table: ({ className, ...props }: React.HTMLAttributes<HTMLTableElement>) => (
-    <div className="my-6 w-full overflow-x-auto rounded-xl border">
+    <div className="my-6 w-full overflow-x-auto rounded border">
       <Table className={cn("", className)} {...props} />
     </div>
   ),
@@ -205,12 +208,9 @@ export const globalComponents = {
     ...props
   }: React.ImgHTMLAttributes<HTMLImageElement>) => (
     // eslint-disable-next-line @next/next/no-img-element
-    <div className="mb-4 aspect-auto max-w-lg overflow-hidden rounded-[16px] border border-dashed p-1 sm:rounded-[20px] sm:border-2 sm:p-2">
+    <div className="mb-4 aspect-auto max-w-lg overflow-hidden rounded border-2 border-dashed p-1 sm:p-2">
       <img
-        className={cn(
-          "h-full w-full rounded-[12px] border shadow-sm",
-          className,
-        )}
+        className={cn("h-full w-full rounded border shadow-sm", className)}
         alt={alt}
         {...props}
       />

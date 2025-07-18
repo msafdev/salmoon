@@ -3,16 +3,24 @@ import { BasicAvatar } from "@/components/lab/examples/avatar/basic-avatar";
 import { IconAvatar } from "@/components/lab/examples/avatar/icon-avatar";
 import { StackAvatar } from "@/components/lab/examples/avatar/stack-avatar";
 import { StatusAvatar } from "@/components/lab/examples/avatar/status-avatar";
+import { BasicBadge } from "@/components/lab/examples/badge/basic-badge";
 // Badge
 import { IconBadge } from "@/components/lab/examples/badge/icon-badge";
-import { SolidBadge } from "@/components/lab/examples/badge/solid-badge";
+import { SeparateBadge } from "@/components/lab/examples/badge/separate-badge";
 import { StatusBadge } from "@/components/lab/examples/badge/status-badge";
 // Cursor
 import { AdvancedCursor } from "@/components/lab/examples/cursor/advanced-cursor";
 import { BasicCursor } from "@/components/lab/examples/cursor/basic-cursor";
 import { SpringCursor } from "@/components/lab/examples/cursor/spring-cursor";
+import { AvatarFile } from "@/components/lab/examples/file/avatar-file";
+import { BasicFile } from "@/components/lab/examples/file/basic-file";
+import { MultipleFiles } from "@/components/lab/examples/file/multiple-file";
 // Input
 import { BasicInput } from "@/components/lab/examples/input/basic-input";
+import { FloatInput } from "@/components/lab/examples/input/float-input";
+import { NumberInput } from "@/components/lab/examples/input/number-input";
+import { OtpInput } from "@/components/lab/examples/input/otp-input";
+import { PasswordInput } from "@/components/lab/examples/input/password-input";
 // Stagger
 import { BasicAnimation } from "@/components/lab/examples/stagger/basic-animation";
 import { VariantAnimation } from "@/components/lab/examples/stagger/variant-animation";
@@ -35,8 +43,9 @@ export type ComponentType = {
   thumbnail?: number;
   twConfig?: object;
   cssClass?: string;
-  gridClass?: "regular-card" | "medium-card" | "large-card" | "default-card";
   uiLibrary?: string;
+  customHook?: string;
+  gridClass?: "regular-card" | "medium-card" | "large-card" | "default-card";
 };
 
 export type TWConfig = {
@@ -74,8 +83,9 @@ export const COMPONENTS: ComponentType[] = [
     primitive: false,
     description: "Lightweight labels for statuses, types, or actions.",
     example: [
-      { child: SolidBadge, name: "Solid Badge", path: "solid-badge" },
+      { child: BasicBadge, name: "Basic Badge", path: "basic-badge" },
       { child: IconBadge, name: "Icon Badge", path: "icon-badge" },
+      { child: SeparateBadge, name: "Separate Badge", path: "separate-badge" },
       { child: StatusBadge, name: "Status Badge", path: "status-badge" },
     ],
     thumbnail: 1,
@@ -140,9 +150,30 @@ export const COMPONENTS: ComponentType[] = [
     slug: "input",
     primitive: false,
     description: "Various input components with advanced features.",
-    example: [{ child: BasicInput, name: "Basic Input", path: "basic-input" }],
-    thumbnail: 0,
+    example: [
+      { child: BasicInput, name: "Basic Input", path: "basic-input" },
+      { child: NumberInput, name: "Number Input", path: "number-input" },
+      { child: FloatInput, name: "Float Input", path: "float-input" },
+      { child: PasswordInput, name: "Password Input", path: "password-input" },
+      { child: OtpInput, name: "OTP Input", path: "otp-input" },
+    ],
+    thumbnail: 1,
     uiLibrary: "npx shadcn@latest add label input",
+    gridClass: "medium-card",
+  },
+  {
+    name: "File",
+    slug: "file",
+    primitive: false,
+    description: "Various input components with advanced features.",
+    example: [
+      { child: BasicFile, name: "Basic File", path: "basic-file" },
+      { child: AvatarFile, name: "Avatar File", path: "avatar-file" },
+      { child: MultipleFiles, name: "Multiple File", path: "multiple-file" },
+    ],
+    thumbnail: 1,
+    uiLibrary: "npx shadcn@latest add button",
+    customHook: "use-file",
     gridClass: "medium-card",
   },
   {

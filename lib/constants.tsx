@@ -12,21 +12,14 @@ import {
   PiTwitterLogoDuotone,
 } from "react-icons/pi";
 
-// Static Place Imports
 import Place1 from "@/public/images/places/place-1.avif";
 import Place2 from "@/public/images/places/place-2.avif";
 import Place3 from "@/public/images/places/place-3.avif";
 import Place4 from "@/public/images/places/place-4.avif";
-// Static Work Imports
-import Compacfolio from "@/public/images/templates/compactfolio.webp";
-import Linkify from "@/public/images/templates/linkify.webp";
-import Macfolio from "@/public/images/templates/macfolio.webp";
-import MDX from "@/public/images/templates/mdx.webp";
 
 export const siteItems = {
   name: "Salman Alfarisi",
   url: "https://salmoon.vercel.app",
-  description: "Nextjs 14 blog template velite, tailwind and shadcn",
   role: "Fullstack Engineer",
   links: {
     twitter: "https://twitter.com/sal__moon",
@@ -88,7 +81,7 @@ export const placeItems = [
   {
     id: 4,
     src: Place4,
-    rotation: 11,
+    rotation: 10,
   },
 ];
 
@@ -117,6 +110,35 @@ export const processItems = [
     description:
       "I thoroughly test the site for functionality and performance, then deploy it to a hosting of your choice.",
   },
+];
+
+export const techItems = [
+  { id: "javascript", name: "JavaScript" },
+  { id: "typescript", name: "TypeScript" },
+  { id: "python", name: "Python" },
+  { id: "golang", name: "Go Lang" },
+  { id: "python", name: "Python" },
+  { id: "html", name: "HTML" },
+  { id: "css", name: "CSS" },
+  { id: "next", name: "Next" },
+  { id: "vue", name: "Vue" },
+  { id: "laravel", name: "Laravel" },
+  { id: "nodemon", name: "Nodemon" },
+  { id: "express", name: "Express" },
+  { id: "react", name: "React" },
+  { id: "table", name: "Tanstack Table" },
+  { id: "router", name: "Tanstack Router" },
+  { id: "query", name: "Tanstack Query" },
+  { id: "motion", name: "Framer Motion" },
+  { id: "mongo", name: "MongoDB" },
+  { id: "supabase", name: "Supabase" },
+  { id: "prisma", name: "Prisma" },
+  { id: "tailwind", name: "Tailwind" },
+  { id: "figma", name: "Figma" },
+  { id: "postman", name: "Postman" },
+  { id: "github", name: "GitHub" },
+  { id: "vercel", name: "Vercel" },
+  { id: "cloudflare", name: "Cloudflare" },
 ];
 
 export const socialItems = [
@@ -168,7 +190,7 @@ export const clientItems = [
   "/assets/companies/mitratel.svg",
 ];
 
-export const creditList = [
+export const creditItems = [
   {
     category: "Engineers",
     items: [
@@ -199,24 +221,22 @@ export const creditList = [
   },
   {
     category: "Friends",
-    items: [{ name: "Nadia Lovely", href: "https://nadialvy.com" }],
+    items: [{ name: "Nadia Lovely", href: "https://nadialovely.tech" }],
   },
   {
     category: "Libraries",
     items: [
       { name: "Shadcn", href: "https://ui.shadcn.com" },
+      { name: "Origin UI", href: "https://originui.com" },
       { name: "Magic UI", href: "https://magicui.design" },
       { name: "Icons8", href: "https://icons8.com" },
       { name: "Lucide", href: "https://lucide.dev" },
+      { name: "React Icons", href: "https://react-icons.github.io" },
     ],
   },
   {
     category: "Tools",
-    items: [
-      { name: "Bun", href: "https://bun.sh" },
-      { name: "Vercel", href: "https://vercel.com" },
-      { name: "Supabase", href: "https://supabase.io" },
-    ],
+    items: [{ name: "Bun", href: "https://bun.sh" }],
   },
 ];
 
@@ -232,8 +252,6 @@ export const projectItems = [
     description: "Handpicked modern background patterns.",
   },
 ];
-
-export const recentProjects = projectItems.slice(1, projectItems.length);
 
 export const workItems = [
   {
@@ -285,7 +303,7 @@ export const toolItems = [
   },
   {
     category: "Device",
-    items: ["iPhone XR", "Lenovo LOQ 15IRX9"],
+    items: ["iPhone XR", "Macbook M1 Pro"],
   },
   {
     category: "Shell",
@@ -293,19 +311,19 @@ export const toolItems = [
   },
   {
     category: "Browser",
-    items: ["Firefox", "Brave"],
+    items: ["Firefox", "Arc"],
   },
   {
     category: "Development",
-    items: ["Visual Studio Code", "Figma", "GitHub"],
+    items: ["Code", "Vim"],
   },
   {
     category: "Productivity",
-    items: ["Express", "Obsidian"],
+    items: ["Notion", "Obsidian"],
   },
   {
     category: "Others",
-    items: ["Jira", "Postman", "Notion"],
+    items: ["Jira", "ClickUp"],
   },
 ];
 
@@ -334,33 +352,6 @@ export const quoteItems = [
     quote:
       "To be yourself in a world that is constantly trying to make you something else is the greatest accomplishment.",
     author: "Ralph W. Emerson",
-  },
-];
-
-export const inspoItems = [
-  {
-    category: "Creators",
-    items: [
-      { name: "Sam Selikoff", href: "https://youtube.com/@samselikoff" },
-      { name: "Sandhika Galih", href: "https://youtube.com/@sandhikagalih" },
-      { name: "Olivier Larose", href: "https://youtube.com/@olivierlarose1" },
-    ],
-  },
-  {
-    category: "Designers",
-    items: [
-      { name: "Dwinawan", href: "https://twitter.com/dwinawan_" },
-      { name: "Oguz Yagiz Kara", href: "https://twitter.com/oguzyagizkara" },
-      { name: "Ilya Miskov", href: "https://twitter.com/ilyamiskov" },
-    ],
-  },
-  {
-    category: "Engineers",
-    items: [
-      { name: "Lee Robinson", href: "https://leerob.io" },
-      { name: "Julien Thibeaut", href: "https://ibelick.com" },
-      { name: "Jakub Krehel", href: "https://kbo.sk" },
-    ],
   },
 ];
 

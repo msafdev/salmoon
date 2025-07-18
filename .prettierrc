@@ -4,13 +4,16 @@
     "prettier-plugin-tailwindcss"
   ],
   "importOrder": [
+    "^react\\-icons",      
     "^[react]",
     "^[next]",
     "^@(?!/)",
     "^@/components/shared/",
     "^@/components/ui/",
     "^@/components/lab/",
+    "^@/components/motion/",
     "^@/components/",
+    "^@/",
     "^@/lib/",
     "^@/public/",
     "^[./]"

@@ -14,7 +14,7 @@ import {
   AccordionTrigger,
 } from "@/components/motion/accordion";
 
-const LearnSection = () => {
+const LearnGroup = () => {
   const groupedMaterials = groupLearnsByTag(learns);
 
   return (
@@ -89,4 +89,4 @@ const LearnSection = () => {
   );
 };
 
-export default LearnSection;
+export default LearnGroup;

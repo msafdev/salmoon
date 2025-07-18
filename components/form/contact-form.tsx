@@ -1,13 +1,10 @@
 "use client";
 
-import calendarMutation from "@/mutation/calendar.mutation";
-import { contactSchema, serviceType, userType } from "@/schema/contact-schema";
-import { Contact } from "@/types/contact-types";
 import { useFormik } from "formik";
 import { AnimatePresence, motion } from "framer-motion";
 import { toFormikValidationSchema } from "zod-formik-adapter";
 
-import { useState } from "react";
+import { LuBadgeAlert } from "react-icons/lu";
 import {
   PiArrowClockwiseBold,
   PiArrowElbowDownLeftBold,
@@ -16,14 +13,20 @@ import {
   PiAsteriskBold,
 } from "react-icons/pi";
 
+import { useState } from "react";
+
 import Button from "@/components/shared/button";
 import CalInput from "@/components/shared/input/cal-input";
 import MultiSlider from "@/components/shared/input/multi-slider";
-import { Input } from "@/components/shared/input/number-input";
+import { Input } from "@/components/shared/input/ext-input";
 
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { useToast } from "@/components/ui/use-toast";
+import { useToast } from "@/hooks/use-toast";
+
+import calendarMutation from "@/mutation/calendar.mutation";
+import { contactSchema, serviceType, userType } from "@/schema/contact-schema";
+import { Contact } from "@/types/contact-types";
 
 const initialValues: Contact = {
   user_type: null,
@@ -120,8 +123,10 @@ const ContactForm = () => {
     } else {
       toast({
         title: "Please fill the required fields",
-        description: "😉 please use it wisely!",
-        duration: 1000,
+        description: "Some fields are missing or incomplete",
+        duration: 2000,
+        icon: LuBadgeAlert,
+        color: "info",
       });
     }
   };

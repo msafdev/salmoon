@@ -86,7 +86,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
     );
   }
 
-  const { code, twConfig, uiLibrary, cssClass, exampleCodes } =
+  const { code, twConfig, uiLibrary, cssClass, exampleCodes, customHook } =
     await getFilePathAndConfig(item);
 
   return (
@@ -149,11 +149,11 @@ export default async function Page({ params }: { params: { slug: string } }) {
               </Link>
             </div>
           </Paragraph>
-          
+
           {item.example.map((example, index) => (
             <div className="w-full space-y-2" key={index}>
               <Tabs defaultValue="preview">
-                <TabsList className="gap-8 bg-transparent p-0">
+                <TabsList className="gap-x-8 bg-transparent p-0" >
                   <TabsTrigger
                     className="gap-2 px-0 data-[state=active]:shadow-none"
                     value="preview"
@@ -170,12 +170,16 @@ export default async function Page({ params }: { params: { slug: string } }) {
                   </TabsTrigger>
                 </TabsList>
                 <TabsContent value="preview">
-                  <LabCard gridClass={item.gridClass} className="min-h-72">
+                  <LabCard
+                    gridClass={item.gridClass}
+                    className="min-h-72"
+                    name={example.name}
+                  >
                     <example.child />
                   </LabCard>
                 </TabsContent>
                 <TabsContent value="code">
-                  <div className="h-fit w-full max-w-lg rounded-[12px] border border-dashed p-1 sm:rounded-[16px] sm:border-2 sm:p-2">
+                  <div className="h-fit w-full max-w-lg rounded border-2 border-dashed p-1 sm:p-2">
                     <Code code={exampleCodes[index].code} lang="tsx" />
                   </div>
                 </TabsContent>
@@ -187,7 +191,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
         {uiLibrary && (
           <div className="w-full space-y-4">
             <Paragraph title="Library setup" />
-            <div className="h-fit w-full max-w-lg rounded-[12px] border border-dashed p-1 sm:rounded-[16px] sm:border-2 sm:p-2">
+            <div className="h-fit w-full max-w-lg rounded border-2 border-dashed p-1 sm:p-2">
               <Code code={uiLibrary} lang="bash" />
             </div>
           </div>
@@ -196,7 +200,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
         {cssClass && (
           <div className="w-full space-y-4">
             <Paragraph title="CSS setup" />
-            <div className="h-fit w-full max-w-lg rounded-[12px] border border-dashed p-1 sm:rounded-[16px] sm:border-2 sm:p-2">
+            <div className="h-fit w-full max-w-lg rounded border-2 border-dashed p-1 sm:p-2">
               <Code code={cssClass} lang="css" />
             </div>
           </div>
@@ -205,8 +209,19 @@ export default async function Page({ params }: { params: { slug: string } }) {
         {twConfig && (
           <div className="w-full space-y-4">
             <Paragraph title="Tailwind setup" />
-            <div className="h-fit w-full max-w-lg rounded-[12px] border border-dashed p-1 sm:rounded-[16px] sm:border-2 sm:p-2">
+            <div className="h-fit w-full max-w-lg rounded border-2 border-dashed p-1 sm:p-2">
               <Code code={twConfig} lang="json" />
+            </div>
+          </div>
+        )}
+
+        {customHook && (
+          <div className="w-full space-y-4">
+            <Paragraph title="Required Hook" />
+            <div className="h-fit w-full max-w-lg rounded border-2 border-dashed p-1 sm:p-2">
+              <CodeWrapper>
+                <Code code={customHook} lang="ts" />
+              </CodeWrapper>
             </div>
           </div>
         )}
@@ -214,7 +229,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
         {item.primitive && (
           <div className="w-full space-y-4">
             <Paragraph title="Code" />
-            <div className="h-fit w-full max-w-lg rounded-[12px] border border-dashed p-1 sm:rounded-[16px] sm:border-2 sm:p-2">
+            <div className="h-fit w-full max-w-lg rounded border-2 border-dashed p-1 sm:p-2">
               <CodeWrapper>
                 <Code code={code} lang="tsx" />
               </CodeWrapper>

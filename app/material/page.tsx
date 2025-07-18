@@ -1,14 +1,23 @@
-import React from "react";
 import { PiArrowRightBold } from "react-icons/pi";
+
+import React from "react";
 
 import { Metadata } from "next";
 import Link from "next/link";
 
+import { Icon } from "@/components/shared/icon";
 import Paragraph from "@/components/shared/paragraph";
+
+import { Badge } from "@/components/ui/badge";
 
 import SectionWrapper from "@/components/motion/section-wrapper";
 
-import { inspoItems, resourceItems, toolItems } from "@/lib/constants";
+import {
+  creditItems,
+  resourceItems,
+  techItems,
+  toolItems,
+} from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Material",
@@ -34,11 +43,11 @@ const Page = () => {
           {toolItems.map((item, index) => (
             <li
               key={index}
-              className="flex items-center gap-x-3 text-sm sm:text-sm"
+              className="flex flex-col items-start gap-y-1 text-sm sm:flex-row sm:items-center"
             >
               <p className="text-muted-foreground">{item.category}</p>
-              <PiArrowRightBold className="size-3 text-foreground" />
-              <p className="font-medium text-foreground">
+              <PiArrowRightBold className="mx-3 hidden size-3 text-foreground sm:block" />
+              <p className="text-pretty font-medium text-foreground">
                 {item.items.join(", ")}
               </p>
             </li>
@@ -47,30 +56,48 @@ const Page = () => {
       </div>
 
       <div className="w-full space-y-4">
+        <h2 className="text-base font-semibold">Tools</h2>
+        <div className="flex flex-wrap gap-2">
+          {techItems.map((item, index) => (
+            <Badge
+              key={index}
+              className="flex h-6 items-center gap-2 border px-2 font-medium capitalize [&>svg]:size-3"
+              variant="secondary"
+            >
+              <Icon name={item.id} type="tech" />
+              {item.name}
+            </Badge>
+          ))}
+        </div>
+      </div>
+
+      <div className="w-full space-y-4">
         <h2 className="text-base font-semibold">Inspiration</h2>
         <ul className="space-y-2">
-          {inspoItems.map((item, index) => (
-            <li key={index} className="flex items-start text-sm sm:text-sm">
-              <div className="flex items-center">
+          {creditItems.map((item, index) => (
+            <li
+              key={index}
+              className="flex flex-col items-start text-sm sm:flex-row"
+            >
+              <div className="mb-1 flex items-center sm:mb-0">
                 <p className="text-muted-foreground">{item.category}</p>
-                <PiArrowRightBold className="mx-3 size-3 text-foreground" />
+                <PiArrowRightBold className="mx-3 hidden size-3 text-foreground sm:block" />
               </div>
-              <div className="flex flex-wrap items-center gap-y-1">
+              <div className="flex flex-wrap items-center text-pretty">
                 {item.items.map((person, index) => (
-                  <React.Fragment key={index}>
-                    <Link
-                      href={person.href}
-                      target="_blank"
-                      aria-label={`Link to ${person.name}`}
-                      rel="noopener noreferrer"
-                      className="font-medium text-foreground underline-offset-2 hover:underline"
-                    >
-                      {person.name}
-                    </Link>
+                  <Link
+                    key={index}
+                    href={person.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Link to ${person.name}`}
+                    className="text-nowrap font-medium text-foreground underline-offset-2 hover:underline"
+                  >
+                    {person.name}
                     {index < item.items.length - 1 && (
                       <span className="mr-1">,</span>
                     )}
-                  </React.Fragment>
+                  </Link>
                 ))}
               </div>
             </li>
@@ -88,10 +115,13 @@ const Page = () => {
               aria-label={`Link to ${item.title}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="group/bookmark flex w-fit items-center gap-x-3 py-1"
+              className="group/bookmark flex w-fit items-start gap-x-3 py-1"
             >
-              <PiArrowRightBold className="text-foreground" size={12} />
-              <p className="anim w-full pr-5 text-sm font-medium text-muted-foreground group-hover/bookmark:text-foreground sm:text-sm">
+              <PiArrowRightBold
+                className="mt-[5px] text-foreground"
+                size={12}
+              />
+              <p className="anim w-full pr-5 text-sm font-medium text-muted-foreground group-hover/bookmark:text-foreground">
                 {item.title}
               </p>
             </Link>

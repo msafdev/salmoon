@@ -18,10 +18,10 @@ const signInWithProvider = async (
 
   if (error) {
     console.error(`OAuth sign-in error:`, error);
-    return { error: `❌ Login failed` };
+    return { error: `Login failed` };
   }
 
-  return { data: `💯 Login successful` };
+  return { data: `Login successful` };
 };
 
 export const githubSignIn = () => signInWithProvider("github");
@@ -33,9 +33,9 @@ export const signOut = async (): Promise<AuthResult> => {
 
   if (error) {
     console.error("OAtuh sign-out error:", error);
-    return { error: "❌ Logout failed" };
+    return { error: "Logout failed" };
   }
 
   location.reload();
-  return { data: "💯 Logout successful" };
+  return { data: "Logout successful" };
 };

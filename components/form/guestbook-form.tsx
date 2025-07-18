@@ -1,7 +1,5 @@
 "use client";
 
-import authMutation from "@/mutation/auth.mutation";
-
 import { PiArrowClockwiseBold } from "react-icons/pi";
 
 import Image from "next/image";
@@ -12,8 +10,10 @@ import Button from "@/components/shared/button";
 
 import ContentForm from "@/components/form/content-form";
 
+import authMutation from "@/mutation/auth.mutation";
+
 const GuestbookForm = ({ user }: { user: User | null }) => {
-  const { githubMutation, googleMutation, signOutMutation } = authMutation();
+  const { githubMutation, googleMutation } = authMutation();
 
   const authProviders = [
     {
@@ -36,29 +36,11 @@ const GuestbookForm = ({ user }: { user: User | null }) => {
     }
   };
 
-  const handleSignOut = () => {
-    signOutMutation.mutate();
-  };
-
   return (
     <div className="flex flex-col">
       {user ? (
         <div className="flex w-full flex-col gap-y-2">
           <ContentForm />
-          <button
-            onClick={handleSignOut}
-            disabled={signOutMutation.isPending}
-            className="w-fit text-left text-sm text-muted-foreground transition-colors hover:text-foreground disabled:opacity-50"
-          >
-            {signOutMutation.isPending ? (
-              <span className="flex items-center gap-1">
-                <PiArrowClockwiseBold className="size-3 animate-spin" />
-                Signing out...
-              </span>
-            ) : (
-              "Sign out"
-            )}
-          </button>
         </div>
       ) : (
         <div className="flex flex-wrap items-center gap-3">

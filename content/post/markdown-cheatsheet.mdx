@@ -1,29 +1,90 @@
 ---
 title: MDX Cheatsheet
-description: Typography and syntax highlighting within MDX components.
+description: Typography, components, and syntax highlighting within MDX files.
 date: 2025-05-14
 tags: ["code", "mdx"]
 published: true
+featured: true
 image: "/post/hand.webp"
+---
+
+## What is MDX?
+
+**MDX** lets you write JSX in Markdown. It blends the simplicity of Markdown with the power of React components. You can embed custom UI, interactivity, and dynamic content directly inside your `.mdx` files.
+
+MDX is great for:
+
+- Documentation
+- Developer blogs
+- Component previews
+- Interactive examples
+
+---
+
+## Basic Syntax
+
+MDX supports standard Markdown:
+
+```md
+# Heading 1
+
+## Heading 2
+
+- Lists
+- Like
+- These
+
+**Bold**, _Italic_, and `Inline code`
+
+> Blockquotes work too
+```
+
+You can also import and use components:
+
+```mdx
+import Button from "@/components/Button";
+
+<Button>Click Me</Button>
+```
+
+---
+
+## Frontmatter
+
+MDX supports YAML frontmatter at the top of the file for metadata:
+
+```yaml
+---
+title: My Post
+description: This is a description.
+tags: ["mdx", "blog"]
+published: true
+date: 2025-07-16
+---
+```
+
+This is often used in blogs or documentation systems to generate pages with dynamic content.
+
 ---
 
 ## Rehype Pretty Code
 
-[`rehype-pretty-code`](https://github.com/atomiks/rehype-pretty-code) is a Rehype plugin powered by the
-[`shiki`](https://github.com/shikijs/shiki) syntax highlighter that provides beautiful code blocks for Markdown or MDX. It works on both the server at build-time (avoiding runtime syntax highlighting) and on the client for dynamic highlighting.
+[`rehype-pretty-code`](https://github.com/atomiks/rehype-pretty-code) is a Rehype plugin powered by [`shiki`](https://github.com/shikijs/shiki). It enables syntax highlighting at **build time**, resulting in faster page loads and consistent styles across themes.
 
-## Editor-Grade Highlighting
+```bash
+npm install rehype-pretty-code
+```
 
-<span className="text-zinc-400/80 mix-blend-plus-lighter">
-  Enjoy the accuracy and granularity of VS Code's syntax highlighting engine and
-  the popularity of its themes ecosystem — use any VS Code theme you want!
-</span>
+### Features
 
-## Line Numbers and Line Highlighting
+- VS Code theme support (dark/light mode aware)
+- Line highlighting and line numbers
+- Word-level highlights
+- Diff indicators (`++`, `--`)
 
-You can highlight specific lines or words using `[!code highlight]`, track diffs using `[!code ++]` and `[!code --]`, and even highlight a word using `[!code word:"refs"]`
+### Example with highlights:
 
-```ts
+```tsx
 import { useFloating } from "@floating-ui/react";
 
 function MyComponent() {
@@ -31,29 +92,149 @@ function MyComponent() {
 
   return (
     <>
-      <div ref={refs.setReference} /> /* [!code highlight:2] */
+      <div ref={refs.setReference} /> // [!code highlight:2]
       <div ref={refs.setFloating} style={floatingStyles} />
     </>
   );
 }
 ```
 
----
+### Example with diffs:
 
 ```py
-import math
-
 radius = 2 # [!code --]
 radius = 5 # [!code ++]
 area = math.pi * radius**2
-print(f"The area of the circle is: {area}")
+print(area)
 ```
 
 ---
 
-```bash
-npm install rehype-pretty-code
+## Code Block Annotations
+
+With `rehype-pretty-code`, you can annotate code in several ways:
+
+| Syntax                 | Effect                            |
+| ---------------------- | --------------------------------- |
+| `[!code highlight]`    | Highlights the entire line        |
+| `[!code highlight:X]`  | Highlights a specific line number |
+| `[!code ++]`           | Shows as added in diff mode       |
+| `[!code --]`           | Shows as removed in diff mode     |
+| `[!code word:"myVar"]` | Highlights the word `myVar`       |
+
+You can also combine multiple annotations into 1 (one).
+
+---
+
+## Using Custom Components
+
+MDX allows embedding React components directly:
+
+```mdx
+import Alert from "@/components/Alert";
+
+<Alert type="info">This is an info alert with **markdown** inside!</Alert>
 ```
+
+Use this to create reusable UI for documentation:
+
+- `Note`, `Warning`, `Callout`
+- `Tabs`, `Accordion`, `VideoPlayer`, etc.
+- Interactive playgrounds with live code
+
+---
+
+## Custom Styling and Typography
+
+Tailwind CSS or any other CSS framework can be applied by wrapping content in styled components or using `prose` classes.
+
+Example with a custom `Note`:
+
+```mdx
+<Note title="Heads up!">
+  You can use `rehype-pretty-code` for beautiful code blocks.
+</Note>
+```
+
+Or wrap content with Tailwind's typography styles:
+
+```jsx
+<div className="prose prose-zinc dark:prose-invert">{children}</div>
+```
+
+---
+
+## Embedding Media
+
+You can embed images, iframes, and videos like normal HTML:
+
+```mdx
+<img src="/images/demo.png" alt="Demo" width="600" />
+
+<iframe
+  src="https://codesandbox.io/embed/new"
+  style={{ width: "100%", height: 400 }}
+  allow="accelerometer; camera; encrypted-media; geolocation; microphone"
+/>
+```
+
+---
+
+## MDX with Layouts
+
+MDX files often use a layout wrapper:
+
+```mdx
+import BlogLayout from "@/layouts/BlogLayout";
+
+export default ({ children }) => <BlogLayout>{children}</BlogLayout>;
+
+;
+```
+
+This allows you to:
+
+- Set metadata
+- Inject sidebars
+- Add headers/footers
+
+---
+
+## Dynamic Imports in MDX
+
+To optimize bundle size, you can use dynamic imports inside components:
+
+```tsx
+import dynamic from "next/dynamic";
+
+const Chart = dynamic(() => import("@/components/Chart"), { ssr: false });
+
+<Chart />;
+```
+
+Use this inside an `.mdx` component file when rendering complex charts or interactive UI that shouldn't be server-rendered.
+
+---
+
+## Next-Level MDX with `contentlayer` or `mdx-bundler`
+
+For complex MDX systems, consider using:
+
+- **[Contentlayer](https://www.contentlayer.dev/)** – Type-safe content system for Next.js
+- **[MDX Bundler](https://github.com/kentcdodds/mdx-bundler)** – For serverless-compatible MDX rendering
+- **[xdm](https://github.com/wooorm/xdm)** – Compiler that powers MDX under the hood
+
+These tools let you:
+
+- Query MDX content like a database
+- Add custom rehype/remark plugins
+- Automatically type MDX frontmatter and metadata
+
+---
+
+## Summary
+
+MDX lets you write Markdown with embedded components, code highlighting, and React interactivity — all while maintaining readability and performance. Whether you're building a blog, docs site, or design system, MDX gives you the tools to scale content and code together.
 
 ---
 

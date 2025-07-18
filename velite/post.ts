@@ -9,6 +9,10 @@ export function sortPosts(posts: Array<Post>) {
   });
 }
 
+export function getFeaturedPosts(posts: Array<Post>) {
+  return posts.filter((post) => post.featured);
+}
+
 export function getAllTags(posts: Array<Post>) {
   const tags: Record<string, number> = {};
   posts.forEach((post) => {

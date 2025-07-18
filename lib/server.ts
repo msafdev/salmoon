@@ -31,6 +31,15 @@ export async function getFilePathAndConfig(item: ComponentType) {
   const cssClass = item.cssClass;
   const uiLibrary = item.uiLibrary;
 
+  let customHook: string | null = null;
+  if (item.customHook) {
+    const customHookPath = `./hooks/${item.customHook}.ts`;
+
+    customHook = await readFilePath(customHookPath).catch(() => {
+      return `// Custom hook "${item.customHook}" not found in /hooks`;
+    });
+  }
+
   const exampleCodes = await Promise.all(
     item.example.map(async (ex) => {
       if (!ex.path)
@@ -49,5 +58,5 @@ export async function getFilePathAndConfig(item: ComponentType) {
     }),
   );
 
-  return { code, twConfig, uiLibrary, cssClass, exampleCodes };
+  return { code, twConfig, uiLibrary, cssClass, exampleCodes, customHook };
 }

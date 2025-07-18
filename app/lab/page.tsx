@@ -1,5 +1,3 @@
-import "@/styles/lab.css";
-
 import { createElement } from "react";
 
 import { Metadata } from "next";
@@ -11,6 +9,7 @@ import Paragraph from "@/components/shared/paragraph";
 import SectionWrapper from "@/components/motion/section-wrapper";
 
 import { COMPONENTS } from "@/lib/data";
+import "@/styles/lab.css";
 
 export const metadata: Metadata = {
   title: "Lab",
@@ -68,13 +67,16 @@ export default function Page() {
             development environment.
           </p>
         </Paragraph>
-        <div className="grid w-full max-w-lg grid-flow-dense gap-6 sm:grid-cols-2">
+
+        <div className="grid w-full max-w-lg grid-flow-dense gap-4 sm:grid-cols-2">
           {COMPONENTS.map((component, index) => (
             <LabCard
               key={index}
               button={true}
               slug={component.slug}
               gridClass={component.gridClass}
+              name={component.name}
+              className="rounded"
             >
               {component.example &&
                 Array.isArray(component.example) &&
@@ -82,7 +84,7 @@ export default function Page() {
                 component.example[component.thumbnail ?? 0].child &&
                 createElement(
                   component.example[component.thumbnail ?? 0].child,
-                )}{" "}
+                )}
             </LabCard>
           ))}
         </div>

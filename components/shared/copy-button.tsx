@@ -1,10 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { PiCheckBold, PiClipboardDuotone } from "react-icons/pi";
+import { PiCheckBold, PiClipboardDuotone, PiClipboardTextDuotone } from "react-icons/pi";
 
 import { Button } from "@/components/ui/button";
-import { useToast } from "@/components/ui/use-toast";
+import { useToast } from "@/hooks/use-toast";
 
 import { copyToClipboard } from "@/lib/functions";
 
@@ -23,8 +23,10 @@ const CopyButton = ({
     setIsCopied(true);
     toast({
       title: "Copied to clipboard",
-      description: "Don't forget to leave a ⭐️ on the repo!",
+      description: "Don't forget to leave a ⭐️ on the repo",
       duration: 2000,
+      icon: PiClipboardTextDuotone,
+      color: "default",
     });
 
     setTimeout(() => {

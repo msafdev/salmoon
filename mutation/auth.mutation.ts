@@ -1,10 +1,12 @@
 "use client";
 
-import { githubSignIn, googleSignIn, signOut } from "@/action/auth";
+import { LuBadgeCheck, LuBadgeX } from "react-icons/lu";
 
 import { useMutation } from "@tanstack/react-query";
 
-import { useToast } from "@/components/ui/use-toast";
+import { useToast } from "@/hooks/use-toast";
+
+import { githubSignIn, googleSignIn, signOut } from "@/action/auth";
 
 const authMutation = () => {
   const { toast } = useToast();
@@ -17,12 +19,16 @@ const authMutation = () => {
           title: "GitHub Login Failed",
           description: response.error,
           duration: 2000,
+          icon: LuBadgeX,
+          color: "destructive",
         });
       } else {
         toast({
           title: "Success",
           description: response.data,
           duration: 2000,
+          icon: LuBadgeCheck,
+          color: "success",
         });
       }
     },
@@ -31,6 +37,8 @@ const authMutation = () => {
         title: "Error",
         description: "Unexpected error during GitHub sign-in",
         duration: 2000,
+        icon: LuBadgeX,
+        color: "destructive",
       });
     },
   });
@@ -43,12 +51,16 @@ const authMutation = () => {
           title: "Google Login Failed",
           description: response.error,
           duration: 2000,
+          icon: LuBadgeX,
+          color: "destructive",
         });
       } else {
         toast({
           title: "Success",
           description: response.data,
           duration: 2000,
+          icon: LuBadgeCheck,
+          color: "success",
         });
       }
     },
@@ -57,6 +69,8 @@ const authMutation = () => {
         title: "Error",
         description: "Unexpected error during Google sign-in",
         duration: 2000,
+        icon: LuBadgeX,
+        color: "destructive",
       });
     },
   });
@@ -69,12 +83,16 @@ const authMutation = () => {
           title: "Logout Failed",
           description: response.error,
           duration: 2000,
+          icon: LuBadgeX,
+          color: "destructive",
         });
       } else {
         toast({
           title: "Signed Out",
           description: response.data,
           duration: 2000,
+          icon: LuBadgeCheck,
+          color: "success",
         });
       }
     },
@@ -83,6 +101,8 @@ const authMutation = () => {
         title: "Error",
         description: "Unexpected error during logout",
         duration: 2000,
+        icon: LuBadgeX,
+        color: "destructive",
       });
     },
   });

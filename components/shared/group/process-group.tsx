@@ -43,7 +43,7 @@ function ProcessStep({ id, name, description, index, total }: ProcessProps) {
   );
 }
 
-export default function ProcessItem() {
+export default function ProcessGroup() {
   const containerRef = useRef(null);
   const isInView = useInView(containerRef, {
     once: true,

@@ -105,7 +105,7 @@ const MemoCard = () => {
 
         <div className="flex items-center justify-between">
           <p
-            className={`font-cave -rotate-3 text-center font-semibold leading-none`}
+            className={`-rotate-3 text-center font-caveat font-semibold leading-none`}
           >
             With love, <br />
             Salman

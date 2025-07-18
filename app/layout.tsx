@@ -1,8 +1,6 @@
-import "@/styles/globals.css";
-
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
-import { Caveat, Licorice, Plus_Jakarta_Sans } from "next/font/google";
+import { Caveat, Plus_Jakarta_Sans } from "next/font/google";
 import NextTopLoader from "nextjs-toploader";
 
 import { Analytics } from "@vercel/analytics/react";
@@ -14,6 +12,8 @@ import { Toaster } from "@/components/ui/toaster";
 
 import QueryProvider from "@/components/query-provider";
 import { ThemeProvider } from "@/components/theme-provider";
+
+import "@/styles/globals.css";
 
 import NotFound from "./not-found";
 import { baseUrl } from "./sitemap";
@@ -28,13 +28,6 @@ const plusJakarta = Plus_Jakarta_Sans({
   variable: "--font-jakarta-plus",
 });
 
-const licorice = Licorice({
-  subsets: ["latin"],
-  display: "swap",
-  weight: ["400"],
-  variable: "--font-licorice",
-});
-
 const caveat = Caveat({
   subsets: ["latin-ext"],
   display: "swap",
@@ -46,7 +39,7 @@ export const metadata: Metadata = {
   metadataBase: baseUrl ? new URL(baseUrl) : undefined,
   applicationName: "Msafdev",
   title: {
-    default: "Msafdev | Design Engineer",
+    default: "Msafdev | Product Engineer",
     template: "Msafdev | %s",
   },
   keywords: [
@@ -56,7 +49,7 @@ export const metadata: Metadata = {
     "salmoon",
     "salman alfarisi",
     "fullstack developer",
-    "product designer",
+    "product engineer",
     "UI/UX",
     "frontend",
     "backend",
@@ -67,6 +60,7 @@ export const metadata: Metadata = {
     "portfolio developer",
     "hire fullstack developer",
     "design engineer",
+    "indonesia",
     "software engineer portfolio",
   ],
   verification: {
@@ -76,9 +70,9 @@ export const metadata: Metadata = {
     icon: `/favicon.ico`,
   },
   description:
-    "When creativity meets perfection, you get me. A freelance design engineer / fullstack developer with a passion for building pretty products.",
+    "When creativity meets perfection, you get me. A freelance product engineer / fullstack developer with a passion for building pretty products.",
   openGraph: {
-    title: "Msafdev | Design Engineer",
+    title: "Msafdev | Product Engineer",
     url: baseUrl,
     siteName: "Msafdev",
     locale: "en_US",
@@ -93,7 +87,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Msafdev | Design Engineer",
+    title: "Msafdev | Product Engineer",
     images: [`${baseUrl}/og`],
   },
 };
@@ -106,7 +100,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${plusJakarta.variable} ${licorice.variable} ${caveat.variable} antialiased`}
+      className={`${plusJakarta.variable} ${caveat.variable} antialiased`}
     >
       <body className="font-jakarta-plus">
         <SpeedInsights />

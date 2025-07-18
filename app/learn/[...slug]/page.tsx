@@ -1,6 +1,6 @@
 import { learns } from "#site/content";
-import { getPrevAndNext } from "@/velite/learn";
 
+import { LuBadgeCheck } from "react-icons/lu";
 import {
   PiArrowLeftBold,
   PiArrowRightBold,
@@ -19,6 +19,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 
 import { siteItems } from "@/lib/constants";
+import { getPrevAndNext } from "@/velite/learn";
 
 interface LearnPageProps {
   params: {
@@ -82,6 +83,8 @@ export default async function LearnPage({ params }: LearnPageProps) {
   const learn = await getLearnFromParams(params);
 
   if (!learn || !learn.published) notFound();
+
+  console.log(learn.last)
 
   const tableOfContents = MDXToC({ code: learn.body });
 
@@ -153,7 +156,20 @@ export default async function LearnPage({ params }: LearnPageProps) {
           <Mdx code={learn.body} />
         </div>
 
-        {next || prev ? (
+        {learn.last === true ? (
+          <div className="flex flex-col items-center">
+            <div className="h-24 w-0.5 bg-gradient-to-b from-transparent to-green-500/20 md:h-36" />
+            <div className="rounded-full bg-green-500/20 p-4">
+              <LuBadgeCheck
+                size={24}
+                className="fill-green-500 text-background"
+              />
+            </div>
+            <h3 className="mt-4 text-center text-xs font-medium md:mt-6">
+              You have finished everything in this course
+            </h3>
+          </div>
+        ) : (
           <div className="flex w-full max-w-sm items-center justify-between lg:max-w-md xl:max-w-lg">
             {prev && (
               <Button
@@ -177,16 +193,6 @@ export default async function LearnPage({ params }: LearnPageProps) {
                 </Link>
               </Button>
             )}
-          </div>
-        ) : (
-          <div className="flex flex-col items-center">
-            <div className="h-24 w-0.5 bg-gradient-to-b from-transparent to-green-500/20 md:h-36" />
-            <div className="rounded-full bg-green-500/20 p-4">
-              <PiChecksDuotone size={24} className="text-green-500" />
-            </div>
-            <h3 className="mt-4 text-center text-xs font-medium md:mt-6">
-              You have finished everything in this course
-            </h3>
           </div>
         )}
       </div>

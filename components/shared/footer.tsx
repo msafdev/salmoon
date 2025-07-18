@@ -3,11 +3,12 @@
 import { useInView } from "framer-motion";
 
 import { useRef } from "react";
+import { PiAtDuotone } from "react-icons/pi";
 
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
-import { useToast } from "@/components/ui/use-toast";
+import { useToast } from "@/hooks/use-toast";
 
 import { Magnetic } from "@/components/motion/magnetic";
 
@@ -36,7 +37,7 @@ const Footer = () => {
         }`}
       >
         <div className="flex w-full flex-col items-center justify-between gap-4 text-primary-foreground dark:text-primary md:flex-row">
-          <span className={`font-licorice text-3xl`}>Salman</span>
+          <span className={`font-caveat text-3xl`}>Salman</span>
           <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-sm text-primary-foreground/80 dark:text-primary/80">
             <button
               className="anim hover:text-primary-foreground dark:hover:text-primary"
@@ -52,8 +53,10 @@ const Footer = () => {
                 copyToClipboard("salmanalfarisi261002@gmail.com");
                 toast({
                   title: "Copied to clipboard",
-                  description: "😉 please use it wisely!",
+                  description: "Please use it wisely",
                   duration: 2000,
+                  icon: PiAtDuotone,
+                  color: "default",
                 });
               }}
             >

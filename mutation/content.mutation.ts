@@ -1,10 +1,12 @@
 "use client";
 
-import { addContent } from "@/action/content";
+import { LuBadgeCheck, LuBadgeX } from "react-icons/lu";
 
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
-import { useToast } from "@/components/ui/use-toast";
+import { useToast } from "@/hooks/use-toast";
+
+import { addContent } from "@/action/content";
 
 const contentMutation = () => {
   const queryClient = useQueryClient();
@@ -22,12 +24,16 @@ const contentMutation = () => {
           title: "Something went wrong",
           description: response.error,
           duration: 2000,
+          icon: LuBadgeX,
+          color: "destructive",
         });
       } else if (response?.data) {
         toast({
           title: "Success",
           description: response.data,
           duration: 2000,
+          icon: LuBadgeCheck,
+          color: "success",
         });
         queryClient.invalidateQueries({ queryKey: ["guestbook"] });
       }
@@ -37,6 +43,8 @@ const contentMutation = () => {
         title: "Something went wrong",
         description: "An unexpected error occurred",
         duration: 2000,
+        icon: LuBadgeX,
+        color: "destructive",
       });
     },
   });

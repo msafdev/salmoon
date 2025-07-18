@@ -26,7 +26,7 @@ const BlogCard = ({
         className,
       )}
     >
-      <div className="relative col-span-full aspect-[8/5] h-auto w-full overflow-hidden rounded-lg bg-muted">
+      <div className="relative col-span-full aspect-[8/5] h-auto w-full overflow-hidden rounded bg-muted">
         <Image
           src={image}
           alt={`Thumbnail of ${title}`}

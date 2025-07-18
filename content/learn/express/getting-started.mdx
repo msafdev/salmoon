@@ -1,9 +1,163 @@
 ---
 title: Getting Started
-description: A short introduction of some sort.
+description: Learn how to set up and build your first Express.js application with ease.
 tags: ["express"]
 chapter: 1
 published: true
+last: true
 ---
 
 ## Introduction
+
+Express.js is a fast, unopinionated, and minimalist web framework for Node.js. It simplifies building APIs and web servers, offering a powerful set of features for routing, middleware, and HTTP utility methods.
+
+In this guide, you'll learn:
+
+- System requirements
+- How to install and scaffold an Express.js app
+- Basic routing and middleware concepts
+- How to run your development server
+
+---
+
+## System Requirements
+
+Before starting, make sure your environment meets the following requirements:
+
+- **Node.js** version `18.17` or higher
+- **npm**, `pnpm`, or `yarn`
+- A code editor like Visual Studio Code
+
+To verify you have Node.js and npm installed:
+
+```bash
+node -v
+npm -v
+```
+
+---
+
+## Installation
+
+To create a new Express.js project, start by creating a folder and initializing a Node.js project:
+
+```bash
+mkdir my-express-app
+cd my-express-app
+npm init -y
+```
+
+Then install Express:
+
+```bash
+npm install express
+```
+
+Create a new file called `index.js`:
+
+```js
+// index.js
+const express = require("express");
+const app = express();
+const port = 3000;
+
+app.get("/", (req, res) => {
+  res.send("Hello, Express!");
+});
+
+app.listen(port, () => {
+  console.log(`Server running at http://localhost:${port}`);
+});
+```
+
+Start the development server:
+
+```bash
+node index.js
+```
+
+Open your browser and visit [http://localhost:3000](http://localhost:3000).
+
+---
+
+## Basic Routing
+
+Express uses route definitions to handle incoming HTTP requests. A route consists of a **path** and a **handler function**:
+
+```js
+app.get("/about", (req, res) => {
+  res.send("About page");
+});
+```
+
+You can handle different HTTP methods:
+
+- `app.get()` — Read data
+- `app.post()` — Create data
+- `app.put()` — Update data
+- `app.delete()` — Delete data
+
+---
+
+## Middleware
+
+Middleware functions have access to the request and response objects. They are used for:
+
+- Logging
+- Authentication
+- Parsing request bodies
+
+Example of using middleware:
+
+```js
+app.use(express.json()); // Parses JSON request bodies
+
+app.post("/data", (req, res) => {
+  res.send(`Received: ${JSON.stringify(req.body)}`);
+});
+```
+
+---
+
+## Project Structure
+
+For small apps, a single `index.js` file is fine. For larger projects, you can organize code into folders:
+
+```
+my-express-app/
+├── routes/
+│   └── index.js
+├── middleware/
+│   └── logger.js
+├── public/
+├── views/
+├── index.js
+├── package.json
+```
+
+- `routes/` — Defines different routes (e.g., `/users`, `/posts`)
+- `middleware/` — Custom middleware logic
+- `public/` — Static files (CSS, images, etc.)
+- `views/` — Templates if using view engines like EJS or Pug
+
+---
+
+## Next Steps
+
+Once your basic server is running, consider:
+
+- Using a view engine like EJS or Pug for templating
+- Adding middleware like `morgan` for logging or `cors` for cross-origin requests
+- Organizing routes into separate files using `express.Router()`
+- Connecting a database (e.g., MongoDB with Mongoose or PostgreSQL with Prisma)
+- Deploying with platforms like [Render](https://render.com) or [Railway](https://railway.app)
+
+For full documentation, visit the [Express.js docs](https://expressjs.com/).
+
+---
+
+## Summary
+
+Express.js is a lightweight framework that gives you full control over how your web application or API behaves. Its simplicity makes it ideal for both beginners and advanced developers who need flexibility without unnecessary complexity.
+
+You're now ready to start building your own Express-powered backend!

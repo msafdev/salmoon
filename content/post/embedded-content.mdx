@@ -1,0 +1,41 @@
+---
+title: Embedded Content
+description: A guide on how to embed content inside MDX files using custom styles.
+date: 2025-07-18
+tags: ["mdx", "code"]
+published: true
+featured: false
+image: "/post/scream.webp"
+---
+
+## Intro
+
+MDX lets you blend Markdown with JSX, which means you can embed dynamic content—like music, videos, or GitHub repos—directly into your posts using custom components.
+
+This post demonstrates how to embed rich media in MDX using syntax like `::component{}`. Each section below shows a working example along with the type of content you can include.
+
+## Spotify
+
+Embed individual tracks or full albums:
+
+::embed[https://open.spotify.com/track/41Y0ch6R3jzpJOZv6nhf9Z?si=6c82dbed65ab4853]
+
+::embed[https://open.spotify.com/album/1kBPEN3NIVwjdmIjjNk9vB?si=Lz29MvjwRnKX9y3dhxlbaQ]
+
+## YouTube
+
+Embed videos via iframe-style links:
+
+::embed[https://www.youtube.com/embed/GlhV-OKHecI?si=KdB4rRPLAMEK-ozf]
+
+## BiliBili
+
+Yes, even BiliBili works with the right embed setup:
+
+::embed[https://www.bilibili.com/video/BV1Vm421W7pX/?vd_source=c0bc2746a6d2b23de50d26376498b2ff]
+
+## GitHub
+
+Embed repositories to showcase projects:
+
+::embed[msafdev/salmoon]

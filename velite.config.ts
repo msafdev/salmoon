@@ -23,6 +23,7 @@ const posts = defineCollection({
       description: s.string().max(999).optional(),
       date: s.isodate(),
       published: s.boolean().default(true),
+      featured: s.boolean().default(false),
       tags: s.array(s.string()).optional(),
       body: s.mdx(),
     })
@@ -40,6 +41,7 @@ const learns = defineCollection({
       chapter: s.number().min(1),
       published: s.boolean().default(true),
       tags: s.array(s.string()).optional(),
+      last: s.boolean().default(false),
       body: s.mdx(),
     })
     .transform(computedFields),
@@ -53,9 +55,10 @@ const projects = defineCollection({
       slug: s.path(),
       title: s.string().max(99),
       image: s.string().max(99),
-      description: s.string().max(999).optional(),
+      description: s.string().max(999),
       published: s.boolean().default(true),
-      tags: s.array(s.string()).optional(),
+      types: s.array(s.string()),
+      tags: s.array(s.string()),
       demo: s.string().max(99),
       github: s.string().max(99),
       body: s.mdx(),

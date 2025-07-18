@@ -8,6 +8,10 @@ export default function robots(): MetadataRoute.Robots {
         allow: ["/"],
       },
       {
+        userAgent: "Twitterbot",
+        allow: ["/"]
+      },
+      {
         userAgent: "Bingbot",
         disallow: ["/"],
       },

@@ -14,12 +14,12 @@ const ProfileSection = () => {
           <CheckmarkIcon />
         </div>
         <p className="text-xs font-medium leading-none text-muted-foreground md:text-sm">
-          Fullstack Engineer
+          Product Engineer
         </p>
       </div>
 
       <p className="w-full max-w-lg pb-4 text-sm text-muted-foreground md:text-base">
-        I am a fullstack engineer based in{" "}
+        I am a product engineer based in{" "}
         <span className="font-medium text-foreground">Indonesia</span>,
         specifically in Semarang. In my free time, I enjoy listening to music
         and exploring new places.

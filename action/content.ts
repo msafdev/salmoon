@@ -8,11 +8,11 @@ export async function addContent(formData: FormData) {
   const content = formData.get("content") as string;
 
   if (!content || content.length < 3) {
-    return { error: "‼️ Content must be at least 3 characters" };
+    return { error: "Content must be at least 3 characters" };
   }
 
   if (content.length > 100) {
-    return { error: "‼️ Content must be less than 100 characters" };
+    return { error: "Content must be less than 100 characters" };
   }
 
   try {
@@ -20,7 +20,7 @@ export async function addContent(formData: FormData) {
     const { data: user, error: userError } = await supabase.auth.getUser();
 
     if (userError || !user.user) {
-      return { error: "⛔ User not found" };
+      return { error: "User not found" };
     }
 
     const { error } = await supabase.from("guestbook").insert({
@@ -30,13 +30,13 @@ export async function addContent(formData: FormData) {
 
     if (error) {
       console.error("Database error:", error);
-      return { error: `❌ ${error.message}` };
+      return { error: `${error.message}` };
     }
 
     revalidatePath("/guestbook");
-    return { data: "💯 Content posted successfully" };
+    return { data: "Content posted successfully" };
   } catch (error) {
     console.error("Unexpected error:", error);
-    return { error: "❌ An unexpected error occurred" };
+    return { error: "An unexpected error occurred" };
   }
 }

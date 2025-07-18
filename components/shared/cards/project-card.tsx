@@ -1,56 +1,36 @@
-import { PiArrowRightBold, PiGithubLogoDuotone } from "react-icons/pi";
-
-import Image from "next/image";
 import Link from "next/link";
 
+import { cn } from "@/lib/utils";
+
 const ProjectCard = ({
-  demo,
+  href,
   title,
-  image,
-  github,
+  description,
+  className,
 }: {
-  demo: string;
+  href: string;
   title: string;
-  image: string;
-  github: string;
+  description: string;
+  className?: string;
 }) => {
   return (
-    <div className="group/card relative w-full overflow-hidden">
-      {image && (
-        <div className="aspect-video h-auto w-full rounded-[12px] border-2 border-dashed p-1 sm:rounded-[16px] sm:p-2">
-          <div className="relative h-full w-full overflow-hidden rounded-[8px]">
-            <Image
-              src={image}
-              alt={`${title} showcase image.`}
-              className="object-cover group-hover/card:grayscale-0 dark:grayscale"
-              loading="lazy"
-              fill
-              sizes="(max-width: 640px) 80vw, 60vw"
-            />
-          </div>
-        </div>
+    <Link
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={title}
+      className={cn(
+        "anim group/project flex w-full flex-col gap-y-0.5 rounded-md bg-background py-2 text-sm hover:bg-accent hover:pl-3 sm:text-sm",
+        className,
       )}
-      <div className="anim-slow absolute right-3 top-3 space-y-2 md:-top-full md:right-6 group-hover/card:md:top-6">
-        <Link
-          href={demo}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={title}
-          className="grid size-7 place-items-center rounded-xl bg-primary/30 text-primary-foreground backdrop-blur dark:bg-accent/30 dark:text-accent-foreground"
-        >
-          <PiArrowRightBold className="-rotate-45" size={16} />
-        </Link>
-        <Link
-          href={github}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={title}
-          className="grid size-7 place-items-center rounded-xl bg-primary/30 text-primary-foreground backdrop-blur dark:bg-accent/30 dark:text-accent-foreground"
-        >
-          <PiGithubLogoDuotone size={16} />
-        </Link>
-      </div>
-    </div>
+    >
+      <h3 className="anim font-semibold text-foreground group-hover/project:text-accent-foreground">
+        {title}
+      </h3>
+      <p className="anim line-clamp-1 text-sm font-medium text-muted-foreground">
+        {description}
+      </p>
+    </Link>
   );
 };
 

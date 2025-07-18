@@ -8,12 +8,14 @@ import { cn } from "@/lib/utils";
 
 const LabCard = ({
   children,
+  name,
   slug,
   button = false,
   className = "",
   gridClass = "regular-card",
 }: {
   children: React.ReactNode;
+  name?: string;
   slug?: string;
   button?: boolean;
   className?: string;
@@ -29,7 +31,7 @@ const LabCard = ({
   return (
     <div
       className={cn(
-        `group/card relative flex h-auto w-full items-center justify-center overflow-hidden rounded-xl border-2 border-dashed p-6`,
+        `group/card relative flex h-auto w-full items-center justify-center overflow-hidden rounded border-2 border-dashed p-6`,
         size[gridClass || "regular-card"],
         className,
       )}
@@ -38,10 +40,10 @@ const LabCard = ({
 
       {button && (
         <Button
-          variant="secondary"
+          variant="ghost"
           size="icon"
           asChild
-          className="absolute right-3 top-3 size-8 transition-all duration-300 ease-in-out lg:-translate-y-8 lg:scale-75 lg:opacity-0 lg:group-hover/card:translate-y-0 lg:group-hover/card:scale-100 lg:group-hover/card:opacity-100"
+          className="absolute right-2 top-2 size-8 transition-all duration-300 ease-in-out lg:-translate-y-8 lg:scale-75 lg:opacity-0 lg:group-hover/card:translate-y-0 lg:group-hover/card:scale-100 lg:group-hover/card:opacity-100"
         >
           <Link
             href={`/lab/${slug}`}
@@ -51,6 +53,12 @@ const LabCard = ({
             <PiArrowRightBold className="h-4 w-4" />
           </Link>
         </Button>
+      )}
+
+      {name && (
+        <span className="absolute left-3 top-2 font-caveat font-semibold">
+          {name}
+        </span>
       )}
     </div>
   );

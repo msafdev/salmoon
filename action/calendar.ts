@@ -1,6 +1,5 @@
 "use server";
 
-import { Contact } from "@/types/contact-types";
 import { google } from "googleapis";
 
 import { revalidatePath } from "next/cache";
@@ -18,6 +17,7 @@ import {
   parse,
   toZonedTime,
 } from "@/lib/date";
+import { Contact } from "@/types/contact-types";
 
 const SCOPES = [
   "https://www.googleapis.com/auth/calendar",
@@ -38,7 +38,7 @@ const initGoogleCalendar = async () => {
     const auth = new google.auth.GoogleAuth({ credentials, scopes: SCOPES });
     return google.calendar({ version: "v3", auth });
   } catch (error) {
-    console.error("❌ Failed to initialize Google Calendar API:", error);
+    console.error("Failed to initialize Google Calendar API:", error);
     return null;
   }
 };
@@ -46,7 +46,7 @@ const initGoogleCalendar = async () => {
 export const getAvailableSlots = async (date: string) => {
   try {
     const calendar = await initGoogleCalendar();
-    if (!calendar) return { error: "❌ Calendar not initialized" };
+    if (!calendar) return { error: "Calendar not initialized" };
 
     const dayDate = parse(date, "yyyyMMdd");
     const dateSlots = buildDateSlots(dayDate);
@@ -78,15 +78,15 @@ export const getAvailableSlots = async (date: string) => {
 
     return { data: formattedSlots };
   } catch (error) {
-    console.error("❌ Error getting available slots:", error);
-    return { error: "❌ Failed to fetch available slots" };
+    console.error("Error getting available slots:", error);
+    return { error: "Failed to fetch available slots" };
   }
 };
 
 export const createMeeting = async (formData: Contact) => {
   try {
     const calendar = await initGoogleCalendar();
-    if (!calendar) return { error: "❌ Calendar not initialized" };
+    if (!calendar) return { error: "Calendar not initialized" };
 
     const {
       name,
@@ -134,12 +134,12 @@ ${message}
     revalidatePath("/contact");
 
     if (status === 200 && meeting) {
-      return { data: "💯 Meeting successfully scheduled!" };
+      return { data: "I will notify you shortly" };
     }
 
-    return { error: "❌ Failed to create meeting" };
+    return { error: "Failed to create meeting" };
   } catch (error) {
-    console.error("❌ An unexpected error occurred: ", error);
-    return { error: "❌ An unexpected error occurred" };
+    console.error("An unexpected error occurred: ", error);
+    return { error: "An unexpected error occurred" };
   }
 };

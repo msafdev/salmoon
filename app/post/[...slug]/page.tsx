@@ -114,26 +114,24 @@ export default async function PostPage({ params }: PostPageProps) {
       </div>
 
       <div className="flex w-full max-w-lg flex-col">
-        <h1 className="mb-6 text-xl font-bold sm:text-2xl md:text-3xl">
+        <h1 className="mb-4 text-xl font-bold sm:mb-6 sm:text-2xl">
           {post.title}
         </h1>
 
         {/* Cover Image */}
-        <div className="mb-6 aspect-video h-auto w-full rounded-[12px] border-2 border-dashed p-1 sm:rounded-[16px] sm:p-2">
-          <div className="relative h-full w-full overflow-hidden rounded-[8px]">
-            <Image
-              src={post.image}
-              alt={`${post.title} cover image.`}
-              fill
-              className="object-cover"
-            />
-          </div>
+        <div className="relative mb-4 aspect-video h-auto w-full overflow-hidden rounded sm:mb-6">
+          <Image
+            src={post.image}
+            alt={`${post.title} cover image.`}
+            fill
+            className="object-cover"
+          />
         </div>
 
         {/* Profile */}
         <div className="mb-1 flex items-center gap-3">
           <div className="relative">
-            <Avatar className="rounded-md border">
+            <Avatar className="rounded-full border size-11">
               <AvatarImage
                 src="https://github.com/msafdev.png"
                 alt="@msafdev"
@@ -145,11 +143,11 @@ export default async function PostPage({ params }: PostPageProps) {
 
             <LuBadgeCheck
               size={20}
-              className="absolute -bottom-1.5 -right-1.5 fill-green-500 text-background"
+              className="absolute -bottom-1 -right-1 fill-green-500 text-background"
             />
           </div>
           <div className="flex flex-col">
-            <p className="text-sm font-medium text-foreground">
+            <p className="text-sm font-semibold text-foreground">
               {siteItems.name}
             </p>
             <p className="text-xs font-medium text-muted-foreground">

@@ -31,7 +31,7 @@ export function Profile() {
         width={64}
         height={64}
         quality={60}
-        className="overflow-hidden rounded-xl border dark:border-border"
+        className="overflow-hidden rounded-xl border"
       />
     </div>
   );

@@ -1,11 +1,12 @@
 import { Metadata } from "next";
 
 import QuoteCard from "@/components/shared/cards/quote-card";
+import MovieGroup from "@/components/shared/group/movie-group";
 import Paragraph from "@/components/shared/paragraph";
 
 import SectionWrapper from "@/components/motion/section-wrapper";
-import MovieSection from "@/components/section/movie-section";
-import TrackSection from "@/components/section/track-section";
+
+import TrackGroup from "@/components/section/track-section";
 
 export const metadata: Metadata = {
   title: "Personal",
@@ -32,7 +33,7 @@ export default async function Page() {
             that I've been playing the most.
           </p>
         </Paragraph>
-        <TrackSection />
+        <TrackGroup />
       </div>
       <div className="w-full space-y-4">
         <Paragraph title="Top Movies">
@@ -42,7 +43,7 @@ export default async function Page() {
             that have left a lasting impression on me.
           </p>
         </Paragraph>
-        <MovieSection />
+        <MovieGroup />
       </div>
     </SectionWrapper>
   );
