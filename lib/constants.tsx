@@ -1,8 +1,8 @@
 import {
-  PiArchiveDuotone,
+  PiBriefcaseDuotone,
   PiCircleDuotone,
+  PiDatabaseDuotone,
   PiGithubLogoDuotone,
-  PiGraduationCapDuotone,
   PiHouseDuotone,
   PiInstagramLogoDuotone,
   PiLightningDuotone,
@@ -40,7 +40,7 @@ export const navItems = [
     id: 2,
     label: "Archive",
     href: "/archive",
-    icon: <PiArchiveDuotone className="h-full w-full" />,
+    icon: <PiBriefcaseDuotone className="h-full w-full" />,
   },
   {
     id: 3,
@@ -50,9 +50,9 @@ export const navItems = [
   },
   {
     id: 4,
-    label: "Learn",
-    href: "/learn",
-    icon: <PiGraduationCapDuotone className="h-full w-full" />,
+    label: "Material",
+    href: "/material",
+    icon: <PiDatabaseDuotone className="h-full w-full" />,
   },
   {
     id: 5,

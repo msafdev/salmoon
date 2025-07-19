@@ -2,16 +2,17 @@
 
 import { useInView } from "framer-motion";
 
-import { useRef } from "react";
 import { PiAtDuotone } from "react-icons/pi";
+
+import { useRef } from "react";
 
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
-import { useToast } from "@/hooks/use-toast";
 
 import { Magnetic } from "@/components/motion/magnetic";
 
+import { useToast } from "@/hooks/use-toast";
 import { copyToClipboard } from "@/lib/functions";
 
 const Footer = () => {
@@ -130,16 +131,16 @@ const Footer = () => {
             </h2>
             <div className="flex flex-col gap-y-2 text-center text-sm font-medium text-primary-foreground/60 dark:text-foreground/60 md:text-right">
               <Link
+                href={"/learn"}
+                className="anim hover:text-primary-foreground dark:hover:text-primary"
+              >
+                Learn
+              </Link>
+              <Link
                 href={"/bucket-list"}
                 className="anim hover:text-primary-foreground dark:hover:text-primary"
               >
                 Bucket List
-              </Link>
-              <Link
-                href={"/material"}
-                className="anim hover:text-primary-foreground dark:hover:text-primary"
-              >
-                Material
               </Link>
               <Link
                 href={"/personal"}
