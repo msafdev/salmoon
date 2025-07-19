@@ -236,7 +236,10 @@ export const creditItems = [
   },
   {
     category: "Tools",
-    items: [{ name: "Bun", href: "https://bun.sh" }],
+    items: [
+      { name: "Bun", href: "https://bun.sh" },
+      { name: "Npm", href: "https://npmjs.com/" },
+    ],
   },
 ];
 
@@ -370,6 +373,6 @@ export const resourceItems = [
   },
   {
     title: "Every React Concept Explained in 12 Minutes",
-    href: "https://www.youtube.com/watch?v=wIyHSOugGGw&pp=ygUTcmVhY3QgaW4gMTIgbWludXRlcw%3D%3D",
+    href: "https://youtube.com/watch?v=wIyHSOugGGw&pp=ygUTcmVhY3QgaW4gMTIgbWludXRlcw%3D%3D",
   },
 ];

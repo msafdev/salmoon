@@ -107,6 +107,7 @@ export default function RootLayout({
         <Analytics />
         <ThemeProvider
           attribute="class"
+          enableColorScheme={false}
           defaultTheme="light"
           enableSystem
           disableTransitionOnChange

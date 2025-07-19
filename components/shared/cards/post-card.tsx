@@ -1,11 +1,10 @@
-import { cn } from "@/lib/utils";
-
 import Image from "next/image";
 import Link from "next/link";
 
 import { formatDate } from "@/lib/functions";
+import { cn } from "@/lib/utils";
 
-const BlogCard = ({
+const PostCard = ({
   title,
   slug,
   image,
@@ -21,24 +20,22 @@ const BlogCard = ({
   return (
     <Link
       href={`/${slug}`}
-      className={cn(
-        "anim group/blog grid w-full grid-cols-2 gap-2 text-sm sm:text-sm",
-        className,
-      )}
+      className={cn("group/blog w-full space-y-2", className)}
     >
-      <div className="relative col-span-full aspect-[8/5] h-auto w-full overflow-hidden rounded bg-muted">
+      <div className="relative aspect-video w-auto overflow-hidden rounded bg-muted">
         <Image
           src={image}
           alt={`Thumbnail of ${title}`}
           fill
+          loading="lazy"
           className="anim scale-105 object-cover group-hover/blog:scale-110"
         />
       </div>
-      <div className="col-span-full flex h-full flex-col justify-center gap-0.5">
-        <h3 className="anim line-clamp-1 font-semibold text-foreground group-hover/blog:text-accent-foreground">
+      <div className="space-y-0.5">
+        <h3 className="line-clamp-1 text-base font-semibold text-foreground">
           {title}
         </h3>
-        <p className="anim text-xs font-medium text-muted-foreground">
+        <p className="text-pretty text-xs font-medium text-muted-foreground sm:text-sm">
           {formatDate(date, "long")}
         </p>
       </div>
@@ -46,4 +43,4 @@ const BlogCard = ({
   );
 };
 
-export default BlogCard;
+export default PostCard;

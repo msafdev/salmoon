@@ -33,7 +33,7 @@ const ContentForm = () => {
 
   return (
     <form
-      className="flex w-full flex-col"
+      className="flex w-full flex-col gap-2"
       onSubmit={handleSubmit}
       id="content-form"
     >
@@ -43,9 +43,10 @@ const ContentForm = () => {
         id="content"
         value={content}
         onChange={(e) => setContent(e.target.value)}
-        className="w-full rounded-b-none min-h-24"
+        className="w-full min-h-24"
         disabled={addContentMutation.isPending}
       />
+
       <div className="flex items-center justify-between gap-x-2">
         <Button
           onClick={() => signOutMutation.mutate()}
@@ -53,7 +54,7 @@ const ContentForm = () => {
           type="submit"
           size="icon"
           variant="secondary"
-          className="size-9 rotate-180 rounded-b-none"
+          className="size-9 rotate-180"
         >
           {signOutMutation.isPending ? (
             <PiArrowClockwiseBold className="size-4 animate-spin" />
@@ -66,7 +67,7 @@ const ContentForm = () => {
           type="submit"
           size="sm"
           variant="secondary"
-          className="rounded-t-none"
+          className=""
         >
           {addContentMutation.isPending ? (
             <PiArrowClockwiseBold className="size-4 animate-spin" />

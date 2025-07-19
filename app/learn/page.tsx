@@ -4,7 +4,7 @@ import MemoCard from "@/components/shared/cards/memo-card";
 import Paragraph from "@/components/shared/paragraph";
 
 import SectionWrapper from "@/components/motion/section-wrapper";
-import LearnGroup from "@/components/shared/group/learn-group";
+import LearnGroup from "@/components/shared/groups/learn-group";
 
 export const metadata: Metadata = {
   title: "Learn",

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { Track } from "@/lib/types";
+import { Track } from "@/types/spotify.types";
 
 const TrackCard = ({ track }: { track: Track }) => {
   return (

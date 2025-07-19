@@ -1,22 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { Icon } from "@/components/shared/icon";
-
-import { Badge } from "@/components/ui/badge";
-
 const TemplateCard = ({
   title,
-  tags,
-  types,
   demo,
   image,
+  description,
 }: {
   title: string;
-  image: string;
-  tags: string[];
-  types: string[];
   demo: string;
+  image: string;
+  description: string;
 }) => {
   return (
     <Link
@@ -24,47 +18,25 @@ const TemplateCard = ({
       target="_blank"
       rel="noopener noreferrer"
       aria-label={`Go to ${title} demo`}
-      className="group/card relative flex w-full flex-col gap-x-3 gap-y-2 overflow-hidden sm:flex-row"
+      className="group/card w-full space-y-2"
     >
       <div className="relative aspect-video w-auto overflow-hidden rounded bg-muted">
         <Image
           src={image}
           alt={`Thumbnail for ${title}`}
           fill
-          className="anim object-cover grayscale group-hover/card:scale-105 group-hover/card:grayscale-0"
+          loading="lazy"
+          className="anim object-cover group-hover/card:scale-105"
         />
       </div>
 
-      <div className="space-y-2">
-        <h3 className="font-semibold text-foreground">{title}</h3>
-
-        <div className="flex flex-wrap gap-2">
-          {types.map((type) => (
-            <Badge
-              key={type}
-              className="flex h-6 items-center gap-2 border px-2 py-1 font-medium capitalize"
-              variant="secondary"
-            >
-              <Icon name={type} />
-              {type}
-            </Badge>
-          ))}
-        </div>
-
-        <div className="flex flex-wrap gap-2">
-          {tags.map((tag) => (
-            <Badge
-              key={tag}
-              className="flex h-6 items-center gap-2 border px-2 py-1 font-medium capitalize"
-              variant="secondary"
-            >
-              <Icon name={tag} type="tech" />
-              {tag}
-            </Badge>
-          ))}
-        </div>
-
-        <div className="absolute bottom-0 right-0" />
+      <div className="space-y-0.5">
+        <h3 className="line-clamp-1 text-base font-semibold text-foreground">
+          {title}
+        </h3>
+        <p className="text-pretty text-sm font-medium text-muted-foreground">
+          {description}
+        </p>
       </div>
     </Link>
   );

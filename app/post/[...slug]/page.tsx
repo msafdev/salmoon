@@ -14,6 +14,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 
 import { siteItems } from "@/lib/constants";
+import { formatDate } from "@/lib/functions";
 
 interface PostPageProps {
   params: {
@@ -114,9 +115,12 @@ export default async function PostPage({ params }: PostPageProps) {
       </div>
 
       <div className="flex w-full max-w-lg flex-col">
-        <h1 className="mb-4 text-xl font-bold sm:mb-6 sm:text-2xl">
-          {post.title}
-        </h1>
+        <div className="mb-4 sm:mb-6 space-y-1">
+          <h1 className="text-xl font-bold sm:text-2xl">{post.title}</h1>
+          <p className="text-sm font-medium text-muted-foreground md:text-base">
+            {formatDate(post.date, "mid")}
+          </p>
+        </div>
 
         {/* Cover Image */}
         <div className="relative mb-4 aspect-video h-auto w-full overflow-hidden rounded sm:mb-6">
@@ -131,7 +135,7 @@ export default async function PostPage({ params }: PostPageProps) {
         {/* Profile */}
         <div className="mb-1 flex items-center gap-3">
           <div className="relative">
-            <Avatar className="rounded-full border size-11">
+            <Avatar className="size-11 rounded-full border">
               <AvatarImage
                 src="https://github.com/msafdev.png"
                 alt="@msafdev"

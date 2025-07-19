@@ -1,14 +1,14 @@
 "use client";
 
-import { useGuestbook } from "@/query/guestbook";
-
 import GuestbookCard from "@/components/shared/cards/guestbook-card";
 import Paragraph from "@/components/shared/paragraph";
 
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 
-const ErrorMessage = ({ onRetry }: { onRetry: () => void }) => (
+import { useGuestbook } from "@/query/guestbook";
+
+const Error = ({ onRetry }: { onRetry: () => void }) => (
   <div className="flex h-fit w-full max-w-lg flex-col gap-y-4">
     <div>
       <div className="flex items-center gap-x-4">
@@ -37,7 +37,7 @@ const GuestbookSection = () => {
   }
 
   if (error) {
-    return <ErrorMessage onRetry={() => refetch()} />;
+    return <Error onRetry={() => refetch()} />;
   }
 
   if (!guestbookData?.length) {
@@ -45,7 +45,7 @@ const GuestbookSection = () => {
   }
 
   return (
-    <div className="space-y-4 w-full">
+    <div className="w-full space-y-4">
       {guestbookData.map((entry, index) => (
         <GuestbookCard key={entry.id} entry={entry} index={index} />
       ))}

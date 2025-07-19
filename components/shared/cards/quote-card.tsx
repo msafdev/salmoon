@@ -2,12 +2,13 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 
+import { PiInfinityDuotone } from "react-icons/pi";
+
 import { useState } from "react";
 
 import { Button } from "@/components/ui/button";
 
 import { quoteItems } from "@/lib/constants";
-import { PiClockCounterClockwiseBold } from "react-icons/pi";
 
 const QuoteCard = () => {
   const [active, setActive] = useState<number>(0);
@@ -31,17 +32,17 @@ const QuoteCard = () => {
   };
 
   return (
-    <div className="space-y-4 w-full">
+    <div className="w-full space-y-4">
       <div className="flex h-8 w-full items-center justify-between gap-x-4">
         <h2 className="text-base font-semibold">Word for word</h2>
         <Button
           onClick={() => setActive((prev) => (prev + 1) % quoteItems.length)}
-          className="size-8 hover:bg-transparent"
+          className="size-7"
           variant="ghost"
           size="icon"
           aria-label="Refresh quote"
         >
-          <PiClockCounterClockwiseBold size={16} />
+          <PiInfinityDuotone size={16} />
         </Button>
       </div>
       <div className="relative flex w-full flex-col">

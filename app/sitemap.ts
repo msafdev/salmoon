@@ -1,36 +1,54 @@
 import { posts } from "#site/content";
 
-export const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+export const baseUrl = process.env.NEXT_PUBLIC_BASE_URL!;
+const today = new Date().toISOString().split("T")[0];
 
 export default async function sitemap() {
-  let blogs =
+  const sitemap = [
+    {
+      url: `${baseUrl}/`,
+      lastModified: today,
+      priority: 1.0,
+    },
+  ];
+
+  const staticRoutes = [
+    "/archive",
+    "/lab",
+    "/post",
+    "/material",
+    "/personal",
+    "/guestbook",
+    "/learn",
+  ];
+
+  const staticEntries = staticRoutes.map((route) => ({
+    url: `${baseUrl}${route}`,
+    lastModified: today,
+    priority: 0.7,
+  }));
+
+  const blogEntries =
     posts?.map((post) => ({
       url: `${baseUrl}/post/${post.slug}`,
       lastModified: post.date,
       priority: 0.5,
     })) ?? [];
 
-  let routes = [
-    "/",
-    "/about",
-    "/lab",
-    "/post",
-    "/material",
-    "/personal",
-    "/guestbook",
-  ].map((route) => ({
-    url: `${baseUrl}${route}`,
-    lastModified: new Date().toISOString().split("T")[0],
-    priority: 0.7,
-  }));
-
-  let sitemap = [
-    {
-      url: `${baseUrl}/`,
-      lastModified: new Date().toISOString().split("T")[0],
-      priority: 1,
-    },
+  const labDynamicRoutes: string[] = [
+    "toolbar",
+    "button",
+    "avatar",
+    "stagger",
+    "file",
+    "input",
   ];
 
-  return sitemap.concat(routes).concat(blogs);
+  const labEntries = labDynamicRoutes.map((slug) => ({
+    url: `${baseUrl}/lab/${slug}`,
+    lastModified: today,
+    priority: 0.6,
+  }));
+
+  return sitemap.concat(staticEntries, blogEntries, labEntries);
 }

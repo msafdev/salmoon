@@ -14,3 +14,16 @@ blockquote.mdx.danger,
 blockquote.mdx.dangerous {
   @apply border-s-2 border-red-500 from-red-500/20 text-red-600 dark:text-red-400;
 }
+
+iframe {
+  @apply mb-4;
+}
+
+hr {
+  @apply relative my-6 h-8 border-none bg-none text-center;
+}
+
+hr::after {
+  content: "︵︵﹆ . ⁺ . ✦ ﹒₊˚𓂃 ★﹒₊‧";
+  @apply h-8 font-mono !text-sm tracking-normal text-muted-foreground/60;
+}

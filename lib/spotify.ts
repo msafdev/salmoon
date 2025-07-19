@@ -1,4 +1,4 @@
-import { Track } from "@/lib/types";
+import { Track } from "@/types/spotify.types";
 
 const getAccessToken = async (): Promise<{ access_token: string }> => {
   const refresh_token = process.env.SPOTIFY_REFRESH_TOKEN;
@@ -41,5 +41,6 @@ export const topTracks = async (): Promise<Track[]> => {
   }
 
   const data = await response.json();
+
   return data.items as Track[];
 };

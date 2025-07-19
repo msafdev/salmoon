@@ -39,14 +39,6 @@ MDX supports standard Markdown:
 > Blockquotes work too
 ```
 
-You can also import and use components:
-
-```mdx
-import Button from "@/components/Button";
-
-<Button>Click Me</Button>
-```
-
 ---
 
 ## Frontmatter
@@ -84,7 +76,7 @@ npm install rehype-pretty-code
 
 ### Example with highlights:
 
-```tsx
+```jsx
 import { useFloating } from "@floating-ui/react";
 
 function MyComponent() {
@@ -172,31 +164,11 @@ You can embed images, iframes, and videos like normal HTML:
 <img src="/images/demo.png" alt="Demo" width="600" />
 
 <iframe
-  src="https://codesandbox.io/embed/new"
+  allow="accelerometer *; camera *; encrypted-media *; geolocation *; microphone *"
   style={{ width: "100%", height: 400 }}
-  allow="accelerometer; camera; encrypted-media; geolocation; microphone"
+  src="https://codesandbox.io/embed/new"
 />
 ```
-
----
-
-## MDX with Layouts
-
-MDX files often use a layout wrapper:
-
-```mdx
-import BlogLayout from "@/layouts/BlogLayout";
-
-export default ({ children }) => <BlogLayout>{children}</BlogLayout>;
-
-;
-```
-
-This allows you to:
-
-- Set metadata
-- Inject sidebars
-- Add headers/footers
 
 ---
 
@@ -204,7 +176,7 @@ This allows you to:
 
 To optimize bundle size, you can use dynamic imports inside components:
 
-```tsx
+```jsx
 import dynamic from "next/dynamic";
 
 const Chart = dynamic(() => import("@/components/Chart"), { ssr: false });
@@ -216,13 +188,12 @@ Use this inside an `.mdx` component file when rendering complex charts or intera
 
 ---
 
-## Next-Level MDX with `contentlayer` or `mdx-bundler`
+## Next-Level MDX with `velite` or `mdx-bundler`
 
 For complex MDX systems, consider using:
 
-- **[Contentlayer](https://www.contentlayer.dev/)** – Type-safe content system for Next.js
-- **[MDX Bundler](https://github.com/kentcdodds/mdx-bundler)** – For serverless-compatible MDX rendering
-- **[xdm](https://github.com/wooorm/xdm)** – Compiler that powers MDX under the hood
+- **[Velite](https://velite.js.org)** - Type-safe content system for Next.js
+- **[Remark](https://npmjs.com/package/rehype-remark)** - Plugin that turn your HTML into Markdown
 
 These tools let you:
 

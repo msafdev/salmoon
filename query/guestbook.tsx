@@ -1,28 +1,9 @@
 "use client";
 
-import { createClient } from "@/supabase/client";
-
 import { useQuery } from "@tanstack/react-query";
 
-export type GuestbookEntry = {
-  id: string;
-  content: string;
-  user_id: string | null;
-  created_at: string;
-};
-
-export type UserProfile = {
-  id: string;
-  name: string | null;
-  avatar_url: string | null;
-};
-
-export type GuestbookWithUser = {
-  id: string;
-  content: string;
-  created_at: string;
-  user: UserProfile | null;
-};
+import { createClient } from "@/supabase/client";
+import { GuestbookWithUser, UserProfile } from "@/types/guestbook.types";
 
 const fetchGuestbook = async (): Promise<GuestbookWithUser[]> => {
   const supabase = createClient();
@@ -36,11 +17,15 @@ const fetchGuestbook = async (): Promise<GuestbookWithUser[]> => {
   if (guestbookError) throw guestbookError;
   if (!guestbook?.length) return [];
 
-  const userIds = Array.from(
-    new Set(guestbook.map((item) => item.user_id).filter(Boolean)),
+  const userIds: string[] = Array.from(
+    new Set(
+      guestbook
+        .map((item) => item.user_id)
+        .filter((id): id is string => Boolean(id)),
+    ),
   );
 
-  if (userIds.length === 0) {
+  if (!userIds || userIds.length === 0) {
     return guestbook.map((item) => ({
       id: String(item.id),
       content: item.content,

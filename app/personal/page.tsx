@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
 import QuoteCard from "@/components/shared/cards/quote-card";
-import MovieGroup from "@/components/shared/group/movie-group";
+import MovieGroup from "@/components/shared/groups/movie-group";
 import Paragraph from "@/components/shared/paragraph";
 
 import SectionWrapper from "@/components/motion/section-wrapper";

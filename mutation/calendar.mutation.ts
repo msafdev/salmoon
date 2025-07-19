@@ -9,7 +9,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useToast } from "@/hooks/use-toast";
 
 import { createMeeting } from "@/action/calendar";
-import { Contact } from "@/types/contact-types";
+import { Contact } from "@/types/contact.types";
 
 const calendarMutation = () => {
   const router = useRouter();

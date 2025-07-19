@@ -17,7 +17,7 @@ export function extractCode(children: any): string {
 
 export const formatDate = (
   dateString: string,
-  format: "short" | "long" = "short",
+  format: "short" | "mid" | "long" = "short",
 ) => {
   const date = new Date(dateString);
 
@@ -44,6 +44,24 @@ export const formatDate = (
       "December",
     ];
     return `${day} ${monthNames[monthIndex]} ${year}`;
+  }
+
+  if (format === "mid") {
+    const monthAbbr = [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec",
+    ];
+    return `${day} ${monthAbbr[monthIndex]} ${year}`;
   }
 
   return `${day}/${monthIndex + 1}/${shortYear}`;

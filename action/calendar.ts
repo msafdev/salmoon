@@ -17,7 +17,7 @@ import {
   parse,
   toZonedTime,
 } from "@/lib/date";
-import { Contact } from "@/types/contact-types";
+import { Contact } from "@/types/contact.types";
 
 const SCOPES = [
   "https://www.googleapis.com/auth/calendar",

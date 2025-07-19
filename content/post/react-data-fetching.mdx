@@ -13,9 +13,9 @@ Data fetching is a common requirement in modern web applications. In this post, 
 
 ---
 
-## Vanilla React: Basic Fetch with `useEffect`
+## Basic React Fetch
 
-```tsx
+```jsx
 import { useEffect, useState } from "react";
 
 function Users() {
@@ -41,9 +41,9 @@ This works, but there's no feedback while loading or on failure.
 
 ---
 
-## Adding `isLoading` and `isError` States
+## Adding Logic and States
 
-```tsx
+```jsx
 import { useEffect, useState } from "react";
 
 function Users() {
@@ -94,7 +94,7 @@ npm install @tanstack/react-query
 
 Wrap your app with the `QueryClientProvider`:
 
-```tsx
+```jsx
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 import Users from "./Users";
@@ -114,7 +114,7 @@ function App() {
 
 ## Fetching with `useQuery`
 
-```tsx
+```jsx
 import { useQuery } from "@tanstack/react-query";
 
 function Users() {

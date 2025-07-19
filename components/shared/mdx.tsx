@@ -8,6 +8,7 @@ import Image from "next/image";
 import { Toc } from "@stefanprobst/rehype-extract-toc";
 
 import Code from "@/components/shared/code";
+import GithubWidget from "@/components/shared/widgets/github-widget";
 
 import {
   Table,
@@ -24,6 +25,10 @@ import "@/styles/mdx.css";
 
 type ComponentsProps = React.HTMLAttributes<HTMLElement>;
 
+type GithubProps = React.HTMLAttributes<HTMLElement> & {
+  repo: string;
+};
+
 const useMDXComponent = (code: string) => {
   const fn = new Function(code);
   return {
@@ -33,6 +38,9 @@ const useMDXComponent = (code: string) => {
 };
 
 export const globalComponents = {
+  GithubWidget: ({ className, repo, ...props }: GithubProps) => (
+    <GithubWidget className={cn("mb-4", className)} repo={repo} {...props} />
+  ),
   h1: ({ className, ...props }: ComponentsProps) => (
     <h1 className={cn("mb-4 mt-6 text-2xl font-bold", className)} {...props} />
   ),
@@ -95,7 +103,7 @@ export const globalComponents = {
   code: ({ className, children, ...props }: ComponentsProps) => (
     <code
       className={cn(
-        "rounded-md border border-border bg-muted px-1.5 py-0.5 font-mono text-foreground text-sm",
+        "rounded-md border border-border bg-muted px-1.5 py-0.5 font-mono text-sm text-foreground",
         className,
       )}
       {...props}
@@ -163,9 +171,6 @@ export const globalComponents = {
       className={cn("text-muted-foreground underline", className)}
       {...props}
     />
-  ),
-  hr: ({ className, ...props }: React.HTMLAttributes<HTMLHRElement>) => (
-    <hr className={cn("my-6 border-muted", className)} {...props} />
   ),
   table: ({ className, ...props }: React.HTMLAttributes<HTMLTableElement>) => (
     <div className="my-6 w-full overflow-x-auto rounded border">

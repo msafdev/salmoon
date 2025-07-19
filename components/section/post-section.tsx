@@ -80,7 +80,7 @@ const PostGroup = ({ items, tags }: { items: Array<Post>; tags: string[] }) => {
       </div>
 
       {/* Post List */}
-      <div className="flex w-full flex-col gap-y-3">
+      <div className="group/container w-full">
         <AnimatePresence mode="wait">
           <motion.div
             key={selectedTag ?? "all"}
@@ -88,7 +88,6 @@ const PostGroup = ({ items, tags }: { items: Array<Post>; tags: string[] }) => {
             initial="initial"
             animate="animate"
             exit="exit"
-            className="flex flex-col gap-y-3"
           >
             {filteredItems.map((item, index) => (
               <motion.div
@@ -99,8 +98,12 @@ const PostGroup = ({ items, tags }: { items: Array<Post>; tags: string[] }) => {
                   filter: "blur(2px)",
                   transition: { delay: index * 0.1 },
                 }}
+                className="group/item cursor-pointer py-2 first:pt-0 last:pb-0"
               >
-                <Link href={item.slug} className="cursor-pointer space-y-0.5">
+                <Link
+                  href={item.slug}
+                  className="anim cursor-pointer space-y-0.5 group-hover/container:opacity-40 group-hover/item:!opacity-100"
+                >
                   <h3 className="text-sm font-semibold text-foreground">
                     {item.title}
                   </h3>

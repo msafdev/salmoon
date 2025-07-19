@@ -1,41 +1,88 @@
 ---
 title: Embedded Content
-description: A guide on how to embed content inside MDX files using custom styles.
+description: A practical guide to embedding rich content in MDX using custom styles and components.
 date: 2025-07-18
 tags: ["mdx", "code"]
 published: true
 featured: false
-image: "/post/scream.webp"
+image: "/post/embed.webp"
 ---
 
 ## Intro
 
-MDX lets you blend Markdown with JSX, which means you can embed dynamic content—like music, videos, or GitHub repos—directly into your posts using custom components.
+MDX combines Markdown and JSX, letting you embed interactive or styled content like music players, videos, or GitHub previews directly in your posts.
 
-This post demonstrates how to embed rich media in MDX using syntax like `::component{}`. Each section below shows a working example along with the type of content you can include.
+This shows a couple of `<iframe>` elements using custom components and tailwind classes.
 
-## Spotify
+---
 
-Embed individual tracks or full albums:
+## Apple Music
 
-::embed[https://open.spotify.com/track/41Y0ch6R3jzpJOZv6nhf9Z?si=6c82dbed65ab4853]
+You can embed songs or albums from iMusic using `<iframe>` elements. These are fully responsive and preserve Apple's design principle.
 
-::embed[https://open.spotify.com/album/1kBPEN3NIVwjdmIjjNk9vB?si=Lz29MvjwRnKX9y3dhxlbaQ]
+- **Spotify Track**
+
+<iframe
+  allow="autoplay *; clipboard-write *; encrypted-media *; fullscreen *; picture-in-picture *"
+  style={{ borderRadius: 12, border: 0, width: "100%", height: 152 }}
+  src="https://open.spotify.com/embed/track/5WOSNVChcadlsCRiqXE45K?utm_source=generator&theme=0"
+  loading="lazy"
+  allowFullScreen
+/>
+
+- **Spotify Album**
+
+<iframe
+  allow="autoplay *; clipboard-write *; encrypted-media *; fullscreen *; picture-in-picture *"
+  style={{ borderRadius: 12, border: 0, width: "100%", height: 352 }}
+  src="https://open.spotify.com/embed/album/7Heaa0B4KOxdWhSICTR2wE?utm_source=generator"
+  loading="lazy"
+  allowFullScreen
+/>
+
+- **Apple Music**
+
+<iframe
+  allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write"
+  style={{
+    borderRadius: 4,
+    border: 0,
+    width: "100%",
+    maxWidth: 660,
+    height: 175,
+    overflow: "hidden",
+  }}
+  loading="lazy"
+  src="https://embed.music.apple.com/id/song/everything-u-are/1793295104"
+/>
+
+Keep in mind, `<iframe>` may behave inconsistently across browsers or themes, please use accordingly.
+
+---
 
 ## YouTube
 
-Embed videos via iframe-style links:
+To embed a YouTube video, use a simple `<iframe>` with a fixed aspect-ratio and the video URL:
 
-::embed[https://www.youtube.com/embed/GlhV-OKHecI?si=KdB4rRPLAMEK-ozf]
+<iframe
+  allowFullScreen
+  style={{ aspectRatio: 16 / 9, width: "100%", borderRadius: 4, border: 0 }}
+  src="https://www.youtube.com/embed/tgbNymZ7vqY"
+  loading="lazy"
+/>
 
-## BiliBili
+You can adjust the width and height to match your layout needs.
 
-Yes, even BiliBili works with the right embed setup:
-
-::embed[https://www.bilibili.com/video/BV1Vm421W7pX/?vd_source=c0bc2746a6d2b23de50d26376498b2ff]
+---
 
 ## GitHub
 
-Embed repositories to showcase projects:
+For showcasing repositories, custom components can help you with that.
 
-::embed[msafdev/salmoon]
+<GithubWidget repo="msafdev/salmoon" />
+
+This component can be anything you want, a GitHub card, a file explorer, or live stats. Only limited by your capacity.
+
+---
+
+- Image by **Farshid Moghadam**

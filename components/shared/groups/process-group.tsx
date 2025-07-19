@@ -17,24 +17,19 @@ type ProcessProps = {
 function ProcessStep({ id, name, description, index, total }: ProcessProps) {
   return (
     <div
-      className={`relative grid grid-cols-6 gap-4 ${index !== total - 1 ? "mb-4" : ""} `}
+      className={`relative col-span-7 grid gap-3 sm:grid-cols-8 sm:gap-4 ${index !== total - 1 ? "mb-4" : ""} `}
       key={id}
     >
       {/* Step Dot */}
-      <div className="relative hidden sm:block">
-        <div className="z-10 flex size-8 items-center justify-center rounded-full bg-primary text-primary-foreground">
+      <div className="relative">
+        <div className="z-10 flex size-6 items-center justify-center rounded border bg-accent text-accent-foreground">
           <span className="text-xs font-semibold">{index + 1}</span>
         </div>
       </div>
 
       {/* Content */}
-      <div className="col-span-full flex flex-col gap-y-2 sm:col-span-5">
-        <div className="flex">
-          <div className="mr-2 inline min-w-6 shrink-0 text-sm font-medium text-muted-foreground sm:hidden">
-            0{index + 1}.
-          </div>
-          <h3 className="text-sm font-semibold text-foreground">{name}</h3>
-        </div>
+      <div className="col-span-full flex flex-col gap-y-1 sm:col-span-7 sm:gap-y-2">
+        <h3 className="text-sm font-semibold text-foreground">{name}</h3>
         <p className="text-sm text-muted-foreground md:text-base">
           {description}
         </p>
@@ -56,8 +51,8 @@ export default function ProcessGroup() {
         initial={{ scaleY: 0 }}
         animate={{ scaleY: isInView ? 1 : 0 }}
         transition={{ duration: 1.2, ease: "easeOut", delay: 0.2 }}
-        className="absolute left-[15.5px] top-[32px] hidden origin-top scale-y-0 transform border-r-2 border-dashed border-primary sm:block"
-        style={{ height: `calc(70%)` }}
+        className="absolute left-[11px] top-[24px] hidden origin-top scale-y-0 transform border-r-2 border-dashed border-accent sm:block"
+        style={{ height: `calc(73%)` }}
       />
 
       {processItems.map((item, index) => (
