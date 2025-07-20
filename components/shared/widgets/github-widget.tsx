@@ -70,8 +70,6 @@ const GithubWidget = ({
 }) => {
   const { data: githubData, isLoading, error, refetch } = useGithub(repo);
 
-  console.log(githubData);
-
   if (isLoading) return <Loading className={className} />;
 
   if (error || !githubData) {

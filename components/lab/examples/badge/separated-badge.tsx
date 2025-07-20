@@ -6,7 +6,7 @@ import {
 
 import { Badge } from "@/components/ui/badge";
 
-export const SeparateBadge = () => {
+export const SeparatedBadge = () => {
   return (
     <div className="flex flex-wrap items-center justify-center gap-2">
       <Badge className="h-7 gap-0 p-0" variant="outline">

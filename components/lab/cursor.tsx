@@ -60,8 +60,11 @@ const Cursor = ({ children, spring = false }: CursorProps) => {
   const rawX = useMotionValue(0);
   const rawY = useMotionValue(0);
 
-  const x = spring ? useSpring(rawX, { stiffness: 300, damping: 30 }) : rawX;
-  const y = spring ? useSpring(rawY, { stiffness: 300, damping: 30 }) : rawY;
+  const springX = useSpring(rawX, { stiffness: 300, damping: 30 });
+  const springY = useSpring(rawY, { stiffness: 300, damping: 30 });
+
+  const x = spring ? springX : rawX;
+  const y = spring ? springY : rawY;
 
   const containerRef = useRef<HTMLDivElement>(null);
   const [isInside, setIsInside] = useState(false);
@@ -92,18 +95,16 @@ const Cursor = ({ children, spring = false }: CursorProps) => {
     window.addEventListener("mouseup", handleClickUp);
 
     return () => {
+      window.removeEventListener("mousemove", handleMove);
       window.removeEventListener("mousedown", handleClickDown);
       window.removeEventListener("mouseup", handleClickUp);
-      window.removeEventListener("mousemove", handleMove);
     };
   }, [rawX, rawY]);
 
   return (
     <div ref={containerRef} className="pointer-events-none absolute inset-0">
       <CursorContext.Provider value={{ x, y, isInside, isClicking }}>
-        <AnimatePresence>
-          {isInside ? <>{children}</> : null}
-        </AnimatePresence>
+        <AnimatePresence>{isInside ? <>{children}</> : null}</AnimatePresence>
       </CursorContext.Provider>
     </div>
   );

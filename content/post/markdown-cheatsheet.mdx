@@ -76,7 +76,7 @@ npm install rehype-pretty-code
 
 ### Example with highlights:
 
-```jsx
+```tsx
 import { useFloating } from "@floating-ui/react";
 
 function MyComponent() {
@@ -84,7 +84,8 @@ function MyComponent() {
 
   return (
     <>
-      <div ref={refs.setReference} /> // [!code highlight:2]
+      // [!code highlight:2]
+      <div ref={refs.setReference} />
       <div ref={refs.setFloating} style={floatingStyles} />
     </>
   );
@@ -100,19 +101,30 @@ area = math.pi * radius**2
 print(area)
 ```
 
+### Example with word highlights:
+
+```js
+// [!code word:console:2]
+console.log("1");
+console.log("2");
+console.log("3");
+console.log("4");
+```
+
 ---
 
 ## Code Block Annotations
 
 With `rehype-pretty-code`, you can annotate code in several ways:
 
-| Syntax                 | Effect                            |
-| ---------------------- | --------------------------------- |
-| `[!code highlight]`    | Highlights the entire line        |
-| `[!code highlight:X]`  | Highlights a specific line number |
-| `[!code ++]`           | Shows as added in diff mode       |
-| `[!code --]`           | Shows as removed in diff mode     |
-| `[!code word:"myVar"]` | Highlights the word `myVar`       |
+| Syntax                | Effect                            |
+| --------------------- | --------------------------------- |
+| `[!code highlight]`   | Highlights the entire line        |
+| `[!code highlight:X]` | Highlights a specific line range  |
+| `[!code ++]`          | Shows as added in diff mode       |
+| `[!code --]`          | Shows as removed in diff mode     |
+| `[!code word:WORD]`   | Highlights a specific word        |
+| `[!code word:WORD:X]` | Highlights a specific word range  | 
 
 You can also combine multiple annotations into 1 (one).
 

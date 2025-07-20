@@ -4,6 +4,8 @@ import { ChevronDown, ChevronUp } from "lucide-react";
 
 import { useCallback, useState } from "react";
 
+import { Label } from "@/components/ui/label";
+
 export const NumberInput = () => {
   const [value, setValue] = useState("");
 
@@ -41,13 +43,8 @@ export const NumberInput = () => {
   );
 
   return (
-    <div className="space-y-2">
-      <label
-        htmlFor="number-input"
-        className="text-sm font-medium leading-none"
-      >
-        Number input
-      </label>
+    <div className="space-y-3">
+      <Label htmlFor="number-input">Number input</Label>
       <div className="relative">
         <input
           id="number-input"

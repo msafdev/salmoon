@@ -19,20 +19,22 @@
     }
 
     &.diff.add {
-      @apply bg-gradient-to-r from-blue-500/20 from-80% to-transparent before:text-blue-500;
-      span:first-child::before {
-        @apply inline-flex w-4 -translate-x-8 text-blue-500 content-["+"];
-      }
+      @apply bg-gradient-to-r from-blue-500/20 from-80% to-transparent *:!text-blue-600 before:text-blue-500 dark:*:!text-blue-200;
     }
 
     &.diff.remove {
       @apply bg-gradient-to-r from-red-500/20 from-80% to-transparent *:!text-red-600 before:text-red-500 dark:from-red-700/20 *:dark:!text-red-300;
-      span:first-child::before {
-        @apply inline-flex w-4 -translate-x-8 text-red-500 content-["-"];
-      }
     }
 
-    &::before {
+    &.diff.add::before {
+      @apply ml-0.5 mr-6 inline-block w-4 border-transparent text-right content-["+"];
+    }
+
+    &.diff.remove::before {
+      @apply ml-0.5 mr-6 inline-block w-4 border-transparent text-right content-["-"];
+    }
+
+    &:not(.diff):not(.diff.add):not(.diff.remove)::before {
       counter-increment: step;
       @apply mr-6 inline-block w-4 border-transparent text-right text-zinc-600 content-[counter(step)];
     }
@@ -43,6 +45,10 @@
   }
   &:hover .line:hover {
     @apply opacity-100;
+  }
+
+  .line > .highlighted-word {
+    @apply underline underline-offset-2 decoration-blue-500;
   }
 
   counter-reset: step;

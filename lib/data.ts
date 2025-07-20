@@ -3,15 +3,16 @@ import { BasicAvatar } from "@/components/lab/examples/avatar/basic-avatar";
 import { IconAvatar } from "@/components/lab/examples/avatar/icon-avatar";
 import { StackAvatar } from "@/components/lab/examples/avatar/stack-avatar";
 import { StatusAvatar } from "@/components/lab/examples/avatar/status-avatar";
-import { BasicBadge } from "@/components/lab/examples/badge/basic-badge";
 // Badge
+import { BasicBadge } from "@/components/lab/examples/badge/basic-badge";
 import { IconBadge } from "@/components/lab/examples/badge/icon-badge";
-import { SeparateBadge } from "@/components/lab/examples/badge/separate-badge";
+import { SeparatedBadge } from "@/components/lab/examples/badge/separated-badge";
 import { StatusBadge } from "@/components/lab/examples/badge/status-badge";
 // Cursor
 import { AdvancedCursor } from "@/components/lab/examples/cursor/advanced-cursor";
 import { BasicCursor } from "@/components/lab/examples/cursor/basic-cursor";
 import { SpringCursor } from "@/components/lab/examples/cursor/spring-cursor";
+// File
 import { AvatarFile } from "@/components/lab/examples/file/avatar-file";
 import { BasicFile } from "@/components/lab/examples/file/basic-file";
 import { MultipleFiles } from "@/components/lab/examples/file/multiple-file";
@@ -21,6 +22,10 @@ import { FloatInput } from "@/components/lab/examples/input/float-input";
 import { NumberInput } from "@/components/lab/examples/input/number-input";
 import { OtpInput } from "@/components/lab/examples/input/otp-input";
 import { PasswordInput } from "@/components/lab/examples/input/password-input";
+import { AvatarSelect } from "@/components/lab/examples/select/avatar-select";
+// Select
+import { BasicSelect } from "@/components/lab/examples/select/basic-select";
+import { GroupedSelect } from "@/components/lab/examples/select/grouped-select";
 // Stagger
 import { BasicAnimation } from "@/components/lab/examples/stagger/basic-animation";
 import { VariantAnimation } from "@/components/lab/examples/stagger/variant-animation";
@@ -85,7 +90,11 @@ export const COMPONENTS: ComponentType[] = [
     example: [
       { child: BasicBadge, name: "Basic Badge", path: "basic-badge" },
       { child: IconBadge, name: "Icon Badge", path: "icon-badge" },
-      { child: SeparateBadge, name: "Separate Badge", path: "separate-badge" },
+      {
+        child: SeparatedBadge,
+        name: "Separate Badge",
+        path: "separated-badge",
+      },
       { child: StatusBadge, name: "Status Badge", path: "status-badge" },
     ],
     thumbnail: 1,
@@ -200,5 +209,19 @@ export const COMPONENTS: ComponentType[] = [
     ],
     thumbnail: 1,
     gridClass: "large-card",
+  },
+  {
+    name: "Select",
+    slug: "select",
+    primitive: false,
+    description: "Various select components with advanced features.",
+    example: [
+      { child: BasicSelect, name: "Basic Select", path: "basic-select" },
+      { child: GroupedSelect, name: "Grouped Select", path: "grouped-select" },
+      { child: AvatarSelect, name: "Avatar Select", path: "avatar-select" },
+    ],
+    thumbnail: 0,
+    uiLibrary: "npx shadcn@latest add label select",
+    gridClass: "medium-card",
   },
 ];

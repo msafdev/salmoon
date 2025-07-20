@@ -84,8 +84,6 @@ export default async function LearnPage({ params }: LearnPageProps) {
 
   if (!learn || !learn.published) notFound();
 
-  console.log(learn.last)
-
   const tableOfContents = MDXToC({ code: learn.body });
 
   const { prev, next } = getPrevAndNext(learns, learn);

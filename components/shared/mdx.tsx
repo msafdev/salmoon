@@ -3,7 +3,7 @@ import { PiArrowRightBold } from "react-icons/pi";
 import * as React from "react";
 import * as runtime from "react/jsx-runtime";
 
-import Image from "next/image";
+import Image, { ImageProps } from "next/image";
 
 import { Toc } from "@stefanprobst/rehype-extract-toc";
 
@@ -120,13 +120,7 @@ export const globalComponents = {
 
     return (
       <div className="mb-4 h-fit w-full max-w-lg rounded border-2 border-dashed p-1 sm:p-2">
-        <Code
-          code={rawCode.trim()}
-          lang={lang}
-          lineNumber
-          lineShine
-          {...props}
-        />
+        <Code code={rawCode} lang={lang} lineNumber lineShine {...props} />
       </div>
     );
   },
@@ -209,19 +203,21 @@ export const globalComponents = {
   ),
   img: ({
     className,
-    alt,
+    alt = "",
+    width = 800,
+    height = 600,
     ...props
-  }: React.ImgHTMLAttributes<HTMLImageElement>) => (
-    // eslint-disable-next-line @next/next/no-img-element
-    <div className="mb-4 aspect-auto max-w-lg overflow-hidden rounded border-2 border-dashed p-1 sm:p-2">
-      <img
-        className={cn("h-full w-full rounded border shadow-sm", className)}
+  }: Omit<ImageProps, "src"> & { src: string }) => (
+    <div className="relative mb-4 aspect-auto max-w-lg overflow-hidden rounded border-2 border-dashed p-1 sm:p-2">
+      <Image
+        className={cn("h-auto w-full rounded border shadow-sm", className)}
         alt={alt}
+        fill
+        loading="lazy"
         {...props}
       />
     </div>
   ),
-  Image,
 };
 
 interface MDXProps {

@@ -2,8 +2,11 @@ import { codeToHtml } from "shiki";
 import type { BundledLanguage } from "shiki";
 
 import {
+  transformerMetaHighlight,
   transformerNotationDiff,
   transformerNotationHighlight,
+  transformerNotationWordHighlight,
+  transformerRemoveNotationEscape,
 } from "@shikijs/transformers";
 
 import CopyButton from "@/components/shared/copy-button";
@@ -28,7 +31,13 @@ export default async function Code({
   const html = await codeToHtml(code, {
     lang,
     themes: { dark: "github-dark", light: "github-light" },
-    transformers: [transformerNotationHighlight(), transformerNotationDiff()],
+    transformers: [
+      transformerNotationHighlight(),
+      transformerNotationDiff(),
+      transformerNotationWordHighlight(),
+      transformerRemoveNotationEscape(),
+      transformerMetaHighlight(),
+    ],
   });
 
   return (

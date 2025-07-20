@@ -19,6 +19,13 @@ import React, {
 
 import { cn } from "@/lib/utils";
 
+type MarginValue = `${number}${"px" | "%"}`;
+type MarginType =
+  | MarginValue
+  | `${MarginValue} ${MarginValue}`
+  | `${MarginValue} ${MarginValue} ${MarginValue}`
+  | `${MarginValue} ${MarginValue} ${MarginValue} ${MarginValue}`;
+
 interface StaggerVariants {
   container?: MotionProps["variants"];
   child?: MotionProps["variants"];
@@ -33,7 +40,7 @@ interface StaggerProps extends Omit<MotionProps, "variants"> {
   trigger?: boolean;
   inView?: boolean;
   once?: boolean;
-  margin?: string;
+  margin?: MarginType;
 }
 
 const defaultContainerVariants = (delay = 0.1) => ({
@@ -101,8 +108,7 @@ const Stagger = forwardRef<HTMLElement, StaggerProps>(
     const localRef = useRef(null);
     const isInView = useInView(localRef, {
       once,
-      /* eslint-disable  @typescript-eslint/no-explicit-any */
-      margin: margin as any,
+      margin: margin,
     });
 
     const [internalKey, setInternalKey] = useState(0);
