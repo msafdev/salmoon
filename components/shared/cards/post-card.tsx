@@ -28,6 +28,7 @@ const PostCard = ({
           alt={`Thumbnail of ${title}`}
           fill
           loading="lazy"
+          sizes="(max-width: 768px) 70vw, 50vw"
           className="anim scale-105 object-cover group-hover/blog:scale-110"
         />
       </div>

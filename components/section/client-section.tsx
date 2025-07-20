@@ -6,7 +6,7 @@ import { clientItems } from "@/lib/constants";
 
 const ClientSection = () => {
   return (
-    <div className="space-y-4 w-full">
+    <div className="w-full space-y-4">
       <Paragraph title="Trusted by all">
         <p>
           I have been in these fields for{" "}
@@ -27,6 +27,9 @@ const ClientSection = () => {
               src={item}
               fill
               alt={`Client's logo ${index}`}
+              quality={70}
+              loading="lazy"
+              sizes="(max-width: 768px) 30vw, 20vw"
               className="object-contain"
             />
           </div>

@@ -19,6 +19,7 @@ const TemplateCard = ({
       rel="noopener noreferrer"
       aria-label={`Go to ${title} demo`}
       className="group/card w-full space-y-2"
+      prefetch={false}
     >
       <div className="relative aspect-video w-auto overflow-hidden rounded bg-muted">
         <Image
@@ -26,6 +27,7 @@ const TemplateCard = ({
           alt={`Thumbnail for ${title}`}
           fill
           loading="lazy"
+          sizes="(max-width: 768px) 70vw, 50vw"
           className="anim object-cover group-hover/card:scale-105"
         />
       </div>

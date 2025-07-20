@@ -94,6 +94,7 @@ const Footer = () => {
               rel="noopener noreferrer"
               aria-label="Icons8"
               className="anim hover:text-primary-foreground dark:hover:text-primary"
+              prefetch={false}
             >
               Icons8
             </Link>
@@ -107,18 +108,21 @@ const Footer = () => {
               <Link
                 href={"/material"}
                 className="anim hover:text-primary-foreground dark:hover:text-primary"
+                prefetch={false}
               >
                 Starter Kit
               </Link>
               <Link
                 href={"/material"}
                 className="anim hover:text-primary-foreground dark:hover:text-primary"
+                prefetch={false}
               >
                 Notion
               </Link>
               <Link
                 href={"/material"}
                 className="anim hover:text-primary-foreground dark:hover:text-primary"
+                prefetch={false}
               >
                 Analytics
               </Link>
@@ -133,24 +137,28 @@ const Footer = () => {
               <Link
                 href={"/learn"}
                 className="anim hover:text-primary-foreground dark:hover:text-primary"
+                prefetch={false}
               >
                 Learn
               </Link>
               <Link
                 href={"/bucket-list"}
                 className="anim hover:text-primary-foreground dark:hover:text-primary"
+                prefetch={false}
               >
                 Bucket List
               </Link>
               <Link
                 href={"/personal"}
                 className="anim hover:text-primary-foreground dark:hover:text-primary"
+                prefetch={false}
               >
                 Personal
               </Link>
               <Link
                 href={"/attribution"}
                 className="anim hover:text-primary-foreground dark:hover:text-primary"
+                prefetch={false}
               >
                 Attribution
               </Link>

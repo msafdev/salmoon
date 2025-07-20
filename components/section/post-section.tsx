@@ -103,6 +103,8 @@ const PostGroup = ({ items, tags }: { items: Array<Post>; tags: string[] }) => {
                 <Link
                   href={item.slug}
                   className="anim cursor-pointer space-y-0.5 group-hover/container:opacity-40 group-hover/item:!opacity-100"
+                  prefetch={false}
+                  aria-label={`Go to ${item.title}`}
                 >
                   <h3 className="text-sm font-semibold text-foreground">
                     {item.title}
