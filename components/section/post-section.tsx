@@ -1,7 +1,7 @@
 "use client";
 
 import type { Post } from "#site/content";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion } from "motion/react";
 
 import { useState } from "react";
 

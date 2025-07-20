@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { Transition, motion } from "motion/react";
 
 import { PiXBold } from "react-icons/pi";
 
@@ -71,7 +71,7 @@ const PlaceCard = ({ item }: { item: (typeof placeItems)[number] }) => (
   <motion.div
     initial={{ rotate: item.rotation }}
     whileHover={{ rotate: 0, scale: 1.05 }}
-    transition={transition}
+    transition={transition as Transition}
     className="flex-shrink-0"
   >
     <MorphDialog>

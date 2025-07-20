@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 import { PiEyeClosedDuotone, PiEyeDuotone } from "react-icons/pi";
 
@@ -28,7 +28,7 @@ export default function CodeWrapper({
       <motion.div
         animate={{ height: expanded ? bounds.height : 200 }}
         initial={false}
-        transition={{ duration: 0.3, ease: "easeInOut" }}
+        transition={{ duration: 0.4, ease: "easeIn" }}
         className="overflow-hidden"
       >
         <div ref={ref}>{children}</div>

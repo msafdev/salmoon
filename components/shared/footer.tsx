@@ -1,6 +1,6 @@
 "use client";
 
-import { useInView } from "framer-motion";
+import { useInView } from "motion/react";
 
 import { PiAtDuotone } from "react-icons/pi";
 

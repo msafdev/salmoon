@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { easeInOut, motion } from "motion/react";
 
 import { Children, type ReactNode } from "react";
 
@@ -17,7 +17,7 @@ const SectionWrapper = ({
   children,
   className = "flex h-auto w-full grow flex-col",
   staggerDelay = 0.2,
-  duration = 0.6,
+  duration = 0.4,
 }: StaggerWrapperProps) => {
   const childrenArray = Children.toArray(children);
   const isMultipleChildren = childrenArray.length > 0;
@@ -46,7 +46,7 @@ const SectionWrapper = ({
       opacity: 1,
       filter: "blur(0px)",
       transition: {
-        ease: "easeInOut",
+        ease: easeInOut,
         duration: duration,
       },
     },
@@ -54,8 +54,8 @@ const SectionWrapper = ({
       opacity: 0,
       filter: "blur(4px)",
       transition: {
-        ease: "easeInOut",
-        duration: duration * 0.4,
+        ease: easeInOut,
+        duration: duration * 0.3,
       },
     },
   };
@@ -69,7 +69,7 @@ const SectionWrapper = ({
       opacity: 1,
       filter: "blur(0px)",
       transition: {
-        ease: "easeInOut",
+        ease: easeInOut,
         duration: duration,
       },
     },
@@ -77,8 +77,8 @@ const SectionWrapper = ({
       opacity: 0,
       filter: "blur(4px)",
       transition: {
-        ease: "easeInOut",
-        duration: duration * 0.4,
+        ease: easeInOut,
+        duration: duration * 0.3,
       },
     },
   };

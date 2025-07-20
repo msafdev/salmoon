@@ -4,9 +4,10 @@ import {
   AnimatePresence,
   MotionConfig,
   type MotionProps,
+  easeInOut,
   motion,
   useInView,
-} from "framer-motion";
+} from "motion/react";
 
 import React, {
   Children,
@@ -64,13 +65,13 @@ const defaultChildVariants = (duration = 0.6) => ({
     opacity: 1,
     y: 0,
     filter: "blur(0px)",
-    transition: { ease: "easeInOut", duration },
+    transition: { ease: easeInOut, duration },
   },
   exit: {
     opacity: 0,
     y: -12,
     filter: "blur(4px)",
-    transition: { ease: "easeInOut", duration },
+    transition: { ease: easeInOut, duration },
   },
 });
 
@@ -79,12 +80,12 @@ const defaultSingleVariants = (duration = 0.6) => ({
   animate: {
     opacity: 1,
     filter: "blur(0px)",
-    transition: { ease: "easeInOut", duration },
+    transition: { ease: easeInOut, duration },
   },
   exit: {
     opacity: 0,
     filter: "blur(4px)",
-    transition: { ease: "easeInOut", duration },
+    transition: { ease: easeInOut, duration },
   },
 });
 

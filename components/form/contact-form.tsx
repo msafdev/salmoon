@@ -1,7 +1,7 @@
 "use client";
 
 import { useFormik } from "formik";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion } from "motion/react";
 import { toFormikValidationSchema } from "zod-formik-adapter";
 
 import { LuBadgeAlert } from "react-icons/lu";

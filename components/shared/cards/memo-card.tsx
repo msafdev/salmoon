@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { Variants, motion } from "motion/react";
 import { useMediaQuery } from "usehooks-ts";
 
 import Image from "next/image";
@@ -35,7 +35,7 @@ const containerVariant = {
     scale: 1,
     transition: spring,
   },
-};
+} as Variants;
 
 const maskVariant = {
   rest: {
@@ -48,15 +48,15 @@ const maskVariant = {
     x: 0,
     y: 16,
     scale: 0.95,
-    transition: { spring },
+    transition: spring,
   },
   "hover-mobile": {
     x: 0,
     y: 16,
     scale: 0.95,
-    transition: { spring },
+    transition: spring,
   },
-};
+} as Variants;
 
 const MemoCard = () => {
   const matches = useMediaQuery("(max-width: 768px)");
