@@ -1,5 +1,5 @@
 import Places from "@/components/shared/places";
-import  Profile from "@/components/shared/profile";
+import Profile from "@/components/shared/profile";
 
 const ProfileSection = () => {
   return (

@@ -34,7 +34,7 @@ const spinnerVariants: Record<SpinnerVariant, string> = {
 };
 
 const shimmerOverlay = (
-  <span className="animate-shimmer pointer-events-none absolute inset-0 bg-gradient-to-r from-transparent via-primary/5 to-transparent" />
+  <span className="pointer-events-none absolute inset-0 animate-shimmer bg-gradient-to-r from-transparent via-primary/5 to-transparent" />
 );
 
 const LoaderText = React.forwardRef<HTMLSpanElement, LoaderTextProps>(
@@ -57,7 +57,7 @@ const LoaderText = React.forwardRef<HTMLSpanElement, LoaderTextProps>(
           {content.split("").map((char, index) => (
             <span
               key={index}
-              className="animate-wave inline-block"
+              className="inline-block animate-wave"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               {char === " " ? "\u00A0" : char}
@@ -73,7 +73,7 @@ const LoaderText = React.forwardRef<HTMLSpanElement, LoaderTextProps>(
           ref={ref}
           style={{ "--shimmer-width": `${width}px` } as React.CSSProperties}
           className={cn(
-            "animate-text-shimmer mx-auto text-sm text-zinc-600/40 dark:text-zinc-400/40",
+            "mx-auto animate-text-shimmer text-sm text-zinc-600/40 dark:text-zinc-400/40",
             "bg-clip-text bg-no-repeat [background-position:0_0] [background-size:var(--shimmer-width)_100%] [transition:background-position_1s_cubic-bezier(.6,.6,0,1)_infinite]",
             "bg-gradient-to-r from-transparent via-primary via-50% to-transparent",
             className,
