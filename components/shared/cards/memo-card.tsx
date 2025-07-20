@@ -5,6 +5,8 @@ import { useMediaQuery } from "usehooks-ts";
 
 import Image from "next/image";
 
+import Scribble from "@/components/shared/scribble";
+
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 const spring = {
@@ -104,12 +106,10 @@ const MemoCard = () => {
         </div>
 
         <div className="flex items-center justify-between">
-          <p
-            className={`-rotate-3 text-center font-caveat font-semibold leading-none`}
-          >
+          <Scribble className="-rotate-3 text-center leading-none">
             With love, <br />
             Salman
-          </p>
+          </Scribble>
           <div className="flex items-center gap-x-2">
             <Avatar className="size-8">
               <AvatarImage

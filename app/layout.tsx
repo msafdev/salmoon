@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
-import { Caveat, Plus_Jakarta_Sans } from "next/font/google";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import NextTopLoader from "nextjs-toploader";
 
 import Dock from "@/components/shared/dock";
@@ -23,13 +23,6 @@ const plusJakarta = Plus_Jakarta_Sans({
   subsets: ["latin-ext"],
   weight: ["200", "300", "400", "500", "600", "700"],
   variable: "--font-jakarta-plus",
-});
-
-const caveat = Caveat({
-  subsets: ["latin-ext"],
-  display: "swap",
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-caveat",
 });
 
 export const metadata: Metadata = {
@@ -95,10 +88,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${plusJakarta.variable} ${caveat.variable} antialiased`}
-    >
+    <html lang="en" className={`${plusJakarta.variable} antialiased`}>
       <body className="font-jakarta-plus">
         <ThemeProvider
           attribute="class"

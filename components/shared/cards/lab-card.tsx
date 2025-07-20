@@ -2,6 +2,8 @@ import { PiArrowRightBold } from "react-icons/pi";
 
 import Link from "next/link";
 
+import Scribble from "@/components/shared/scribble";
+
 import { Button } from "@/components/ui/button";
 
 import { cn } from "@/lib/utils";
@@ -55,11 +57,7 @@ const LabCard = ({
         </Button>
       )}
 
-      {name && (
-        <span className="absolute left-3 top-2 font-caveat font-semibold">
-          {name}
-        </span>
-      )}
+      {name && <Scribble className="absolute left-3 top-2">{name}</Scribble>}
     </div>
   );
 };

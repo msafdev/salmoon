@@ -2,7 +2,7 @@ import Image from "next/image";
 
 import { Cursor } from "@/components/ui/cursor";
 
-export function Profile() {
+const Profile = () => {
   return (
     <div className="relative w-fit">
       <Cursor
@@ -35,4 +35,6 @@ export function Profile() {
       />
     </div>
   );
-}
+};
+
+export default Profile;
