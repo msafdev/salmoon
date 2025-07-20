@@ -1,14 +1,15 @@
 "use client";
 
-import { getAvailableSlots } from "@/action/calendar";
 import { AnimatePresence, motion } from "framer-motion";
 
-import { useEffect, useMemo, useState } from "react";
 import { PiArrowLeftBold, PiArrowRightBold } from "react-icons/pi";
+
+import { useEffect, useMemo, useState } from "react";
 
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 
+import { getAvailableSlots } from "@/action/calendar";
 import { format } from "@/lib/date";
 import { cn } from "@/lib/utils";
 

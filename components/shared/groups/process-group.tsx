@@ -4,6 +4,7 @@ import { motion, useInView } from "framer-motion";
 
 import { useRef } from "react";
 
+import { useDesktop } from "@/hooks/use-desktop";
 import { processItems } from "@/lib/constants";
 
 type ProcessProps = {
@@ -17,7 +18,7 @@ type ProcessProps = {
 function ProcessStep({ id, name, description, index, total }: ProcessProps) {
   return (
     <div
-      className={`relative col-span-7 grid gap-3 sm:grid-cols-8 sm:gap-4 ${index !== total - 1 ? "mb-4" : ""} `}
+      className={`relative col-span-7 grid gap-3 sm:grid-cols-8 sm:gap-4 ${index !== total - 1 ? "mb-4" : ""}`}
       key={id}
     >
       {/* Step Dot */}
@@ -45,15 +46,19 @@ export default function ProcessGroup() {
     margin: "-10% 0px",
   });
 
+  const { isDesktop, isMounted } = useDesktop(640);
+
   return (
     <div ref={containerRef} className="relative flex w-full max-w-lg flex-col">
-      <motion.div
-        initial={{ scaleY: 0 }}
-        animate={{ scaleY: isInView ? 1 : 0 }}
-        transition={{ duration: 1.2, ease: "easeOut", delay: 0.2 }}
-        className="absolute left-[11px] top-[24px] hidden origin-top scale-y-0 transform border-r-2 border-dashed border-accent sm:block"
-        style={{ height: `calc(73%)` }}
-      />
+      {isMounted && isDesktop && (
+        <motion.div
+          initial={{ scaleY: 0 }}
+          animate={{ scaleY: isInView ? 1 : 0 }}
+          transition={{ duration: 1.2, ease: "easeOut", delay: 0.2 }}
+          className="absolute left-[11px] top-[24px] hidden origin-top scale-y-0 transform border-r-2 border-dashed border-accent sm:block"
+          style={{ height: `calc(73%)` }}
+        />
+      )}
 
       {processItems.map((item, index) => (
         <ProcessStep

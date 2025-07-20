@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
 import { PiArrowLeftBold, PiArrowRightBold } from "react-icons/pi";
+
+import { useState } from "react";
 
 import { Button } from "@/components/ui/button";
 

@@ -1,6 +1,5 @@
 "use client";
 
-import { cn } from "@/lib/utils";
 import { MotionConfig, motion } from "framer-motion";
 
 import React, {
@@ -12,6 +11,8 @@ import React, {
 } from "react";
 
 import { Button } from "@/components/ui/button";
+
+import { cn } from "@/lib/utils";
 
 type ToolbarMode = string;
 type ToolbarPosition = "center" | "top" | "bottom" | "left" | "right";

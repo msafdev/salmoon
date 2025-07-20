@@ -27,7 +27,6 @@ const TemplateCard = ({
           alt={`Thumbnail for ${title}`}
           fill
           loading="lazy"
-          sizes="(max-width: 768px) 70vw, 50vw"
           className="anim object-cover group-hover/card:scale-105"
         />
       </div>

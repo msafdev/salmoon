@@ -6,9 +6,8 @@ import { useRouter } from "next/navigation";
 
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
-import { useToast } from "@/hooks/use-toast";
-
 import { createMeeting } from "@/action/calendar";
+import { useToast } from "@/hooks/use-toast";
 import { Contact } from "@/types/contact.types";
 
 const calendarMutation = () => {

@@ -9,7 +9,7 @@ export default function robots(): MetadataRoute.Robots {
       },
       {
         userAgent: "Twitterbot",
-        allow: ["/"]
+        allow: ["/"],
       },
       {
         userAgent: "Bingbot",

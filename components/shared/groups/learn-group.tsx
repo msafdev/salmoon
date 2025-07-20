@@ -1,7 +1,6 @@
 "use client";
 
 import { learns } from "#site/content";
-import { groupLearnsByTag } from "@/velite/learn";
 
 import { PiBookmarkSimpleFill } from "react-icons/pi";
 
@@ -13,6 +12,8 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/motion/accordion";
+
+import { groupLearnsByTag } from "@/velite/learn";
 
 const LearnGroup = () => {
   const groupedMaterials = groupLearnsByTag(learns);

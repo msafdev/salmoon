@@ -4,9 +4,8 @@ import { LuBadgeCheck, LuBadgeX } from "react-icons/lu";
 
 import { useMutation } from "@tanstack/react-query";
 
-import { useToast } from "@/hooks/use-toast";
-
 import { githubSignIn, googleSignIn, signOut } from "@/action/auth";
+import { useToast } from "@/hooks/use-toast";
 
 const authMutation = () => {
   const { toast } = useToast();

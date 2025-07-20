@@ -2,8 +2,9 @@ import { Metadata } from "next";
 
 import Paragraph from "@/components/shared/paragraph";
 
-import ContactForm from "@/components/form/contact-form";
 import SectionWrapper from "@/components/motion/section-wrapper";
+
+import ContactForm from "@/components/form/contact-form";
 
 export const metadata: Metadata = {
   title: "Contact",

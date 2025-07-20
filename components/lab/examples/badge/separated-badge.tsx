@@ -1,8 +1,4 @@
-import {
-    PiEyesDuotone,
-  PiStar,
-  PiStarFill,
-} from "react-icons/pi";
+import { PiEyesDuotone, PiStar, PiStarFill } from "react-icons/pi";
 
 import { Badge } from "@/components/ui/badge";
 

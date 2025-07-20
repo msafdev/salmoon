@@ -1,11 +1,16 @@
 "use client";
 
+import {
+  PiCheckBold,
+  PiClipboardDuotone,
+  PiClipboardTextDuotone,
+} from "react-icons/pi";
+
 import { useState } from "react";
-import { PiCheckBold, PiClipboardDuotone, PiClipboardTextDuotone } from "react-icons/pi";
 
 import { Button } from "@/components/ui/button";
-import { useToast } from "@/hooks/use-toast";
 
+import { useToast } from "@/hooks/use-toast";
 import { copyToClipboard } from "@/lib/functions";
 
 const CopyButton = ({

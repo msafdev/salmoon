@@ -1,11 +1,11 @@
 "use client";
 
-import { GuestbookWithUser } from "@/types/guestbook.types";
 import { motion } from "framer-motion";
 
 import Image from "next/image";
 
 import { formatTimestamp } from "@/lib/functions";
+import { GuestbookWithUser } from "@/types/guestbook.types";
 
 type GuestbookCardProps = {
   entry: GuestbookWithUser;

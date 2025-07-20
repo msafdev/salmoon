@@ -14,10 +14,10 @@ import {
 } from "react-icons/pi";
 
 import {
+  Toolbar,
+  ToolbarButton,
   ToolbarContent,
   ToolbarInput,
-  ToolbarButton,
-  Toolbar,
   ToolbarSeparator,
 } from "@/components/lab/toolbar";
 

@@ -2,13 +2,14 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 
-import React, { useCallback, useEffect, useRef, useState } from "react";
 import {
   PiGlobeDuotone,
   PiInstagramLogoDuotone,
   PiMailboxDuotone,
   PiUserDuotone,
 } from "react-icons/pi";
+
+import React, { useCallback, useEffect, useRef, useState } from "react";
 
 import { Button } from "@/components/ui/button";
 

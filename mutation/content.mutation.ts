@@ -4,9 +4,8 @@ import { LuBadgeCheck, LuBadgeX } from "react-icons/lu";
 
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
-import { useToast } from "@/hooks/use-toast";
-
 import { addContent } from "@/action/content";
+import { useToast } from "@/hooks/use-toast";
 
 const contentMutation = () => {
   const queryClient = useQueryClient();

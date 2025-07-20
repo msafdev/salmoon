@@ -153,7 +153,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           {item.example.map((example, index) => (
             <div className="w-full space-y-2" key={index}>
               <Tabs defaultValue="preview">
-                <TabsList className="gap-x-8 bg-transparent p-0" >
+                <TabsList className="gap-x-8 bg-transparent p-0">
                   <TabsTrigger
                     className="gap-2 px-0 data-[state=active]:shadow-none"
                     value="preview"

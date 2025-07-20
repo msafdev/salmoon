@@ -17,13 +17,13 @@ import { useState } from "react";
 
 import Button from "@/components/shared/button";
 import CalInput from "@/components/shared/inputs/cal-input";
-import MultiSlider from "@/components/shared/inputs/multi-slider";
 import { Input } from "@/components/shared/inputs/ext-input";
+import MultiSlider from "@/components/shared/inputs/multi-slider";
 
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { useToast } from "@/hooks/use-toast";
 
+import { useToast } from "@/hooks/use-toast";
 import calendarMutation from "@/mutation/calendar.mutation";
 import { contactSchema, serviceType, userType } from "@/schema/contact-schema";
 import { Contact } from "@/types/contact.types";

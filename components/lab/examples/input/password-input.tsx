@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
 import { PiEyeBold, PiEyeClosedBold } from "react-icons/pi";
+
+import { useState } from "react";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";

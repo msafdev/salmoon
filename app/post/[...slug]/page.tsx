@@ -115,7 +115,7 @@ export default async function PostPage({ params }: PostPageProps) {
       </div>
 
       <div className="flex w-full max-w-lg flex-col">
-        <div className="mb-4 sm:mb-6 space-y-1">
+        <div className="mb-4 space-y-1 sm:mb-6">
           <h1 className="text-xl font-bold sm:text-2xl">{post.title}</h1>
           <p className="text-sm font-medium text-muted-foreground md:text-base">
             {formatDate(post.date, "mid")}

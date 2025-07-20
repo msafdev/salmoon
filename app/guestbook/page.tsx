@@ -1,12 +1,13 @@
-import { createClient } from "@/supabase/server";
-
 import { Metadata } from "next";
 
 import Paragraph from "@/components/shared/paragraph";
 
-import GuestbookForm from "@/components/form/guestbook-form";
 import SectionWrapper from "@/components/motion/section-wrapper";
+
+import GuestbookForm from "@/components/form/guestbook-form";
 import GuestbookSection from "@/components/section/guestbook-section";
+
+import { createClient } from "@/supabase/server";
 
 export const metadata: Metadata = {
   title: "Guestbook",

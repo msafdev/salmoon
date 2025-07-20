@@ -8,6 +8,8 @@ import {
   motion,
 } from "motion/react";
 
+import { PiXBold } from "react-icons/pi";
+
 import React, {
   useCallback,
   useContext,
@@ -23,7 +25,6 @@ import Image, { StaticImageData } from "next/image";
 
 import { useClickOutside } from "@/hooks/use-click";
 import { cn } from "@/lib/utils";
-import { PiXBold } from "react-icons/pi";
 
 export type MorphDialogContextType = {
   isOpen: boolean;

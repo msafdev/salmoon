@@ -2,7 +2,7 @@ name: Ping Supabase to Prevent Pausing
 
 on:
   schedule:
-    - cron: '0 9 * * 1,4' # Runs at 9:00 AM UTC every Monday and Thursday
+    - cron: "0 9 * * 1,4" # Runs at 9:00 AM UTC every Monday and Thursday
   workflow_dispatch: # Allows manual triggering from the GitHub UI
 
 jobs:
@@ -18,7 +18,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18' # Use Node.js 18
+          node-version: "18" # Use Node.js 18
 
       # Step 3: Install Supabase Client
       - name: Install Supabase Client

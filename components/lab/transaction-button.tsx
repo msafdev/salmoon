@@ -2,8 +2,9 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 
-import { useEffect, useState } from "react";
 import { PiArrowClockwiseBold, PiCheckBold } from "react-icons/pi";
+
+import { useEffect, useState } from "react";
 
 const TransactionButton = () => {
   const [loading, setLoading] = useState(false);

@@ -1,8 +1,9 @@
 "use client";
 
+import { PiXBold } from "react-icons/pi";
+
 import { type VariantProps, cva } from "class-variance-authority";
 import * as React from "react";
-import { PiXBold } from "react-icons/pi";
 
 import * as ToastPrimitives from "@radix-ui/react-toast";
 

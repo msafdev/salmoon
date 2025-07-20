@@ -2,8 +2,9 @@
 
 import { motion } from "framer-motion";
 
-import { useState } from "react";
 import { PiDeviceMobileCameraDuotone, PiGlobeDuotone } from "react-icons/pi";
+
+import { useState } from "react";
 
 import { cn } from "@/lib/utils";
 

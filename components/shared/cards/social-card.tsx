@@ -1,5 +1,6 @@
-import React from "react";
 import { IconType } from "react-icons/lib";
+
+import React from "react";
 
 import Link from "next/link";
 

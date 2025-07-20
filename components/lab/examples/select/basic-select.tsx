@@ -32,7 +32,7 @@ const items = [
 
 export const BasicSelect = () => {
   return (
-    <div className="space-y-3 w-full max-w-64">
+    <div className="w-full max-w-64 space-y-3">
       <Label htmlFor="basic-select">Basic Select</Label>
       <Select defaultValue="react">
         <SelectTrigger id="basic-select">

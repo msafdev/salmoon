@@ -1,8 +1,8 @@
 "use server";
 
-import { createClient } from "@/supabase/server";
-
 import { revalidatePath } from "next/cache";
+
+import { createClient } from "@/supabase/server";
 
 export async function addContent(formData: FormData) {
   const content = formData.get("content") as string;

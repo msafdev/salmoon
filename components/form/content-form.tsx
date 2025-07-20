@@ -43,7 +43,7 @@ const ContentForm = () => {
         id="content"
         value={content}
         onChange={(e) => setContent(e.target.value)}
-        className="w-full min-h-24"
+        className="min-h-24 w-full"
         disabled={addContentMutation.isPending}
       />
 

@@ -2,8 +2,9 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 
-import { useState } from "react";
 import { PiPlusBold } from "react-icons/pi";
+
+import { useState } from "react";
 
 type chatProps = {
   id: number;

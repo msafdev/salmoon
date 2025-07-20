@@ -2,8 +2,9 @@
 
 import { MotionValue, motion, useSpring, useTransform } from "framer-motion";
 
-import { useEffect, useState } from "react";
 import { PiMinusBold, PiPlusBold } from "react-icons/pi";
+
+import { useEffect, useState } from "react";
 
 import { Button } from "@/components/ui/button";
 

@@ -48,7 +48,7 @@
   }
 
   .line > .highlighted-word {
-    @apply underline underline-offset-2 decoration-blue-500;
+    @apply underline decoration-blue-500 underline-offset-2;
   }
 
   counter-reset: step;

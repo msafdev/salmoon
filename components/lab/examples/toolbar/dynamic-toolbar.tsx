@@ -1,13 +1,14 @@
 "use client";
 
-import { useState } from "react";
 import { PiPlusCircleDuotone, PiSealCheckFill } from "react-icons/pi";
+
+import { useState } from "react";
 
 import {
   Toolbar,
+  ToolbarButton,
   ToolbarContent,
   ToolbarItem,
-  ToolbarButton,
 } from "@/components/lab/toolbar";
 
 export const DynamicToolbar = () => {

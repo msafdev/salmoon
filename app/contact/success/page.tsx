@@ -1,7 +1,8 @@
 "use client";
 
-import { useEffect } from "react";
 import { PiSealCheckFill } from "react-icons/pi";
+
+import { useEffect } from "react";
 
 import { useRouter } from "next/navigation";
 
