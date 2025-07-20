@@ -117,14 +117,14 @@ console.log("4");
 
 With `rehype-pretty-code`, you can annotate code in several ways:
 
-| Syntax                | Effect                           |
-| --------------------- | -------------------------------- |
-| `[!code highlight]`   | Highlights the entire line       |
-| `[!code highlight:X]` | Highlights a specific line range |
-| `[!code ++]`          | Shows as added in diff mode      |
-| `[!code --]`          | Shows as removed in diff mode    |
-| `[!code word:WORD]`   | Highlights a specific word       |
-| `[!code word:WORD:X]` | Highlights a specific word range |
+| Syntax                | Effect                            |
+| --------------------- | --------------------------------- |
+| `[!code highlight]`   | Highlights a line                 |
+| `[!code highlight:n]` | Highlights a line in range(n)     |
+| `[!code ++]`          | Shows as added in diff mode       |
+| `[!code --]`          | Shows as removed in diff mode     |
+| `[!code word:X]`      | Highlights the word X             |
+| `[!code word:X:n]`    | Highlights the word X in range(n) |
 
 You can also combine multiple annotations into 1 (one).
 

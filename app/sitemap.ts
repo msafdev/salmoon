@@ -1,18 +1,19 @@
 import { posts } from "#site/content";
 
-export const baseUrl = process.env.NEXT_PUBLIC_BASE_URL!;
+import { siteItems } from "@/lib/constants";
+
 const today = new Date().toISOString().split("T")[0];
 
 export default async function sitemap() {
   const sitemap = [
     {
-      url: `${baseUrl}/`,
+      url: `${siteItems.url}/`,
       lastModified: today,
       priority: 1.0,
     },
   ];
 
-  const staticRoutes = [
+  const staticRoutes: string[] = [
     "/archive",
     "/lab",
     "/post",
@@ -23,29 +24,31 @@ export default async function sitemap() {
   ];
 
   const staticEntries = staticRoutes.map((route) => ({
-    url: `${baseUrl}${route}`,
+    url: `${siteItems.url}${route}`,
     lastModified: today,
     priority: 0.7,
   }));
 
   const blogEntries =
     posts?.map((post) => ({
-      url: `${baseUrl}/post/${post.slug}`,
+      url: `${siteItems.url}/post/${post.slug}`,
       lastModified: post.date,
       priority: 0.5,
     })) ?? [];
 
-  const labDynamicRoutes: string[] = [
+  const labStaticRoutes: string[] = [
     "toolbar",
-    "button",
+    "loader",
     "avatar",
     "stagger",
     "file",
     "input",
+    "badge",
+    "cursor",
   ];
 
-  const labEntries = labDynamicRoutes.map((slug) => ({
-    url: `${baseUrl}/lab/${slug}`,
+  const labEntries = labStaticRoutes.map((slug) => ({
+    url: `${siteItems.url}/lab/${slug}`,
     lastModified: today,
     priority: 0.6,
   }));

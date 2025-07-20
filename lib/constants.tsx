@@ -20,8 +20,15 @@ import Template2 from "@/public/images/templates/elite.webp";
 import Template1 from "@/public/images/templates/pleno.webp";
 
 export const siteItems = {
+  title: "Msafdev | Product Engineer",
+  appName: "Msafdev",
+  description:
+    "When creativity meets perfection, you get me. A freelance product engineer / fullstack developer with a passion for building pretty products.",
   name: "Salman Alfarisi",
-  url: "https://salmoon.vercel.app",
+  url:
+    process.env.ENVIRONTMENT === "dev"
+      ? process.env.NEXT_PUBLIC_BASE_URL
+      : "http://localhost:3000",
   role: "Fullstack Engineer",
   links: {
     twitter: "https://twitter.com/sal__moon",
@@ -280,24 +287,14 @@ export const workItems = [
     duration: "Aug 24 - Oct 24",
   },
   {
-    title: "Cloud Computing Cohort",
-    company: "Bangkit Academy",
-    duration: "Feb 24 - Jul 24",
-  },
-  {
     title: "Frontend Developer",
     company: "Fndigitalcode",
     duration: "Oct 23 - Apr 24",
   },
   {
-    title: "Frontend Developer",
+    title: "Project Manager",
     company: "Ministry of Manpower",
-    duration: "Jan 23 - Mar 23",
-  },
-  {
-    title: "Laboratory Assistant",
-    company: "Diponegoro University",
-    duration: "Aug 22 - Dec 23",
+    duration: "Dec 22 - Mar 23",
   },
 ];
 

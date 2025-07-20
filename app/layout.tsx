@@ -10,10 +10,10 @@ import { Toaster } from "@/components/ui/toaster";
 import QueryProvider from "@/components/query-provider";
 import { ThemeProvider } from "@/components/theme-provider";
 
+import { siteItems } from "@/lib/constants";
 import "@/styles/globals.css";
 
 import NotFound from "./not-found";
-import { baseUrl } from "./sitemap";
 
 const Footer = dynamic(() => import("@/components/shared/footer"), {
   ssr: false,
@@ -26,10 +26,10 @@ const plusJakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  metadataBase: baseUrl ? new URL(baseUrl) : undefined,
-  applicationName: "Msafdev",
+  metadataBase: siteItems.url ? new URL(siteItems.url) : undefined,
+  applicationName: siteItems.appName,
   title: {
-    default: "Msafdev | Product Engineer",
+    default: siteItems.title,
     template: "Msafdev | %s",
   },
   keywords: [
@@ -59,17 +59,16 @@ export const metadata: Metadata = {
   icons: {
     icon: `/favicon.ico`,
   },
-  description:
-    "When creativity meets perfection, you get me. A freelance product engineer / fullstack developer with a passion for building pretty products.",
+  description: siteItems.description,
   openGraph: {
     title: "Msafdev | Product Engineer",
-    url: baseUrl,
+    url: siteItems.url,
     siteName: "Msafdev",
     locale: "en_US",
     type: "website",
     images: [
       {
-        url: `${baseUrl}/og`,
+        url: `${siteItems.url}/og`,
         alt: "Msafdev",
         type: "image/png",
       },
@@ -78,7 +77,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Msafdev | Product Engineer",
-    images: [`${baseUrl}/og`],
+    images: [`${siteItems.url}/og`],
   },
 };
 

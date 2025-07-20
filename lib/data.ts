@@ -42,7 +42,7 @@ export type ComponentType = {
   name: string;
   slug: string;
   primitive: boolean;
-  description?: string;
+  description: string;
   example: {
     child: React.ComponentType<any>;
     name: string;
@@ -65,7 +65,8 @@ export const COMPONENTS: ComponentType[] = [
     name: "Stagger",
     slug: "stagger",
     primitive: true,
-    description: "Staggered animations for sequencing UI motion.",
+    description:
+      "Orchestrate animations with staggered timing for smooth sequential motion.",
     example: [
       {
         child: BasicAnimation,
@@ -77,11 +78,7 @@ export const COMPONENTS: ComponentType[] = [
         name: "Variant Animation",
         path: "variant-animation",
       },
-      {
-        child: ViewAnimation,
-        name: "View Animation",
-        path: "view-animation",
-      },
+      { child: ViewAnimation, name: "View Animation", path: "view-animation" },
     ],
     gridClass: "large-card",
   },
@@ -89,7 +86,8 @@ export const COMPONENTS: ComponentType[] = [
     name: "Badge",
     slug: "badge",
     primitive: false,
-    description: "Lightweight labels for statuses, types, or actions.",
+    description:
+      "Compact visual indicators for statuses, categories, or actions.",
     example: [
       { child: BasicBadge, name: "Basic Badge", path: "basic-badge" },
       { child: IconBadge, name: "Icon Badge", path: "icon-badge" },
@@ -108,28 +106,12 @@ export const COMPONENTS: ComponentType[] = [
     name: "Avatar",
     slug: "avatar",
     primitive: false,
-    description: "User visuals with icons, initials, or images.",
+    description: "Display user identity with images, initials, or icons.",
     example: [
-      {
-        child: BasicAvatar,
-        name: "Basic Avatar",
-        path: "basic-avatar",
-      },
-      {
-        child: StatusAvatar,
-        name: "Status Avatar",
-        path: "status-avatar",
-      },
-      {
-        child: IconAvatar,
-        name: "Icon Avatar",
-        path: "icon-avatar",
-      },
-      {
-        child: StackAvatar,
-        name: "Stack Avatar",
-        path: "stack-avatar",
-      },
+      { child: BasicAvatar, name: "Basic Avatar", path: "basic-avatar" },
+      { child: StatusAvatar, name: "Status Avatar", path: "status-avatar" },
+      { child: IconAvatar, name: "Icon Avatar", path: "icon-avatar" },
+      { child: StackAvatar, name: "Stack Avatar", path: "stack-avatar" },
     ],
     thumbnail: 1,
     uiLibrary: "npx shadcn@latest add avatar",
@@ -139,7 +121,8 @@ export const COMPONENTS: ComponentType[] = [
     name: "Toolbar",
     slug: "toolbar",
     primitive: true,
-    description: "Animated toolbar with mode switching and layout transitions.",
+    description:
+      "Flexible toolbar component with animated layout transitions and mode switching.",
     example: [
       { child: BasicToolbar, name: "Basic Toolbar", path: "basic-toolbar" },
       {
@@ -161,7 +144,8 @@ export const COMPONENTS: ComponentType[] = [
     name: "Input",
     slug: "input",
     primitive: false,
-    description: "Various input components with advanced features.",
+    description:
+      "Enhanced form inputs including password, float, number, and OTP fields.",
     example: [
       { child: BasicInput, name: "Basic Input", path: "basic-input" },
       { child: NumberInput, name: "Number Input", path: "number-input" },
@@ -177,7 +161,8 @@ export const COMPONENTS: ComponentType[] = [
     name: "Select",
     slug: "select",
     primitive: false,
-    description: "Various select components with advanced features.",
+    description:
+      "Advanced select components with grouping, avatars, and dynamic options.",
     example: [
       { child: BasicSelect, name: "Basic Select", path: "basic-select" },
       { child: GroupedSelect, name: "Grouped Select", path: "grouped-select" },
@@ -191,23 +176,16 @@ export const COMPONENTS: ComponentType[] = [
     name: "Cursor",
     slug: "cursor",
     primitive: true,
-    description: "Custom cursor effects with motion and tracking.",
+    description:
+      "Create custom animated cursors with interactive motion effects.",
     example: [
-      {
-        child: BasicCursor,
-        name: "Basic Cursor",
-        path: "basic-cursor",
-      },
+      { child: BasicCursor, name: "Basic Cursor", path: "basic-cursor" },
       {
         child: AdvancedCursor,
         name: "Advanced Cursor",
         path: "advanced-cursor",
       },
-      {
-        child: SpringCursor,
-        name: "Spring Cursor",
-        path: "spring-cursor",
-      },
+      { child: SpringCursor, name: "Spring Cursor", path: "spring-cursor" },
     ],
     thumbnail: 1,
     gridClass: "large-card",
@@ -216,7 +194,8 @@ export const COMPONENTS: ComponentType[] = [
     name: "File",
     slug: "file",
     primitive: false,
-    description: "Various input components with advanced features.",
+    description:
+      "Flexible file upload components with avatar and multiple file support.",
     example: [
       { child: BasicFile, name: "Basic File", path: "basic-file" },
       { child: AvatarFile, name: "Avatar File", path: "avatar-file" },
@@ -231,7 +210,8 @@ export const COMPONENTS: ComponentType[] = [
     name: "Loader",
     slug: "loader",
     primitive: true,
-    description: "Various select components with advanced features.",
+    description:
+      "Animated loaders including text shimmer, wave, hourglass, and icons.",
     example: [
       { child: IconLoader, name: "Icon Loader", path: "icon-loader" },
       { child: TextLoader, name: "Text Loader", path: "text-loader" },

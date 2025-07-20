@@ -20,7 +20,7 @@ const posts = defineCollection({
       slug: s.path(),
       title: s.string().max(99),
       image: s.string().max(99),
-      description: s.string().max(999).optional(),
+      description: s.string().max(999),
       date: s.isodate(),
       published: s.boolean().default(true),
       featured: s.boolean().default(false),
@@ -37,7 +37,7 @@ const learns = defineCollection({
     .object({
       slug: s.path(),
       title: s.string().max(99),
-      description: s.string().max(999).optional(),
+      description: s.string().max(999),
       chapter: s.number().min(1),
       published: s.boolean().default(true),
       tags: s.array(s.string()).optional(),

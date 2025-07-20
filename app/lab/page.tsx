@@ -14,7 +14,7 @@ import "@/styles/lab.css";
 export const metadata: Metadata = {
   title: "Lab",
   description:
-    "Msafdev's laboratory, where I experiment with UI designs and interactions, free to use and explore.",
+    "My own trusted laboratory, where I experiment with UI designs and interactions, free to use and explore.",
 };
 
 export default function Page() {

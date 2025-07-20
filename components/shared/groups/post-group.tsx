@@ -37,7 +37,7 @@ const PostGroup = ({ items, tags }: { items: Array<Post>; tags: string[] }) => {
       : items.filter((item) => item.tags?.includes(selectedTag));
 
   return (
-    <div className="flex flex-col gap-y-8">
+    <div className="flex flex-col gap-y-4">
       {/* Filter Tags */}
       <div className="flex flex-col gap-y-2">
         <p className="text-sm font-semibold text-foreground md:text-base">
@@ -98,7 +98,7 @@ const PostGroup = ({ items, tags }: { items: Array<Post>; tags: string[] }) => {
                   filter: "blur(2px)",
                   transition: { delay: index * 0.1 },
                 }}
-                className="group/item cursor-pointer py-2 first:pt-0 last:pb-0"
+                className="group/item cursor-pointer py-2"
               >
                 <Link
                   href={item.slug}

@@ -39,7 +39,11 @@ export async function generateMetadata({
 }: LearnPageProps): Promise<Metadata> {
   const learn = await getLearnFromParams(params);
 
-  if (!learn) return {};
+  if (!learn)
+    return {
+      title: "Course Not Found",
+      description: "The course you're looking for does not exist.",
+    };
 
   const ogSearchParams = new URLSearchParams();
   ogSearchParams.set("title", learn.title);

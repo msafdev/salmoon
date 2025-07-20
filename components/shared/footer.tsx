@@ -108,25 +108,25 @@ const Footer = () => {
             </h2>
             <div className="flex flex-col items-center gap-y-2 text-center text-sm font-medium text-primary-foreground/60 dark:text-foreground/60 md:items-end md:text-right">
               <Link
-                href={"/material"}
+                href={"/feed.xml"}
                 className="anim hover:text-primary-foreground dark:hover:text-primary"
                 prefetch={false}
               >
-                Starter Kit
+                RSS
               </Link>
               <Link
-                href={"/material"}
+                href={"/"}
                 className="anim hover:text-primary-foreground dark:hover:text-primary"
                 prefetch={false}
               >
                 Notion
               </Link>
               <Link
-                href={"/material"}
+                href={"/"}
                 className="anim hover:text-primary-foreground dark:hover:text-primary"
                 prefetch={false}
               >
-                Analytics
+                Starter Kit
               </Link>
             </div>
           </div>
@@ -144,13 +144,6 @@ const Footer = () => {
                 Learn
               </Link>
               <Link
-                href={"/bucket-list"}
-                className="anim hover:text-primary-foreground dark:hover:text-primary"
-                prefetch={false}
-              >
-                Bucket List
-              </Link>
-              <Link
                 href={"/personal"}
                 className="anim hover:text-primary-foreground dark:hover:text-primary"
                 prefetch={false}
@@ -163,6 +156,13 @@ const Footer = () => {
                 prefetch={false}
               >
                 Attribution
+              </Link>
+              <Link
+                href={"/bucket-list"}
+                className="anim hover:text-primary-foreground dark:hover:text-primary"
+                prefetch={false}
+              >
+                Bucket List
               </Link>
             </div>
           </div>

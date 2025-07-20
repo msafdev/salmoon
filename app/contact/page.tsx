@@ -8,6 +8,7 @@ import ContactForm from "@/components/form/contact-form";
 
 export const metadata: Metadata = {
   title: "Contact",
+  description: "Need something? Don't be shy and hit me up.",
 };
 
 export default async function Page() {

@@ -21,6 +21,7 @@ import {
 
 export const metadata: Metadata = {
   title: "Material",
+  description: "My most trusted people, tools, resources, this and that.",
 };
 
 const Page = () => {

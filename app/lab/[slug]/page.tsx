@@ -40,7 +40,7 @@ export async function generateMetadata({
   if (!item) {
     return {
       title: "Component Not Found",
-      description: "This UI component does not exist.",
+      description: "The component you're looking for does not exist.",
     };
   }
 

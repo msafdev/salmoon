@@ -11,7 +11,7 @@ import { createClient } from "@/supabase/server";
 
 export const metadata: Metadata = {
   title: "Guestbook",
-  description: "Msafdev's personal guestbook, leave me a trace of your visit.",
+  description: "My personal guestbook, leave me a trace of your visit.",
 };
 
 const Page = async () => {

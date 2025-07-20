@@ -35,7 +35,10 @@ export async function generateMetadata({
   const post = await getPostFromParams(params);
 
   if (!post) {
-    return {};
+    return {
+      title: "Post Not Found",
+      description: "This post you're looking for does not exist.",
+    };
   }
 
   const ogSearchParams = new URLSearchParams();

@@ -25,6 +25,7 @@ import {
   SiGo,
   SiHtml5,
   SiJavascript,
+  SiJira,
   SiLaravel,
   SiMdx,
   SiMongodb,
@@ -32,6 +33,7 @@ import {
   SiNextdotjs,
   SiNodedotjs,
   SiNodemon,
+  SiPlanetscale,
   SiPostgresql,
   SiPostman,
   SiPrisma,
@@ -47,6 +49,7 @@ import {
   SiTypescript,
   SiVercel,
   SiVuedotjs,
+  SiWebflow,
 } from "react-icons/si";
 
 import type { FC } from "react";
@@ -91,6 +94,8 @@ const techMap: Record<string, JSX.Element> = {
   query: <SiReactquery className="text-[#FF4154]" />,
   router: <SiReactrouter className="text-[#FF4154]" />,
   table: <SiReacttable className="text-[#FF4154]" />,
+  jira: <SiJira />,
+  webflow: <SiWebflow />,
 };
 
 const generalMap: Record<string, JSX.Element> = {

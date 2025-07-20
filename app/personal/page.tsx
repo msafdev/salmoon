@@ -10,6 +10,7 @@ import TrackGroup from "@/components/section/track-section";
 
 export const metadata: Metadata = {
   title: "Personal",
+  description: "Get to know me a little bit more (just enough).",
 };
 
 export default async function Page() {

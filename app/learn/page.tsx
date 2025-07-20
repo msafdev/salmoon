@@ -8,6 +8,7 @@ import SectionWrapper from "@/components/motion/section-wrapper";
 
 export const metadata: Metadata = {
   title: "Learn",
+  description: "Study something new (or maybe not) with me.",
 };
 
 export default function Page() {
