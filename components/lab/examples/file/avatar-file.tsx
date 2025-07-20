@@ -42,6 +42,7 @@ export const AvatarFile = () => {
         onDragOver={handleDragOver}
         onDrop={handleDrop}
         data-dragging={isDragging || undefined}
+        aria-label="Upload file"
         className={cn(
           "h-full w-full",
           "has-disabled:pointer-events-none has-disabled:opacity-40",

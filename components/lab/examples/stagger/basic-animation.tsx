@@ -30,6 +30,7 @@ export const BasicAnimation = () => {
         size="icon"
         onClick={() => setToggle((prev) => !prev)}
         className="absolute bottom-2 left-2 mx-auto size-8"
+        aria-label="Repeat animation"
       >
         <PiArrowClockwiseBold size={14} />
       </Button>

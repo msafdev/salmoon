@@ -3,9 +3,6 @@ import dynamic from "next/dynamic";
 import { Caveat, Plus_Jakarta_Sans } from "next/font/google";
 import NextTopLoader from "nextjs-toploader";
 
-import { Analytics } from "@vercel/analytics/react";
-import { SpeedInsights } from "@vercel/speed-insights/next";
-
 import Dock from "@/components/shared/dock";
 
 import { Toaster } from "@/components/ui/toaster";
@@ -103,8 +100,6 @@ export default function RootLayout({
       className={`${plusJakarta.variable} ${caveat.variable} antialiased`}
     >
       <body className="font-jakarta-plus">
-        <SpeedInsights />
-        <Analytics />
         <ThemeProvider
           attribute="class"
           enableColorScheme={false}
