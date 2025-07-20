@@ -16,6 +16,8 @@ import Place1 from "@/public/images/places/place-1.avif";
 import Place2 from "@/public/images/places/place-2.avif";
 import Place3 from "@/public/images/places/place-3.avif";
 import Place4 from "@/public/images/places/place-4.avif";
+import Template2 from "@/public/images/templates/elite.webp";
+import Template1 from "@/public/images/templates/pleno.webp";
 
 export const siteItems = {
   name: "Salman Alfarisi",
@@ -374,5 +376,28 @@ export const resourceItems = [
   {
     title: "Every React Concept Explained in 12 Minutes",
     href: "https://youtube.com/watch?v=wIyHSOugGGw&pp=ygUTcmVhY3QgaW4gMTIgbWludXRlcw%3D%3D",
+  },
+];
+
+export const templateItems = [
+  {
+    slug: "pleno",
+    title: "Pleno",
+    image: Template1,
+    description:
+      "A minimalist blog starter using Next.js, Velite, and Tailwind.",
+    published: true,
+    demo: "https://mdx-starter-theta.vercel.app",
+    github: "https://github.com/msafdev/pleno",
+  },
+  {
+    slug: "elite",
+    title: "Elite",
+    image: Template2,
+    description:
+      "A minimalist blog starter using Astro, React.js, and Tailwind.",
+    published: true,
+    demo: "https://mdx-starter-theta.vercel.app",
+    github: "https://github.com/msafdev/elite",
   },
 ];

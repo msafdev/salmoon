@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 
 const TemplateCard = ({
@@ -9,7 +9,7 @@ const TemplateCard = ({
 }: {
   title: string;
   demo: string;
-  image: string;
+  image: StaticImageData;
   description: string;
 }) => {
   return (
@@ -27,6 +27,7 @@ const TemplateCard = ({
           alt={`Thumbnail for ${title}`}
           fill
           loading="lazy"
+          placeholder="blur"
           className="anim object-cover group-hover/card:scale-105"
         />
       </div>

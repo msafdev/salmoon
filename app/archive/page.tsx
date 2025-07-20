@@ -1,4 +1,4 @@
-import { posts, projects } from "#site/content";
+import { posts } from "#site/content";
 
 import { Metadata } from "next";
 
@@ -10,9 +10,8 @@ import Paragraph from "@/components/shared/paragraph";
 
 import SectionWrapper from "@/components/motion/section-wrapper";
 
-import { projectItems, workItems } from "@/lib/constants";
-import { getFeaturedPosts, sortPosts } from "@/velite/post";
-import { getProjects } from "@/velite/project";
+import { projectItems, templateItems, workItems } from "@/lib/constants";
+import { getFeaturedPosts } from "@/velite/post";
 
 export const metadata: Metadata = {
   title: "Archive",
@@ -21,9 +20,6 @@ export const metadata: Metadata = {
 export default async function Page() {
   const featuredPosts = getFeaturedPosts(
     posts.filter((post) => post.published),
-  );
-  const allProjects = getProjects(
-    projects.filter((project) => project.published),
   );
 
   return (
@@ -87,7 +83,7 @@ export default async function Page() {
       <div className="w-full space-y-4">
         <Paragraph title="Free templates" />
         <div className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2">
-          {allProjects.map((item, index) => (
+          {templateItems.map((item, index) => (
             <TemplateCard {...item} key={index} />
           ))}
         </div>

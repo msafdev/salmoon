@@ -1,14 +1,9 @@
 import TemplateCard from "@/components/shared/cards/template-card";
 import Paragraph from "@/components/shared/paragraph";
 
-import { projects } from "@/.velite";
-import { getProjects } from "@/velite/project";
+import { templateItems } from "@/lib/constants";
 
 const ProjectSection = () => {
-  const allProjects = getProjects(
-    projects.filter((project) => project.published),
-  );
-
   return (
     <div className="w-full space-y-4">
       <Paragraph title="Free templates" link href="/archive">
@@ -20,7 +15,7 @@ const ProjectSection = () => {
       </Paragraph>
 
       <div className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2">
-        {allProjects.slice(0, 2).map((item, index) => (
+        {templateItems.slice(0, 2).map((item, index) => (
           <TemplateCard key={index} {...item} />
         ))}
       </div>
