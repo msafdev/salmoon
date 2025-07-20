@@ -199,7 +199,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
 
         {cssClass && (
           <div className="w-full space-y-4">
-            <Paragraph title="CSS setup" />
+            <Paragraph title="CSS styling" />
             <div className="h-fit w-full max-w-lg rounded border-2 border-dashed p-1 sm:p-2">
               <Code code={cssClass} lang="css" />
             </div>
@@ -208,16 +208,18 @@ export default async function Page({ params }: { params: { slug: string } }) {
 
         {twConfig && (
           <div className="w-full space-y-4">
-            <Paragraph title="Tailwind setup" />
+            <Paragraph title="Tailwind config" />
             <div className="h-fit w-full max-w-lg rounded border-2 border-dashed p-1 sm:p-2">
-              <Code code={twConfig} lang="json" />
+              <CodeWrapper>
+                <Code code={twConfig} lang="json" />
+              </CodeWrapper>
             </div>
           </div>
         )}
 
         {customHook && (
           <div className="w-full space-y-4">
-            <Paragraph title="Required Hook" />
+            <Paragraph title="Required hook" />
             <div className="h-fit w-full max-w-lg rounded border-2 border-dashed p-1 sm:p-2">
               <CodeWrapper>
                 <Code code={customHook} lang="ts" />

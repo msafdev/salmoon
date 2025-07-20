@@ -35,7 +35,7 @@ export const BasicSelect = () => {
     <div className="w-full max-w-64 space-y-3">
       <Label htmlFor="basic-select">Basic Select</Label>
       <Select defaultValue="react">
-        <SelectTrigger id="basic-select">
+        <SelectTrigger id="basic-select" className="h-9">
           <SelectValue placeholder="Select framework" />
         </SelectTrigger>
         <SelectContent>

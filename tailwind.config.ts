@@ -101,29 +101,34 @@ const config = {
             width: "0%",
           },
         },
-        "background-shine": {
-          "0%": {
-            backgroundPosition: "0 0",
-          },
-          "100%": {
-            backgroundPosition: "-200% 0",
-          },
+        // Lab
+        shimmer: {
+          "0%": { transform: "translateX(-100%)" },
+          "100%": { transform: "translateX(100%)" },
         },
-        shake: {
-          "0%": {
-            transform: "translateX(0)",
+        wave: {
+          "0%, 100%": { transform: "translateY(0px) scale(1)" },
+          "50%": { transform: "translateY(-2px) scale(1.2)" },
+        },
+        blink: {
+          "50%": { opacity: "0.5" },
+        },
+        hourglass: {
+          "0%": { transform: "rotate(0deg)" },
+          "30%": { transform: "rotate(180deg)" },
+          "70%": { transform: "rotate(180deg)" },
+          "100%": { transform: "rotate(0deg)" },
+        },
+        "scale-up-down": {
+          "0%, 100%": { transform: "scale(1)" },
+          "50%": { transform: "scale(1.1)" },
+        },
+        "text-shimmer": {
+          "0%, 90%, 100%": {
+            "background-position": "calc(-100% - var(--shimmer-width)) 0",
           },
-          "25%": {
-            transform: "translateX(3px)",
-          },
-          "50%": {
-            transform: "translateX(0)",
-          },
-          "75%": {
-            transform: "translateX(3px)",
-          },
-          "100%": {
-            transform: "translateX(0)",
+          "30%, 60%": {
+            "background-position": "calc(100% + var(--shimmer-width)) 0",
           },
         },
       },
@@ -132,8 +137,13 @@ const config = {
         "accordion-up": "accordion-up 0.2s ease-out",
         "toast-progress":
           "toast-progress var(--toast-duration) linear forwards",
-        "background-shine": "background-shine 2.4s infinite linear",
-        shake: "shake 0.4s infinite",
+        // Lab
+        shimmer: "shimmer 1.6s infinite",
+        wave: "wave 1.2s ease-in-out infinite",
+        blink: "blink 1.6s ease-in-out infinite",
+        hourglass: "hourglass 2s ease-in-out infinite",
+        "text-shimmer": "text-shimmer 6.4s infinite",
+        "scale-up-down": "scale-up-down 1.2s ease-in-out infinite",
       },
     },
   },

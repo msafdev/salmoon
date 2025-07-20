@@ -56,7 +56,7 @@ export const GroupedSelect = () => {
     <div className="w-full max-w-64 space-y-3">
       <Label htmlFor="grouped-select">Grouped Select</Label>
       <Select defaultValue="react">
-        <SelectTrigger id="grouped-select">
+        <SelectTrigger id="grouped-select" className="h-9">
           <SelectValue placeholder="Select framework" />
         </SelectTrigger>
         <SelectContent>

@@ -22,8 +22,11 @@ import { FloatInput } from "@/components/lab/examples/input/float-input";
 import { NumberInput } from "@/components/lab/examples/input/number-input";
 import { OtpInput } from "@/components/lab/examples/input/otp-input";
 import { PasswordInput } from "@/components/lab/examples/input/password-input";
-import { AvatarSelect } from "@/components/lab/examples/select/avatar-select";
+// Loader
+import { IconLoader } from "@/components/lab/examples/loader/icon-loader";
+import { TextLoader } from "@/components/lab/examples/loader/text-loader";
 // Select
+import { AvatarSelect } from "@/components/lab/examples/select/avatar-select";
 import { BasicSelect } from "@/components/lab/examples/select/basic-select";
 import { GroupedSelect } from "@/components/lab/examples/select/grouped-select";
 // Stagger
@@ -171,18 +174,17 @@ export const COMPONENTS: ComponentType[] = [
     gridClass: "medium-card",
   },
   {
-    name: "File",
-    slug: "file",
+    name: "Select",
+    slug: "select",
     primitive: false,
-    description: "Various input components with advanced features.",
+    description: "Various select components with advanced features.",
     example: [
-      { child: BasicFile, name: "Basic File", path: "basic-file" },
-      { child: AvatarFile, name: "Avatar File", path: "avatar-file" },
-      { child: MultipleFiles, name: "Multiple File", path: "multiple-file" },
+      { child: BasicSelect, name: "Basic Select", path: "basic-select" },
+      { child: GroupedSelect, name: "Grouped Select", path: "grouped-select" },
+      { child: AvatarSelect, name: "Avatar Select", path: "avatar-select" },
     ],
-    thumbnail: 1,
-    uiLibrary: "npx shadcn@latest add button",
-    customHook: "use-file",
+    thumbnail: 0,
+    uiLibrary: "npx shadcn@latest add label select",
     gridClass: "medium-card",
   },
   {
@@ -211,17 +213,71 @@ export const COMPONENTS: ComponentType[] = [
     gridClass: "large-card",
   },
   {
-    name: "Select",
-    slug: "select",
+    name: "File",
+    slug: "file",
     primitive: false,
+    description: "Various input components with advanced features.",
+    example: [
+      { child: BasicFile, name: "Basic File", path: "basic-file" },
+      { child: AvatarFile, name: "Avatar File", path: "avatar-file" },
+      { child: MultipleFiles, name: "Multiple File", path: "multiple-file" },
+    ],
+    thumbnail: 1,
+    uiLibrary: "npx shadcn@latest add button",
+    customHook: "use-file",
+    gridClass: "medium-card",
+  },
+  {
+    name: "Loader",
+    slug: "loader",
+    primitive: true,
     description: "Various select components with advanced features.",
     example: [
-      { child: BasicSelect, name: "Basic Select", path: "basic-select" },
-      { child: GroupedSelect, name: "Grouped Select", path: "grouped-select" },
-      { child: AvatarSelect, name: "Avatar Select", path: "avatar-select" },
+      { child: IconLoader, name: "Icon Loader", path: "icon-loader" },
+      { child: TextLoader, name: "Text Loader", path: "text-loader" },
     ],
+    twConfig: {
+      keyframes: {
+        shimmer: {
+          "0%": { transform: "translateX(-100%)" },
+          "100%": { transform: "translateX(100%)" },
+        },
+        wave: {
+          "0%, 100%": { transform: "translateY(0px) scale(1)" },
+          "50%": { transform: "translateY(-2px) scale(1.2)" },
+        },
+        blink: {
+          "50%": { opacity: "0.5" },
+        },
+        hourglass: {
+          "0%": { transform: "rotate(0deg)" },
+          "30%": { transform: "rotate(180deg)" },
+          "70%": { transform: "rotate(180deg)" },
+          "100%": { transform: "rotate(0deg)" },
+        },
+        "scale-up-down": {
+          "0%, 100%": { transform: "scale(1)" },
+          "50%": { transform: "scale(1.1)" },
+        },
+        "text-shimmer": {
+          "0%, 90%, 100%": {
+            "background-position": "calc(-100% - var(--shimmer-width)) 0",
+          },
+          "30%, 60%": {
+            "background-position": "calc(100% + var(--shimmer-width)) 0",
+          },
+        },
+      },
+      animation: {
+        shimmer: "shimmer 1.6s infinite",
+        wave: "wave 1.2s ease-in-out infinite",
+        blink: "blink 1.6s ease-in-out infinite",
+        hourglass: "hourglass 2s ease-in-out infinite",
+        "text-shimmer": "text-shimmer 6.4s infinite",
+        "scale-up-down": "scale-up-down 1.2s ease-in-out infinite",
+      },
+    },
     thumbnail: 0,
-    uiLibrary: "npx shadcn@latest add label select",
     gridClass: "medium-card",
   },
 ];

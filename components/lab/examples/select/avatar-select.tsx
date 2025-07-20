@@ -32,7 +32,7 @@ export const AvatarSelect = () => {
     <div className="w-full max-w-64 space-y-3">
       <Label htmlFor="avatar-select">Avatar Select</Label>
       <Select defaultValue="">
-        <SelectTrigger id="avatar-select" className="pl-2">
+        <SelectTrigger id="avatar-select" className="h-9 pl-1.5">
           <SelectValue placeholder="Select a user" />
         </SelectTrigger>
         <SelectContent>
@@ -48,7 +48,7 @@ export const AvatarSelect = () => {
                   <img
                     src={item.avatarUrl}
                     aria-label={`Select ${item.name}`}
-                    className="size-6 rounded-full"
+                    className="size-6 rounded"
                     aria-hidden={true}
                   />
 
