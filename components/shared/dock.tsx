@@ -8,7 +8,7 @@ import { useTheme } from "next-themes";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-import { navItems } from "@/lib/constants";
+import { navItems } from "@/lib/config";
 
 const Dock = () => {
   const pathname = usePathname();
@@ -67,44 +67,55 @@ const Dock = () => {
           />
         )}
 
-        {navItems.map((item) =>
-          item.href ? (
-            <Link
-              key={item.id}
-              href={item.href}
-              scroll={true}
-              onClick={() => setActiveTab(item.id)}
-              className={`${
-                activeTab === item.id
-                  ? "text-foreground"
-                  : "text-muted-foreground"
-              } group/dock relative size-10 p-3 text-sm transition-all duration-300 ease-in-out focus-visible:outline-none`}
-              style={{
-                WebkitTapHighlightColor: "transparent",
-              }}
-              aria-label={item.label}
-            >
-              {item.icon}
-              <span className="pointer-events-none absolute -top-8 left-1/2 hidden -translate-x-1/2 -translate-y-2 scale-75 rounded-md border bg-popover p-1 px-1.5 text-[10px] font-medium leading-none text-foreground opacity-0 transition-all duration-200 ease-in-out group-hover/dock:translate-y-0 group-hover/dock:scale-100 group-hover/dock:opacity-100 md:block">
-                {item.label}
-              </span>
-            </Link>
-          ) : item.function === "toggle-theme" ? (
-            <button
-              key={item.id}
-              onClick={() => {
-                setTheme(theme === "dark" ? "light" : "dark");
-              }}
-              className={`group/dock relative size-10 p-3 text-sm text-yellow-500 transition-all duration-300 ease-in-out focus-visible:outline-none dark:text-indigo-600 [&>svg]:fill-yellow-400 dark:[&>svg]:fill-indigo-500`}
-              aria-label="Change theme button"
-            >
-              {item.icon}
-              <span className="pointer-events-none absolute -top-8 left-1/2 hidden -translate-x-1/2 -translate-y-2 scale-75 rounded-md border bg-popover p-1 px-1.5 text-[10px] font-medium leading-none text-foreground opacity-0 transition-all duration-200 ease-in-out group-hover/dock:translate-y-0 group-hover/dock:scale-100 group-hover/dock:opacity-100 md:block">
-                {item.label}
-              </span>
-            </button>
-          ) : null,
-        )}
+        {navItems.map((item) => {
+          const Icon = item.icon;
+          const isActive = activeTab === item.id;
+          const commonClass =
+            "group/dock relative size-10 p-3 text-sm transition-all duration-300 ease-in-out focus-visible:outline-none";
+
+          const tooltip = (
+            <span className="pointer-events-none absolute -top-8 left-1/2 hidden -translate-x-1/2 -translate-y-2 scale-75 rounded-md border bg-popover p-1 px-1.5 text-[10px] font-medium leading-none text-foreground opacity-0 transition-all duration-200 ease-in-out group-hover/dock:translate-y-0 group-hover/dock:scale-100 group-hover/dock:opacity-100 md:block">
+              {item.label}
+            </span>
+          );
+
+          if (item.href) {
+            return (
+              <Link
+                key={item.id}
+                href={item.href}
+                scroll={true}
+                onClick={() => setActiveTab(item.id)}
+                className={`${commonClass} ${
+                  isActive ? "text-foreground" : "text-muted-foreground"
+                }`}
+                style={{
+                  WebkitTapHighlightColor: "transparent",
+                }}
+                aria-label={item.label}
+              >
+                <Icon className="h-full w-full" />
+                {tooltip}
+              </Link>
+            );
+          }
+
+          if (item.function === "toggle-theme") {
+            return (
+              <button
+                key={item.id}
+                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                className={`${commonClass} text-yellow-500 dark:text-indigo-600 [&>svg]:fill-yellow-400 dark:[&>svg]:fill-indigo-500`}
+                aria-label="Change theme button"
+              >
+                <Icon className="h-full w-full" />
+                {tooltip}
+              </button>
+            );
+          }
+
+          return null;
+        })}
       </div>
     </motion.div>
   );

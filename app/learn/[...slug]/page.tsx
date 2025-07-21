@@ -18,7 +18,7 @@ import TableOfContents from "@/components/shared/toc";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 
-import { siteItems } from "@/lib/constants";
+import { siteItems } from "@/lib/config";
 import { getPrevAndNext } from "@/velite/learn";
 
 interface LearnPageProps {

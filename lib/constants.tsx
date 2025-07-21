@@ -1,95 +1,11 @@
 import {
-  PiBriefcaseDuotone,
-  PiCircleDuotone,
-  PiDatabaseDuotone,
   PiGithubLogoDuotone,
-  PiHouseDuotone,
   PiInstagramLogoDuotone,
-  PiLightningDuotone,
   PiLinkedinLogoDuotone,
   PiReadCvLogoDuotone,
   PiRocketLaunchDuotone,
   PiTwitterLogoDuotone,
 } from "react-icons/pi";
-
-import Place1 from "@/public/images/places/place-1.avif";
-import Place2 from "@/public/images/places/place-2.avif";
-import Place3 from "@/public/images/places/place-3.avif";
-import Place4 from "@/public/images/places/place-4.avif";
-import Template2 from "@/public/images/templates/elite.webp";
-import Template1 from "@/public/images/templates/pleno.webp";
-
-export const siteItems = {
-  title: "Msafdev | Product Engineer",
-  appName: "Msafdev",
-  description:
-    "When creativity meets perfection, you get me. A freelance product engineer / fullstack developer with a passion for building pretty products.",
-  name: "Salman Alfarisi",
-  url: process.env.NEXT_PUBLIC_BASE_URL,
-  role: "Fullstack Engineer",
-  links: {
-    twitter: "https://twitter.com/sal__moon",
-    github: "https://github.com/msafdev",
-    email: "salmanalfarisi261002@gmail.com",
-    personalSite: "https://salmoon.vercel.app",
-  },
-};
-
-export const navItems = [
-  {
-    id: 1,
-    label: "Home",
-    href: "/",
-    icon: <PiHouseDuotone className="h-full w-full" />,
-  },
-  {
-    id: 2,
-    label: "Archive",
-    href: "/archive",
-    icon: <PiBriefcaseDuotone className="h-full w-full" />,
-  },
-  {
-    id: 3,
-    label: "Lab",
-    href: "/lab",
-    icon: <PiLightningDuotone className="h-full w-full" />,
-  },
-  {
-    id: 4,
-    label: "Material",
-    href: "/material",
-    icon: <PiDatabaseDuotone className="h-full w-full" />,
-  },
-  {
-    id: 5,
-    label: "Theme",
-    function: "toggle-theme",
-    icon: <PiCircleDuotone className="h-full w-full" />,
-  },
-];
-
-export const placeItems = [
-  {
-    id: 1,
-    src: Place1,
-    rotation: -5,
-  },
-  {
-    id: 2,
-    src: Place2,
-    rotation: 8,
-  },
-  {
-    id: 3,
-    src: Place3,
-    rotation: -3,
-  },
-  {
-    id: 4,
-    src: Place4,
-    rotation: 10,
-  },
-];
 
 export const processItems = [
   {
@@ -371,28 +287,5 @@ export const resourceItems = [
   {
     title: "Every React Concept Explained in 12 Minutes",
     href: "https://youtube.com/watch?v=wIyHSOugGGw&pp=ygUTcmVhY3QgaW4gMTIgbWludXRlcw%3D%3D",
-  },
-];
-
-export const templateItems = [
-  {
-    slug: "pleno",
-    title: "Pleno",
-    image: Template1,
-    description:
-      "A minimalist blog starter using Next.js, Velite, and Tailwind.",
-    published: true,
-    demo: "https://mdx-starter-theta.vercel.app",
-    github: "https://github.com/msafdev/pleno",
-  },
-  {
-    slug: "elite",
-    title: "Elite",
-    image: Template2,
-    description:
-      "A minimalist blog starter using Astro, React.js, and Tailwind.",
-    published: true,
-    demo: "https://mdx-starter-theta.vercel.app",
-    github: "https://github.com/msafdev/elite",
   },
 ];

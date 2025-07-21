@@ -1,7 +1,7 @@
 import TemplateCard from "@/components/shared/cards/template-card";
 import Paragraph from "@/components/shared/paragraph";
 
-import { templateItems } from "@/lib/constants";
+import { templateItems } from "@/lib/assets";
 
 const ProjectSection = () => {
   return (

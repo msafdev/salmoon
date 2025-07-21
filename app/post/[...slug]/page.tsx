@@ -13,7 +13,7 @@ import { Mdx } from "@/components/shared/mdx";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 
-import { siteItems } from "@/lib/constants";
+import { siteItems } from "@/lib/config";
 import { formatDate } from "@/lib/functions";
 
 interface PostPageProps {

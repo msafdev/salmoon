@@ -2,7 +2,7 @@ import { posts } from "#site/content";
 
 import RSS from "rss";
 
-import { siteItems } from "@/lib/constants";
+import { siteItems } from "@/lib/config";
 
 const feed = new RSS({
   title: siteItems.title,

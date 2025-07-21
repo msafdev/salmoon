@@ -1,6 +1,6 @@
 import { posts } from "#site/content";
 
-import { siteItems } from "@/lib/constants";
+import { siteItems } from "@/lib/config";
 
 const today = new Date().toISOString().split("T")[0];
 

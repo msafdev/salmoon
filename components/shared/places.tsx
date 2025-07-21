@@ -18,7 +18,7 @@ import {
 } from "@/components/motion/morph-dialog";
 
 import { useDesktop } from "@/hooks/use-desktop";
-import { placeItems } from "@/lib/constants";
+import { placeItems } from "@/lib/assets";
 
 const transition = {
   type: "spring",

@@ -10,7 +10,8 @@ import Paragraph from "@/components/shared/paragraph";
 
 import SectionWrapper from "@/components/motion/section-wrapper";
 
-import { projectItems, templateItems, workItems } from "@/lib/constants";
+import { templateItems } from "@/lib/assets";
+import { projectItems, workItems } from "@/lib/constants";
 import { getFeaturedPosts } from "@/velite/post";
 
 export const metadata: Metadata = {

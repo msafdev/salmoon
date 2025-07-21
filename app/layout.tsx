@@ -10,7 +10,7 @@ import { Toaster } from "@/components/ui/toaster";
 import QueryProvider from "@/components/query-provider";
 import { ThemeProvider } from "@/components/theme-provider";
 
-import { siteItems } from "@/lib/constants";
+import { siteItems } from "@/lib/config";
 import "@/styles/globals.css";
 
 import NotFound from "./not-found";
