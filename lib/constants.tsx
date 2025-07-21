@@ -7,12 +7,13 @@ import {
   PiTwitterLogoDuotone,
 } from "react-icons/pi";
 
-import Client1 from "@/public/assets/companies/airestate.webp";
-import Client6 from "@/public/assets/companies/bangkit.webp";
-import Client2 from "@/public/assets/companies/contra.webp";
-import Client3 from "@/public/assets/companies/dev-different.webp";
-import Client5 from "@/public/assets/companies/mitratel.webp";
-import Client4 from "@/public/assets/companies/siap-kerja.webp";
+import Client1 from "@/public/assets/companies/airestate.svg";
+import Client6 from "@/public/assets/companies/bangkit.svg";
+import Client2 from "@/public/assets/companies/contra.svg";
+import Client3 from "@/public/assets/companies/dev-different.svg";
+import Client5 from "@/public/assets/companies/mandiri.svg";
+import Client7 from "@/public/assets/companies/mitratel.svg";
+import Client4 from "@/public/assets/companies/siap-kerja.svg";
 
 export const processItems = [
   {
@@ -116,6 +117,7 @@ export const clientItems = [
   Client4,
   Client5,
   Client6,
+  Client7,
 ];
 
 export const creditItems = [

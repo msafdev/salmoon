@@ -30,9 +30,8 @@ const ClientSection = () => {
               src={item}
               fill
               alt={`Client's logo ${index}`}
-              quality={80}
+              quality={75}
               loading="lazy"
-              placeholder="blur"
               sizes="(max-width: 768px) 44vw, 33vw"
               className="object-contain"
             />
