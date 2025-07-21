@@ -21,7 +21,7 @@ const Footer = dynamic(() => import("@/components/shared/footer"), {
 
 const plusJakarta = Plus_Jakarta_Sans({
   subsets: ["latin-ext"],
-  weight: ["200", "300", "400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-jakarta-plus",
 });
 
