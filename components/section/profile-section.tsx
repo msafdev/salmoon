@@ -1,10 +1,8 @@
 import Places from "@/components/shared/places";
-import Profile from "@/components/shared/profile";
 
 const ProfileSection = () => {
   return (
-    <div className="w-full space-y-4">
-      <Profile />
+    <div className="w-full space-y-8">
       <div className="space-y-1 md:space-y-0">
         <div className="flex items-center gap-x-2">
           <h1 className="text-base font-semibold leading-none md:text-lg">

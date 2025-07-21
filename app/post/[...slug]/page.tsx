@@ -125,7 +125,6 @@ export default async function PostPage({ params }: PostPageProps) {
           </p>
         </div>
 
-        {/* Cover Image */}
         <div className="relative mb-4 aspect-video h-auto w-full overflow-hidden rounded sm:mb-6">
           <Image
             src={post.image}
@@ -135,7 +134,6 @@ export default async function PostPage({ params }: PostPageProps) {
           />
         </div>
 
-        {/* Profile */}
         <div className="mb-1 flex items-center gap-3">
           <div className="relative">
             <Avatar className="size-11 rounded-full border">
@@ -163,7 +161,6 @@ export default async function PostPage({ params }: PostPageProps) {
           </div>
         </div>
 
-        {/* MDX Wrapper */}
         <Mdx code={post.body} />
       </div>
     </article>
