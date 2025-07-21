@@ -39,7 +39,7 @@ export async function GET() {
             fontFamily: '"InstrumentSerif"',
           }}
         >
-          salmoon is a developer
+          Portfolio
         </div>
         <div
           style={{
@@ -54,7 +54,7 @@ export async function GET() {
             fontFamily: '"InstrumentSerif"',
           }}
         >
-          based out of Indonesia
+          Salmoon, Product Engineer
         </div>
       </div>
     ),
