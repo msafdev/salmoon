@@ -25,10 +25,7 @@ export const siteItems = {
   description:
     "When creativity meets perfection, you get me. A freelance product engineer / fullstack developer with a passion for building pretty products.",
   name: "Salman Alfarisi",
-  url:
-    process.env.ENVIRONTMENT === "dev"
-      ? process.env.NEXT_PUBLIC_BASE_URL
-      : "http://localhost:3000",
+  url: process.env.NEXT_PUBLIC_BASE_URL,
   role: "Fullstack Engineer",
   links: {
     twitter: "https://twitter.com/sal__moon",
