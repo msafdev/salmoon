@@ -68,20 +68,32 @@ export default function CalInput({
     setSelectedDate(date);
     setSelectedTime(format(date, "HH:mm"));
 
-    if (slotCache[formatted]) {
-      setAvailableSlots(slotCache[formatted]);
-      return;
-    }
-
     setLoadingSlots(true);
-    getAvailableSlots(formatted)
-      .then((res) => {
-        const data = res.data || [];
-        setAvailableSlots(data);
-        setSlotCache((prev) => ({ ...prev, [formatted]: data }));
-      })
-      .catch(() => setAvailableSlots([]))
-      .finally(() => setLoadingSlots(false));
+
+    const fetchSlots = async () => {
+      setAvailableSlots([]);
+
+      setSlotCache((prev) => {
+        if (prev[formatted]) {
+          setAvailableSlots(prev[formatted]);
+          setLoadingSlots(false);
+          return prev;
+        }
+
+        getAvailableSlots(formatted)
+          .then((res) => {
+            const data = res.data || [];
+            setAvailableSlots(data);
+            setSlotCache((newPrev) => ({ ...newPrev, [formatted]: data }));
+          })
+          .catch(() => setAvailableSlots([]))
+          .finally(() => setLoadingSlots(false));
+
+        return prev;
+      });
+    };
+
+    fetchSlots();
   }, [value]);
 
   const navigateMonth = (direction: "prev" | "next") => {
