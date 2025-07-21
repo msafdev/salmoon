@@ -108,7 +108,7 @@ const Footer = () => {
             </h2>
             <div className="flex flex-col items-center gap-y-2 text-center text-sm font-medium text-primary-foreground/60 dark:text-foreground/60 md:items-end md:text-right">
               <Link
-                href={"/feed.xml"}
+                href={"/api/feed.xml"}
                 className="anim hover:text-primary-foreground dark:hover:text-primary"
                 prefetch={false}
               >

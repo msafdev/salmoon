@@ -8,7 +8,7 @@ const feed = new RSS({
   title: siteItems.title,
   description: siteItems.description,
   site_url: siteItems.url || "",
-  feed_url: `${siteItems.url}/feed.xml`,
+  feed_url: `${siteItems.url}/api/feed.xml`,
   copyright: `${new Date().getFullYear()} Msafdev`,
   language: "en",
   pubDate: new Date(),

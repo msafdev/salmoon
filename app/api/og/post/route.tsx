@@ -59,7 +59,7 @@ export async function GET(request: Request) {
             fontFamily: '"InstrumentSerif"',
           }}
         >
-          Salmoon, Product Engineer
+          salmoon, Product Engineer
         </div>
       </div>
     ),

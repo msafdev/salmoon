@@ -68,7 +68,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: `${siteItems.url}/og`,
+        url: `${siteItems.url}/api/og`,
         alt: "Msafdev",
         type: "image/png",
       },
@@ -77,7 +77,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Msafdev | Product Engineer",
-    images: [`${siteItems.url}/og`],
+    images: [`${siteItems.url}/api/og`],
   },
 };
 
