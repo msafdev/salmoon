@@ -1,0 +1,155 @@
+.range-thumb {
+  /* Reset all default styles */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+/* Remove default track styling */
+.range-thumb::-webkit-slider-track {
+  background: transparent;
+  border: none;
+  outline: none;
+}
+
+.range-thumb::-moz-range-track {
+  background: transparent;
+  border: none;
+  outline: none;
+}
+
+.range-thumb::-ms-track {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: transparent;
+}
+
+/* Remove default fill styling for IE/Edge */
+.range-thumb::-ms-fill-lower {
+  background: transparent;
+  border: none;
+}
+
+.range-thumb::-ms-fill-upper {
+  background: transparent;
+  border: none;
+}
+
+/* Thumb styling for WebKit browsers (Chrome, Safari, Edge Chromium) */
+.range-thumb::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background-color: hsl(var(--card));
+  cursor: pointer;
+  border: 2px solid hsl(var(--border));
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 10;
+  pointer-events: all;
+  transform: translateX(0.3px);
+}
+
+/* Thumb styling for Firefox */
+.range-thumb::-moz-range-thumb {
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background-color: hsl(var(--card));
+  cursor: pointer;
+  border: 2px solid hsl(var(--border));
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 10;
+  pointer-events: all;
+  transform: translateX(0.3px);
+}
+
+/* Thumb styling for IE/Edge Legacy */
+.range-thumb::-ms-thumb {
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background-color: hsl(var(--card));
+  cursor: pointer;
+  border: 2px solid hsl(var(--border));
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 10;
+  pointer-events: all;
+  transform: translateX(0.3px);
+}
+
+/* Focus states */
+.range-thumb:focus::-webkit-slider-thumb {
+  box-shadow: 0 0 0 2px hsl(var(--primary));
+}
+
+.range-thumb:focus::-moz-range-thumb {
+  box-shadow: 0 0 0 2px hsl(var(--primary));
+}
+
+.range-thumb:focus::-ms-thumb {
+  box-shadow: 0 0 0 2px hsl(var(--primary));
+}
+
+/* Remove dotted outline in Firefox */
+.range-thumb::-moz-focus-outer {
+  border: 0;
+}
+
+@media (width <= 64rem) {
+  /* Thumb styling for WebKit browsers (Chrome, Safari, Edge Chromium) */
+  .range-thumb::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 16px;
+    width: 32px;
+    border-radius: 4px;
+    background-color: hsl(var(--card));
+    cursor: pointer;
+    border: 2px solid hsl(var(--border));
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 10;
+    pointer-events: all;
+    transform: translateX(0px);
+  }
+
+  /* Thumb styling for Firefox */
+  .range-thumb::-moz-range-thumb {
+    height: 16px;
+    width: 32px;
+    border-radius: 4px;
+    background-color: hsl(var(--card));
+    cursor: pointer;
+    border: 2px solid hsl(var(--border));
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 10;
+    pointer-events: all;
+    transform: translateX(0px);
+  }
+
+  /* Thumb styling for IE/Edge Legacy */
+  .range-thumb::-ms-thumb {
+    height: 16px;
+    width: 32px;
+    border-radius: 4px;
+    background-color: hsl(var(--card));
+    cursor: pointer;
+    border: 2px solid hsl(var(--border));
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 10;
+    pointer-events: all;
+    transform: translateX(0px);
+  }
+}

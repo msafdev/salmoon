@@ -15,7 +15,8 @@ import { getFeaturedPosts } from "@/velite/post";
 
 export const metadata: Metadata = {
   title: "Archive",
-  description: "An archive of my own, filled with my writings and happy memories."
+  description:
+    "An archive of my own, filled with my writings and happy memories.",
 };
 
 export default async function Page() {

@@ -26,6 +26,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import calendarMutation from "@/mutation/calendar.mutation";
 import { contactSchema, serviceType, userType } from "@/schema/contact-schema";
+import "@/styles/slider.css";
 import { Contact } from "@/types/contact.types";
 
 const initialValues: Contact = {

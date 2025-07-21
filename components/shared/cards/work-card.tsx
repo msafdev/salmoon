@@ -11,7 +11,7 @@ const WorkCard = ({
   company: string;
   duration: string;
   className?: string;
-  country?: string
+  country?: string;
 }) => {
   return (
     <div

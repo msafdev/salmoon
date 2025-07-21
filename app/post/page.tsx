@@ -2,9 +2,9 @@ import { posts } from "#site/content";
 
 import { Metadata } from "next";
 
-import SectionWrapper from "@/components/motion/section-wrapper";
-
 import PostGroup from "@/components/shared/groups/post-group";
+
+import SectionWrapper from "@/components/motion/section-wrapper";
 
 import { getAllTags, sortPosts, sortTagsByCount } from "@/velite/post";
 
