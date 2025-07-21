@@ -10,7 +10,7 @@ const ClientSection = () => {
       <Paragraph title="Trusted by all">
         <p>
           I have been in these fields for{" "}
-          <span className="text-foreground">3 years</span>, working with a
+          <span className="font-medium text-foreground">3 years</span>, working with a
           diverse range of clients across various industries.
         </p>
         <p>
