@@ -1,12 +1,12 @@
 import { Metadata } from "next";
 
+import TrackGroup from "@/components/section/track-section";
+
 import QuoteCard from "@/components/shared/cards/quote-card";
 import MovieGroup from "@/components/shared/groups/movie-group";
 import Paragraph from "@/components/shared/paragraph";
 
 import SectionWrapper from "@/components/motion/section-wrapper";
-
-import TrackGroup from "@/components/section/track-section";
 
 export const metadata: Metadata = {
   title: "Personal",

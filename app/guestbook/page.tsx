@@ -1,11 +1,12 @@
 import { Metadata } from "next";
 
+import GuestbookSection from "@/components/section/guestbook-section";
+
 import Paragraph from "@/components/shared/paragraph";
 
 import SectionWrapper from "@/components/motion/section-wrapper";
 
 import GuestbookForm from "@/components/form/guestbook-form";
-import GuestbookSection from "@/components/section/guestbook-section";
 
 import { createClient } from "@/supabase/server";
 

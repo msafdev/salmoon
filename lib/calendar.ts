@@ -1,4 +1,4 @@
-import { fromZonedTime } from "./date";
+import { fromZonedTime } from "@/lib/date";
 
 export const TIMEZONE = "Asia/Jakarta";
 

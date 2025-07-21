@@ -8,6 +8,8 @@
     "^[react]",
     "^[next]",
     "^@(?!/)",
+    "^@/components/section/loader-section",
+    "^@/components/section/",
     "^@/components/shared/",
     "^@/components/ui/",
     "^@/components/lab/",

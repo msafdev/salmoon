@@ -1,10 +1,16 @@
 import { Metadata } from "next";
+import dynamic from "next/dynamic";
 
 import Paragraph from "@/components/shared/paragraph";
 
+import { LoaderIcon } from "@/components/lab/loader";
+
 import SectionWrapper from "@/components/motion/section-wrapper";
 
-import ContactForm from "@/components/form/contact-form";
+const ContactForm = dynamic(() => import("@/components/form/contact-form"), {
+  ssr: false,
+  loading: () => <LoaderIcon />,
+});
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -22,6 +28,7 @@ export default async function Page() {
           I'm a full-service multidisciplinary developer and designer. Let me
           bring your goals to life.
         </p>
+
         <ContactForm />
       </Paragraph>
     </SectionWrapper>
