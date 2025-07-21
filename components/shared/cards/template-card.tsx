@@ -28,6 +28,7 @@ const TemplateCard = ({
           fill
           loading="lazy"
           placeholder="blur"
+          sizes="(max-width: 440px) 50vw, (max-width: 768px) 40vw, 50vw"
           className="anim object-cover group-hover/card:scale-105"
         />
       </div>
@@ -36,7 +37,7 @@ const TemplateCard = ({
         <h3 className="line-clamp-1 text-base font-semibold text-foreground">
           {title}
         </h3>
-        <p className="text-pretty text-sm font-medium text-muted-foreground">
+        <p className="hidden text-pretty text-sm font-medium text-muted-foreground xs:block">
           {description}
         </p>
       </div>

@@ -1,20 +1,10 @@
-import { Suspense } from "react";
-
-import dynamic from "next/dynamic";
-
-import { ActionLoader } from "@/components/section/loader-section";
-
 import ClientSection from "@/components/section/client-section";
+import ActionSection from "@/components/section/cta-section";
 import ProcessSection from "@/components/section/process-section";
 import ProfileSection from "@/components/section/profile-section";
 import ProjectSection from "@/components/section/project-section";
 
 import SectionWrapper from "@/components/motion/section-wrapper";
-
-const ActionSection = dynamic(
-  () => import("@/components/section/cta-section"),
-  { ssr: false },
-);
 
 export default function Page() {
   return (
@@ -26,9 +16,7 @@ export default function Page() {
       <ClientSection />
       <ProcessSection />
       <ProjectSection />
-      <Suspense fallback={<ActionLoader />}>
-        <ActionSection />
-      </Suspense>
+      <ActionSection />
     </SectionWrapper>
   );
 }

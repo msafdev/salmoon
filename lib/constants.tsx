@@ -173,19 +173,6 @@ export const creditItems = [
   },
 ];
 
-export const projectItems = [
-  {
-    title: "Zap",
-    href: "https://zap-salmoon.vercel.app",
-    description: "Modern alternative to Pagespeed Insights.",
-  },
-  {
-    title: "Background",
-    href: "https://bg-snippet.vercel.app",
-    description: "Handpicked modern background patterns.",
-  },
-];
-
 export const workItems = [
   {
     title: "Fullstack Developer",

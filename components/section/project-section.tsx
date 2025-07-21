@@ -14,7 +14,7 @@ const ProjectSection = () => {
         </p>
       </Paragraph>
 
-      <div className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2">
+      <div className="grid w-full grid-cols-2 gap-4 xs:grid-cols-1 md:grid-cols-2">
         {templateItems.slice(0, 2).map((item, index) => (
           <TemplateCard key={index} {...item} />
         ))}

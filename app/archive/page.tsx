@@ -11,7 +11,7 @@ import Paragraph from "@/components/shared/paragraph";
 import SectionWrapper from "@/components/motion/section-wrapper";
 
 import { templateItems } from "@/lib/assets";
-import { projectItems, workItems } from "@/lib/constants";
+import { workItems } from "@/lib/constants";
 import { getFeaturedPosts } from "@/velite/post";
 
 export const metadata: Metadata = {
@@ -75,17 +75,8 @@ export default async function Page() {
       </div>
 
       <div className="w-full space-y-4">
-        <Paragraph title="Side projects" />
-        <div className="flex w-full flex-col">
-          {projectItems.reverse().map((item, index) => (
-            <ProjectCard {...item} key={index} />
-          ))}
-        </div>
-      </div>
-
-      <div className="w-full space-y-4">
         <Paragraph title="Free templates" />
-        <div className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2">
+        <div className="grid w-full grid-cols-2 gap-4 xs:grid-cols-1 md:grid-cols-2">
           {templateItems.map((item, index) => (
             <TemplateCard {...item} key={index} />
           ))}

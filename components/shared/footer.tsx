@@ -139,28 +139,24 @@ const Footer = () => {
               <Link
                 href={"/learn"}
                 className="anim hover:text-primary-foreground dark:hover:text-primary"
-                prefetch={false}
               >
                 Learn
               </Link>
               <Link
                 href={"/personal"}
                 className="anim hover:text-primary-foreground dark:hover:text-primary"
-                prefetch={false}
               >
                 Personal
               </Link>
               <Link
                 href={"/attribution"}
                 className="anim hover:text-primary-foreground dark:hover:text-primary"
-                prefetch={false}
               >
                 Attribution
               </Link>
               <Link
                 href={"/bucket-list"}
                 className="anim hover:text-primary-foreground dark:hover:text-primary"
-                prefetch={false}
               >
                 Bucket List
               </Link>
