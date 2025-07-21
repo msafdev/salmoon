@@ -2,13 +2,11 @@
 
 import { useInView } from "motion/react";
 
-import { PiAtDuotone } from "react-icons/pi";
+import { PiAtDuotone, PiHeartDuotone } from "react-icons/pi";
 
 import { useRef } from "react";
 
 import Link from "next/link";
-
-import Scribble from "@/components/shared/scribble";
 
 import { Button } from "@/components/ui/button";
 
@@ -40,7 +38,26 @@ const Footer = () => {
         }`}
       >
         <div className="flex w-full flex-col items-center justify-between gap-4 text-primary-foreground dark:text-primary md:flex-row">
-          <Scribble className="text-3xl">Salman</Scribble>
+          <Magnetic
+            intensity={0.2}
+            springOptions={{ bounce: 0.1 }}
+            actionArea="global"
+            range={100}
+          >
+            <Button
+              size={"sm"}
+              variant={"ghost"}
+              className="text-white hover:bg-transparent hover:text-white"
+              asChild
+            >
+              <Link href={"/guestbook"} aria-label="My Guestbook">
+                <span className="sr-only">Leave a mark on /guestbook</span>
+                <PiHeartDuotone size={10} />
+                guestbook
+              </Link>
+            </Button>
+          </Magnetic>
+
           <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-sm text-primary-foreground/80 dark:text-primary/80">
             <button
               className="anim hover:text-primary-foreground dark:hover:text-primary"
@@ -65,23 +82,6 @@ const Footer = () => {
             >
               email
             </button>
-            <Magnetic
-              intensity={0.2}
-              springOptions={{ bounce: 0.1 }}
-              actionArea="global"
-              range={100}
-            >
-              <Button
-                size={"sm"}
-                variant={"ghost"}
-                className="h-fit w-fit p-0 text-white hover:bg-transparent hover:text-white"
-              >
-                <Link href={"/guestbook"} aria-label="My Guestbook">
-                  <span className="sr-only">Leave a mark on /guestbook</span>
-                  guestbook
-                </Link>
-              </Button>
-            </Magnetic>
           </div>
         </div>
 

@@ -5,11 +5,13 @@ const WorkCard = ({
   company,
   duration,
   className,
+  country = "🇮🇩",
 }: {
   title: string;
   company: string;
   duration: string;
   className?: string;
+  country?: string
 }) => {
   return (
     <div
@@ -18,9 +20,12 @@ const WorkCard = ({
         className,
       )}
     >
-      <h3 className="anim font-semibold text-foreground group-hover/work:text-accent-foreground">
-        {company}
-      </h3>
+      <div className="flex items-center gap-2">
+        <h3 className="anim font-semibold text-foreground group-hover/work:text-accent-foreground">
+          {company}
+        </h3>
+        {country}
+      </div>
       <div className="flex w-full items-center justify-between gap-x-4">
         <p className="anim line-clamp-1 text-sm font-medium text-muted-foreground">
           {title}

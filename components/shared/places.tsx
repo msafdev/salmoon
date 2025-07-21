@@ -30,19 +30,14 @@ const sharedImageClass =
   "aspect-square rounded-lg border-2 bg-border object-cover text-transparent shadow-md";
 
 const Places = () => {
-  const { isDesktop, isMounted } = useDesktop(640);
-
-  const itemsToRender = useMemo(() => {
-    if (!isMounted) return [];
-    return isDesktop ? placeItems : placeItems.slice(1, 4);
-  }, [isDesktop, isMounted]);
+  const { isDesktop } = useDesktop(640);
 
   const RenderedCard = isDesktop ? PlaceCard : MobilePlaceCard;
 
   return (
     <div className="relative mt-4 w-full max-w-full">
       <div className="mx-auto flex w-fit flex-row items-center gap-4 -space-x-8 overflow-visible px-4">
-        {itemsToRender.map((item) => (
+        {placeItems.map((item) => (
           <RenderedCard key={item.id} item={item} />
         ))}
       </div>
@@ -53,7 +48,7 @@ const Places = () => {
 const MobilePlaceCard = ({ item }: { item: (typeof placeItems)[number] }) => (
   <div style={{ rotate: `${item.rotation}deg` }} className="flex-shrink-0">
     <div
-      className={`${sharedImageClass} relative w-[26vw] min-w-16 max-w-28 overflow-hidden xs:w-32`}
+      className={`${sharedImageClass} relative w-[23vw] min-w-16 max-w-28 overflow-hidden xs:w-32`}
     >
       <Image
         src={item.src}
@@ -61,7 +56,8 @@ const MobilePlaceCard = ({ item }: { item: (typeof placeItems)[number] }) => (
         fill
         quality={75}
         loading="lazy"
-        sizes="(max-width: 768px) 30vw"
+        placeholder="blur"
+        sizes="(max-width: 768px) 20vw"
       />
     </div>
   </div>

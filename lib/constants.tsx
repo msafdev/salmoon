@@ -276,6 +276,7 @@ export const workItems = [
   {
     title: "Fullstack Developer",
     company: "Airestate",
+    country: "🇺🇸",
     duration: "Oct 24 - Dec 24",
   },
   {

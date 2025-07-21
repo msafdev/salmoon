@@ -51,7 +51,7 @@ const ContentForm = () => {
         <Button
           onClick={() => signOutMutation.mutate()}
           disabled={signOutMutation.isPending}
-          type="submit"
+          type="button"
           size="icon"
           variant="secondary"
           className="size-9 rotate-180"
