@@ -49,12 +49,15 @@ const Footer = () => {
             <Button
               size={"sm"}
               variant={"ghost"}
-              className="text-white hover:bg-transparent hover:text-white group/button"
+              className="group/button text-white hover:bg-transparent hover:text-white"
               asChild
             >
               <Link href={"/guestbook"} aria-label="My Guestbook">
                 <span className="sr-only">Leave a mark on /guestbook</span>
-                <PiHeartFill size={10} className="group-hover/button:text-rose-400 transition-colors"/>
+                <PiHeartFill
+                  size={10}
+                  className="transition-colors group-hover/button:text-rose-400"
+                />
                 guestbook
               </Link>
             </Button>
@@ -88,7 +91,7 @@ const Footer = () => {
         </div>
 
         <div className="flex w-full flex-col-reverse items-center gap-x-8 gap-y-12 md:flex-row md:items-end">
-          <p className="text-center text-sm font-medium text-primary-foreground/60 dark:text-foreground/60 md:text-left leading-relaxed">
+          <p className="text-center text-sm font-medium leading-relaxed text-primary-foreground/60 dark:text-foreground/60 md:text-left">
             Icons by{" "}
             <Link
               href={"https://icons8.com"}

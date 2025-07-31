@@ -69,7 +69,7 @@ const TableOfContents = ({
 
   const scrollToHeading = (id: string) => {
     const element = document.getElementById(id);
-    
+
     if (element) {
       const rect = element.getBoundingClientRect();
       const y =

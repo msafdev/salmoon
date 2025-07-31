@@ -47,7 +47,7 @@ const GuestbookForm = ({ user }: { user: User | null }) => {
           {authProviders.map(({ provider, label, mutation }) => (
             <div key={provider} className="flex flex-1">
               <Button
-                className="w-full flex items-center gap-2"
+                className="flex w-full items-center gap-2"
                 variant="secondary"
                 aria-label={label}
                 onClick={() => handleSignIn(provider)}
