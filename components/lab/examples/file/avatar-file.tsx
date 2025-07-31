@@ -46,9 +46,9 @@ export const AvatarFile = () => {
         className={cn(
           "h-full w-full",
           "has-disabled:pointer-events-none has-disabled:opacity-40",
-          "rounded-xl border-2 border-dashed border-border p-4",
-          "relative flex flex-col items-center justify-center overflow-hidden transition-colors hover:bg-accent/40",
-          "has-[img]:border-none has-[input:focus]:border-ring has-[input:focus]:ring-[3px] has-[input:focus]:ring-ring/40 data-[dragging=true]:bg-accent",
+          "rounded border border-border bg-input/10 p-4 transition-colors hover:bg-accent/40 data-[dragging=true]:bg-accent/40",
+          "relative flex flex-col items-center justify-center overflow-hidden",
+          "has-[img]:border-none has-[input:focus]:border-ring has-[input:focus]:ring-[3px] has-[input:focus]:ring-ring/40",
           errors.length > 0 && "border-destructive",
         )}
       >

@@ -1,29 +1,37 @@
 "use client";
 
+import type { Activity } from "react-activity-calendar";
+
 import { useQuery } from "@tanstack/react-query";
 
-import { GitHubRepo } from "@/types/github.types";
+import { fetchGitHubCalendar, fetchGitHubRepo } from "@/query/api/github.api";
+import type { GitHubRepo } from "@/types/github.types";
 
-export const fetchRepository = async (repo: string): Promise<GitHubRepo> => {
-  const response = await fetch(`https://api.github.com/repos/${repo}`);
+const token = process.env.NEXT_PUBLIC_GITHUB_TOKEN;
 
-  if (!response.ok) {
-    throw new Error("Failed to fetch repository");
-  }
+export const useGitHubCalendar = (user: string) => {
+  return useQuery<Activity[]>({
+    queryKey: ["github-calendar", user],
+    queryFn: () => {
+      const githubToken = token;
+      if (!githubToken) throw new Error("GitHub token is required");
 
-  const data = await response.json();
-
-  return data;
+      return fetchGitHubCalendar(user, githubToken);
+    },
+    enabled: !!user,
+    staleTime: 1000 * 60 * 60, // 1 hour
+    retry: false,
+  });
 };
 
-export const useGithub = (repo: string) => {
-  return useQuery({
-    queryKey: ["repository", repo],
-    queryFn: ({ queryKey }) => fetchRepository(queryKey[1]),
+export const useGitHubRepo = (repo: string) => {
+  return useQuery<GitHubRepo>({
+    queryKey: ["github-repo", repo],
+    queryFn: () => fetchGitHubRepo(repo),
     enabled: !!repo,
-    staleTime: 1000 * 60 * 5,
+    staleTime: 1000 * 60 * 5, // 5 minutes
     gcTime: 1000 * 60 * 10,
     retry: 2,
-    retryDelay: (attemptIndex) => Math.min(1000 * 2 ** attemptIndex, 30000),
+    retryDelay: (attempt) => Math.min(1000 * 2 ** attempt, 30000),
   });
 };

@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 
 import { cn } from "@/lib/utils";
-import { useGithub } from "@/query/github";
+import { useGitHubRepo } from "@/query/github";
 
 const Loading = ({ className }: { className?: string }) => (
   <div
@@ -61,14 +61,14 @@ const Error = ({
   </div>
 );
 
-const GithubWidget = ({
+const RepoWidget = ({
   className = "",
   repo,
 }: {
   className?: string;
   repo: string;
 }) => {
-  const { data: githubData, isLoading, error, refetch } = useGithub(repo);
+  const { data: githubData, isLoading, error, refetch } = useGitHubRepo(repo);
 
   if (isLoading) return <Loading className={className} />;
 
@@ -122,4 +122,4 @@ const GithubWidget = ({
   );
 };
 
-export default GithubWidget;
+export default RepoWidget;

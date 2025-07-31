@@ -10,10 +10,9 @@ const TrackCard = ({ track }: { track: Track }) => {
       aria-label={track.name}
       target="_blank"
       rel="noopener noreferrer"
-      key={track.id}
       className="flex items-center gap-x-3"
     >
-      <div className="relative size-12 shrink-0 overflow-hidden rounded-sm bg-muted">
+      <div className="relative size-12 shrink-0 overflow-hidden rounded-[2px] bg-muted">
         <Image
           src={track.album.images[0].url}
           alt={track.album.name}

@@ -1,3 +1,7 @@
+import { TocItem } from "@/components/shared/toc";
+
+import { ComponentType } from "@/lib/data";
+
 export function copyToClipboard(text: string) {
   navigator.clipboard.writeText(text);
 }
@@ -121,3 +125,53 @@ export const parseCurrency = (input: string): number => {
   const cleaned = input.replace(/[^\d.,-]/g, "").replace(",", ".");
   return parseFloat(cleaned) || 0;
 };
+
+export function mapComponentToToc(component: ComponentType): TocItem[] {
+  const toc: TocItem[] = [
+    {
+      depth: 2,
+      value: component.name,
+      children: component.example?.map((example) => ({
+        depth: 3,
+        value: example.name,
+      })),
+    },
+  ];
+
+  if (component.twConfig) {
+    toc.push({
+      depth: 2,
+      value: "Tailwind Config",
+    });
+  }
+
+  if (component.cssClass) {
+    toc.push({
+      depth: 2,
+      value: "CSS Styling",
+    });
+  }
+
+  if (component.uiLibrary) {
+    toc.push({
+      depth: 2,
+      value: "Library Setup",
+    });
+  }
+
+  if (component.customHook) {
+    toc.push({
+      depth: 2,
+      value: "Required Hook",
+    });
+  }
+
+  if (component.primitive) {
+    toc.push({
+      depth: 2,
+      value: "Code",
+    });
+  }
+
+  return toc;
+}

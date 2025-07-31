@@ -74,7 +74,7 @@ npm install rehype-pretty-code
 - Word-level highlights
 - Diff indicators (`++`, `--`)
 
-### Example with highlights:
+### Code Highlights
 
 ```tsx
 import { useFloating } from "@floating-ui/react";
@@ -92,7 +92,7 @@ function MyComponent() {
 }
 ```
 
-### Example with diffs:
+### Code Diffs
 
 ```py
 radius = 2 # [!code --]
@@ -101,7 +101,7 @@ area = math.pi * radius**2
 print(area)
 ```
 
-### Example with word highlights:
+### Word Highlights
 
 ```js
 // [!code word:console:2]
@@ -130,7 +130,7 @@ You can also combine multiple annotations into 1 (one).
 
 ---
 
-## Using Custom Components
+## Custom Components
 
 MDX allows embedding React components directly:
 
@@ -148,7 +148,7 @@ Use this to create reusable UI for documentation:
 
 ---
 
-## Custom Styling and Typography
+## Custom Styling
 
 Tailwind CSS or any other CSS framework can be applied by wrapping content in styled components or using `prose` classes.
 
@@ -184,7 +184,7 @@ You can embed images, iframes, and videos like normal HTML:
 
 ---
 
-## Dynamic Imports in MDX
+## Dynamic Imports
 
 To optimize bundle size, you can use dynamic imports inside components:
 
@@ -200,7 +200,7 @@ Use this inside an `.mdx` component file when rendering complex charts or intera
 
 ---
 
-## Next-Level MDX with `velite` or `mdx-bundler`
+## `Velite` Collections
 
 For complex MDX systems, consider using:
 

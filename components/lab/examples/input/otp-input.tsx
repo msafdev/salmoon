@@ -111,8 +111,8 @@ export const OtpInput = () => {
 
   return (
     <div className="space-y-3">
-      <Label htmlFor="otp">OTP Input</Label>
-      <div id="otp" className="flex items-center">
+      <Label htmlFor="otp-input">OTP Input</Label>
+      <div id="otp-input" className="flex items-center">
         {values.map((value, idx) => (
           <input
             key={idx}
@@ -121,7 +121,7 @@ export const OtpInput = () => {
             pattern="[0-9]*"
             maxLength={1}
             value={value}
-            name={`otp-${idx}`}
+            name={`otp-input-${idx}`}
             onChange={(e) => handleChange(idx, e.target.value)}
             onKeyDown={(e) => handleKeyDown(e, idx)}
             onPaste={handlePaste}

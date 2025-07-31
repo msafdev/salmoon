@@ -14,12 +14,14 @@ const LabCard = ({
   slug,
   button = false,
   className = "",
+  id,
   gridClass = "regular-card",
 }: {
   children: React.ReactNode;
   name?: string;
   slug?: string;
   button?: boolean;
+  id?: string;
   className?: string;
   gridClass?: "regular-card" | "medium-card" | "large-card" | "default-card";
 }) => {
@@ -32,6 +34,7 @@ const LabCard = ({
 
   return (
     <div
+      id={id}
       className={cn(
         `group/card relative flex h-auto w-full items-center justify-center overflow-hidden rounded border-2 border-dashed p-6`,
         size[gridClass || "regular-card"],

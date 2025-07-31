@@ -71,7 +71,7 @@ const MemoCard = () => {
     >
       {/* Shadow Layer */}
       <motion.div
-        className="absolute inset-0 -z-10 overflow-hidden rounded-xl"
+        className="absolute inset-0 -z-10 overflow-hidden rounded-[4px]"
         variants={maskVariant}
       >
         <Image
@@ -87,7 +87,7 @@ const MemoCard = () => {
       </motion.div>
 
       {/* Memo Card */}
-      <div className="space-y-6 rounded-xl border bg-card p-6 text-card-foreground shadow-none md:space-y-8 md:p-8">
+      <div className="space-y-6 rounded-[4px] border bg-card p-6 text-card-foreground shadow-none md:space-y-8 md:p-8">
         <div className="space-y-4 md:space-y-6">
           <h3 className="text-lg font-bold">Founder's Memo</h3>
           <p className="text-sm font-medium leading-relaxed text-muted-foreground">

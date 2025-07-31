@@ -28,6 +28,8 @@ const calendarMutation = () => {
           color: "destructive",
         });
       } else if (response?.data) {
+        router.push("/contact/success");
+
         toast({
           title: "Booked",
           description: response.data,
@@ -35,8 +37,6 @@ const calendarMutation = () => {
           icon: LuBadgeCheck,
           color: "success",
         });
-
-        router.push("/contact/success");
 
         queryClient.invalidateQueries({ queryKey: ["meetings"] });
       }

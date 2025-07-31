@@ -96,8 +96,8 @@ export default async function LearnPage({ params }: LearnPageProps) {
     <article id={learn.slug} className="relative flex h-auto w-full grow px-4">
       <TableOfContents toc={tableOfContents} />
 
-      <div className="flex w-full flex-col items-center gap-y-16 md:gap-y-20 lg:gap-y-24">
-        <div className="flex w-full max-w-sm items-center justify-between lg:max-w-md xl:max-w-lg">
+      <div className="mx-auto w-full max-w-lg space-y-10 md:max-w-md md:space-y-12 lg:max-w-lg lg:space-y-16">
+        <div className="flex w-full items-center justify-between">
           <Link
             href="/learn"
             scroll
@@ -125,7 +125,7 @@ export default async function LearnPage({ params }: LearnPageProps) {
           </Button>
         </div>
 
-        <div className="flex w-full max-w-sm flex-col lg:max-w-md xl:max-w-lg">
+        <div className="flex w-full flex-col">
           <div className="mb-6 flex flex-col gap-y-0.5 sm:gap-y-1">
             <h1 className="text-xl font-bold sm:text-2xl md:text-3xl">
               {learn.title}
@@ -172,7 +172,7 @@ export default async function LearnPage({ params }: LearnPageProps) {
             </h3>
           </div>
         ) : (
-          <div className="flex w-full max-w-sm items-center justify-between lg:max-w-md xl:max-w-lg">
+          <div className="flex w-full items-center justify-between">
             {prev && (
               <Button
                 className="flex items-center border-2 border-dashed"

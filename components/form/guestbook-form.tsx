@@ -6,7 +6,7 @@ import Image from "next/image";
 
 import { User } from "@supabase/supabase-js";
 
-import Button from "@/components/shared/button";
+import { Button } from "@/components/ui/button";
 
 import ContentForm from "@/components/form/content-form";
 
@@ -47,9 +47,11 @@ const GuestbookForm = ({ user }: { user: User | null }) => {
           {authProviders.map(({ provider, label, mutation }) => (
             <div key={provider} className="flex flex-1">
               <Button
+                className="w-full flex items-center gap-2"
+                variant="secondary"
+                aria-label={label}
                 onClick={() => handleSignIn(provider)}
                 disabled={mutation.isPending}
-                className="flex w-full items-center gap-x-2 disabled:cursor-not-allowed disabled:opacity-50"
               >
                 {mutation.isPending ? (
                   <PiArrowClockwiseBold className="size-4 animate-spin" />

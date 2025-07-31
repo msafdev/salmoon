@@ -17,25 +17,21 @@ import Client4 from "@/public/assets/companies/siap-kerja.svg";
 
 export const processItems = [
   {
-    id: 1,
     name: "Discovery",
     description:
       "I begin by understanding your goals and technical requirements to create a clear roadmap for your product.",
   },
   {
-    id: 2,
     name: "Design",
     description:
       "I will craft intuitive, user-friendly interfaces that align with your brand and optimize the user experience.",
   },
   {
-    id: 3,
     name: "Development",
     description:
       "Using modern technologies like Next.js, I will bring your design to life with responsive and performant code.",
   },
   {
-    id: 4,
     name: "Deploy",
     description:
       "I thoroughly test the site for functionality and performance, then deploy it to a hosting of your choice.",
@@ -282,5 +278,43 @@ export const resourceItems = [
   {
     title: "Every React Concept Explained in 12 Minutes",
     href: "https://youtube.com/watch?v=wIyHSOugGGw&pp=ygUTcmVhY3QgaW4gMTIgbWludXRlcw%3D%3D",
+  },
+];
+
+export const bucketItems = [
+  {
+    title: "Cook something new",
+    description: "2025, Learned to cook soto betawi.",
+    done: true,
+  },
+  {
+    title: "Go hiking",
+    description: "2024, Hiked and camped at Mount Semeru.",
+    done: true,
+  },
+  {
+    title: "Speak at a conference",
+    done: false,
+  },
+  {
+    title: "Travel alone",
+    description: "2025, Traveled to Bali alone.",
+    done: true,
+  },
+  {
+    title: "Volunteer for a cause",
+    done: false,
+  },
+  {
+    title: "Build an award-winning app",
+    done: false,
+  },
+  {
+    title: "Get a tattoo",
+    done: false,
+  },
+  {
+    title: "Get a piercing",
+    done: false,
   },
 ];

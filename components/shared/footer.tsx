@@ -2,7 +2,7 @@
 
 import { useInView } from "motion/react";
 
-import { PiAtDuotone, PiHeartDuotone } from "react-icons/pi";
+import { PiAtDuotone, PiHeartFill } from "react-icons/pi";
 
 import { useRef } from "react";
 
@@ -30,11 +30,13 @@ const Footer = () => {
   return (
     <footer
       ref={ref}
-      className="flex w-full flex-col bg-primary px-4 py-12 dark:bg-primary-foreground md:px-8 lg:px-16"
+      className="relative flex w-full flex-col bg-primary px-4 py-12 dark:bg-primary-foreground md:px-8 lg:px-16"
     >
       <div
         className={`mx-auto flex w-full max-w-3xl flex-col items-center gap-y-12 pb-20 pt-8 transition-all duration-500 ease-in-out ${
-          isInView ? "scale-100 opacity-100" : "scale-90 opacity-0"
+          isInView
+            ? "scale-100 opacity-100 blur-0"
+            : "scale-90 opacity-0 blur-md"
         }`}
       >
         <div className="flex w-full flex-col items-center justify-between gap-4 text-primary-foreground dark:text-primary md:flex-row">
@@ -47,12 +49,12 @@ const Footer = () => {
             <Button
               size={"sm"}
               variant={"ghost"}
-              className="text-white hover:bg-transparent hover:text-white"
+              className="text-white hover:bg-transparent hover:text-white group/button"
               asChild
             >
               <Link href={"/guestbook"} aria-label="My Guestbook">
                 <span className="sr-only">Leave a mark on /guestbook</span>
-                <PiHeartDuotone size={10} />
+                <PiHeartFill size={10} className="group-hover/button:text-rose-400 transition-colors"/>
                 guestbook
               </Link>
             </Button>
@@ -86,9 +88,7 @@ const Footer = () => {
         </div>
 
         <div className="flex w-full flex-col-reverse items-center gap-x-8 gap-y-12 md:flex-row md:items-end">
-          <p className="text-center text-sm font-medium text-primary-foreground/60 dark:text-foreground/60 md:text-left">
-            &copy; 2024 msaf. All rights reserved.
-            <br />
+          <p className="text-center text-sm font-medium text-primary-foreground/60 dark:text-foreground/60 md:text-left leading-relaxed">
             Icons by{" "}
             <Link
               href={"https://icons8.com"}
@@ -100,13 +100,15 @@ const Footer = () => {
             >
               Icons8
             </Link>
+            <br />
+            &copy; 2024 msaf. All rights reserved.
           </p>
 
           <div className="flex flex-col gap-y-3 md:ml-auto">
-            <h2 className="text-center font-mono font-semibold uppercase text-primary-foreground dark:text-primary md:text-right">
+            <h2 className="text-center text-sm font-semibold text-primary-foreground dark:text-primary md:text-right">
               Resources
             </h2>
-            <div className="flex flex-col items-center gap-y-2 text-center text-sm font-medium text-primary-foreground/60 dark:text-foreground/60 md:items-end md:text-right">
+            <div className="flex flex-col items-center gap-y-2 text-center text-sm font-medium text-primary-foreground/60 dark:text-foreground/60 md:items-end md:gap-y-1 md:text-right">
               <Link
                 href={"/api/feed.xml"}
                 className="anim hover:text-primary-foreground dark:hover:text-primary"
@@ -132,10 +134,10 @@ const Footer = () => {
           </div>
 
           <div className="flex flex-col gap-y-3">
-            <h2 className="text-center font-mono font-semibold uppercase text-primary-foreground dark:text-primary md:text-right">
+            <h2 className="text-center text-sm font-semibold text-primary-foreground dark:text-primary md:text-right">
               Site
             </h2>
-            <div className="flex flex-col gap-y-2 text-center text-sm font-medium text-primary-foreground/60 dark:text-foreground/60 md:text-right">
+            <div className="flex flex-col gap-y-2 text-center text-sm font-medium text-primary-foreground/60 dark:text-foreground/60 md:gap-y-1 md:text-right">
               <Link
                 href={"/learn"}
                 className="anim hover:text-primary-foreground dark:hover:text-primary"

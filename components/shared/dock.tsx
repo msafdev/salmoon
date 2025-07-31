@@ -50,12 +50,12 @@ const Dock = () => {
       variants={dockVariants}
       initial="closed"
       animate="open"
-      className="dock-shadow fixed inset-x-0 bottom-8 z-50 mx-auto rounded-2xl bg-popover p-1"
+      className="dock-shadow fixed inset-x-0 bottom-8 z-50 mx-auto rounded-xl bg-popover p-1"
     >
       <div className="relative flex items-center">
         {activeTab !== null && (
           <motion.span
-            className="absolute bottom-0 top-0 z-[99] w-10 rounded-[12px] bg-primary/40 mix-blend-difference outline-none ring-0 dark:bg-primary/20"
+            className="absolute bottom-0 top-0 z-[99] w-10 rounded-[8px] bg-primary/40 mix-blend-difference outline-none ring-0 dark:bg-primary/20"
             initial={{ translateX: initialX, opacity: 0, scale: 0 }}
             animate={{ translateX: (activeTab - 1) * 40, opacity: 1, scale: 1 }}
             transition={{

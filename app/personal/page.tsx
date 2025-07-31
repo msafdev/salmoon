@@ -1,9 +1,8 @@
 import { Metadata } from "next";
 
-import TrackGroup from "@/components/section/track-section";
-
 import QuoteCard from "@/components/shared/cards/quote-card";
 import MovieGroup from "@/components/shared/groups/movie-group";
+import TrackGroup from "@/components/shared/groups/track-group";
 import Paragraph from "@/components/shared/paragraph";
 
 import SectionWrapper from "@/components/motion/section-wrapper";
@@ -16,7 +15,7 @@ export const metadata: Metadata = {
 export default async function Page() {
   return (
     <SectionWrapper
-      id="secret"
+      id="personal"
       className="flex h-auto grow flex-col items-center gap-y-16 px-4 md:gap-y-20 lg:gap-y-24"
     >
       <Paragraph title="Why are you here?">

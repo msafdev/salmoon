@@ -17,7 +17,7 @@ const MovieCard = ({ title, url }: { title: string; url: string }) => {
           damping: 4.1,
           mass: 0.2,
         }}
-        className="group relative aspect-video h-auto w-full overflow-hidden rounded"
+        className="group relative aspect-video h-auto w-full overflow-hidden rounded-[2px]"
       >
         <Spotlight
           className="z-10 from-white/50 via-white/20 to-white/10 blur-2xl"

@@ -3,7 +3,6 @@ import { posts } from "#site/content";
 import { Metadata } from "next";
 
 import PostCard from "@/components/shared/cards/post-card";
-import ProjectCard from "@/components/shared/cards/project-card";
 import TemplateCard from "@/components/shared/cards/template-card";
 import WorkCard from "@/components/shared/cards/work-card";
 import Paragraph from "@/components/shared/paragraph";
@@ -75,8 +74,8 @@ export default async function Page() {
       </div>
 
       <div className="w-full space-y-4">
-        <Paragraph title="Free templates" />
-        <div className="grid w-full grid-cols-2 gap-4 xs:grid-cols-1 md:grid-cols-2">
+        <Paragraph title="Side projects" />
+        <div className="grid w-full grid-cols-1 gap-4 xs:grid-cols-2">
           {templateItems.map((item, index) => (
             <TemplateCard {...item} key={index} />
           ))}

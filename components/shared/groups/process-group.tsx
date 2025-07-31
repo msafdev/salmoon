@@ -8,18 +8,17 @@ import { useDesktop } from "@/hooks/use-desktop";
 import { processItems } from "@/lib/constants";
 
 type ProcessProps = {
-  id: number;
   name: string;
   description: string;
   index: number;
   total: number;
 };
 
-function ProcessStep({ id, name, description, index, total }: ProcessProps) {
+function ProcessStep({ name, description, index, total }: ProcessProps) {
   return (
     <div
       className={`relative col-span-7 grid gap-3 sm:grid-cols-8 sm:gap-4 ${index !== total - 1 ? "mb-4" : ""}`}
-      key={id}
+      key={index}
     >
       {/* Step Dot */}
       <div className="relative">
@@ -62,7 +61,7 @@ export default function ProcessGroup() {
 
       {processItems.map((item, index) => (
         <ProcessStep
-          key={item.id}
+          key={index}
           {...item}
           index={index}
           total={processItems.length}

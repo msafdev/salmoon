@@ -6,11 +6,11 @@ import { templateItems } from "@/lib/assets";
 const ProjectSection = () => {
   return (
     <div className="w-full space-y-4">
-      <Paragraph title="Free templates" link href="/archive">
+      <Paragraph title="Side Projects" link href="/archive">
         <p>
           A collection of <span className="text-foreground">open-sourced</span>{" "}
-          templates built for speed and simplicity. Browse and use them freely
-          in your own projects.
+          tools, experiments, and templates I've built over the years. Do check
+          them out.
         </p>
       </Paragraph>
 

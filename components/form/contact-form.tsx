@@ -15,11 +15,11 @@ import {
 
 import { useState } from "react";
 
-import Button from "@/components/shared/button";
 import CalInput from "@/components/shared/inputs/cal-input";
 import { Input } from "@/components/shared/inputs/ext-input";
 import MultiSlider from "@/components/shared/inputs/multi-slider";
 
+import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 
@@ -347,7 +347,10 @@ const ContactForm = () => {
         <div className="flex justify-between">
           <Button
             type="button"
-            size="fit"
+            size="icon"
+            variant="secondary"
+            aria-label="Prev step"
+            className="size-9 border"
             onClick={handleBack}
             disabled={step === 0}
           >
@@ -356,7 +359,10 @@ const ContactForm = () => {
 
           <Button
             type="button"
-            size="fit"
+            size="icon"
+            variant="secondary"
+            aria-label="Next step"
+            className="size-9 border"
             onClick={handleNext}
             disabled={formik.isSubmitting || addCalendarMutation.isPending}
           >

@@ -16,6 +16,7 @@ import "@/styles/shiki.css";
 
 type CodeProps = {
   code: string;
+  id?: string;
   lang: BundledLanguage;
   lineNumber?: boolean;
   lineShine?: boolean;
@@ -23,6 +24,7 @@ type CodeProps = {
 
 export default async function Code({
   code,
+  id,
   lang = "ts",
   lineNumber = false,
   lineShine = false,
@@ -42,6 +44,7 @@ export default async function Code({
 
   return (
     <div
+      id={id}
       className="relative h-fit w-full overflow-hidden rounded !bg-[#f7f7f7] dark:!bg-[#101010]"
       {...props}
     >

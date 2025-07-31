@@ -45,8 +45,8 @@ const LearnGroup = () => {
           <AccordionTrigger className="w-full py-2">
             <div key={tag} className="group flex w-full items-center gap-x-4">
               <div className="relative">
-                <div className="relative flex h-8 w-7 rounded-l-md rounded-r-sm -outline-offset-1 outline-black/5 dark:outline">
-                  <div className="h-full w-3.5 rounded-l-md bg-gradient-to-r from-[#2e2e2e] via-[#3e3e3e] to-[#2e2e2e]" />
+                <div className="relative flex h-8 w-7 rounded-l-[2px] rounded-r-sm -outline-offset-1 outline-black/5 dark:outline">
+                  <div className="h-full w-3.5 rounded-l-[2px] bg-gradient-to-r from-[#2e2e2e] via-[#3e3e3e] to-[#2e2e2e]" />
                   <div className="dark:to-gray-1000 flex h-full w-full rounded-r-sm border-2 border-l-0 bg-background dark:bg-primary">
                     <PiBookmarkSimpleFill className="anim-slow absolute -top-[1px] right-1 h-0 w-2 origin-bottom fill-blue-500 text-blue-500 opacity-0 group-hover:h-2 group-hover:opacity-100 group-aria-expanded:h-2 group-aria-expanded:opacity-100" />
                     <div className="absolute bottom-1 h-[1px] w-[18px] bg-border" />

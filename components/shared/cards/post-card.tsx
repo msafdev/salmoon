@@ -20,9 +20,9 @@ const PostCard = ({
   return (
     <Link
       href={`/${slug}`}
-      className={cn("group/blog w-full space-y-2", className)}
+      className={cn("group/blog w-full space-y-1.5", className)}
     >
-      <div className="relative aspect-video w-auto overflow-hidden rounded bg-muted">
+      <div className="relative aspect-video w-auto overflow-hidden rounded-[2px] bg-muted">
         <Image
           src={image}
           alt={`Thumbnail of ${title}`}

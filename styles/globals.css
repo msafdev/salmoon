@@ -14,6 +14,7 @@
     --primary-foreground: 0 0% 98%;
     --secondary: 240 4.8% 95.9%;
     --secondary-foreground: 240 5.9% 10%;
+    --tertiary: 210 63% 52%;
     --muted: 240 4.8% 95.9%;
     --muted-foreground: 240 3.8% 46.1%;
     --accent: 240 4.8% 95.9%;
@@ -28,26 +29,27 @@
   }
 
   .dark {
-    --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 240 10% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 240 10% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 240 5.9% 10%;
-    --secondary: 240 3.7% 15.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
-    --accent: 240 3.7% 15.9%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 240 4.9% 83.9%;
-    --selection: 240 100% 50%;
+    --background: 0 0% 7%;
+    --foreground: 0 0% 95%;
+    --card: 0 0% 9%;
+    --card-foreground: 0 0% 95%;
+    --popover: 0 0% 9%;
+    --popover-foreground: 0 0% 95%;
+    --primary: 0 0% 95%;
+    --primary-foreground: 0 0% 7%;
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 0 0% 95%;
+    --tertiary: 215 45% 60%;
+    --muted: 0 0% 12%;
+    --muted-foreground: 0 0% 65%;
+    --accent: 0 0% 12%;
+    --accent-foreground: 0 0% 95%;
+    --destructive: 0 75% 50%;
+    --destructive-foreground: 0 0% 95%;
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
+    --ring: 0 0% 80%;
+    --selection: 0 0% 25%;
   }
 
   html {
@@ -68,9 +70,11 @@
   .anim {
     @apply transition-all duration-300 ease-in-out;
   }
+
   .anim-slow {
     @apply transition-all duration-500 ease-in-out;
   }
+
   .anim-fast {
     @apply transition-all duration-200 ease-in-out;
   }
@@ -87,6 +91,27 @@
   ::selection {
     background: hsl(var(--accent));
     color: hsl(var(--foreground));
+  }
+  .box-shadow {
+    box-shadow:
+      rgba(14, 63, 126, 0.06) 0px 0px 0px 1px,
+      rgba(42, 51, 70, 0.03) 0px 1px 1px -0.5px,
+      rgba(42, 51, 70, 0.04) 0px 2px 2px -1px,
+      rgba(42, 51, 70, 0.04) 0px 3px 3px -1.5px,
+      rgba(42, 51, 70, 0.03) 0px 5px 5px -2.5px,
+      rgba(42, 51, 70, 0.03) 0px 10px 10px -5px,
+      rgba(42, 51, 70, 0.03) 0px 24px 24px -8px;
+  }
+
+  .dark .box-shadow {
+    box-shadow:
+      rgba(0, 0, 0, 0.5) 0px 0px 0px 1px,
+      rgba(0, 0, 0, 0.4) 0px 1px 1px -0.5px,
+      rgba(0, 0, 0, 0.3) 0px 2px 2px -1px,
+      rgba(0, 0, 0, 0.3) 0px 3px 3px -1.5px,
+      rgba(0, 0, 0, 0.25) 0px 5px 5px -2.5px,
+      rgba(0, 0, 0, 0.2) 0px 10px 10px -5px,
+      rgba(0, 0, 0, 0.15) 0px 24px 24px -8px;
   }
 }
 

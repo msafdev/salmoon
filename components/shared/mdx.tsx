@@ -8,7 +8,8 @@ import Image, { ImageProps } from "next/image";
 import { Toc } from "@stefanprobst/rehype-extract-toc";
 
 import Code from "@/components/shared/code";
-import GithubWidget from "@/components/shared/widgets/github-widget";
+import ActivityWidget from "@/components/shared/widgets/activity-widget";
+import RepoWidget from "@/components/shared/widgets/repo-widget";
 
 import {
   Table,
@@ -29,6 +30,10 @@ type GithubProps = React.HTMLAttributes<HTMLElement> & {
   repo: string;
 };
 
+type ActivityProps = React.HTMLAttributes<HTMLElement> & {
+  user: string;
+};
+
 const useMDXComponent = (code: string) => {
   const fn = new Function(code);
   return {
@@ -38,8 +43,11 @@ const useMDXComponent = (code: string) => {
 };
 
 export const globalComponents = {
-  GithubWidget: ({ className, repo, ...props }: GithubProps) => (
-    <GithubWidget className={cn("mb-4", className)} repo={repo} {...props} />
+  RepoWidget: ({ className, repo, ...props }: GithubProps) => (
+    <RepoWidget className={cn("mb-4", className)} repo={repo} {...props} />
+  ),
+  ActivityWidget: ({ className, user, ...props }: ActivityProps) => (
+    <ActivityWidget className={cn("mb-4", className)} user={user} {...props} />
   ),
   h1: ({ className, ...props }: ComponentsProps) => (
     <h1 className={cn("mb-4 mt-6 text-2xl font-bold", className)} {...props} />

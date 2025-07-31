@@ -1,3 +1,6 @@
+// Table of Contents
+import { TocItem } from "@/components/shared/toc";
+
 // Avatar
 import { BasicAvatar } from "@/components/lab/examples/avatar/basic-avatar";
 import { IconAvatar } from "@/components/lab/examples/avatar/icon-avatar";
@@ -19,9 +22,11 @@ import { MultipleFiles } from "@/components/lab/examples/file/multiple-file";
 // Input
 import { BasicInput } from "@/components/lab/examples/input/basic-input";
 import { FloatInput } from "@/components/lab/examples/input/float-input";
+import { NoteInput } from "@/components/lab/examples/input/note-input";
 import { NumberInput } from "@/components/lab/examples/input/number-input";
 import { OtpInput } from "@/components/lab/examples/input/otp-input";
 import { PasswordInput } from "@/components/lab/examples/input/password-input";
+import { ValidateInput } from "@/components/lab/examples/input/validate-input";
 // Loader
 import { IconLoader } from "@/components/lab/examples/loader/icon-loader";
 import { TextLoader } from "@/components/lab/examples/loader/text-loader";
@@ -54,10 +59,6 @@ export type ComponentType = {
   uiLibrary?: string;
   customHook?: string;
   gridClass?: "regular-card" | "medium-card" | "large-card" | "default-card";
-};
-
-export type TWConfig = {
-  [key: string]: object;
 };
 
 export const COMPONENTS: ComponentType[] = [
@@ -93,7 +94,7 @@ export const COMPONENTS: ComponentType[] = [
       { child: IconBadge, name: "Icon Badge", path: "icon-badge" },
       {
         child: SeparatedBadge,
-        name: "Separate Badge",
+        name: "Separated Badge",
         path: "separated-badge",
       },
       { child: StatusBadge, name: "Status Badge", path: "status-badge" },
@@ -148,12 +149,14 @@ export const COMPONENTS: ComponentType[] = [
       "Enhanced form inputs including password, float, number, and OTP fields.",
     example: [
       { child: BasicInput, name: "Basic Input", path: "basic-input" },
+      { child: NoteInput, name: "Note Input", path: "note-input" },
       { child: NumberInput, name: "Number Input", path: "number-input" },
       { child: FloatInput, name: "Float Input", path: "float-input" },
       { child: PasswordInput, name: "Password Input", path: "password-input" },
+      { child: ValidateInput, name: "Validate Input", path: "validate-input" },
       { child: OtpInput, name: "OTP Input", path: "otp-input" },
     ],
-    thumbnail: 1,
+    thumbnail: 0,
     uiLibrary: "npx shadcn@latest add label input",
     gridClass: "medium-card",
   },

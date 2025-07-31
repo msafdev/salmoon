@@ -13,6 +13,7 @@ import Link from "next/link";
 import LabCard from "@/components/shared/cards/lab-card";
 import Code from "@/components/shared/code";
 import Paragraph from "@/components/shared/paragraph";
+import TableOfContents from "@/components/shared/toc";
 
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -20,6 +21,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import CodeWrapper from "@/components/motion/code-wrapper";
 
 import { COMPONENTS } from "@/lib/data";
+import { mapComponentToToc } from "@/lib/functions";
 import { getFilePathAndConfig } from "@/lib/server";
 
 interface LabPageProps {
@@ -90,11 +92,10 @@ export default async function Page({ params }: { params: { slug: string } }) {
     await getFilePathAndConfig(item);
 
   return (
-    <section
-      id={`lab-${item?.slug}`}
-      className="flex h-auto w-full grow flex-col items-center gap-y-16 px-4 md:gap-y-20 lg:gap-y-24"
-    >
-      <div className="w-full max-w-lg space-y-10 md:space-y-12 lg:space-y-16">
+    <article id={item.slug} className="relative flex h-auto w-full grow px-4">
+      <TableOfContents toc={mapComponentToToc(item)} scrollPosition="top" />
+
+      <div className="mx-auto w-full max-w-lg space-y-10 md:max-w-md md:space-y-12 lg:max-w-lg lg:space-y-16">
         <div className="flex w-full items-center justify-between">
           <Link
             href={`/lab`}
@@ -174,6 +175,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
                     gridClass={item.gridClass}
                     className="min-h-72"
                     name={example.name}
+                    id={example.path}
                   >
                     <example.child />
                   </LabCard>
@@ -191,7 +193,10 @@ export default async function Page({ params }: { params: { slug: string } }) {
         {uiLibrary && (
           <div className="w-full space-y-4">
             <Paragraph title="Library setup" />
-            <div className="h-fit w-full max-w-lg rounded border-2 border-dashed p-1 sm:p-2">
+            <div
+              id="library-setup"
+              className="h-fit w-full max-w-lg rounded border-2 border-dashed p-1 sm:p-2"
+            >
               <Code code={uiLibrary} lang="bash" />
             </div>
           </div>
@@ -200,7 +205,10 @@ export default async function Page({ params }: { params: { slug: string } }) {
         {cssClass && (
           <div className="w-full space-y-4">
             <Paragraph title="CSS styling" />
-            <div className="h-fit w-full max-w-lg rounded border-2 border-dashed p-1 sm:p-2">
+            <div
+              id="css-styling"
+              className="h-fit w-full max-w-lg rounded border-2 border-dashed p-1 sm:p-2"
+            >
               <Code code={cssClass} lang="css" />
             </div>
           </div>
@@ -209,7 +217,10 @@ export default async function Page({ params }: { params: { slug: string } }) {
         {twConfig && (
           <div className="w-full space-y-4">
             <Paragraph title="Tailwind config" />
-            <div className="h-fit w-full max-w-lg rounded border-2 border-dashed p-1 sm:p-2">
+            <div
+              id="tailwind-config"
+              className="h-fit w-full max-w-lg rounded border-2 border-dashed p-1 sm:p-2"
+            >
               <CodeWrapper>
                 <Code code={twConfig} lang="json" />
               </CodeWrapper>
@@ -220,7 +231,10 @@ export default async function Page({ params }: { params: { slug: string } }) {
         {customHook && (
           <div className="w-full space-y-4">
             <Paragraph title="Required hook" />
-            <div className="h-fit w-full max-w-lg rounded border-2 border-dashed p-1 sm:p-2">
+            <div
+              id="required-hook"
+              className="h-fit w-full max-w-lg rounded border-2 border-dashed p-1 sm:p-2"
+            >
               <CodeWrapper>
                 <Code code={customHook} lang="ts" />
               </CodeWrapper>
@@ -231,7 +245,10 @@ export default async function Page({ params }: { params: { slug: string } }) {
         {item.primitive && (
           <div className="w-full space-y-4">
             <Paragraph title="Code" />
-            <div className="h-fit w-full max-w-lg rounded border-2 border-dashed p-1 sm:p-2">
+            <div
+              id="code"
+              className="h-fit w-full max-w-lg rounded border-2 border-dashed p-1 sm:p-2"
+            >
               <CodeWrapper>
                 <Code code={code} lang="tsx" />
               </CodeWrapper>
@@ -239,6 +256,6 @@ export default async function Page({ params }: { params: { slug: string } }) {
           </div>
         )}
       </div>
-    </section>
+    </article>
   );
 }

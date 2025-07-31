@@ -58,8 +58,8 @@ export const MultipleFiles = () => {
           className={cn(
             "h-full w-full",
             "has-disabled:pointer-events-none has-disabled:opacity-40",
-            "relative flex flex-col items-center justify-center overflow-hidden rounded-xl border-2 border-dashed border-border p-4 transition-colors hover:bg-accent/40",
-            "has-[img]:border-none has-[input:focus]:border-ring has-[input:focus]:ring-[3px] has-[input:focus]:ring-ring/40 data-[dragging=true]:bg-accent",
+            "bg-input/10 relative flex flex-col items-center justify-center overflow-hidden rounded border border-border p-4 transition-colors hover:bg-accent/40",
+            "has-[img]:border-none has-[input:focus]:border-ring has-[input:focus]:ring-[3px] has-[input:focus]:ring-ring/40 data-[dragging=true]:bg-accent/40",
           )}
         >
           <input
@@ -145,7 +145,7 @@ export const MultipleFiles = () => {
                 <Button
                   size="icon"
                   variant="ghost"
-                  className="size-8 text-muted-foreground/80 hover:bg-transparent hover:text-foreground"
+                  className="size-8 shrink-0 text-muted-foreground/80 hover:bg-transparent hover:text-foreground"
                   onClick={() => removeFile(file.id)}
                   aria-label="Remove file"
                 >
