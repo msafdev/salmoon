@@ -1,53 +1,51 @@
 "use client";
 
+import { toast } from "sonner";
+
 import { LuBadgeCheck, LuBadgeX } from "react-icons/lu";
+
+import { createElement } from "react";
 
 import { useRouter } from "next/navigation";
 
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 import { createMeeting } from "@/action/calendar";
-import { useToast } from "@/hooks/use-toast";
 import { Contact } from "@/types/contact.types";
 
 const calendarMutation = () => {
   const router = useRouter();
   const queryClient = useQueryClient();
 
-  const { toast } = useToast();
-
   const addCalendarMutation = useMutation({
     mutationFn: async (contact: Contact) => createMeeting(contact),
     onSuccess: (response) => {
       if (response?.error) {
-        toast({
-          title: "Something went wrong",
-          description: response.error,
+        toast("Something went wrong", {
           duration: 2000,
-          icon: LuBadgeX,
-          color: "destructive",
+          icon: createElement(LuBadgeX, {
+            className: "size-5 destructive",
+          }),
         });
       } else if (response?.data) {
         router.push("/contact/success");
 
-        toast({
-          title: "Booked",
-          description: response.data,
+        toast("Meet booked successfully", {
           duration: 2000,
-          icon: LuBadgeCheck,
-          color: "success",
+          icon: createElement(LuBadgeCheck, {
+            className: "size-5 success",
+          }),
         });
 
         queryClient.invalidateQueries({ queryKey: ["meetings"] });
       }
     },
     onError: () => {
-      toast({
-        title: "Something went wrong",
-        description: "An unexpected error occurred",
+      toast("Something went wrong", {
         duration: 2000,
-        icon: LuBadgeX,
-        color: "destructive",
+        icon: createElement(LuBadgeX, {
+          className: "size-5 destructive",
+        }),
       });
     },
   });

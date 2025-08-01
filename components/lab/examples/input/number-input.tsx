@@ -55,13 +55,13 @@ export const NumberInput = () => {
           value={value}
           onChange={handleChange}
           onKeyDown={handleKeyDown}
-          className="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-2 pr-12 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:border-border focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-ring/40 dark:bg-input/30"
+          className="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-2 pr-12 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:border-border focus-visible:outline-hidden focus-visible:ring-[3px] focus-visible:ring-ring/40 dark:bg-input/30"
         />
         <div className="absolute right-px top-1/2 flex -translate-y-1/2 flex-col border-l">
           <button
             type="button"
             onClick={increment}
-            className="flex h-[17px] w-7 items-center justify-center rounded-none border-b bg-transparent p-0 text-muted-foreground hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-0"
+            className="flex h-[17px] w-7 items-center justify-center rounded-none border-b bg-transparent p-0 text-muted-foreground hover:text-accent-foreground focus-visible:outline-hidden focus-visible:ring-0"
             aria-label="Increment"
           >
             <ChevronUp className="size-3" />
@@ -69,7 +69,7 @@ export const NumberInput = () => {
           <button
             type="button"
             onClick={decrement}
-            className="flex h-[17px] w-7 items-center justify-center rounded-none bg-transparent p-0 text-muted-foreground hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-0"
+            className="flex h-[17px] w-7 items-center justify-center rounded-none bg-transparent p-0 text-muted-foreground hover:text-accent-foreground focus-visible:outline-hidden focus-visible:ring-0"
             aria-label="Decrement"
           >
             <ChevronDown className="size-3" />

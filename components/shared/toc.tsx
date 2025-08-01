@@ -94,7 +94,7 @@ const TableOfContents = ({
           <button
             onClick={() => scrollToHeading(id)}
             className={cn(
-              "w-fit text-left text-xs font-medium transition-colors duration-300 hover:text-foreground lg:text-nowrap lg:text-sm",
+              "hover:text-foreground w-fit cursor-pointer text-left text-xs font-medium transition-colors duration-300 lg:text-sm lg:text-nowrap",
               {
                 "text-foreground": isActive,
                 "text-muted-foreground": !isActive,
@@ -120,9 +120,9 @@ const TableOfContents = ({
   if (!isClient || matches || toc.length === 0) return null;
 
   return (
-    <div className={cn("sticky left-16 top-16 h-fit w-36", className)}>
+    <div className={cn("sticky top-16 left-16 h-fit w-36", className)}>
       <div>
-        <h3 className="mb-3 text-sm font-semibold tracking-wide lg:text-nowrap lg:text-base">
+        <h3 className="mb-3 text-sm font-semibold tracking-wide lg:text-base lg:text-nowrap">
           On this page
         </h3>
         <nav>

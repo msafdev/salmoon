@@ -1,5 +1,7 @@
 "use client";
 
+import { toast } from "sonner";
+
 import {
   PiCheckBold,
   PiClipboardDuotone,
@@ -10,7 +12,6 @@ import { useState } from "react";
 
 import { Button } from "@/components/ui/button";
 
-import { useToast } from "@/hooks/use-toast";
 import { copyToClipboard } from "@/lib/functions";
 
 const CopyButton = ({
@@ -20,18 +21,14 @@ const CopyButton = ({
   className?: string;
   string: string;
 }) => {
-  const { toast } = useToast();
   const [isCopied, setIsCopied] = useState(false);
 
   const handleClick = () => {
     copyToClipboard(string);
     setIsCopied(true);
-    toast({
-      title: "Copied to clipboard",
-      description: "Don't forget to leave a ⭐️ on the repo",
+    toast("Copied to clipboard", {
       duration: 2000,
-      icon: PiClipboardTextDuotone,
-      color: "default",
+      icon: <PiClipboardTextDuotone className="info" size={20} />,
     });
 
     setTimeout(() => {

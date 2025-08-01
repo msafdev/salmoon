@@ -26,7 +26,7 @@ export const FloatInput = () => {
         onBlur={handleBlur}
         className={cn(
           "peer h-9 w-full rounded-md border border-input bg-transparent px-3 text-sm",
-          "placeholder-transparent focus-visible:border-border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/20",
+          "placeholder-transparent focus-visible:border-border focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring/20",
         )}
         placeholder=" "
       />

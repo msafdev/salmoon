@@ -9,14 +9,14 @@ import { cn } from "@/lib/utils";
 const OTP_LENGTH = 5;
 
 const className = cn(
-  "flex size-9 min-w-0 bg-transparent px-3 py-1 text-center text-base outline-none",
+  "flex size-9 min-w-0 bg-transparent px-3 py-1 text-center text-base outline-hidden",
   "transition-[color,box-shadow] selection:bg-primary selection:text-primary-foreground",
   "file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground",
   "placeholder:text-muted-foreground",
-  "focus-visible:border-boder focus-visible:ring-[2px] focus-visible:ring-ring/40",
+  "focus-visible:border-boder focus-visible:ring-2 focus-visible:ring-ring/40",
   "disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50",
   "aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive",
-  "shadow-xs border-input dark:bg-input/30 md:text-sm",
+  "shadow-2xs border-input dark:bg-input/30 md:text-sm",
 );
 
 export const OtpInput = () => {

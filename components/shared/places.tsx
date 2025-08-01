@@ -39,7 +39,7 @@ const PlaceCard = ({ item }: { item: (typeof placeItems)[number] }) => (
     initial={{ rotate: item.rotation }}
     whileHover={{ rotate: 0, scale: 1.05 }}
     transition={transition as Transition}
-    className="box-shadow flex-shrink-0 overflow-hidden rounded-[1px]"
+    className="box-shadow shrink-0 overflow-hidden rounded-[1px]"
   >
     <PolaroidCard
       src={item.src}

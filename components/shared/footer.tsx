@@ -1,6 +1,7 @@
 "use client";
 
 import { useInView } from "motion/react";
+import { toast } from "sonner";
 
 import {
   PiArrowUpBold,
@@ -16,13 +17,9 @@ import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
 
-import { Magnetic } from "@/components/motion/magnetic";
-
-import { useToast } from "@/hooks/use-toast";
 import { copyToClipboard } from "@/lib/functions";
 
 const Footer = () => {
-  const { toast } = useToast();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
@@ -36,17 +33,17 @@ const Footer = () => {
   return (
     <footer
       ref={ref}
-      className="relative flex w-full flex-col bg-primary px-4 py-12 dark:bg-primary-foreground md:px-8 lg:px-16"
+      className="bg-primary dark:bg-primary-foreground relative flex w-full flex-col px-4 py-12 md:px-8 lg:px-16"
     >
       <div
-        className={`mx-auto flex w-full max-w-3xl flex-col items-center gap-y-12 pb-20 pt-8 transition-all duration-500 ease-in-out ${
+        className={`mx-auto flex w-full max-w-3xl flex-col items-center gap-y-12 pt-8 pb-20 transition-all duration-500 ease-in-out ${
           isInView
-            ? "scale-100 opacity-100 blur-0"
+            ? "blur-0 scale-100 opacity-100"
             : "scale-90 opacity-0 blur-md"
         }`}
       >
         <div className="grid w-full grid-cols-1 gap-x-8 gap-y-12 md:grid-cols-3">
-          <div className="flex w-full flex-col items-center text-primary-foreground dark:text-primary md:items-start">
+          <div className="text-primary-foreground dark:text-primary flex w-full flex-col items-center md:items-start">
             <Image
               src="/logo.svg"
               alt="Logo"
@@ -55,13 +52,13 @@ const Footer = () => {
               className="mb-2"
             />
 
-            <p className="mb-4 max-w-64 text-balance text-center text-xs font-medium leading-relaxed text-primary-foreground/60 dark:text-foreground/60 md:max-w-full md:text-left">
+            <p className="text-primary-foreground/60 dark:text-foreground/60 mb-4 max-w-64 text-center text-xs leading-relaxed font-medium text-balance md:max-w-full md:text-left">
               Helps create a better web experience for everyone.
             </p>
 
-            <div className="flex flex-row items-center gap-x-6 gap-y-2 text-sm text-primary-foreground/80 dark:text-primary/80 md:flex-col md:items-start">
+            <div className="text-primary-foreground/80 dark:text-primary/80 flex flex-row items-center gap-x-6 gap-y-2 text-sm md:flex-col md:items-start">
               <button
-                className="anim hover:text-primary-foreground dark:hover:text-primary"
+                className="anim hover:text-primary-foreground dark:hover:text-primary cursor-pointer"
                 aria-label="Back on top"
                 onClick={scrollToTop}
               >
@@ -69,16 +66,13 @@ const Footer = () => {
                 top
               </button>
               <button
-                className="anim hover:text-primary-foreground dark:hover:text-primary"
+                className="anim hover:text-primary-foreground dark:hover:text-primary cursor-pointer"
                 aria-label="Copy my email"
                 onClick={() => {
                   copyToClipboard("salmanalfarisi261002@gmail.com");
-                  toast({
-                    title: "Copied to clipboard",
-                    description: "Please use it wisely",
+                  toast("Copied email to clipboard", {
                     duration: 2000,
-                    icon: PiAtDuotone,
-                    color: "default",
+                    icon: <PiAtDuotone size={20} />,
                   });
                 }}
               >
@@ -90,10 +84,10 @@ const Footer = () => {
 
           <div className="flex flex-col gap-x-12 gap-y-12 md:flex-row">
             <div className="flex flex-col gap-y-3">
-              <h2 className="text-center text-sm font-semibold text-primary-foreground dark:text-primary md:text-left">
+              <h2 className="text-primary-foreground dark:text-primary text-center text-sm font-semibold md:text-left">
                 Resources
               </h2>
-              <div className="flex flex-col gap-y-2 text-center text-sm font-medium text-primary-foreground/60 dark:text-foreground/60 md:gap-y-1 md:text-left">
+              <div className="text-primary-foreground/60 dark:text-foreground/60 flex flex-col gap-y-2 text-center text-sm font-medium md:gap-y-1 md:text-left">
                 <Link
                   href={"/"}
                   className="anim hover:text-primary-foreground dark:hover:text-primary"
@@ -126,10 +120,10 @@ const Footer = () => {
             </div>
 
             <div className="flex flex-col gap-y-3">
-              <h2 className="text-center text-sm font-semibold text-primary-foreground dark:text-primary md:text-left">
+              <h2 className="text-primary-foreground dark:text-primary text-center text-sm font-semibold md:text-left">
                 Website
               </h2>
-              <div className="flex flex-col gap-y-2 text-center text-sm font-medium text-primary-foreground/60 dark:text-foreground/60 md:gap-y-1 md:text-left">
+              <div className="text-primary-foreground/60 dark:text-foreground/60 flex flex-col gap-y-2 text-center text-sm font-medium md:gap-y-1 md:text-left">
                 <Link
                   href={"/learn"}
                   className="anim hover:text-primary-foreground dark:hover:text-primary"
@@ -158,18 +152,18 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="flex w-full flex-col items-center text-primary-foreground dark:text-primary md:ml-auto md:w-fit md:items-start">
+          <div className="text-primary-foreground dark:text-primary flex w-full flex-col items-center md:ml-auto md:w-fit md:items-start">
             <h4 className="mb-2 font-semibold">Stay Connected</h4>
 
-            <p className="mb-4 max-w-64 text-balance text-center text-xs font-medium leading-relaxed text-primary-foreground/60 dark:text-foreground/60 md:max-w-48 md:text-left">
+            <p className="text-primary-foreground/60 dark:text-foreground/60 mb-4 max-w-64 text-center text-xs leading-relaxed font-medium text-balance md:max-w-48 md:text-left">
               Leave a message or subscribe to my newsletter.
             </p>
 
-            <div className="flex flex-row items-center gap-x-6 text-sm text-primary-foreground/80 dark:text-primary/80 md:flex-col md:items-start">
+            <div className="text-primary-foreground/80 dark:text-primary/80 flex flex-row items-center gap-x-6 text-sm md:flex-col md:items-start">
               <Button
                 size={"sm"}
                 variant={"ghost"}
-                className="group/button h-fit w-fit px-0 py-2 text-white underline decoration-transparent hover:bg-transparent hover:text-white hover:decoration-white"
+                className="group/button h-fit w-fit px-0 py-1 text-white underline decoration-transparent hover:bg-transparent hover:text-white hover:decoration-white"
                 asChild
               >
                 <Link href={"/guestbook"} aria-label="My Guestbook">
@@ -180,7 +174,7 @@ const Footer = () => {
               <Button
                 size={"sm"}
                 variant={"ghost"}
-                className="group/button h-fit w-fit px-0 py-2 text-white underline decoration-transparent hover:bg-transparent hover:text-white hover:decoration-white"
+                className="group/button h-fit w-fit px-0 py-1 text-white underline decoration-transparent hover:bg-transparent hover:text-white hover:decoration-white"
                 asChild
               >
                 <Link
@@ -196,7 +190,7 @@ const Footer = () => {
             </div>
           </div>
 
-          <p className="text-center text-sm font-medium leading-relaxed text-primary-foreground/60 dark:text-foreground/60 md:col-span-full md:pt-8">
+          <p className="text-primary-foreground/60 dark:text-foreground/60 text-center text-sm leading-relaxed font-medium md:col-span-full md:pt-8">
             Icons by{" "}
             <Link
               href={"https://icons8.com"}

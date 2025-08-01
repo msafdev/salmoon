@@ -51,7 +51,7 @@ export const ViewAnimation = () => {
       {Array.from({ length: 4 }, (_, index) => (
         <div
           key={index}
-          className="aspect-[4/3] w-24 rounded border bg-accent dark:border-background/60"
+          className="aspect-4/3 w-24 rounded border bg-accent dark:border-background/60"
         />
       ))}
     </Stagger>

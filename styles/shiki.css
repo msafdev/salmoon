@@ -1,3 +1,5 @@
+@reference "./globals.css";
+
 .shiki {
   background-color: transparent !important;
   @apply py-4 pl-4;
@@ -27,11 +29,11 @@
     }
 
     &.diff.add::before {
-      @apply ml-0.5 mr-6 inline-block w-4 border-transparent text-right content-["+"];
+      @apply mr-6 ml-0.5 inline-block w-4 border-transparent text-right content-["+"];
     }
 
     &.diff.remove::before {
-      @apply ml-0.5 mr-6 inline-block w-4 border-transparent text-right content-["-"];
+      @apply mr-6 ml-0.5 inline-block w-4 border-transparent text-right content-["-"];
     }
 
     &:not(.diff):not(.diff.add):not(.diff.remove)::before {
