@@ -23,7 +23,7 @@ export async function getFilePathAndConfig(item: ComponentType) {
 
   const code = isPrimitive
     ? await readFilePath(filePath).catch(() => {
-        return `// ${item.name} component not found`;
+        return `// ${item.name} - [${filePath}] component not found`;
       })
     : "";
 
