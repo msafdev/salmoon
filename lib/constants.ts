@@ -262,22 +262,36 @@ export const quoteItems = [
   },
 ];
 
-export const resourceItems = [
+export const bookmarkItems = [
   {
-    title: "Clean Code — A practical approach",
-    href: "https://medium.com/clarityai-engineering/clean-code-a-practical-approach-896546435235",
+    title: "Silk",
+    href: "https://silkhq.com/",
+    description: "Native-like swipable sheets on the web.",
   },
   {
-    title: "How UX can be a key differentiator for AI",
-    href: "https://uxdesign.cc/user-experience-the-key-differentiator-for-ai-0d5d12fe5b08",
+    title: "WebTUI",
+    href: "https://webtui.ironclad.sh/",
+    description: "Modular CSS library for building terminal UIs.",
   },
   {
-    title: "15 Time-Saving Websites Every Developer Needs",
-    href: "https://javascript.plainenglish.io/15-time-saving-websites-every-developer-needs-cf76ea19e430",
+    title: "Handy Arrows",
+    href: "https://handyarrows.com/",
+    description: "A collection of hand-drawn SVG arrows for your designs.",
   },
   {
-    title: "Every React Concept Explained in 12 Minutes",
-    href: "https://youtube.com/watch?v=wIyHSOugGGw&pp=ygUTcmVhY3QgaW4gMTIgbWludXRlcw%3D%3D",
+    title: "Cobalt Tools",
+    href: "https://cobalt.tools/",
+    description: "An online video downloader from multiple sources.",
+  },
+  {
+    title: "SVGL",
+    href: "https://svgl.app/",
+    description: "A collection of high-res SVG icons for your projects.",
+  },
+  {
+    title: "Fancy Components",
+    href: "https://fancycomponents.dev/",
+    description: "A collection of beautiful and animated components.",
   },
 ];
 

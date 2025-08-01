@@ -3,6 +3,12 @@ import { PiArrowRightBold } from "react-icons/pi";
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 import { cn } from "@/lib/utils";
 
@@ -31,15 +37,24 @@ const Paragraph = ({
             {title}
           </h2>
           {link && (
-            <Button size={"icon"} variant={"ghost"} className="size-7">
-              <Link
-                href={href}
-                aria-label={`Go to ${href}`}
-                className="h-full w-full p-1.5"
-              >
-                <PiArrowRightBold className="h-full w-full" />
-              </Link>
-            </Button>
+            <TooltipProvider delayDuration={0}>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Button size={"icon"} variant={"ghost"} className="size-7">
+                    <Link
+                      href={href}
+                      aria-label={`Go to ${href}`}
+                      className="h-full w-full p-1.5"
+                    >
+                      <PiArrowRightBold className="h-full w-full" />
+                    </Link>
+                  </Button>
+                </TooltipTrigger>
+                <TooltipContent className="px-2 py-1">
+                  <p className="text-xs font-medium">More</p>
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
           )}
         </div>
         {from && to && (

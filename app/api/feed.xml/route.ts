@@ -3,6 +3,7 @@ import { posts } from "#site/content";
 import RSS from "rss";
 
 import { siteItems } from "@/lib/config";
+import { sortPosts } from "@/velite/post";
 
 const feed = new RSS({
   title: siteItems.title,
@@ -14,13 +15,17 @@ const feed = new RSS({
   pubDate: new Date(),
 });
 
-posts.map((post) => {
+sortPosts(posts).map((post) => {
   feed.item({
     title: post.title,
     guid: `${siteItems.url}/${post.slug}`,
     url: `${siteItems.url}/${post.slug}`,
     date: post.date,
-    description: post.description,
+    description: `
+    ${post.description}
+
+    Full post: ${siteItems.url}/${post.slug}
+    `,
     author: siteItems.name,
     categories: post.tags || [],
   });

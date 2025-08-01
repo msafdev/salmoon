@@ -2,10 +2,16 @@
 
 import { useInView } from "motion/react";
 
-import { PiAtDuotone, PiHeartFill } from "react-icons/pi";
+import {
+  PiArrowUpBold,
+  PiAtBold,
+  PiAtDuotone,
+  PiHeartFill,
+} from "react-icons/pi";
 
 import { useRef } from "react";
 
+import Image from "next/image";
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
@@ -39,59 +45,158 @@ const Footer = () => {
             : "scale-90 opacity-0 blur-md"
         }`}
       >
-        <div className="flex w-full flex-col items-center justify-between gap-4 text-primary-foreground dark:text-primary md:flex-row">
-          <Magnetic
-            intensity={0.2}
-            springOptions={{ bounce: 0.1 }}
-            actionArea="global"
-            range={100}
-          >
-            <Button
-              size={"sm"}
-              variant={"ghost"}
-              className="group/button text-white hover:bg-transparent hover:text-white"
-              asChild
-            >
-              <Link href={"/guestbook"} aria-label="My Guestbook">
-                <span className="sr-only">Leave a mark on /guestbook</span>
-                <PiHeartFill
-                  size={10}
-                  className="transition-colors group-hover/button:text-rose-400"
-                />
-                guestbook
-              </Link>
-            </Button>
-          </Magnetic>
+        <div className="grid w-full grid-cols-1 gap-x-8 gap-y-12 md:grid-cols-3">
+          <div className="flex w-full flex-col items-center text-primary-foreground dark:text-primary md:items-start">
+            <Image
+              src="/logo.svg"
+              alt="Logo"
+              width={64}
+              height={64}
+              className="mb-2"
+            />
 
-          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-sm text-primary-foreground/80 dark:text-primary/80">
-            <button
-              className="anim hover:text-primary-foreground dark:hover:text-primary"
-              aria-label="Back on top"
-              onClick={scrollToTop}
-            >
-              top
-            </button>
-            <button
-              className="anim hover:text-primary-foreground dark:hover:text-primary"
-              aria-label="Copy my email"
-              onClick={() => {
-                copyToClipboard("salmanalfarisi261002@gmail.com");
-                toast({
-                  title: "Copied to clipboard",
-                  description: "Please use it wisely",
-                  duration: 2000,
-                  icon: PiAtDuotone,
-                  color: "default",
-                });
-              }}
-            >
-              email
-            </button>
+            <p className="mb-4 max-w-64 text-balance text-center text-xs font-medium leading-relaxed text-primary-foreground/60 dark:text-foreground/60 md:max-w-full md:text-left">
+              Helps create a better web experience for everyone.
+            </p>
+
+            <div className="flex flex-row items-center gap-x-6 gap-y-2 text-sm text-primary-foreground/80 dark:text-primary/80 md:flex-col md:items-start">
+              <button
+                className="anim hover:text-primary-foreground dark:hover:text-primary"
+                aria-label="Back on top"
+                onClick={scrollToTop}
+              >
+                <PiArrowUpBold className="mr-1 inline-block size-3 self-center" />
+                top
+              </button>
+              <button
+                className="anim hover:text-primary-foreground dark:hover:text-primary"
+                aria-label="Copy my email"
+                onClick={() => {
+                  copyToClipboard("salmanalfarisi261002@gmail.com");
+                  toast({
+                    title: "Copied to clipboard",
+                    description: "Please use it wisely",
+                    duration: 2000,
+                    icon: PiAtDuotone,
+                    color: "default",
+                  });
+                }}
+              >
+                <PiAtBold className="mr-1 inline-block size-3 self-center" />
+                email
+              </button>
+            </div>
           </div>
-        </div>
 
-        <div className="flex w-full flex-col-reverse items-center gap-x-8 gap-y-12 md:flex-row md:items-end">
-          <p className="text-center text-sm font-medium leading-relaxed text-primary-foreground/60 dark:text-foreground/60 md:text-left">
+          <div className="flex flex-col gap-x-12 gap-y-12 md:flex-row">
+            <div className="flex flex-col gap-y-3">
+              <h2 className="text-center text-sm font-semibold text-primary-foreground dark:text-primary md:text-left">
+                Resources
+              </h2>
+              <div className="flex flex-col gap-y-2 text-center text-sm font-medium text-primary-foreground/60 dark:text-foreground/60 md:gap-y-1 md:text-left">
+                <Link
+                  href={"/"}
+                  className="anim hover:text-primary-foreground dark:hover:text-primary"
+                  prefetch={false}
+                >
+                  Notion
+                </Link>
+                <Link
+                  href={"/api/feed.xml"}
+                  className="anim hover:text-primary-foreground dark:hover:text-primary"
+                  prefetch={false}
+                >
+                  RSS
+                </Link>
+                <Link
+                  href={"/"}
+                  className="anim hover:text-primary-foreground dark:hover:text-primary"
+                  prefetch={false}
+                >
+                  Starter Kit
+                </Link>
+                <Link
+                  href={"/"}
+                  className="anim hover:text-primary-foreground dark:hover:text-primary"
+                  prefetch={false}
+                >
+                  Link
+                </Link>
+              </div>
+            </div>
+
+            <div className="flex flex-col gap-y-3">
+              <h2 className="text-center text-sm font-semibold text-primary-foreground dark:text-primary md:text-left">
+                Website
+              </h2>
+              <div className="flex flex-col gap-y-2 text-center text-sm font-medium text-primary-foreground/60 dark:text-foreground/60 md:gap-y-1 md:text-left">
+                <Link
+                  href={"/learn"}
+                  className="anim hover:text-primary-foreground dark:hover:text-primary"
+                >
+                  Learn
+                </Link>
+                <Link
+                  href={"/bucket-list"}
+                  className="anim hover:text-primary-foreground dark:hover:text-primary"
+                >
+                  Bucket List
+                </Link>
+                <Link
+                  href={"/personal"}
+                  className="anim hover:text-primary-foreground dark:hover:text-primary"
+                >
+                  Personal
+                </Link>
+                <Link
+                  href={"/mentorship"}
+                  className="anim hover:text-primary-foreground dark:hover:text-primary"
+                >
+                  Mentorship
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          <div className="flex w-full flex-col items-center text-primary-foreground dark:text-primary md:ml-auto md:w-fit md:items-start">
+            <h4 className="mb-2 font-semibold">Stay Connected</h4>
+
+            <p className="mb-4 max-w-64 text-balance text-center text-xs font-medium leading-relaxed text-primary-foreground/60 dark:text-foreground/60 md:max-w-48 md:text-left">
+              Leave a message or subscribe to my newsletter.
+            </p>
+
+            <div className="flex flex-row items-center gap-x-6 text-sm text-primary-foreground/80 dark:text-primary/80 md:flex-col md:items-start">
+              <Button
+                size={"sm"}
+                variant={"ghost"}
+                className="group/button h-fit w-fit px-0 py-2 text-white underline decoration-transparent hover:bg-transparent hover:text-white hover:decoration-white"
+                asChild
+              >
+                <Link href={"/guestbook"} aria-label="My Guestbook">
+                  <span className="sr-only">Leave a mark on /guestbook</span>
+                  guestbook
+                </Link>
+              </Button>
+              <Button
+                size={"sm"}
+                variant={"ghost"}
+                className="group/button h-fit w-fit px-0 py-2 text-white underline decoration-transparent hover:bg-transparent hover:text-white hover:decoration-white"
+                asChild
+              >
+                <Link
+                  href={"https://msafdev.substack.com"}
+                  aria-label="My Substack newsletter"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <span className="sr-only">My Substack newsletter</span>
+                  newsletter
+                </Link>
+              </Button>
+            </div>
+          </div>
+
+          <p className="text-center text-sm font-medium leading-relaxed text-primary-foreground/60 dark:text-foreground/60 md:col-span-full md:pt-8">
             Icons by{" "}
             <Link
               href={"https://icons8.com"}
@@ -106,67 +211,6 @@ const Footer = () => {
             <br />
             &copy; 2024 msaf. All rights reserved.
           </p>
-
-          <div className="flex flex-col gap-y-3 md:ml-auto">
-            <h2 className="text-center text-sm font-semibold text-primary-foreground dark:text-primary md:text-right">
-              Resources
-            </h2>
-            <div className="flex flex-col items-center gap-y-2 text-center text-sm font-medium text-primary-foreground/60 dark:text-foreground/60 md:items-end md:gap-y-1 md:text-right">
-              <Link
-                href={"/api/feed.xml"}
-                className="anim hover:text-primary-foreground dark:hover:text-primary"
-                prefetch={false}
-              >
-                RSS
-              </Link>
-              <Link
-                href={"/"}
-                className="anim hover:text-primary-foreground dark:hover:text-primary"
-                prefetch={false}
-              >
-                Notion
-              </Link>
-              <Link
-                href={"/"}
-                className="anim hover:text-primary-foreground dark:hover:text-primary"
-                prefetch={false}
-              >
-                Starter Kit
-              </Link>
-            </div>
-          </div>
-
-          <div className="flex flex-col gap-y-3">
-            <h2 className="text-center text-sm font-semibold text-primary-foreground dark:text-primary md:text-right">
-              Site
-            </h2>
-            <div className="flex flex-col gap-y-2 text-center text-sm font-medium text-primary-foreground/60 dark:text-foreground/60 md:gap-y-1 md:text-right">
-              <Link
-                href={"/learn"}
-                className="anim hover:text-primary-foreground dark:hover:text-primary"
-              >
-                Learn
-              </Link>
-              <Link
-                href={"/personal"}
-                className="anim hover:text-primary-foreground dark:hover:text-primary"
-              >
-                Personal
-              </Link>
-              <Link
-                href={"/attribution"}
-                className="anim hover:text-primary-foreground dark:hover:text-primary"
-              >
-                Attribution
-              </Link>
-              <Link
-                href={"/bucket-list"}
-                className="anim hover:text-primary-foreground dark:hover:text-primary"
-              >
-                Bucket List
-              </Link>
-            </div>
-          </div>
         </div>
       </div>
     </footer>

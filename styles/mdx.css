@@ -1,18 +1,26 @@
 blockquote.mdx {
-  @apply border-s-2 border-zinc-500 bg-gradient-to-r from-zinc-500/20 to-transparent px-4 py-2 text-zinc-600 dark:text-zinc-400;
+  @apply border-s-2 border-zinc-500 bg-gradient-to-r from-zinc-500/20 to-transparent px-4 py-2 text-zinc-700 dark:text-zinc-200;
 }
 
 blockquote.mdx.info {
-  @apply border-s-2 border-blue-500 from-blue-500/20 text-blue-500 dark:text-blue-400;
+  @apply border-s-2 border-blue-500 from-blue-500/20 text-blue-700 dark:text-blue-200;
+}
+
+blockquote.mdx.success {
+  @apply border-s-2 border-green-500 from-green-500/20 text-green-700 dark:text-green-200;
 }
 
 blockquote.mdx.warning {
-  @apply border-s-2 border-amber-500 from-amber-500/20 text-amber-600 dark:text-yellow-400;
+  @apply border-s-2 border-amber-500 from-amber-500/20 text-amber-700 dark:text-yellow-200;
 }
 
 blockquote.mdx.danger,
 blockquote.mdx.dangerous {
-  @apply border-s-2 border-red-500 from-red-500/20 text-red-600 dark:text-red-400;
+  @apply border-s-2 border-red-500 from-red-500/20 text-red-700 dark:text-red-200;
+}
+
+blockquote.mdx p {
+  @apply !mb-0 text-inherit text-sm;
 }
 
 iframe {

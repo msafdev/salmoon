@@ -13,15 +13,15 @@ import { Badge } from "@/components/ui/badge";
 import SectionWrapper from "@/components/motion/section-wrapper";
 
 import {
+  bookmarkItems,
   creditItems,
-  resourceItems,
   techItems,
   toolItems,
 } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Material",
-  description: "My most trusted people, tools, resources, this and that.",
+  description: "My most trusted people, tools, bookmarks, this and that.",
 };
 
 const Page = () => {
@@ -107,24 +107,26 @@ const Page = () => {
       </div>
 
       <div className="w-full space-y-4">
-        <h2 className="text-base font-semibold">Resources</h2>
-        <div className="space-y-2">
-          {resourceItems.map((item, index) => (
+        <h2 className="text-base font-semibold">Bookmarks</h2>
+        <div className="group/book space-y-2">
+          {bookmarkItems.map((item, index) => (
             <Link
               key={index}
               href={item.href}
               aria-label={`Link to ${item.title}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="group/bookmark flex w-fit items-start gap-x-3 py-1"
+              className="group/mark flex w-fit items-start gap-x-3 py-1 text-foreground hover:!text-foreground group-hover/book:text-muted-foreground"
             >
-              <PiArrowRightBold
-                className="mt-[5px] text-foreground"
-                size={12}
-              />
-              <p className="anim w-full pr-5 text-sm font-medium text-muted-foreground group-hover/bookmark:text-foreground">
-                {item.title}
-              </p>
+              <PiArrowRightBold className="mt-[5px] shrink-0" size={12} />
+              <div className="space-y-0.5">
+                <p className="anim w-full pr-5 text-sm font-semibold">
+                  {item.title}
+                </p>
+                <p className="text-xs text-muted-foreground">
+                  {item.description}
+                </p>
+              </div>
             </Link>
           ))}
         </div>
