@@ -102,7 +102,7 @@ export const globalComponents = {
   blockquote: ({ className, ...props }: ComponentsProps) => (
     <blockquote
       className={cn(
-        "mdx mb-4 border-s-2 border-zinc-500 bg-gradient-to-r from-zinc-500/20 to-transparent px-4 py-2 text-sm text-zinc-600 dark:text-zinc-400 md:text-base [&>p]:mb-0",
+        "mdx mb-4 border-s-2 border-zinc-500 bg-linear-to-r from-zinc-500/20 to-transparent px-4 py-2 text-sm text-zinc-600 dark:text-zinc-400 md:text-base [&>p]:mb-0",
         className,
       )}
       {...props}
@@ -151,7 +151,7 @@ export const globalComponents = {
     <li className="mt-2 flex items-start gap-2">
       <PiArrowRightBold
         size={12}
-        className="mt-[5px] shrink-0 !text-foreground"
+        className="mt-[5px] shrink-0 text-foreground!"
       />
       <span
         className={cn("text-sm [&>p]:mb-0 [&>p]:text-sm", className)}
@@ -218,7 +218,7 @@ export const globalComponents = {
   }: Omit<ImageProps, "src"> & { src: string }) => (
     <div className="relative mb-4 aspect-auto max-w-lg overflow-hidden rounded border-2 border-dashed p-1 sm:p-2">
       <Image
-        className={cn("h-auto w-full rounded border shadow-sm", className)}
+        className={cn("h-auto w-full rounded border shadow-xs", className)}
         alt={alt}
         fill
         loading="lazy"

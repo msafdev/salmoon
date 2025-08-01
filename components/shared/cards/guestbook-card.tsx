@@ -28,15 +28,15 @@ const GuestbookCard = ({ entry, index }: GuestbookCardProps) => {
           ease: [0.22, 1, 0.36, 1],
         },
       }}
-      className="group/guestbook relative flex flex-col gap-y-2 will-change-transform"
+      className="group/guestbook relative flex flex-col gap-y-1 will-change-transform"
     >
       <div className="flex w-full items-center gap-x-4">
         {entry.user?.avatar_url && (
           <Image
             src={entry.user.avatar_url}
             alt={entry.user.name || "User avatar"}
-            width={36}
-            height={36}
+            width={32}
+            height={32}
             className="rounded-sm bg-muted object-cover"
             loading="lazy"
             typeof="image/webp"

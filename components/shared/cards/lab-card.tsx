@@ -26,9 +26,9 @@ const LabCard = ({
   gridClass?: "regular-card" | "medium-card" | "large-card" | "default-card";
 }) => {
   const size: { [key: string]: string } = {
-    "regular-card": "aspect-[5/4] sm:aspect-square",
+    "regular-card": "aspect-5/4 sm:aspect-square",
     "medium-card": "aspect-square sm:aspect-square",
-    "large-card": "aspect-square md:aspect-[4/3] sm:col-span-2",
+    "large-card": "aspect-square md:aspect-4/3 sm:col-span-2",
     "default-card": "",
   };
 

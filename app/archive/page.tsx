@@ -45,7 +45,7 @@ export default async function Page() {
               .slice(0, 2)
               .map((item) => <PostCard key={item.slug} {...item} />)
           ) : (
-            <blockquote className="col-span-full border-s-2 border-zinc-500 bg-gradient-to-r from-zinc-500/20 to-transparent px-4 py-2">
+            <blockquote className="col-span-full border-s-2 border-zinc-500 bg-linear-to-r from-zinc-500/20 to-transparent px-4 py-2">
               <p className="text-sm font-medium italic leading-normal text-zinc-600 dark:text-zinc-400">
                 Nothing to see here yet! Check back later for some exciting
                 content.

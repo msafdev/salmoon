@@ -148,7 +148,7 @@ function AccordionTrigger({
       onClick={() => value !== undefined && toggleItem(value)}
       aria-expanded={isExpanded}
       type="button"
-      className={cn("group", className)}
+      className={cn("group cursor-pointer", className)}
       {...(isExpanded ? { "data-expanded": "" } : { "data-closed": "" })}
     >
       {children}
