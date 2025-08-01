@@ -26,6 +26,15 @@ export default {
       },
     ],
   },
+  experimental: {
+    outputFileTracingIncludes: {
+      "/lab/[slug]": [
+        "./components/lab/**/*",
+        "./components/lab/examples/**/*",
+        "./hooks/**/*",
+      ],
+    },
+  },
   webpack: (config) => {
     config.plugins.push(new VeliteWebpackPlugin());
     return config;
