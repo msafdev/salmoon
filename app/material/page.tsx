@@ -116,7 +116,7 @@ const Page = () => {
               aria-label={`Link to ${item.title}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="group/mark flex w-fit items-start gap-x-3 py-1 text-foreground hover:!text-foreground group-hover/book:text-muted-foreground"
+              className="group/mark flex w-fit items-start gap-x-3 py-1 text-foreground hover:text-foreground! group-hover/book:text-muted-foreground"
             >
               <PiArrowRightBold className="mt-[5px] shrink-0" size={12} />
               <div className="space-y-0.5">

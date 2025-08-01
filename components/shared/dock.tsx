@@ -50,12 +50,12 @@ const Dock = () => {
       variants={dockVariants}
       initial="closed"
       animate="open"
-      className="dock-shadow fixed inset-x-0 bottom-8 z-50 mx-auto rounded-xl bg-popover p-1"
+      className="dock-shadow bg-popover fixed inset-x-0 bottom-8 z-50 mx-auto rounded-xl p-1"
     >
       <div className="relative flex items-center">
         {activeTab !== null && (
           <motion.span
-            className="absolute bottom-0 top-0 z-[99] w-10 rounded-[8px] bg-primary/40 mix-blend-difference outline-none ring-0 dark:bg-primary/20"
+            className="bg-primary/40 dark:bg-primary/20 absolute top-0 bottom-0 z-99 w-10 rounded-[8px] mix-blend-difference ring-0 outline-hidden"
             initial={{ translateX: initialX, opacity: 0, scale: 0 }}
             animate={{ translateX: (activeTab - 1) * 40, opacity: 1, scale: 1 }}
             transition={{
@@ -71,10 +71,10 @@ const Dock = () => {
           const Icon = item.icon;
           const isActive = activeTab === item.id;
           const commonClass =
-            "group/dock relative size-10 p-3 text-sm transition-all duration-300 ease-in-out focus-visible:outline-none";
+            "group/dock relative size-10 p-3 text-sm transition-all duration-300 ease-in-out focus-visible:outline-hidden";
 
           const tooltip = (
-            <span className="pointer-events-none absolute -top-8 left-1/2 hidden -translate-x-1/2 -translate-y-2 scale-75 rounded-md border bg-popover p-1 px-1.5 text-[10px] font-medium leading-none text-foreground opacity-0 transition-all duration-200 ease-in-out group-hover/dock:translate-y-0 group-hover/dock:scale-100 group-hover/dock:opacity-100 md:block">
+            <span className="bg-popover text-foreground pointer-events-none absolute -top-8 left-1/2 hidden -translate-x-1/2 -translate-y-2 scale-75 rounded-md border p-1 px-1.5 text-[10px] leading-none font-medium opacity-0 transition-all duration-200 ease-in-out group-hover/dock:translate-y-0 group-hover/dock:scale-100 group-hover/dock:opacity-100 md:block">
               {item.label}
             </span>
           );
@@ -105,7 +105,7 @@ const Dock = () => {
               <button
                 key={item.id}
                 onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                className={`${commonClass} text-yellow-500 dark:text-indigo-600 [&>svg]:fill-yellow-400 dark:[&>svg]:fill-indigo-500`}
+                className={`${commonClass} cursor-pointer text-yellow-500 dark:text-indigo-600 [&>svg]:fill-yellow-400 dark:[&>svg]:fill-indigo-500`}
                 aria-label="Change theme button"
               >
                 <Icon className="h-full w-full" />

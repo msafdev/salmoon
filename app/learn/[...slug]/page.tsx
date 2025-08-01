@@ -160,7 +160,7 @@ export default async function LearnPage({ params }: LearnPageProps) {
 
         {learn.last === true ? (
           <div className="flex flex-col items-center">
-            <div className="h-24 w-0.5 bg-gradient-to-b from-transparent to-green-500/20 md:h-36" />
+            <div className="h-24 w-0.5 bg-linear-to-b from-transparent to-green-500/20 md:h-36" />
             <div className="rounded-full bg-green-500/20 p-4">
               <LuBadgeCheck
                 size={24}

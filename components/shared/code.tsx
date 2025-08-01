@@ -45,7 +45,7 @@ export default async function Code({
   return (
     <div
       id={id}
-      className="relative h-fit w-full overflow-hidden rounded !bg-[#f7f7f7] dark:!bg-[#101010]"
+      className="relative h-fit w-full overflow-hidden rounded bg-[#f7f7f7]! dark:bg-[#101010]!"
       {...props}
     >
       <div
@@ -57,7 +57,7 @@ export default async function Code({
         dangerouslySetInnerHTML={{ __html: html }}
       />
 
-      <div className="pointer-events-none absolute right-0 top-0 z-0 h-full w-6 bg-gradient-to-r from-transparent to-[#f7f7f7] dark:to-[#101010]" />
+      <div className="pointer-events-none absolute right-0 top-0 z-0 h-full w-6 bg-linear-to-r from-transparent to-[#f7f7f7] dark:to-[#101010]" />
 
       <CopyButton
         string={code}

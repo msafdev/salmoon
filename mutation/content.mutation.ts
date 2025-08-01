@@ -1,15 +1,17 @@
 "use client";
 
+import { toast } from "sonner";
+
 import { LuBadgeCheck, LuBadgeX } from "react-icons/lu";
+
+import { createElement } from "react";
 
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 import { addContent } from "@/action/content";
-import { useToast } from "@/hooks/use-toast";
 
 const contentMutation = () => {
   const queryClient = useQueryClient();
-  const { toast } = useToast();
 
   const addContentMutation = useMutation({
     mutationFn: async (content: string) => {
@@ -19,31 +21,28 @@ const contentMutation = () => {
     },
     onSuccess: (response) => {
       if (response?.error) {
-        toast({
-          title: "Something went wrong",
-          description: response.error,
+        toast("Something went wrong", {
           duration: 2000,
-          icon: LuBadgeX,
-          color: "destructive",
+          icon: createElement(LuBadgeX, {
+            className: "size-5 destructive",
+          }),
         });
       } else if (response?.data) {
-        toast({
-          title: "Success",
-          description: response.data,
+        toast("Index added successfully", {
           duration: 2000,
-          icon: LuBadgeCheck,
-          color: "success",
+          icon: createElement(LuBadgeCheck, {
+            className: "size-5 success",
+          }),
         });
         queryClient.invalidateQueries({ queryKey: ["guestbook"] });
       }
     },
     onError: () => {
-      toast({
-        title: "Something went wrong",
-        description: "An unexpected error occurred",
+      toast("Something went wrong", {
         duration: 2000,
-        icon: LuBadgeX,
-        color: "destructive",
+        icon: createElement(LuBadgeX, {
+          className: "size-5 destructive",
+        }),
       });
     },
   });

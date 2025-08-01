@@ -57,9 +57,9 @@ export const MultipleFiles = () => {
           data-dragging={isDragging || undefined}
           className={cn(
             "h-full w-full",
-            "has-disabled:pointer-events-none has-disabled:opacity-40",
-            "relative flex flex-col items-center justify-center overflow-hidden rounded border border-border bg-input/10 p-4 transition-colors hover:bg-accent/40",
-            "has-[img]:border-none has-[input:focus]:border-ring has-[input:focus]:ring-[3px] has-[input:focus]:ring-ring/40 data-[dragging=true]:bg-accent/40",
+            "cursor-pointer select-none has-disabled:pointer-events-none has-disabled:opacity-40",
+            "border-border bg-input/10 hover:bg-accent/40 relative flex flex-col items-center justify-center overflow-hidden rounded border p-4 transition-colors",
+            "has-[input:focus]:border-ring has-[input:focus]:ring-ring/40 data-[dragging=true]:bg-accent/40 has-[img]:border-none has-[input:focus]:ring-[3px]",
           )}
         >
           <input
@@ -72,14 +72,14 @@ export const MultipleFiles = () => {
             <div className="space-y-1">
               <p className="text-sm font-medium">Multiple file input</p>
               <div className="flex items-center gap-1">
-                <p className="text-xs text-muted-foreground">
+                <p className="text-muted-foreground text-xs">
                   Max {maxFiles} files
                 </p>
                 <PiDot
                   size={14}
-                  className="inline-flex shrink-0 text-muted-foreground"
+                  className="text-muted-foreground inline-flex shrink-0"
                 />
-                <p className="text-xs text-muted-foreground">
+                <p className="text-muted-foreground text-xs">
                   Up to {maxSizeMB}MB
                 </p>
               </div>
@@ -91,7 +91,7 @@ export const MultipleFiles = () => {
       <div className="flex w-full items-center justify-between sm:hidden">
         <div className="space-y-0.5">
           <p className="text-sm font-medium">Upload files</p>
-          <p className="text-xs text-muted-foreground">Max {maxFiles} files</p>
+          <p className="text-muted-foreground text-xs">Max {maxFiles} files</p>
         </div>
 
         <Button variant="outline" size="icon" onClick={openFileDialog}>
@@ -101,7 +101,7 @@ export const MultipleFiles = () => {
 
       {errors.length > 0 && (
         <div
-          className="mt-2 flex items-center gap-1 text-xs font-medium text-destructive"
+          className="text-destructive mt-2 flex items-center gap-1 text-xs font-medium"
           role="alert"
         >
           <PiExclamationMarkDuotone className="size-3 shrink-0" />
@@ -131,12 +131,12 @@ export const MultipleFiles = () => {
                 className="flex items-center justify-between gap-2"
               >
                 <div className="flex items-center gap-3 overflow-hidden">
-                  <Icon className="size-4 shrink-0 sm:size-6" />
+                  <Icon className="size-4 shrink-0 sm:size-5" />
                   <div className="flex min-w-0 flex-col gap-1">
                     <p className="truncate text-xs font-medium">
                       {file instanceof File ? file.name : "Unknown"}
                     </p>
-                    <p className="text-[10px] leading-3 text-muted-foreground">
+                    <p className="text-muted-foreground text-[10px] leading-3">
                       {getBytes(file instanceof File ? file.size : 0)}
                     </p>
                   </div>
@@ -145,7 +145,7 @@ export const MultipleFiles = () => {
                 <Button
                   size="icon"
                   variant="ghost"
-                  className="size-8 shrink-0 text-muted-foreground/80 hover:bg-transparent hover:text-foreground"
+                  className="text-muted-foreground/80 hover:text-foreground size-8 shrink-0 hover:bg-transparent"
                   onClick={() => removeFile(file.id)}
                   aria-label="Remove file"
                 >

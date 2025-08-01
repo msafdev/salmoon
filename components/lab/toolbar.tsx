@@ -145,7 +145,7 @@ const Toolbar = forwardRef<HTMLDivElement, ToolbarProps>(
             <motion.div
               layout
               className={cn(
-                "inline-flex overflow-hidden rounded-2xl border bg-popover text-popover-foreground shadow",
+                "inline-flex overflow-hidden rounded-2xl border bg-popover text-popover-foreground shadow-sm",
               )}
               transition={{
                 layout: {
@@ -230,7 +230,7 @@ const ToolbarInput = forwardRef<HTMLInputElement, ToolbarInputProps>(
           placeholder={placeholder}
           className={cn(
             "h-9 w-full rounded-xl border-0 bg-transparent px-3 py-1",
-            "outline-none ring-0 ring-ring/40 focus-visible:ring-0",
+            "outline-hidden ring-0 ring-ring/40 focus-visible:ring-0",
             "text-sm placeholder:text-muted-foreground",
             className,
           )}

@@ -190,7 +190,7 @@ export default function CalInput({
           disabled={isDisabled}
           className={cn(
             "aspect-square w-full rounded text-xs font-medium",
-            "outline-none hover:bg-primary/10 hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring/40",
+            "outline-hidden hover:bg-primary/10 hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring/40",
             isDisabled && "text-muted-foreground",
             isSelected && "bg-primary/10 text-foreground",
             !isSelected && !isDisabled && "text-foreground",

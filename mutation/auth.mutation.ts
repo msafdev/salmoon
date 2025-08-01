@@ -1,43 +1,41 @@
 "use client";
 
+import { toast } from "sonner";
+
 import { LuBadgeCheck, LuBadgeX } from "react-icons/lu";
+
+import { createElement } from "react";
 
 import { useMutation } from "@tanstack/react-query";
 
 import { githubSignIn, googleSignIn, signOut } from "@/action/auth";
-import { useToast } from "@/hooks/use-toast";
 
 const authMutation = () => {
-  const { toast } = useToast();
-
   const githubMutation = useMutation({
     mutationFn: githubSignIn,
     onSuccess: (response) => {
       if ("error" in response) {
-        toast({
-          title: "GitHub Login Failed",
-          description: response.error,
+        toast("GitHub Login Failed", {
           duration: 2000,
-          icon: LuBadgeX,
-          color: "destructive",
+          icon: createElement(LuBadgeX, {
+            className: "size-5 destructive",
+          }),
         });
       } else {
-        toast({
-          title: "Success",
-          description: response.data,
+        toast("GitHub Sign-In Successful", {
           duration: 2000,
-          icon: LuBadgeCheck,
-          color: "success",
+          icon: createElement(LuBadgeCheck, {
+            className: "size-5 success",
+          }),
         });
       }
     },
     onError: () => {
-      toast({
-        title: "Error",
-        description: "Unexpected error during GitHub sign-in",
+      toast("GitHub Sign-In Error", {
         duration: 2000,
-        icon: LuBadgeX,
-        color: "destructive",
+        icon: createElement(LuBadgeX, {
+          className: "size-5 destructive",
+        }),
       });
     },
   });
@@ -46,30 +44,27 @@ const authMutation = () => {
     mutationFn: googleSignIn,
     onSuccess: (response) => {
       if ("error" in response) {
-        toast({
-          title: "Google Login Failed",
-          description: response.error,
+        toast("Google Login Failed", {
           duration: 2000,
-          icon: LuBadgeX,
-          color: "destructive",
+          icon: createElement(LuBadgeX, {
+            className: "size-5 destructive",
+          }),
         });
       } else {
-        toast({
-          title: "Success",
-          description: response.data,
+        toast("Google Sign-In Successful", {
           duration: 2000,
-          icon: LuBadgeCheck,
-          color: "success",
+          icon: createElement(LuBadgeCheck, {
+            className: "size-5 success",
+          }),
         });
       }
     },
     onError: () => {
-      toast({
-        title: "Error",
-        description: "Unexpected error during Google sign-in",
+      toast("Google Sign-In Error", {
         duration: 2000,
-        icon: LuBadgeX,
-        color: "destructive",
+        icon: createElement(LuBadgeX, {
+          className: "size-5 destructive",
+        }),
       });
     },
   });
@@ -78,30 +73,27 @@ const authMutation = () => {
     mutationFn: signOut,
     onSuccess: (response) => {
       if ("error" in response) {
-        toast({
-          title: "Logout Failed",
-          description: response.error,
+        toast("Logout Failed", {
           duration: 2000,
-          icon: LuBadgeX,
-          color: "destructive",
+          icon: createElement(LuBadgeX, {
+            className: "size-5 destructive",
+          }),
         });
       } else {
-        toast({
-          title: "Signed Out",
-          description: response.data,
+        toast("Signed Out Successfully", {
           duration: 2000,
-          icon: LuBadgeCheck,
-          color: "success",
+          icon: createElement(LuBadgeCheck, {
+            className: "size-5 success",
+          }),
         });
       }
     },
     onError: () => {
-      toast({
-        title: "Error",
-        description: "Unexpected error during logout",
+      toast("Logout Error", {
         duration: 2000,
-        icon: LuBadgeX,
-        color: "destructive",
+        icon: createElement(LuBadgeX, {
+          className: "size-5 destructive",
+        }),
       });
     },
   });

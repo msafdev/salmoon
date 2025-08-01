@@ -43,10 +43,10 @@ export const BasicFile = () => {
         onDrop={handleDrop}
         data-dragging={isDragging || undefined}
         className={cn(
-          "h-full min-h-36 w-full",
+          "h-full min-h-36 w-full cursor-pointer select-none",
           "has-disabled:pointer-events-none has-disabled:opacity-40",
-          "relative flex flex-col items-center justify-center overflow-hidden rounded border border-border bg-input/10 p-4 transition-colors hover:bg-accent/40",
-          "has-[img]:border-none has-[input:focus]:border-ring has-[input:focus]:ring-[3px] has-[input:focus]:ring-ring/40 data-[dragging=true]:bg-accent/40",
+          "border-border bg-input/10 hover:bg-accent/40 relative flex flex-col items-center justify-center overflow-hidden rounded border p-4 transition-colors",
+          "has-[input:focus]:border-ring has-[input:focus]:ring-ring/40 data-[dragging=true]:bg-accent/40 has-[img]:border-none has-[input:focus]:ring-[3px]",
         )}
       >
         <input
@@ -68,7 +68,7 @@ export const BasicFile = () => {
             <PiImageDuotone className="mb-2 size-6" />
             <div className="space-y-1">
               <p className="text-sm font-medium">Basic file input</p>
-              <p className="text-xs text-muted-foreground">
+              <p className="text-muted-foreground text-xs">
                 Max size: {maxSizeMB}MB
               </p>
             </div>
@@ -79,7 +79,7 @@ export const BasicFile = () => {
       {previewUrl && (
         <button
           type="button"
-          className="mt-2 flex items-center gap-1 text-xs font-medium text-foreground"
+          className="text-foreground mt-2 flex items-center gap-1 text-xs font-medium"
           onClick={() => removeFile(files[0]?.id)}
           aria-label="Remove image"
         >
@@ -90,7 +90,7 @@ export const BasicFile = () => {
 
       {errors.length > 0 && (
         <div
-          className="mt-2 flex items-center gap-1 text-xs font-medium text-destructive"
+          className="text-destructive mt-2 flex items-center gap-1 text-xs font-medium"
           role="alert"
         >
           <PiExclamationMarkDuotone className="size-3 shrink-0" />

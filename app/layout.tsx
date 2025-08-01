@@ -1,11 +1,11 @@
+import { Toaster } from "@/components/ui/sonner";
+
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import NextTopLoader from "nextjs-toploader";
 
 import Dock from "@/components/shared/dock";
-
-import { Toaster } from "@/components/ui/toaster";
 
 import QueryProvider from "@/components/query-provider";
 import { ThemeProvider } from "@/components/theme-provider";
@@ -108,8 +108,8 @@ export default function RootLayout({
               zIndex={100}
             />
 
-            <div className="relative flex min-h-[100svh] flex-col items-center justify-center">
-              <div className="pointer-events-none fixed left-0 top-0 z-50 h-8 w-full bg-gradient-to-b from-background to-transparent md:h-10 lg:h-12" />
+            <div className="relative flex min-h-svh flex-col items-center justify-center">
+              <div className="from-background pointer-events-none fixed top-0 left-0 z-50 h-8 w-full bg-linear-to-b to-transparent md:h-10 lg:h-12" />
               <main className="flex h-auto w-full grow flex-col py-16 md:py-20 lg:py-24">
                 {children}
               </main>

@@ -2,6 +2,7 @@
 
 import { useFormik } from "formik";
 import { AnimatePresence, motion } from "motion/react";
+import { toast } from "sonner";
 import { toFormikValidationSchema } from "zod-formik-adapter";
 
 import { LuBadgeAlert } from "react-icons/lu";
@@ -23,7 +24,6 @@ import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 
-import { useToast } from "@/hooks/use-toast";
 import calendarMutation from "@/mutation/calendar.mutation";
 import { contactSchema, serviceType, userType } from "@/schema/contact-schema";
 import "@/styles/slider.css";
@@ -59,7 +59,6 @@ const ContactForm = () => {
   const [step, setStep] = useState<number>(0);
   const [direction, setDirection] = useState<1 | -1>(1);
 
-  const { toast } = useToast();
   const { addCalendarMutation } = calendarMutation();
 
   const steps = [
@@ -122,12 +121,9 @@ const ContactForm = () => {
         setStep((prev) => Math.min(prev + 1, steps.length - 1));
       }
     } else {
-      toast({
-        title: "Please fill the required fields",
-        description: "Some fields are missing or incomplete",
-        duration: 2000,
-        icon: LuBadgeAlert,
-        color: "info",
+      toast("Please fill the required fields", {
+        duration: 30000,
+        icon: <LuBadgeAlert className="info" size={20} />,
       });
     }
   };
@@ -154,9 +150,9 @@ const ContactForm = () => {
         {step === 0 && (
           <>
             <div className="space-y-3">
-              <Label className="relative w-fit text-foreground">
+              <Label className="text-foreground relative w-fit">
                 What kind of business are you?
-                <span className="absolute -right-4 -top-0.5">
+                <span className="absolute -top-0.5 -right-4">
                   <PiAsteriskBold className="size-3 text-red-600" />
                 </span>
               </Label>
@@ -168,7 +164,7 @@ const ContactForm = () => {
                     onClick={() =>
                       formik.setFieldValue("user_type", type.value)
                     }
-                    className={`anim flex w-full flex-col justify-center rounded p-3 outline-none ring-0 ring-ring/40 focus-visible:ring-2 focus-visible:ring-offset-2 ${
+                    className={`anim ring-ring/40 flex w-full flex-col justify-center rounded p-3 ring-0 outline-hidden focus-visible:ring-2 focus-visible:ring-offset-2 ${
                       formik.values.user_type === type.value
                         ? "bg-primary text-primary-foreground"
                         : "bg-accent"
@@ -179,7 +175,7 @@ const ContactForm = () => {
                       {type.label}
                     </h3>
                     <p
-                      className={`anim text-pretty text-left text-xs ${
+                      className={`anim text-left text-xs text-pretty ${
                         formik.values.user_type === type.value
                           ? "text-primary-foreground/80"
                           : "text-muted-foreground"
@@ -212,13 +208,13 @@ const ContactForm = () => {
 
         {step === 1 && (
           <div className="space-y-3">
-            <Label className="relative w-fit text-foreground">
+            <Label className="text-foreground relative w-fit">
               What do you need?
-              <span className="absolute -right-4 -top-0.5">
+              <span className="absolute -top-0.5 -right-4">
                 <PiAsteriskBold className="size-3 text-red-600" />
               </span>
             </Label>
-            <div className="grid gap-3 xs:grid-cols-2">
+            <div className="xs:grid-cols-2 grid gap-3">
               {serviceType.map((type) => {
                 const isSelected = formik.values.service_type.includes(
                   type.value,
@@ -238,7 +234,7 @@ const ContactForm = () => {
                     key={type.label}
                     type="button"
                     onClick={toggleSelection}
-                    className={`anim flex w-full items-center gap-x-3 rounded px-3 py-4 outline-none ring-0 ring-ring/40 focus-visible:ring-2 focus-visible:ring-offset-2 ${
+                    className={`anim ring-ring/40 flex w-full items-center gap-x-3 rounded px-3 py-4 ring-0 outline-hidden focus-visible:ring-2 focus-visible:ring-offset-2 ${
                       isSelected
                         ? "bg-primary text-primary-foreground"
                         : "bg-accent"
@@ -258,9 +254,9 @@ const ContactForm = () => {
         {step === 2 && (
           <div className="grid grid-cols-2 gap-4">
             <div className="space-y-3">
-              <Label className="relative w-fit text-foreground">
+              <Label className="text-foreground relative w-fit">
                 Name
-                <span className="absolute -right-4 -top-0.5">
+                <span className="absolute -top-0.5 -right-4">
                   <PiAsteriskBold className="size-3 text-red-600" />
                 </span>
               </Label>
@@ -275,9 +271,9 @@ const ContactForm = () => {
               />
             </div>
             <div className="space-y-3">
-              <Label className="relative w-fit text-foreground">
+              <Label className="text-foreground relative w-fit">
                 Phone number
-                <span className="absolute -right-4 -top-0.5">
+                <span className="absolute -top-0.5 -right-4">
                   <PiAsteriskBold className="size-3 text-red-600" />
                 </span>
               </Label>
@@ -292,9 +288,9 @@ const ContactForm = () => {
               />
             </div>
             <div className="col-span-full space-y-3">
-              <Label className="relative w-fit text-foreground">
+              <Label className="text-foreground relative w-fit">
                 Email
-                <span className="absolute -right-4 -top-0.5">
+                <span className="absolute -top-0.5 -right-4">
                   <PiAsteriskBold className="size-3 text-red-600" />
                 </span>
               </Label>
@@ -309,9 +305,9 @@ const ContactForm = () => {
               />
             </div>
             <div className="col-span-full space-y-3">
-              <Label className="relative w-fit text-foreground">
+              <Label className="text-foreground relative w-fit">
                 How can i help?
-                <span className="absolute -right-4 -top-0.5">
+                <span className="absolute -top-0.5 -right-4">
                   <PiAsteriskBold className="size-3 text-red-600" />
                 </span>
               </Label>

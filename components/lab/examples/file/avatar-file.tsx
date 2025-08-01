@@ -44,11 +44,11 @@ export const AvatarFile = () => {
         data-dragging={isDragging || undefined}
         aria-label="Upload file"
         className={cn(
-          "h-full w-full",
+          "h-full w-full cursor-pointer select-none",
           "has-disabled:pointer-events-none has-disabled:opacity-40",
-          "rounded border border-border bg-input/10 p-4 transition-colors hover:bg-accent/40 data-[dragging=true]:bg-accent/40",
+          "border-border bg-input/10 hover:bg-accent/40 data-[dragging=true]:bg-accent/40 rounded border p-4 transition-colors",
           "relative flex flex-col items-center justify-center overflow-hidden",
-          "has-[img]:border-none has-[input:focus]:border-ring has-[input:focus]:ring-[3px] has-[input:focus]:ring-ring/40",
+          "has-[input:focus]:border-ring has-[input:focus]:ring-ring/40 has-[img]:border-none has-[input:focus]:ring-[3px]",
           errors.length > 0 && "border-destructive",
         )}
       >
@@ -69,18 +69,18 @@ export const AvatarFile = () => {
         ) : errors.length > 0 ? (
           <PiProhibitDuotone className="size-8 text-red-600" />
         ) : (
-          <PiUserCircleDuotone className="size-8 text-foreground/60" />
+          <PiUserCircleDuotone className="text-foreground/60 size-8" />
         )}
       </div>
 
       {previewUrl && (
         <button
           type="button"
-          className="absolute -right-1.5 -top-1.5 size-5 rounded-full bg-background"
+          className="bg-background absolute -top-1.5 -right-1.5 size-5 cursor-pointer rounded-full"
           onClick={() => removeFile(files[0]?.id)}
           aria-label="Remove image"
         >
-          <PiXCircleFill className="size-5 shrink-0 text-destructive" />
+          <PiXCircleFill className="text-destructive size-5 shrink-0" />
         </button>
       )}
     </div>
