@@ -22,7 +22,7 @@ import CodeWrapper from "@/components/motion/code-wrapper";
 
 import { COMPONENTS } from "@/lib/data";
 import { mapComponentToToc } from "@/lib/functions";
-import { getFilePathAndConfig } from "@/lib/server";
+import { getFilePathAndConfig } from "@/lib/read-file";
 
 interface LabPageProps {
   params: {

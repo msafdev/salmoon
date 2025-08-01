@@ -51,7 +51,6 @@
 
   --animate-accordion-down: accordion-down 0.2s ease-out;
   --animate-accordion-up: accordion-up 0.2s ease-out;
-  --animate-toast-progress: toast-progress 2s linear forwards;
   --animate-shimmer: shimmer 1.6s infinite;
   --animate-wave: wave 1.2s ease-in-out infinite;
   --animate-blink: blink 1.6s ease-in-out infinite;
@@ -73,14 +72,6 @@
     }
     to {
       height: 0;
-    }
-  }
-  @keyframes toast-progress {
-    0% {
-      width: 100%;
-    }
-    100% {
-      width: 0%;
     }
   }
   @keyframes shimmer {
@@ -144,9 +135,11 @@
 @utility container {
   margin-inline: auto;
   padding-inline: 2rem;
+
   @media (width >= --theme(--breakpoint-xs)) {
     max-width: none;
   }
+  
   @media (width >= 1400px) {
     max-width: 1400px;
   }
