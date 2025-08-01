@@ -79,7 +79,7 @@ export const BasicFile = () => {
       {previewUrl && (
         <button
           type="button"
-          className="text-foreground mt-2 flex items-center gap-1 text-xs font-medium"
+          className="text-foreground mt-2 flex cursor-pointer items-center gap-1 text-xs font-medium"
           onClick={() => removeFile(files[0]?.id)}
           aria-label="Remove image"
         >
