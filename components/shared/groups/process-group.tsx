@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useInView } from "motion/react";
+import { easeOut, motion, useInView } from "motion/react";
 
 import { useRef } from "react";
 
@@ -22,15 +22,15 @@ function ProcessStep({ name, description, index, total }: ProcessProps) {
     >
       {/* Step Dot */}
       <div className="relative">
-        <div className="z-10 flex size-6 items-center justify-center rounded border bg-accent text-accent-foreground">
+        <div className="bg-accent text-accent-foreground z-10 flex size-6 items-center justify-center rounded border">
           <span className="text-xs font-semibold">{index + 1}</span>
         </div>
       </div>
 
       {/* Content */}
       <div className="col-span-full flex flex-col gap-y-1 sm:col-span-7 sm:gap-y-2">
-        <h3 className="text-sm font-semibold text-foreground">{name}</h3>
-        <p className="text-sm text-muted-foreground md:text-base">
+        <h3 className="text-foreground text-sm font-semibold">{name}</h3>
+        <p className="text-muted-foreground text-sm md:text-base">
           {description}
         </p>
       </div>
@@ -52,10 +52,19 @@ export default function ProcessGroup() {
       {isMounted && isDesktop && (
         <motion.div
           initial={{ scaleY: 0 }}
-          animate={{ scaleY: isInView ? 1 : 0 }}
-          transition={{ duration: 1.2, ease: "easeOut", delay: 0.2 }}
-          className="absolute left-[11px] top-[24px] hidden origin-top scale-y-0 transform border-r-2 border-dashed border-accent sm:block"
-          style={{ height: `calc(73%)` }}
+          animate={{
+            scaleY: isInView ? 1 : 0,
+            borderColor: isInView
+              ? "var(--color-accent)"
+              : "var(--color-primary)",
+          }}
+          transition={{ duration: 1.2, ease: easeOut, delay: 0.2 }}
+          // onAnimationComplete={}
+          className="absolute top-[24px] left-[11px] hidden origin-top transform border-r-2 border-dashed sm:block"
+          style={{
+            height: "calc(73%)", // Keep this
+            transformOrigin: "top",
+          }}
         />
       )}
 

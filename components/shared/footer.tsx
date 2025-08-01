@@ -56,9 +56,9 @@ const Footer = () => {
               Helps create a better web experience for everyone.
             </p>
 
-            <div className="text-primary-foreground/80 dark:text-primary/80 flex flex-row items-center gap-x-6 gap-y-2 text-sm md:flex-col md:items-start">
+            <div className="flex flex-row items-center gap-x-6 gap-y-2 text-sm md:flex-col md:items-start">
               <button
-                className="anim hover:text-primary-foreground dark:hover:text-primary cursor-pointer"
+                className="anim cursor-pointer text-white hover:text-white/90"
                 aria-label="Back on top"
                 onClick={scrollToTop}
               >
@@ -66,7 +66,7 @@ const Footer = () => {
                 top
               </button>
               <button
-                className="anim hover:text-primary-foreground dark:hover:text-primary cursor-pointer"
+                className="anim cursor-pointer text-white hover:text-white/90"
                 aria-label="Copy my email"
                 onClick={() => {
                   copyToClipboard("salmanalfarisi261002@gmail.com");

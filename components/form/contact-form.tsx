@@ -122,7 +122,7 @@ const ContactForm = () => {
       }
     } else {
       toast("Please fill the required fields", {
-        duration: 30000,
+        duration: 2000,
         icon: <LuBadgeAlert className="info" size={20} />,
       });
     }
