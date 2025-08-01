@@ -48,7 +48,7 @@ export async function getFilePathAndConfig(item: ComponentType) {
       const examplePath = `./components/lab/examples/${item.slug.replace(/\s+/g, "")}/${ex.path}.tsx`;
 
       const exampleCode = await readFilePath(examplePath).catch(() => {
-        return `// ${ex.name} example not found`;
+        return `// ${ex.name} - [${examplePath}] example not found`;
       });
 
       return {
