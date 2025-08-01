@@ -153,7 +153,7 @@ const Footer = () => {
           </div>
 
           <div className="text-primary-foreground dark:text-primary flex w-full flex-col items-center md:ml-auto md:w-fit md:items-start">
-            <h4 className="mb-2 font-semibold">Stay Connected</h4>
+            <p className="mb-2 font-semibold">Stay Connected</p>
 
             <p className="text-primary-foreground/60 dark:text-foreground/60 mb-4 max-w-64 text-center text-xs leading-relaxed font-medium text-balance md:max-w-48 md:text-left">
               Leave a message or subscribe to my newsletter.
