@@ -2,9 +2,10 @@
 
 import { easeInOut, motion } from "motion/react";
 
-import { Children, type ReactNode } from "react";
+import clsx from "clsx";
+import { Children, type ReactNode, useMemo } from "react";
 
-interface StaggerWrapperProps {
+interface SectionWrapperProps {
   children: ReactNode;
   className?: string;
   staggerDelay?: number;
@@ -12,76 +13,67 @@ interface StaggerWrapperProps {
   id?: string;
 }
 
+const DISABLE_ANIMATION = process.env.NEXT_PUBLIC_DISABLE_ANIMATION === "true";
+
 const SectionWrapper = ({
   id,
   children,
   className = "flex h-auto w-full grow flex-col",
   staggerDelay = 0.2,
   duration = 0.4,
-}: StaggerWrapperProps) => {
+}: SectionWrapperProps) => {
   const childrenArray = Children.toArray(children);
-  const isMultipleChildren = childrenArray.length > 0;
+  const isMultipleChildren = childrenArray.length > 1;
 
-  const containerVariants = {
-    initial: {},
-    animate: {
-      transition: {
-        staggerChildren: staggerDelay,
+  const sharedVariants = useMemo(
+    () => ({
+      initial: {
+        opacity: DISABLE_ANIMATION ? 1 : 0,
+        filter: DISABLE_ANIMATION ? "none" : "blur(4px)",
       },
-    },
-    exit: {
-      transition: {
-        staggerChildren: staggerDelay,
-        staggerDirection: -1,
+      animate: {
+        opacity: 1,
+        filter: "blur(0px)",
+        transition: DISABLE_ANIMATION
+          ? { duration: 0 }
+          : {
+              ease: easeInOut,
+              duration: duration,
+            },
       },
-    },
-  };
+      exit: {
+        opacity: DISABLE_ANIMATION ? 1 : 0,
+        filter: DISABLE_ANIMATION ? "none" : "blur(4px)",
+        transition: DISABLE_ANIMATION
+          ? { duration: 0 }
+          : {
+              ease: easeInOut,
+              duration: duration * 0.3,
+            },
+      },
+    }),
+    [duration],
+  );
 
-  const childVariants = {
-    initial: {
-      opacity: 0,
-      filter: "blur(4px)",
-    },
-    animate: {
-      opacity: 1,
-      filter: "blur(0px)",
-      transition: {
-        ease: easeInOut,
-        duration: duration,
+  const containerVariants = useMemo(
+    () => ({
+      initial: {},
+      animate: {
+        transition: DISABLE_ANIMATION
+          ? { duration: 0 }
+          : { staggerChildren: staggerDelay },
       },
-    },
-    exit: {
-      opacity: 0,
-      filter: "blur(4px)",
-      transition: {
-        ease: easeInOut,
-        duration: duration * 0.3,
+      exit: {
+        transition: DISABLE_ANIMATION
+          ? { duration: 0 }
+          : {
+              staggerChildren: staggerDelay,
+              staggerDirection: -1,
+            },
       },
-    },
-  };
-
-  const singleChildVariants = {
-    initial: {
-      opacity: 0,
-      filter: "blur(4px)",
-    },
-    animate: {
-      opacity: 1,
-      filter: "blur(0px)",
-      transition: {
-        ease: easeInOut,
-        duration: duration,
-      },
-    },
-    exit: {
-      opacity: 0,
-      filter: "blur(4px)",
-      transition: {
-        ease: easeInOut,
-        duration: duration * 0.3,
-      },
-    },
-  };
+    }),
+    [staggerDelay],
+  );
 
   if (!isMultipleChildren) {
     return (
@@ -89,7 +81,7 @@ const SectionWrapper = ({
         initial="initial"
         animate="animate"
         exit="exit"
-        variants={singleChildVariants}
+        variants={sharedVariants}
         className={className}
         id={id}
       >
@@ -110,7 +102,7 @@ const SectionWrapper = ({
       {childrenArray.map((child, index) => (
         <motion.div
           key={index}
-          variants={childVariants}
+          variants={sharedVariants}
           className="flex w-full max-w-lg flex-col items-center"
         >
           {child}
