@@ -15,7 +15,7 @@ export const PolaroidCard = ({ src, alt, className, title }: PostcardProps) => {
   return (
     <div
       className={cn(
-        "relative flex flex-col items-center bg-card p-1 text-card-foreground dark:bg-primary dark:text-primary-foreground",
+        "bg-card text-card-foreground dark:bg-primary dark:text-primary-foreground relative flex flex-col items-center p-1",
         className,
       )}
     >
@@ -23,11 +23,11 @@ export const PolaroidCard = ({ src, alt, className, title }: PostcardProps) => {
         src={src}
         alt={alt}
         className="aspect-square h-auto w-full object-cover"
-        sizes="(max-width: 640px) 44vw, (min-width: 641px) 33vw"
+        sizes="(max-width: 640px) 30vw, (max-width: 1024px) 20vw, 10vw"
         aria-hidden="true"
         placeholder="blur"
       />
-      <Scribble className="text-nowrap text-sm md:text-base">{title}</Scribble>
+      <Scribble className="text-sm text-nowrap md:text-base">{title}</Scribble>
     </div>
   );
 };

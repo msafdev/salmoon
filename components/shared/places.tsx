@@ -20,12 +20,12 @@ const Places = () => {
 
   const itemsToRender = useMemo(() => {
     if (!isMounted) return [];
-    return isDesktop ? placeItems : placeItems.slice(1, 4);
+    return isDesktop ? placeItems : placeItems.slice(0, 3);
   }, [isDesktop, isMounted]);
 
   return (
     <div className="relative w-full max-w-full">
-      <div className="mx-auto flex w-fit flex-row items-center gap-4 -space-x-8 overflow-visible px-4">
+      <div className="mx-auto flex w-fit flex-row items-center gap-2 -space-x-4 px-4 sm:gap-4 sm:-space-x-8">
         {itemsToRender.map((item) => (
           <PlaceCard key={item.id} item={item} />
         ))}
@@ -45,7 +45,7 @@ const PlaceCard = ({ item }: { item: (typeof placeItems)[number] }) => (
       src={item.src}
       alt={`Image of place ${item.id}`}
       title={item.title}
-      className="relative w-[28vw] xs:w-[24vw] sm:w-32"
+      className="xs:w-[24vw] relative w-[28vw] sm:w-32"
     />
   </motion.div>
 );

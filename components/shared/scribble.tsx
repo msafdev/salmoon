@@ -6,7 +6,6 @@ const caveat = Caveat({
   subsets: ["latin-ext"],
   display: "swap",
   weight: ["500"],
-  variable: "--font-caveat",
 });
 
 const Scribble = ({
@@ -17,7 +16,7 @@ const Scribble = ({
   children: React.ReactNode;
 }) => {
   return (
-    <span className={cn("font-caveat", caveat.variable, className)}>
+    <span className={cn(caveat.className, className)}>
       {children}
     </span>
   );

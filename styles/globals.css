@@ -7,7 +7,6 @@
   --breakpoint-2xl: 1440px;
 
   --font-jakarta-plus: var(--font-jakarta-plus);
-  --font-caveat: var(--font-caveat);
 
   --color-border: hsl(var(--border));
   --color-input: hsl(var(--input));

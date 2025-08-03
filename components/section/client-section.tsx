@@ -10,7 +10,7 @@ const ClientSection = () => {
       <Paragraph title="Trusted by all">
         <p>
           I have been in these fields for{" "}
-          <span className="font-medium text-foreground">3 years</span>, working
+          <span className="text-foreground font-medium">3 years</span>, working
           with a diverse range of clients across various industries.
         </p>
         <p>
@@ -24,15 +24,15 @@ const ClientSection = () => {
         {clientItems.map((item, index) => (
           <div
             key={index}
-            className="dark: relative size-20 grayscale dark:invert"
+            className="dark: relative size-16 grayscale md:size-20 dark:invert"
           >
             <Image
               src={item}
               fill
               alt={`Client's logo ${index}`}
-              quality={75}
+              quality={70}
               loading="lazy"
-              sizes="(max-width: 768px) 44vw, 33vw"
+              sizes="(max-width: 640px) 25vw, (max-width: 1024px) 12vw, 6vw"
               className="object-contain"
             />
           </div>

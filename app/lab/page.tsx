@@ -9,7 +9,6 @@ import Paragraph from "@/components/shared/paragraph";
 import SectionWrapper from "@/components/motion/section-wrapper";
 
 import { COMPONENTS } from "@/lib/data";
-import "@/styles/lab.css";
 
 export const metadata: Metadata = {
   title: "Lab",

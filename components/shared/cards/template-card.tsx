@@ -21,18 +21,22 @@ const TemplateCard = ({
       className="group/card w-full space-y-1.5"
       prefetch={false}
     >
-      <div className="relative aspect-video w-auto overflow-hidden rounded-[2px] bg-muted">
+      <div className="bg-muted overflow-hidden rounded-[2px]">
         <Image
           src={image}
           alt={`Thumbnail for ${title}`}
-          fill
-          loading="lazy"
+          width={800}
+          height={450}
           placeholder="blur"
+          quality={85}
           className="anim object-cover group-hover/card:scale-105"
+          style={{
+            aspectRatio: "16/9",
+            objectFit: "cover",
+          }}
         />
       </div>
-
-      <h3 className="line-clamp-1 text-base font-semibold text-foreground">
+      <h3 className="text-foreground line-clamp-1 text-base font-semibold">
         {title}
       </h3>
     </Link>
