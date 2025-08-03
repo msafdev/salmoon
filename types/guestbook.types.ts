@@ -9,4 +9,9 @@ export type GuestbookWithUser = {
   content: string;
   created_at: string;
   user: UserProfile | null;
+  parent_id: string | null;
+};
+
+export type GuestbookWithReplies = GuestbookWithUser & {
+  replies?: GuestbookWithUser[];
 };

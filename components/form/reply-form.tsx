@@ -3,86 +3,87 @@
 import {
   PiArrowClockwiseBold,
   PiArrowElbowDownLeftBold,
-  PiSignOutDuotone,
+  PiXBold,
 } from "react-icons/pi";
 
+import type React from "react";
 import { useState } from "react";
 
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 
-import authMutation from "@/mutation/auth.mutation";
 import contentMutation from "@/mutation/content.mutation";
 
-const ContentForm = () => {
-  const [content, setContent] = useState("");
-  const { addContentMutation } = contentMutation();
+interface ReplyFormProps {
+  parentId: string;
+  onCancel: () => void;
+}
 
-  const { signOutMutation } = authMutation();
+const ReplyForm = ({ parentId, onCancel }: ReplyFormProps) => {
+  const [content, setContent] = useState("");
+  const { addReplyMutation } = contentMutation();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!content.trim()) return;
 
     try {
-      await addContentMutation.mutateAsync(content.trim());
+      await addReplyMutation.mutateAsync({
+        content: content.trim(),
+        parentId,
+      });
     } catch (error) {
-      console.error("Failed to add content:", error);
+      console.error("Failed to add reply:", error);
     } finally {
       setContent("");
+      onCancel();
     }
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
     if (e.key === "Enter" && (e.metaKey || e.ctrlKey)) {
       e.preventDefault();
-      if (content.trim() && !addContentMutation.isPending) {
+      if (content.trim() && !addReplyMutation.isPending) {
         handleSubmit(e as any);
       }
+    }
+    if (e.key === "Escape") {
+      onCancel();
     }
   };
 
   return (
-    <form
-      className="w-full space-y-2"
-      onSubmit={handleSubmit}
-      id="content-form"
-    >
+    <form className="w-full space-y-2" onSubmit={handleSubmit}>
       <Textarea
-        placeholder="Leave a message..."
-        name="content"
-        id="content"
+        placeholder="Leave a reply..."
+        name="reply"
+        id="reply"
         value={content}
         onChange={(e) => setContent(e.target.value)}
         onKeyDown={handleKeyDown}
         className="min-h-24 w-full text-sm"
-        disabled={addContentMutation.isPending}
+        disabled={addReplyMutation.isPending}
+        autoFocus
         maxLength={100}
       />
 
-      <div className="flex items-center justify-between gap-x-2">
+      <div className="flex items-center justify-between">
         <Button
-          onClick={() => signOutMutation.mutate()}
-          disabled={signOutMutation.isPending}
+          onClick={onCancel}
           type="button"
           size="icon"
           variant="secondary"
-          className="size-9 rotate-180"
+          className="size-9"
         >
-          {signOutMutation.isPending ? (
-            <PiArrowClockwiseBold className="size-4 animate-spin" />
-          ) : (
-            <PiSignOutDuotone className="size-4" />
-          )}
+          <PiXBold className="size-4" />
         </Button>
         <Button
-          disabled={addContentMutation.isPending || !content.trim()}
+          disabled={addReplyMutation.isPending || !content.trim()}
           type="submit"
           size="sm"
           variant="secondary"
-          className=""
         >
-          {addContentMutation.isPending ? (
+          {addReplyMutation.isPending ? (
             <PiArrowClockwiseBold className="size-4 animate-spin" />
           ) : (
             <>
@@ -96,4 +97,4 @@ const ContentForm = () => {
   );
 };
 
-export default ContentForm;
+export default ReplyForm;

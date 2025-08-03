@@ -3,11 +3,14 @@
 import { useQuery } from "@tanstack/react-query";
 
 import { createClient } from "@/supabase/client";
-import { GuestbookWithUser, UserProfile } from "@/types/guestbook.types";
+import {
+  GuestbookWithReplies,
+  GuestbookWithUser,
+  UserProfile,
+} from "@/types/guestbook.types";
 
-const fetchGuestbook = async (): Promise<GuestbookWithUser[]> => {
+const fetchGuestbook = async (): Promise<GuestbookWithReplies[]> => {
   const supabase = createClient();
-
   const { data: guestbook, error: guestbookError } = await supabase
     .from("guestbook")
     .select("*")
@@ -31,6 +34,8 @@ const fetchGuestbook = async (): Promise<GuestbookWithUser[]> => {
       content: item.content,
       created_at: item.created_at,
       user: null,
+      parent_id: item.parent_id ? String(item.parent_id) : null,
+      replies: [],
     }));
   }
 
@@ -47,12 +52,45 @@ const fetchGuestbook = async (): Promise<GuestbookWithUser[]> => {
       {} as Record<string, UserProfile>,
     ) || {};
 
-  return guestbook.map((item) => ({
+  const guestbookWithUsers: GuestbookWithUser[] = guestbook.map((item) => ({
     id: String(item.id),
     content: item.content,
     created_at: item.created_at,
     user: item.user_id ? userMap[item.user_id] || null : null,
+    parent_id: item.parent_id ? String(item.parent_id) : null,
   }));
+
+  const parentComments: GuestbookWithReplies[] = [];
+  const replies: GuestbookWithUser[] = [];
+
+  guestbookWithUsers.forEach((item) => {
+    if (item.parent_id) {
+      replies.push(item);
+    } else {
+      parentComments.push({ ...item, replies: [] });
+    }
+  });
+
+  replies.forEach((reply) => {
+    const parentComment = parentComments.find(
+      (parent) => parent.id === reply.parent_id,
+    );
+    if (parentComment) {
+      parentComment.replies = parentComment.replies || [];
+      parentComment.replies.push(reply);
+    }
+  });
+
+  parentComments.forEach((parent) => {
+    if (parent.replies && parent.replies.length > 0) {
+      parent.replies.sort(
+        (a, b) =>
+          new Date(a.created_at).getTime() - new Date(b.created_at).getTime(),
+      );
+    }
+  });
+
+  return parentComments;
 };
 
 export const useGuestbook = () => {

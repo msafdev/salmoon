@@ -33,7 +33,7 @@ const Page = async () => {
         </Paragraph>
         <GuestbookForm user={userData.user} />
       </div>
-      <GuestbookSection />
+      <GuestbookSection user={userData.user}/>
     </SectionWrapper>
   );
 };

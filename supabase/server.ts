@@ -2,7 +2,7 @@ import { cookies } from "next/headers";
 
 import { type CookieOptions, createServerClient } from "@supabase/ssr";
 
-import { Database } from "@/supabase/types";
+import { Database } from "@/types/database.types";
 
 const createServerClientWithKey = (key: string) => {
   const cookieStore = cookies();

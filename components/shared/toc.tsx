@@ -1,5 +1,6 @@
 "use client";
 
+import { AnimatePresence, motion } from "motion/react";
 import { useIsClient, useMediaQuery } from "usehooks-ts";
 
 import { useEffect, useState } from "react";
@@ -33,7 +34,6 @@ const TableOfContents = ({
 
     const handleScroll = () => {
       const scrollY = window.scrollY + window.innerHeight / 3;
-
       let currentId: string | null = null;
 
       for (const heading of headingElements) {
@@ -84,8 +84,8 @@ const TableOfContents = ({
     }
   };
 
-  const renderTocItems = (items: TocItem[]) => {
-    return items.map((item) => {
+  const renderTocItems = (items: TocItem[]) =>
+    items.map((item) => {
       const id = generateId(item.value);
       const isActive = activeId === id;
 
@@ -115,21 +115,28 @@ const TableOfContents = ({
         </li>
       );
     });
-  };
-
-  if (!isClient || matches || toc.length === 0) return null;
 
   return (
-    <div className={cn("sticky top-16 left-16 h-fit w-36", className)}>
-      <div>
-        <h3 className="mb-3 text-sm font-semibold tracking-wide lg:text-base lg:text-nowrap">
-          On this page
-        </h3>
-        <nav>
-          <ul className="space-y-2">{renderTocItems(toc)}</ul>
-        </nav>
-      </div>
-    </div>
+    <AnimatePresence>
+      {isClient && !matches && toc.length > 0 && (
+        <motion.div
+          key="toc"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3 }}
+          className={cn("sticky top-16 left-16 h-fit w-36", className)}
+        >
+          <div>
+            <h3 className="mb-3 text-sm font-semibold tracking-wide lg:text-base lg:text-nowrap">
+              On this page
+            </h3>
+            <nav>
+              <ul className="space-y-2">{renderTocItems(toc)}</ul>
+            </nav>
+          </div>
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 };
 

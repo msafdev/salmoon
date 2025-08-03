@@ -294,6 +294,6 @@
 @layer components {
   ::selection {
     background: hsl(var(--accent));
-    color: hsl(var(--foreground));
+    color: hsl(var(--tertiary));
   }
 }

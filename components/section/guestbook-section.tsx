@@ -1,5 +1,7 @@
 "use client";
 
+import { User } from "@supabase/supabase-js";
+
 import GuestbookCard from "@/components/shared/cards/guestbook-card";
 import Paragraph from "@/components/shared/paragraph";
 
@@ -15,7 +17,7 @@ const Error = ({ onRetry }: { onRetry: () => void }) => (
         <Skeleton className="size-9 rounded-sm" />
         <div className="flex flex-col">
           <p className="text-sm font-semibold md:text-sm">Anonymous</p>
-          <span className="text-xs text-muted-foreground">404</span>
+          <span className="text-muted-foreground text-xs">404</span>
         </div>
       </div>
       <Button
@@ -29,7 +31,7 @@ const Error = ({ onRetry }: { onRetry: () => void }) => (
   </div>
 );
 
-const GuestbookSection = () => {
+const GuestbookSection = ({ user }: { user: User | null }) => {
   const { data: guestbookData, isLoading, error, refetch } = useGuestbook();
 
   if (isLoading) {
@@ -46,8 +48,13 @@ const GuestbookSection = () => {
 
   return (
     <div className="w-full space-y-4">
-      {guestbookData.map((entry, index) => (
-        <GuestbookCard key={entry.id} entry={entry} index={index} />
+      {guestbookData.map((data, index) => (
+        <GuestbookCard
+          key={data.id}
+          entry={data}
+          index={index}
+          user={user}
+        />
       ))}
     </div>
   );

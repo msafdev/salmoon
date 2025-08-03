@@ -184,22 +184,6 @@ You can embed images, iframes, and videos like normal HTML:
 
 ---
 
-## Dynamic Imports
-
-To optimize bundle size, you can use dynamic imports inside components:
-
-```jsx
-import dynamic from "next/dynamic";
-
-const Chart = dynamic(() => import("@/components/Chart"), { ssr: false });
-
-<Chart />;
-```
-
-Use this inside an `.mdx` component file when rendering complex charts or interactive UI that shouldn't be server-rendered.
-
----
-
 ## `Velite` Collections
 
 For complex MDX systems, consider using:
