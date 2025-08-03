@@ -2,6 +2,8 @@ import { posts } from "#site/content";
 
 import { Metadata } from "next";
 
+import ActionSection from "@/components/section/cta-section";
+
 import PostCard from "@/components/shared/cards/post-card";
 import TemplateCard from "@/components/shared/cards/template-card";
 import WorkCard from "@/components/shared/cards/work-card";
@@ -46,7 +48,7 @@ export default async function Page() {
               .map((item) => <PostCard key={item.slug} {...item} />)
           ) : (
             <blockquote className="col-span-full border-s-2 border-zinc-500 bg-linear-to-r from-zinc-500/20 to-transparent px-4 py-2">
-              <p className="text-sm font-medium italic leading-normal text-zinc-600 dark:text-zinc-400">
+              <p className="text-sm leading-normal font-medium text-zinc-600 italic dark:text-zinc-400">
                 Nothing to see here yet! Check back later for some exciting
                 content.
               </p>
@@ -75,12 +77,14 @@ export default async function Page() {
 
       <div className="w-full space-y-4">
         <Paragraph title="Side projects" />
-        <div className="grid w-full grid-cols-1 gap-4 xs:grid-cols-2">
+        <div className="xs:grid-cols-2 grid w-full grid-cols-1 gap-4">
           {templateItems.map((item, index) => (
             <TemplateCard {...item} key={index} />
           ))}
         </div>
       </div>
+
+      <ActionSection />
     </SectionWrapper>
   );
 }
