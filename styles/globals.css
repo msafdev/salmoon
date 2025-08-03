@@ -139,7 +139,7 @@
   @media (width >= --theme(--breakpoint-xs)) {
     max-width: none;
   }
-  
+
   @media (width >= 1400px) {
     max-width: 1400px;
   }
@@ -295,5 +295,57 @@
   ::selection {
     background: hsl(var(--accent));
     color: hsl(var(--tertiary));
+  }
+}
+
+@layer components {
+  .toast {
+    @apply flex w-full cursor-grab items-center rounded-md border px-3 py-2 text-sm shadow-xs;
+    background-color: var(--color-popover);
+    color: var(--color-popover-foreground);
+    border-color: var(--color-border);
+
+    @media (min-width: 640px) {
+      width: 356px;
+    }
+  }
+
+  .toast .title {
+    @apply font-semibold;
+  }
+
+  .toast .description {
+    color: var(--color-muted-foreground);
+  }
+
+  .toast .icon {
+    @apply mr-2;
+    color: var(--color-popover-foreground);
+  }
+
+  .toast svg.info {
+    color: var(--color-popover);
+    fill: var(--color-blue-500);
+  }
+
+  .toast svg.success {
+    color: var(--color-popover);
+    fill: var(--color-green-500);
+  }
+
+  .toast svg.destructive {
+    color: var(--color-popover);
+    fill: var(--color-red-500);
+  }
+
+  .toast .close-button {
+    @apply absolute rounded-full border p-0.5 text-xl;
+    top: -0.25rem;
+    right: -0.25rem;
+    background-color: var(--color-popover);
+    color: var(--color-popover-foreground);
+    border-color: var(--color-border);
+    cursor: pointer;
+    transition: color 0.2s ease-in-out;
   }
 }

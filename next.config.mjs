@@ -27,6 +27,7 @@ export default {
     ],
   },
   experimental: {
+    optimizeCss: true,
     outputFileTracingIncludes: {
       "/lab/[slug]": [
         "./components/lab/**/*",
