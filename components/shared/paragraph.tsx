@@ -30,7 +30,7 @@ const Paragraph = ({
   className?: string;
 }) => {
   return (
-    <div className={cn("space-y-1", className)}>
+    <div className={cn("space-y-1 max-w-lg", className)}>
       <div className="flex w-full flex-col">
         <div className="flex h-8 w-full items-center justify-between gap-x-4">
           <h2 className="text-sm font-bold uppercase leading-none text-foreground">

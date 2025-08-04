@@ -44,7 +44,7 @@ const Footer = () => {
         }`}
       >
         <div className="grid w-full grid-cols-1 gap-x-8 gap-y-12 md:grid-cols-3">
-          <p className="text-foreground/60 col-span-full hidden py-8 text-center text-base md:inline-block">
+          <p className="text-foreground/60 col-span-full pb-4 md:pb-8 text-center text-base">
             ⊹ ࣪ ﹏𓊝﹏𓂁﹏⊹ ࣪ ˖
           </p>
 
