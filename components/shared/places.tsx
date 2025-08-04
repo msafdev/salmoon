@@ -2,8 +2,11 @@
 
 import { Transition, motion } from "motion/react";
 
+import { useMemo } from "react";
+
 import { PolaroidCard } from "@/components/shared/cards/polaroid-card";
 
+import { useDesktop } from "@/hooks/use-desktop";
 import { placeItems } from "@/lib/assets";
 
 const transition = {
@@ -13,10 +16,16 @@ const transition = {
 };
 
 const Places = () => {
+  const { isDesktop, isMounted } = useDesktop(640);
+
+  const itemsToRender = useMemo(() => {
+    return isDesktop ? placeItems : placeItems.slice(0, 3);
+  }, [isDesktop, isMounted]);
+
   return (
     <div className="relative w-full max-w-full">
       <div className="mx-auto flex w-fit flex-row items-center gap-2 -space-x-4 px-4 sm:gap-4 sm:-space-x-8">
-        {placeItems.map((item) => (
+        {itemsToRender.map((item) => (
           <PlaceCard key={item.id} item={item} />
         ))}
       </div>
@@ -35,7 +44,7 @@ const PlaceCard = ({ item }: { item: (typeof placeItems)[number] }) => (
       src={item.src}
       alt={`Image of place ${item.id}`}
       title={item.title}
-      className="xs:w-[24vw] relative w-[28vw] sm:w-36"
+      className="xs:w-[24vw] relative w-[28vw] sm:w-32"
     />
   </motion.div>
 );
