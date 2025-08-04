@@ -37,7 +37,7 @@ const Footer = () => {
       className="relative flex w-full flex-col px-4 py-12 md:px-8 lg:px-16"
     >
       <div
-        className={`mx-auto flex w-full max-w-3xl flex-col items-center gap-y-12 pt-8 pb-20 transition-all duration-500 ease-in-out ${
+        className={`mx-auto flex w-full max-w-3xl flex-col items-center gap-y-12 pb-20 transition-all duration-500 ease-in-out ${
           isInView
             ? "blur-0 scale-100 opacity-100"
             : "scale-80 opacity-0 blur-md"
