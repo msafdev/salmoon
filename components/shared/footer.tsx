@@ -18,6 +18,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
 import { copyToClipboard } from "@/lib/functions";
+import { cn } from "@/lib/utils";
 
 const Footer = () => {
   const ref = useRef(null);
@@ -33,32 +34,30 @@ const Footer = () => {
   return (
     <footer
       ref={ref}
-      className="bg-primary dark:bg-primary-foreground relative flex w-full flex-col px-4 py-12 md:px-8 lg:px-16"
+      className="relative flex w-full flex-col px-4 py-12 md:px-8 lg:px-16"
     >
       <div
         className={`mx-auto flex w-full max-w-3xl flex-col items-center gap-y-12 pt-8 pb-20 transition-all duration-500 ease-in-out ${
           isInView
             ? "blur-0 scale-100 opacity-100"
-            : "scale-90 opacity-0 blur-md"
+            : "scale-80 opacity-0 blur-md"
         }`}
       >
         <div className="grid w-full grid-cols-1 gap-x-8 gap-y-12 md:grid-cols-3">
-          <div className="text-primary-foreground dark:text-primary flex w-full flex-col items-center md:items-start">
-            <Image
-              src="/logo.svg"
-              alt="Logo"
-              width={64}
-              height={64}
-              className="mb-2"
-            />
+          <p className="text-foreground/60 col-span-full hidden py-8 text-center text-base md:inline-block">
+            ⊹ ࣪ ﹏𓊝﹏𓂁﹏⊹ ࣪ ˖
+          </p>
 
-            <p className="text-primary-foreground/60 dark:text-foreground/60 mb-4 max-w-64 text-center text-xs leading-relaxed font-medium text-balance md:max-w-full md:text-left">
+          <div className="text-foreground flex w-full flex-col items-center md:items-start">
+            <Logo className="text-foreground mb-2 h-10 w-16" />
+
+            <p className="text-foreground/60 mb-4 max-w-64 text-center text-xs leading-relaxed font-medium text-balance md:max-w-full md:text-left">
               Helps create a better web experience for everyone.
             </p>
 
             <div className="flex flex-row items-center gap-x-6 gap-y-2 text-sm md:flex-col md:items-start">
               <button
-                className="anim cursor-pointer text-white hover:text-white/90"
+                className="anim text-foreground hover:text-foreground/80 cursor-pointer"
                 aria-label="Back on top"
                 onClick={scrollToTop}
               >
@@ -66,7 +65,7 @@ const Footer = () => {
                 top
               </button>
               <button
-                className="anim cursor-pointer text-white hover:text-white/90"
+                className="anim text-foreground hover:text-foreground/80 cursor-pointer"
                 aria-label="Copy my email"
                 onClick={() => {
                   copyToClipboard("salmanalfarisi261002@gmail.com");
@@ -84,34 +83,34 @@ const Footer = () => {
 
           <div className="flex flex-col gap-x-12 gap-y-12 md:flex-row">
             <div className="flex flex-col gap-y-3">
-              <h2 className="text-primary-foreground dark:text-primary text-center text-sm font-semibold md:text-left">
+              <h2 className="text-foreground text-center text-sm font-semibold md:text-left">
                 Resources
               </h2>
-              <div className="text-primary-foreground/60 dark:text-foreground/60 flex flex-col gap-y-2 text-center text-sm font-medium md:gap-y-1 md:text-left">
+              <div className="text-foreground/60 flex flex-col gap-y-2 text-center text-sm font-medium md:gap-y-1 md:text-left">
                 <Link
                   href={"/"}
-                  className="anim hover:text-primary-foreground dark:hover:text-primary"
+                  className="anim hover:text-foreground"
                   prefetch={false}
                 >
                   Notion
                 </Link>
                 <Link
                   href={"/api/feed.xml"}
-                  className="anim hover:text-primary-foreground dark:hover:text-primary"
+                  className="anim hover:text-foreground"
                   prefetch={false}
                 >
                   RSS
                 </Link>
                 <Link
                   href={"/"}
-                  className="anim hover:text-primary-foreground dark:hover:text-primary"
+                  className="anim hover:text-foreground"
                   prefetch={false}
                 >
                   Starter Kit
                 </Link>
                 <Link
                   href={"/"}
-                  className="anim hover:text-primary-foreground dark:hover:text-primary"
+                  className="anim hover:text-foreground"
                   prefetch={false}
                 >
                   Link
@@ -120,31 +119,25 @@ const Footer = () => {
             </div>
 
             <div className="flex flex-col gap-y-3">
-              <h2 className="text-primary-foreground dark:text-primary text-center text-sm font-semibold md:text-left">
+              <h2 className="text-foreground text-center text-sm font-semibold md:text-left">
                 Website
               </h2>
-              <div className="text-primary-foreground/60 dark:text-foreground/60 flex flex-col gap-y-2 text-center text-sm font-medium md:gap-y-1 md:text-left">
-                <Link
-                  href={"/learn"}
-                  className="anim hover:text-primary-foreground dark:hover:text-primary"
-                >
+              <div className="text-foreground/60 flex flex-col gap-y-2 text-center text-sm font-medium md:gap-y-1 md:text-left">
+                <Link href={"/learn"} className="anim hover:text-foreground">
                   Learn
                 </Link>
                 <Link
                   href={"/bucket-list"}
-                  className="anim hover:text-primary-foreground dark:hover:text-primary"
+                  className="anim hover:text-foreground"
                 >
                   Bucket List
                 </Link>
-                <Link
-                  href={"/personal"}
-                  className="anim hover:text-primary-foreground dark:hover:text-primary"
-                >
+                <Link href={"/personal"} className="anim hover:text-foreground">
                   Personal
                 </Link>
                 <Link
                   href={"/mentorship"}
-                  className="anim hover:text-primary-foreground dark:hover:text-primary"
+                  className="anim hover:text-foreground"
                 >
                   Mentorship
                 </Link>
@@ -152,18 +145,18 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="text-primary-foreground dark:text-primary flex w-full flex-col items-center md:ml-auto md:w-fit md:items-start">
+          <div className="text-foreground flex w-full flex-col items-center md:ml-auto md:w-fit md:items-start">
             <p className="mb-2 font-semibold">Stay Connected</p>
 
-            <p className="text-primary-foreground/60 dark:text-foreground/60 mb-4 max-w-64 text-center text-xs leading-relaxed font-medium text-balance md:max-w-48 md:text-left">
+            <p className="text-foreground/60 mb-4 max-w-64 text-center text-xs leading-relaxed font-medium text-balance md:max-w-48 md:text-left">
               Leave a message or subscribe to my newsletter.
             </p>
 
-            <div className="text-primary-foreground/80 dark:text-primary/80 flex flex-row items-center gap-x-6 text-sm md:flex-col md:items-start">
+            <div className="text-foreground/80 flex flex-row items-center gap-x-6 text-sm md:flex-col md:items-start">
               <Button
                 size={"sm"}
                 variant={"ghost"}
-                className="group/button h-fit w-fit px-0 py-1 text-white underline decoration-transparent hover:bg-transparent hover:text-white hover:decoration-white"
+                className="group/button text-foreground hover:text-foreground hover:decoration-foreground h-fit w-fit px-0 py-1 underline decoration-transparent hover:bg-transparent"
                 asChild
               >
                 <Link href={"/guestbook"} aria-label="My Guestbook">
@@ -174,7 +167,7 @@ const Footer = () => {
               <Button
                 size={"sm"}
                 variant={"ghost"}
-                className="group/button h-fit w-fit px-0 py-1 text-white underline decoration-transparent hover:bg-transparent hover:text-white hover:decoration-white"
+                className="group/button text-foreground hover:text-foreground hover:decoration-foreground h-fit w-fit px-0 py-1 underline decoration-transparent hover:bg-transparent"
                 asChild
               >
                 <Link
@@ -190,14 +183,14 @@ const Footer = () => {
             </div>
           </div>
 
-          <p className="text-primary-foreground/60 dark:text-foreground/60 text-center text-sm leading-relaxed font-medium md:col-span-full md:pt-8">
+          <p className="text-foreground/60 text-center text-sm leading-relaxed font-medium md:col-span-full">
             Icons by{" "}
             <Link
               href={"https://icons8.com"}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Icons8"
-              className="anim hover:text-primary-foreground dark:hover:text-primary"
+              className="anim text-foreground hover:underline"
               prefetch={false}
             >
               Icons8
@@ -210,5 +203,73 @@ const Footer = () => {
     </footer>
   );
 };
+
+const Logo = ({ className }: { className?: string }) => (
+  <svg
+    className={cn("", className)}
+    width="28"
+    height="12"
+    viewBox="0 0 28 12"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M0.5 7.23214H1.30357V8.03571H0.5V7.23214ZM0.5 6.42857H1.30357V7.23214H0.5V6.42857ZM0.5 5.625H1.30357V6.42857H0.5V5.625ZM0.5 4.82143H1.30357V5.625H0.5V4.82143ZM0.5 4.01786H1.30357V4.82143H0.5V4.01786ZM0.5 3.21429H1.30357V4.01786H0.5V3.21429ZM1.30357 3.21429H2.10714V4.01786H1.30357V3.21429ZM1.30357 2.41071H2.10714V3.21429H1.30357V2.41071ZM1.30357 1.60714H2.10714V2.41071H1.30357V1.60714ZM1.30357 0.803571H2.10714V1.60714H1.30357V0.803571ZM0.5 0.803571H1.30357V1.60714H0.5V0.803571ZM0.5 0H1.30357V0.803571H0.5V0ZM0.5 1.60714H1.30357V2.41071H0.5V1.60714ZM0.5 2.41071H1.30357V3.21429H0.5V2.41071ZM1.30357 0H2.10714V0.803571H1.30357V0ZM1.30357 4.01786H2.10714V4.82143H1.30357V4.01786ZM1.30357 4.82143H2.10714V5.625H1.30357V4.82143ZM1.30357 5.625H2.10714V6.42857H1.30357V5.625ZM1.30357 6.42857H2.10714V7.23214H1.30357V6.42857ZM1.30357 7.23214H2.10714V8.03571H1.30357V7.23214ZM2.10714 1.60714H2.91071V2.41071H2.10714V1.60714ZM2.10714 2.41071H2.91071V3.21429H2.10714V2.41071ZM2.91071 2.41071H3.71429V3.21429H2.91071V2.41071ZM2.91071 3.21429H3.71429V4.01786H2.91071V3.21429ZM3.71429 3.21429H4.51786V4.01786H3.71429V3.21429ZM3.71429 4.01786H4.51786V4.82143H3.71429V4.01786ZM4.51786 3.21429H5.32143V4.01786H4.51786V3.21429ZM4.51786 2.41071H5.32143V3.21429H4.51786V2.41071ZM5.32143 2.41071H6.125V3.21429H5.32143V2.41071ZM5.32143 1.60714H6.125V2.41071H5.32143V1.60714ZM6.125 0H6.92857V0.803571H6.125V0ZM6.125 0.803571H6.92857V1.60714H6.125V0.803571ZM6.125 1.60714H6.92857V2.41071H6.125V1.60714ZM6.125 2.41071H6.92857V3.21429H6.125V2.41071ZM6.125 3.21429H6.92857V4.01786H6.125V3.21429ZM6.125 4.01786H6.92857V4.82143H6.125V4.01786ZM6.125 4.82143H6.92857V5.625H6.125V4.82143ZM6.125 5.625H6.92857V6.42857H6.125V5.625ZM6.125 6.42857H6.92857V7.23214H6.125V6.42857ZM6.125 7.23214H6.92857V8.03571H6.125V7.23214ZM6.92857 7.23214H7.73214V8.03571H6.92857V7.23214ZM6.92857 6.42857H7.73214V7.23214H6.92857V6.42857ZM6.92857 5.625H7.73214V6.42857H6.92857V5.625ZM6.92857 4.82143H7.73214V5.625H6.92857V4.82143ZM6.92857 4.01786H7.73214V4.82143H6.92857V4.01786ZM6.92857 3.21429H7.73214V4.01786H6.92857V3.21429ZM6.92857 2.41071H7.73214V3.21429H6.92857V2.41071ZM6.92857 1.60714H7.73214V2.41071H6.92857V1.60714ZM6.92857 0.803571H7.73214V1.60714H6.92857V0.803571ZM6.92857 0H7.73214V0.803571H6.92857V0ZM2.10714 0.803571H2.91071V1.60714H2.10714V0.803571ZM2.91071 1.60714H3.71429V2.41071H2.91071V1.60714ZM3.71429 2.41071H4.51786V3.21429H3.71429V2.41071ZM4.51786 1.60714H5.32143V2.41071H4.51786V1.60714ZM5.32143 0.803571H6.125V1.60714H5.32143V0.803571Z"
+      fill="currentColor"
+    />
+    <path
+      d="M13.3634 1.60714H14.167V2.41071H13.3634V1.60714ZM12.5598 1.60714H13.3634V2.41071H12.5598V1.60714ZM12.5598 0.803571H13.3634V1.60714H12.5598V0.803571ZM13.3634 0.803571H14.167V1.60714H13.3634V0.803571ZM12.5598 0H13.3634V0.803571H12.5598V0ZM11.7563 0H12.5598V0.803571H11.7563V0ZM11.7563 0.803571H12.5598V1.60714H11.7563V0.803571ZM10.9527 0.803571H11.7563V1.60714H10.9527V0.803571ZM10.1491 0.803571H10.9527V1.60714H10.1491V0.803571ZM10.1491 0H10.9527V0.803571H10.1491V0ZM9.34556 0H10.1491V0.803571H9.34556V0ZM10.9527 0H11.7563V0.803571H10.9527V0ZM9.34556 0.803571H10.1491V1.60714H9.34556V0.803571ZM8.54199 0.803571H9.34556V1.60714H8.54199V0.803571ZM8.54199 1.60714H9.34556V2.41071H8.54199V1.60714ZM9.34556 1.60714H10.1491V2.41071H9.34556V1.60714ZM9.34556 2.41071H10.1491V3.21429H9.34556V2.41071ZM9.34556 3.21429H10.1491V4.01786H9.34556V3.21429ZM8.54199 3.21429H9.34556V4.01786H8.54199V3.21429ZM8.54199 2.41071H9.34556V3.21429H8.54199V2.41071ZM9.34556 4.01786H10.1491V4.82143H9.34556V4.01786ZM10.1491 4.01786H10.9527V4.82143H10.1491V4.01786ZM10.1491 3.21429H10.9527V4.01786H10.1491V3.21429ZM10.9527 3.21429H11.7563V4.01786H10.9527V3.21429ZM11.7563 3.21429H12.5598V4.01786H11.7563V3.21429ZM12.5598 3.21429H13.3634V4.01786H12.5598V3.21429ZM12.5598 4.01786H13.3634V4.82143H12.5598V4.01786ZM11.7563 4.01786H12.5598V4.82143H11.7563V4.01786ZM10.9527 4.01786H11.7563V4.82143H10.9527V4.01786ZM13.3634 4.01786H14.167V4.82143H13.3634V4.01786ZM13.3634 4.82143H14.167V5.625H13.3634V4.82143ZM12.5598 4.82143H13.3634V5.625H12.5598V4.82143ZM11.7563 6.42857H12.5598V7.23214H11.7563V6.42857ZM12.5598 6.42857H13.3634V7.23214H12.5598V6.42857ZM12.5598 5.625H13.3634V6.42857H12.5598V5.625ZM13.3634 5.625H14.167V6.42857H13.3634V5.625ZM13.3634 6.42857H14.167V7.23214H13.3634V6.42857ZM12.5598 7.23214H13.3634V8.03571H12.5598V7.23214ZM11.7563 7.23214H12.5598V8.03571H11.7563V7.23214ZM10.9527 7.23214H11.7563V8.03571H10.9527V7.23214ZM10.1491 7.23214H10.9527V8.03571H10.1491V7.23214ZM9.34556 7.23214H10.1491V8.03571H9.34556V7.23214ZM9.34556 6.42857H10.1491V7.23214H9.34556V6.42857ZM10.1491 6.42857H10.9527V7.23214H10.1491V6.42857ZM10.9527 6.42857H11.7563V7.23214H10.9527V6.42857ZM8.54199 6.42857H9.34556V7.23214H8.54199V6.42857ZM8.54199 5.625H9.34556V6.42857H8.54199V5.625ZM9.34556 5.625H10.1491V6.42857H9.34556V5.625Z"
+      fill="currentColor"
+    />
+    <path
+      d="M16.5798 0.803571H17.3834V1.60714H16.5798V0.803571ZM17.3834 0.803571H18.1869V1.60714H17.3834V0.803571ZM17.3834 0H18.1869V0.803571H17.3834V0ZM18.1869 0.803571H18.9905V1.60714H18.1869V0.803571ZM18.1869 1.60714H18.9905V2.41071H18.1869V1.60714ZM18.9905 1.60714H19.7941V2.41071H18.9905V1.60714ZM17.3834 1.60714H18.1869V2.41071H17.3834V1.60714ZM16.5798 1.60714H17.3834V2.41071H16.5798V1.60714ZM15.7762 1.60714H16.5798V2.41071H15.7762V1.60714ZM15.7762 2.41071H16.5798V3.21429H15.7762V2.41071ZM14.9727 2.41071H15.7762V3.21429H14.9727V2.41071ZM16.5798 2.41071H17.3834V3.21429H16.5798V2.41071ZM15.7762 3.21429H16.5798V4.01786H15.7762V3.21429ZM15.7762 4.01786H16.5798V4.82143H15.7762V4.01786ZM15.7762 4.82143H16.5798V5.625H15.7762V4.82143ZM16.5798 4.82143H17.3834V5.625H16.5798V4.82143ZM17.3834 4.82143H18.1869V5.625H17.3834V4.82143ZM18.1869 4.82143H18.9905V5.625H18.1869V4.82143ZM18.9905 4.82143H19.7941V5.625H18.9905V4.82143ZM19.7941 4.82143H20.5977V5.625H19.7941V4.82143ZM19.7941 4.01786H20.5977V4.82143H19.7941V4.01786ZM19.7941 3.21429H20.5977V4.01786H19.7941V3.21429ZM19.7941 2.41071H20.5977V3.21429H19.7941V2.41071ZM18.9905 2.41071H19.7941V3.21429H18.9905V2.41071ZM18.1869 2.41071H18.9905V3.21429H18.1869V2.41071ZM18.9905 3.21429H19.7941V4.01786H18.9905V3.21429ZM18.9905 4.01786H19.7941V4.82143H18.9905V4.01786ZM18.9905 5.625H19.7941V6.42857H18.9905V5.625ZM19.7941 5.625H20.5977V6.42857H19.7941V5.625ZM19.7941 6.42857H20.5977V7.23214H19.7941V6.42857ZM19.7941 7.23214H20.5977V8.03571H19.7941V7.23214ZM18.9905 7.23214H19.7941V8.03571H18.9905V7.23214ZM18.9905 6.42857H19.7941V7.23214H18.9905V6.42857ZM18.1869 5.625H18.9905V6.42857H18.1869V5.625ZM17.3834 5.625H18.1869V6.42857H17.3834V5.625ZM16.5798 5.625H17.3834V6.42857H16.5798V5.625ZM15.7762 5.625H16.5798V6.42857H15.7762V5.625ZM15.7762 6.42857H16.5798V7.23214H15.7762V6.42857ZM15.7762 7.23214H16.5798V8.03571H15.7762V7.23214ZM14.9727 7.23214H15.7762V8.03571H14.9727V7.23214ZM14.9727 6.42857H15.7762V7.23214H14.9727V6.42857ZM14.9727 5.625H15.7762V6.42857H14.9727V5.625ZM14.9727 4.82143H15.7762V5.625H14.9727V4.82143ZM14.9727 4.01786H15.7762V4.82143H14.9727V4.01786ZM14.9727 3.21429H15.7762V4.01786H14.9727V3.21429Z"
+      fill="currentColor"
+    />
+    <path
+      d="M21.4033 0H22.2069V0.803571H21.4033V0ZM22.2069 0H23.0105V0.803571H22.2069V0ZM22.2069 0.803571H23.0105V1.60714H22.2069V0.803571ZM22.2069 1.60714H23.0105V2.41071H22.2069V1.60714ZM22.2069 2.41071H23.0105V3.21429H22.2069V2.41071ZM21.4033 2.41071H22.2069V3.21429H21.4033V2.41071ZM21.4033 1.60714H22.2069V2.41071H21.4033V1.60714ZM21.4033 0.803571H22.2069V1.60714H21.4033V0.803571ZM21.4033 3.21429H22.2069V4.01786H21.4033V3.21429ZM21.4033 4.01786H22.2069V4.82143H21.4033V4.01786ZM21.4033 4.82143H22.2069V5.625H21.4033V4.82143ZM22.2069 4.01786H23.0105V4.82143H22.2069V4.01786ZM22.2069 3.21429H23.0105V4.01786H22.2069V3.21429ZM22.2069 4.82143H23.0105V5.625H22.2069V4.82143ZM22.2069 5.625H23.0105V6.42857H22.2069V5.625ZM21.4033 6.42857H22.2069V7.23214H21.4033V6.42857ZM21.4033 5.625H22.2069V6.42857H21.4033V5.625ZM21.4033 7.23214H22.2069V8.03571H21.4033V7.23214ZM22.2069 7.23214H23.0105V8.03571H22.2069V7.23214ZM22.2069 6.42857H23.0105V7.23214H22.2069V6.42857ZM23.0105 0H23.814V0.803571H23.0105V0ZM23.814 0H24.6176V0.803571H23.814V0ZM24.6176 0H25.4212V0.803571H24.6176V0ZM25.4212 0H26.2247V0.803571H25.4212V0ZM24.6176 0.803571H25.4212V1.60714H24.6176V0.803571ZM23.814 0.803571H24.6176V1.60714H23.814V0.803571ZM23.0105 0.803571H23.814V1.60714H23.0105V0.803571ZM23.0105 4.01786H23.814V4.82143H23.0105V4.01786ZM23.814 3.21429H24.6176V4.01786H23.814V3.21429ZM23.0105 3.21429H23.814V4.01786H23.0105V3.21429ZM23.814 4.01786H24.6176V4.82143H23.814V4.01786ZM25.4212 0.803571H26.2247V1.60714H25.4212V0.803571ZM24.6176 3.21429H25.4212V4.01786H24.6176V3.21429ZM24.6176 4.01786H25.4212V4.82143H24.6176V4.01786Z"
+      fill="currentColor"
+    />
+    <path
+      d="M0.5 10.6107C0.223858 10.6107 0 10.8346 0 11.1107C0 11.3869 0.223858 11.6107 0.5 11.6107V10.6107ZM0.5 11.6107C1.40329 11.6107 1.86594 11.0589 2.18879 10.69C2.52219 10.3089 2.71579 10.1107 3.125 10.1107V9.11071C2.22171 9.11071 1.75906 9.66249 1.43621 10.0315C1.10281 10.4125 0.909207 10.6107 0.5 10.6107V11.6107Z"
+      fill="#FF3636"
+    />
+    <path
+      d="M3.125 10.1107C3.53421 10.1107 3.72781 10.3089 4.06121 10.69C4.38406 11.0589 4.84671 11.6107 5.75 11.6107V10.6107C5.34079 10.6107 5.14719 10.4125 4.81379 10.0315C4.49094 9.66249 4.02829 9.11071 3.125 9.11071V10.1107Z"
+      fill="#FF3636"
+    />
+    <path
+      d="M5.75 11.6107C6.65329 11.6107 7.11594 11.0589 7.43879 10.69C7.77219 10.3089 7.96579 10.1107 8.375 10.1107V9.11071C7.47171 9.11071 7.00906 9.66249 6.68621 10.0315C6.35281 10.4125 6.15921 10.6107 5.75 10.6107V11.6107Z"
+      fill="#FF3636"
+    />
+    <path
+      d="M8.375 10.1107C8.78421 10.1107 8.97781 10.3089 9.31121 10.69C9.63406 11.0589 10.0967 11.6107 11 11.6107V10.6107C10.5908 10.6107 10.3972 10.4125 10.0638 10.0315C9.74094 9.66249 9.27829 9.11071 8.375 9.11071V10.1107Z"
+      fill="#FF3636"
+    />
+    <path
+      d="M11 11.6107C11.9033 11.6107 12.3659 11.0589 12.6888 10.69C13.0222 10.3089 13.2158 10.1107 13.625 10.1107V9.11071C12.7217 9.11071 12.2591 9.66249 11.9362 10.0315C11.6028 10.4125 11.4092 10.6107 11 10.6107V11.6107Z"
+      fill="#FF3636"
+    />
+    <path
+      d="M13.625 10.1107C14.0342 10.1107 14.2278 10.3089 14.5612 10.69C14.8841 11.0589 15.3467 11.6107 16.25 11.6107V10.6107C15.8408 10.6107 15.6472 10.4125 15.3138 10.0315C14.9909 9.66249 14.5283 9.11071 13.625 9.11071V10.1107Z"
+      fill="#FF3636"
+    />
+    <path
+      d="M16.25 11.6107C17.1533 11.6107 17.6159 11.0589 17.9388 10.69C18.2722 10.3089 18.4658 10.1107 18.875 10.1107V9.11071C17.9717 9.11071 17.5091 9.66249 17.1862 10.0315C16.8528 10.4125 16.6592 10.6107 16.25 10.6107V11.6107Z"
+      fill="#FF3636"
+    />
+    <path
+      d="M18.875 10.1107C19.2842 10.1107 19.4778 10.3089 19.8112 10.69C20.1341 11.0589 20.5967 11.6107 21.5 11.6107V10.6107C21.0908 10.6107 20.8972 10.4125 20.5638 10.0315C20.2409 9.66249 19.7783 9.11071 18.875 9.11071V10.1107Z"
+      fill="#FF3636"
+    />
+    <path
+      d="M21.5 11.6107C22.4033 11.6107 22.8659 11.0589 23.1888 10.69C23.5222 10.3089 23.7158 10.1107 24.125 10.1107V9.11071C23.2217 9.11071 22.7591 9.66249 22.4362 10.0315C22.1028 10.4125 21.9092 10.6107 21.5 10.6107V11.6107Z"
+      fill="#FF3636"
+    />
+    <path
+      d="M24.125 10.1107C24.5342 10.1107 24.7278 10.3089 25.0612 10.69C25.3841 11.0589 25.8467 11.6107 26.75 11.6107V10.6107C26.3408 10.6107 26.1472 10.4125 25.8138 10.0315C25.4909 9.66249 25.0283 9.11071 24.125 9.11071V10.1107ZM26.75 11.6107C27.0261 11.6107 27.25 11.3869 27.25 11.1107C27.25 10.8346 27.0261 10.6107 26.75 10.6107V11.6107Z"
+      fill="#FF3636"
+    />
+  </svg>
+);
 
 export default Footer;
