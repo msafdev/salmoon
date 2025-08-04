@@ -2,7 +2,6 @@
 import Place1 from "@/public/images/places/place-1.avif";
 import Place2 from "@/public/images/places/place-2.avif";
 import Place3 from "@/public/images/places/place-3.avif";
-import Place4 from "@/public/images/places/place-4.avif";
 // Projects
 import Template2 from "@/public/images/templates/elite.webp";
 import Template4 from "@/public/images/templates/kodeify.webp";
@@ -27,12 +26,6 @@ export const placeItems = [
     src: Place3,
     rotation: -3,
     title: "beach :3",
-  },
-  {
-    id: 4,
-    src: Place4,
-    rotation: 10,
-    title: "gang",
   },
 ];
 
