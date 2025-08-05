@@ -17,7 +17,7 @@ export default async function Page() {
       id="bucket-list"
       className="flex h-auto grow flex-col items-center gap-y-16 px-4 md:gap-y-20 lg:gap-y-24"
     >
-      <div className="w-full space-y-4">
+      <div className="flex w-full flex-col items-center gap-y-4">
         <Paragraph title="My bucket list">
           <p>
             This list is a way for me to keep track of my dreams and
