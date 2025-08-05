@@ -20,7 +20,7 @@ export default {
       ],
     },
     outputFileTracingExcludes: {
-      "*": ["**/*.mdx", "**/*.json"],
+      "*": ["**/*.mdx"],
     },
   },
 };
