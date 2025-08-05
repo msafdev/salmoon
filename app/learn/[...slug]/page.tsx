@@ -102,7 +102,7 @@ export default async function LearnPage({ params }: LearnPageProps) {
             href="/learn"
             scroll
             aria-label={`Go back to /learn`}
-            className="anim flex items-center gap-x-2 text-muted-foreground hover:text-foreground"
+            className="anim text-muted-foreground hover:text-foreground flex items-center gap-x-2"
           >
             <PiArrowLeftBold className="size-4" />
             <p className="text-sm font-medium">Go back</p>
@@ -111,7 +111,7 @@ export default async function LearnPage({ params }: LearnPageProps) {
             variant="ghost"
             size="icon"
             asChild
-            className="h-9 w-9 text-muted-foreground"
+            className="text-muted-foreground h-9 w-9"
           >
             <Link
               href={`https://x.com/intent/tweet?text=${learn?.title}&url=https://salmoon.vercel.app/${learn?.slug}`}
@@ -130,7 +130,7 @@ export default async function LearnPage({ params }: LearnPageProps) {
             <h1 className="text-xl font-bold sm:text-2xl md:text-3xl">
               {learn.title}
             </h1>
-            <p className="text-sm font-medium text-muted-foreground sm:text-base md:text-lg">
+            <p className="text-muted-foreground text-sm font-medium sm:text-base md:text-lg">
               Chapter {learn.chapter}
             </p>
           </div>
@@ -141,15 +141,15 @@ export default async function LearnPage({ params }: LearnPageProps) {
                 src="https://github.com/msafdev.png"
                 alt="@msafdev"
               />
-              <AvatarFallback className="rounded-md text-muted-foreground">
+              <AvatarFallback className="text-muted-foreground rounded-md">
                 MS
               </AvatarFallback>
             </Avatar>
             <div className="flex flex-col">
-              <p className="text-sm font-medium text-foreground">
+              <p className="text-foreground text-sm font-medium">
                 {siteItems.name}
               </p>
-              <p className="text-xs font-medium text-muted-foreground">
+              <p className="text-muted-foreground text-xs font-medium">
                 {siteItems.role}
               </p>
             </div>
@@ -164,7 +164,7 @@ export default async function LearnPage({ params }: LearnPageProps) {
             <div className="rounded-full bg-green-500/20 p-4">
               <LuBadgeCheck
                 size={24}
-                className="fill-green-500 text-background"
+                className="text-background fill-green-500"
               />
             </div>
             <h3 className="mt-4 text-center text-xs font-medium md:mt-6">

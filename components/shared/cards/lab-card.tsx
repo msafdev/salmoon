@@ -48,7 +48,7 @@ const LabCard = ({
           variant="ghost"
           size="icon"
           asChild
-          className="absolute right-2 top-2 size-8 transition-all duration-300 ease-in-out lg:-translate-y-8 lg:scale-75 lg:opacity-0 lg:group-hover/card:translate-y-0 lg:group-hover/card:scale-100 lg:group-hover/card:opacity-100"
+          className="absolute top-2 right-2 size-8 transition-all duration-300 ease-in-out lg:-translate-y-8 lg:scale-75 lg:opacity-0 lg:group-hover/card:translate-y-0 lg:group-hover/card:scale-100 lg:group-hover/card:opacity-100"
         >
           <Link
             href={`/lab/${slug}`}
@@ -60,7 +60,7 @@ const LabCard = ({
         </Button>
       )}
 
-      {name && <Scribble className="absolute left-3 top-2">{name}</Scribble>}
+      {name && <Scribble className="absolute top-2 left-3">{name}</Scribble>}
     </div>
   );
 };

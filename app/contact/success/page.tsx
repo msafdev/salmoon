@@ -27,7 +27,7 @@ export default function ContactSuccessPage() {
         <h1 className="mb-2 text-xl font-semibold md:text-2xl">
           Meeting Scheduled
         </h1>
-        <p className="max-w-sm text-sm text-muted-foreground md:text-base">
+        <p className="text-muted-foreground max-w-sm text-sm md:text-base">
           Thank you for reaching out. I've scheduled your meeting and will get
           in touch shortly to follow up.
         </p>

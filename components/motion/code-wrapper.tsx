@@ -35,14 +35,14 @@ export default function CodeWrapper({
       </motion.div>
 
       {!expanded && (
-        <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-16 bg-linear-to-t from-background to-transparent" />
+        <div className="from-background pointer-events-none absolute right-0 bottom-0 left-0 h-16 bg-linear-to-t to-transparent" />
       )}
 
       <Button
         variant="ghost"
         size="icon"
         onClick={() => setExpanded((prev) => !prev)}
-        className="absolute bottom-2 right-2 size-8"
+        className="absolute right-2 bottom-2 size-8"
       >
         {expanded ? (
           <PiEyeClosedDuotone size={14} />

@@ -16,11 +16,11 @@ const transition = {
 };
 
 const Places = () => {
-  const { isDesktop, isMounted } = useDesktop(640);
+  const { isDesktop } = useDesktop(640);
 
   const itemsToRender = useMemo(() => {
     return isDesktop ? placeItems : placeItems.slice(0, 3);
-  }, [isDesktop, isMounted]);
+  }, [isDesktop]);
 
   return (
     <div className="relative w-full max-w-full">

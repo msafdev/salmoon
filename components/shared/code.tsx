@@ -57,11 +57,11 @@ export default async function Code({
         dangerouslySetInnerHTML={{ __html: html }}
       />
 
-      <div className="pointer-events-none absolute right-0 top-0 z-0 h-full w-6 bg-linear-to-r from-transparent to-[#f7f7f7] dark:to-[#101010]" />
+      <div className="pointer-events-none absolute top-0 right-0 z-0 h-full w-6 bg-linear-to-r from-transparent to-[#f7f7f7] dark:to-[#101010]" />
 
       <CopyButton
         string={code}
-        className="absolute right-1 top-1 size-8 sm:right-2 sm:top-2"
+        className="absolute top-1 right-1 size-8 sm:top-2 sm:right-2"
       />
     </div>
   );

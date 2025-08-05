@@ -44,7 +44,7 @@ const Footer = () => {
         }`}
       >
         <div className="grid w-full grid-cols-1 gap-x-8 gap-y-12 md:grid-cols-3">
-          <p className="text-foreground/60 col-span-full pb-4 md:pb-8 text-center text-base">
+          <p className="text-foreground/60 col-span-full pb-4 text-center text-base md:pb-8">
             ⊹ ࣪ ﹏𓊝﹏𓂁﹏⊹ ࣪ ˖
           </p>
 
@@ -95,7 +95,7 @@ const Footer = () => {
                   Notion
                 </Link>
                 <Link
-                  href={"/api/feed.xml"}
+                  href={"/api/feed"}
                   className="anim hover:text-foreground"
                   prefetch={false}
                 >

@@ -15,7 +15,7 @@ import { useGitHubRepo } from "@/query/github";
 const Loading = ({ className }: { className?: string }) => (
   <div
     className={cn(
-      "w-full rounded-lg border bg-accent/40 p-4 transition-colors hover:bg-accent/50",
+      "bg-accent/40 hover:bg-accent/50 w-full rounded-lg border p-4 transition-colors",
       className,
     )}
   >
@@ -24,7 +24,7 @@ const Loading = ({ className }: { className?: string }) => (
       <Skeleton className="h-4 w-16" />
     </div>
     <Skeleton className="mb-3 h-5 w-32" />
-    <div className="flex items-center gap-4 text-xs text-muted-foreground">
+    <div className="text-muted-foreground flex items-center gap-4 text-xs">
       <span className="flex items-center gap-1">
         <LuStar className="size-3" />
         <Skeleton className="my-0.5 h-3 w-8" />
@@ -50,11 +50,11 @@ const Error = ({
 }) => (
   <div
     className={cn(
-      "flex min-h-[117.6px] w-full flex-col items-center justify-center gap-2 rounded-lg border bg-accent/40 p-4 transition-colors hover:bg-accent/50",
+      "bg-accent/40 hover:bg-accent/50 flex min-h-[117.6px] w-full flex-col items-center justify-center gap-2 rounded-lg border p-4 transition-colors",
       className,
     )}
   >
-    <p className="text-sm text-muted-foreground">Something went wrong</p>
+    <p className="text-muted-foreground text-sm">Something went wrong</p>
     <Button variant="ghost" size="icon" className="size-8" onClick={onRetry}>
       <PiArrowClockwiseBold size={14} />
     </Button>
@@ -82,7 +82,7 @@ const RepoWidget = ({
       target="_blank"
       rel="noopener noreferrer"
       className={cn(
-        "block w-full rounded-lg border bg-accent/40 p-4 transition-colors hover:bg-accent/50",
+        "bg-accent/40 hover:bg-accent/50 block w-full rounded-lg border p-4 transition-colors",
         className,
       )}
     >
@@ -97,14 +97,14 @@ const RepoWidget = ({
           aria-hidden={true}
           className="rounded-full"
         />
-        <h4 className="text-base font-semibold text-foreground">
+        <h4 className="text-foreground text-base font-semibold">
           {githubData.full_name}
         </h4>
       </div>
-      <p className="mb-3 line-clamp-2 text-sm text-muted-foreground">
+      <p className="text-muted-foreground mb-3 line-clamp-2 text-sm">
         {githubData.description ?? "No description"}
       </p>
-      <div className="flex items-center gap-4 text-xs text-muted-foreground">
+      <div className="text-muted-foreground flex items-center gap-4 text-xs">
         <span className="flex items-center gap-1">
           <LuStar className="size-3" />
           {githubData.stargazers_count}

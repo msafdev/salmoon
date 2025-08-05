@@ -18,7 +18,7 @@ export default function ActivityWidget({
   return (
     <div
       className={cn(
-        "relative w-full rounded-lg border bg-accent/40 p-4 text-xs font-medium text-foreground/60 transition-colors hover:bg-accent/50",
+        "bg-accent/40 text-foreground/60 hover:bg-accent/50 relative w-full rounded-lg border p-4 text-xs font-medium transition-colors",
         className,
       )}
     >

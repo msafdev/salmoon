@@ -6,23 +6,23 @@ export const SeparatedBadge = () => {
   return (
     <div className="flex flex-wrap items-center justify-center gap-2">
       <Badge className="h-7 gap-0 p-0" variant="outline">
-        <span className="flex h-full items-center border-r bg-muted px-2 text-foreground">
+        <span className="bg-muted text-foreground flex h-full items-center border-r px-2">
           build
         </span>
-        <span className="flex h-full items-center px-2 text-foreground">
+        <span className="text-foreground flex h-full items-center px-2">
           passing
         </span>
       </Badge>
       <Badge className="h-7 gap-0 p-0" variant="outline">
-        <span className="flex h-full items-center border-r bg-muted px-2">
+        <span className="bg-muted flex h-full items-center border-r px-2">
           <PiEyesDuotone size={12} />
         </span>
-        <span className="flex h-full items-center px-2 text-foreground">
+        <span className="text-foreground flex h-full items-center px-2">
           4.2k reads
         </span>
       </Badge>
       <Badge className="h-7 gap-0 p-0" variant="outline">
-        <span className="flex h-full items-center border-r bg-muted px-2 text-foreground">
+        <span className="bg-muted text-foreground flex h-full items-center border-r px-2">
           rating
         </span>
         <span className="flex h-full items-center gap-0.5 px-2 text-yellow-300">

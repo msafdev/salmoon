@@ -38,6 +38,10 @@ import { GroupedSelect } from "@/components/lab/examples/select/grouped-select";
 import { BasicAnimation } from "@/components/lab/examples/stagger/basic-animation";
 import { VariantAnimation } from "@/components/lab/examples/stagger/variant-animation";
 import { ViewAnimation } from "@/components/lab/examples/stagger/view-animation";
+// Timeline
+import { HorizontalTimeline } from "@/components/lab/examples/timeline/horizontal-timeline";
+import { ResponsiveTimeline } from "@/components/lab/examples/timeline/responsive-timeline";
+import { VerticalTimeline } from "@/components/lab/examples/timeline/vertical-timeline";
 // Toolbar
 import { AdvancedToolbar } from "@/components/lab/examples/toolbar/advanced-toolbar";
 import { BasicToolbar } from "@/components/lab/examples/toolbar/basic-toolbar";
@@ -59,6 +63,7 @@ export type ComponentType = {
   uiLibrary?: string;
   customHook?: string;
   gridClass?: "regular-card" | "medium-card" | "large-card" | "default-card";
+  credit?: { name: string; href: string };
 };
 
 export const COMPONENTS: ComponentType[] = [
@@ -262,5 +267,30 @@ export const COMPONENTS: ComponentType[] = [
     },
     thumbnail: 0,
     gridClass: "medium-card",
+  },
+  {
+    name: "Timeline",
+    slug: "timeline",
+    primitive: true,
+    description: "Timeline with proper lines, variations, and asChild support.",
+    example: [
+      {
+        child: VerticalTimeline,
+        name: "Vertical Timeline",
+        path: "vertical-timeline",
+      },
+      {
+        child: HorizontalTimeline,
+        name: "Horizontal Timeline",
+        path: "horizontal-timeline",
+      },
+      {
+        child: ResponsiveTimeline,
+        name: "Responsive Timeline",
+        path: "responsive-timeline",
+      },
+    ],
+    gridClass: "large-card",
+    uiLibrary: "npm install @radix-ui/react-slot",
   },
 ];

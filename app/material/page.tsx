@@ -47,8 +47,8 @@ const Page = () => {
               className="flex flex-col items-start gap-y-1 text-sm sm:flex-row sm:items-center"
             >
               <p className="text-muted-foreground">{item.category}</p>
-              <PiArrowRightBold className="mx-3 hidden size-3 text-foreground sm:block" />
-              <p className="text-pretty font-medium text-foreground">
+              <PiArrowRightBold className="text-foreground mx-3 hidden size-3 sm:block" />
+              <p className="text-foreground font-medium text-pretty">
                 {item.items.join(", ")}
               </p>
             </li>
@@ -82,7 +82,7 @@ const Page = () => {
             >
               <div className="mb-1 flex items-center sm:mb-0">
                 <p className="text-muted-foreground">{item.category}</p>
-                <PiArrowRightBold className="mx-3 hidden size-3 text-foreground sm:block" />
+                <PiArrowRightBold className="text-foreground mx-3 hidden size-3 sm:block" />
               </div>
               <div className="flex flex-wrap items-center text-pretty">
                 {item.items.map((person, index) => (
@@ -92,7 +92,7 @@ const Page = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`Link to ${person.name}`}
-                    className="text-nowrap font-medium text-foreground underline-offset-2 hover:underline"
+                    className="text-foreground font-medium text-nowrap underline-offset-2 hover:underline"
                   >
                     {person.name}
                     {index < item.items.length - 1 && (
@@ -116,14 +116,14 @@ const Page = () => {
               aria-label={`Link to ${item.title}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="group/mark flex w-fit items-start gap-x-3 py-1 text-foreground hover:text-foreground! group-hover/book:text-muted-foreground"
+              className="group/mark text-foreground hover:text-foreground! group-hover/book:text-muted-foreground flex w-fit items-start gap-x-3 py-1"
             >
               <PiArrowRightBold className="mt-[5px] shrink-0" size={12} />
               <div className="space-y-0.5">
                 <p className="anim w-full pr-5 text-sm font-semibold">
                   {item.title}
                 </p>
-                <p className="text-xs text-muted-foreground">
+                <p className="text-muted-foreground text-xs">
                   {item.description}
                 </p>
               </div>

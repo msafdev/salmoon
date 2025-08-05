@@ -5,20 +5,20 @@ const ProfileSection = () => {
     <div className="w-full space-y-8">
       <div className="space-y-1 md:space-y-0">
         <div className="flex items-center gap-x-2">
-          <h1 className="text-base font-semibold leading-none md:text-lg">
+          <h1 className="text-base leading-none font-semibold md:text-lg">
             Salman Alfarisi
           </h1>
 
           <CheckmarkIcon />
         </div>
-        <p className="text-xs font-medium leading-none text-muted-foreground md:text-sm">
+        <p className="text-muted-foreground text-xs leading-none font-medium md:text-sm">
           Product Engineer
         </p>
       </div>
 
-      <p className="w-full max-w-lg pb-4 text-sm text-muted-foreground md:text-base">
+      <p className="text-muted-foreground w-full max-w-lg pb-4 text-sm md:text-base">
         I am a product engineer based in{" "}
-        <span className="font-medium text-foreground">Indonesia</span>,
+        <span className="text-foreground font-medium">Indonesia</span>,
         specifically in Semarang. In my free time, I enjoy listening to music
         and exploring new places.
       </p>

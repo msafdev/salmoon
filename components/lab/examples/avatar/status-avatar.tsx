@@ -17,7 +17,7 @@ export const StatusAvatar = () => {
         </Avatar>
         <LuBadgeAlert
           size={20}
-          className="absolute -bottom-1 -right-1 fill-blue-500 text-background"
+          className="text-background absolute -right-1 -bottom-1 fill-blue-500"
         />
       </div>
       <div className="relative">
@@ -32,7 +32,7 @@ export const StatusAvatar = () => {
         </Avatar>
         <LuBadgeCheck
           size={20}
-          className="absolute -bottom-1 -right-1 fill-green-500 text-background"
+          className="text-background absolute -right-1 -bottom-1 fill-green-500"
         />
       </div>
       <div className="relative">
@@ -47,7 +47,7 @@ export const StatusAvatar = () => {
         </Avatar>
         <LuBadgeX
           size={20}
-          className="absolute -bottom-1 -right-1 fill-red-500 text-background"
+          className="text-background absolute -right-1 -bottom-1 fill-red-500"
         />
       </div>
     </div>

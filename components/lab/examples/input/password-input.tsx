@@ -22,7 +22,7 @@ export const PasswordInput = () => {
           type={show ? "text" : "password"}
         />
         <Button
-          className="absolute inset-y-0 end-0 h-9 text-muted-foreground hover:bg-transparent hover:text-foreground"
+          className="text-muted-foreground hover:text-foreground absolute inset-y-0 end-0 h-9 hover:bg-transparent"
           size="icon"
           type="button"
           onClick={() => setShow((prev) => !prev)}

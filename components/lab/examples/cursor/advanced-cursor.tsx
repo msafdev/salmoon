@@ -4,7 +4,7 @@ import { Cursor, CursorBody, CursorPointer } from "@/components/lab/cursor";
 
 export const AdvancedCursor = () => {
   return (
-    <div className="relative aspect-4/3 w-64 cursor-none rounded bg-accent">
+    <div className="bg-accent relative aspect-4/3 w-64 cursor-none rounded">
       <Cursor>
         <CursorPointer>
           <PiHandPointingDuotone className="size-5 -rotate-12" />

@@ -18,21 +18,21 @@ const CreditCard = () => {
       className="flex aspect-[1.586/1] w-full max-w-64 cursor-default flex-col rounded-lg bg-linear-to-br from-zinc-700 from-20% via-rose-500 via-80% to-orange-400 p-3 shadow-xs dark:from-zinc-200 dark:via-violet-500 dark:to-purple-800"
     >
       <div className="flex w-full items-center justify-between">
-        <PiAsteriskBold className="size-5 text-orange-600 text-primary-foreground dark:text-violet-600" />
+        <PiAsteriskBold className="text-primary-foreground size-5 text-orange-600 dark:text-violet-600" />
         <Visa />
       </div>
 
-      <div className="mt-auto flex gap-x-4 text-lg font-bold text-primary-foreground">
+      <div className="text-primary-foreground mt-auto flex gap-x-4 text-lg font-bold">
         <span>2143</span>
         <span>****</span>
         <span>****</span>
         <span>3291</span>
       </div>
       <div className="mt-1 flex items-center gap-x-8">
-        <p className="text-xs font-semibold text-primary-foreground/80">
+        <p className="text-primary-foreground/80 text-xs font-semibold">
           John D.
         </p>
-        <p className="text-xs font-semibold text-primary-foreground/80">
+        <p className="text-primary-foreground/80 text-xs font-semibold">
           09/25
         </p>
       </div>

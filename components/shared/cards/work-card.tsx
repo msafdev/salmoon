@@ -21,16 +21,16 @@ const WorkCard = ({
       )}
     >
       <div className="flex items-center gap-2">
-        <h3 className="anim font-semibold text-foreground group-hover/work:text-accent-foreground">
+        <h3 className="anim text-foreground group-hover/work:text-accent-foreground font-semibold">
           {company}
         </h3>
         {country}
       </div>
       <div className="flex w-full items-center justify-between gap-x-4">
-        <p className="anim line-clamp-1 text-sm font-medium text-muted-foreground">
+        <p className="anim text-muted-foreground line-clamp-1 text-sm font-medium">
           {title}
         </p>
-        <p className="anim line-clamp-1 hidden text-xs font-medium text-muted-foreground xs:block">
+        <p className="anim text-muted-foreground xs:block line-clamp-1 hidden text-xs font-medium">
           {duration}
         </p>
       </div>

@@ -15,7 +15,7 @@ export const PolaroidCard = ({ src, alt, className, title }: PostcardProps) => {
   return (
     <div
       className={cn(
-        "bg-card text-card-foreground dark:bg-primary dark:text-primary-foreground relative flex flex-col items-center p-1 w-fit h-fit",
+        "bg-card text-card-foreground dark:bg-primary dark:text-primary-foreground relative flex h-fit w-fit flex-col items-center p-1",
         className,
       )}
     >

@@ -59,7 +59,7 @@ export const AdvancedToolbar = () => {
           <span className="text-sm font-medium">Today's Events</span>
           <div className="ml-auto hidden items-center gap-1 md:flex">
             <div className="size-1.5 rounded-full bg-green-500"></div>
-            <span className="text-xs text-muted-foreground">3 events</span>
+            <span className="text-muted-foreground text-xs">3 events</span>
           </div>
         </div>
       </ToolbarContent>
@@ -72,7 +72,7 @@ export const AdvancedToolbar = () => {
           <span className="text-sm font-medium">Notifications</span>
           <div className="ml-auto hidden items-center gap-2 md:flex">
             <div className="size-1.5 rounded-full bg-red-500"></div>
-            <span className="text-xs text-muted-foreground">2 new</span>
+            <span className="text-muted-foreground text-xs">2 new</span>
           </div>
         </div>
         <ToolbarButton targetMode="notification-details">
@@ -86,7 +86,7 @@ export const AdvancedToolbar = () => {
         </ToolbarButton>
         <div className="flex min-w-36 flex-1 items-center px-2 md:min-w-64">
           <p className="text-sm font-medium">Pramudya</p>
-          <span className="ml-auto text-xs text-muted-foreground">
+          <span className="text-muted-foreground ml-auto text-xs">
             "Hello!"
           </span>
         </div>

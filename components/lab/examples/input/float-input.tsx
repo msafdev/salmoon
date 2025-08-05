@@ -25,17 +25,17 @@ export const FloatInput = () => {
         onFocus={handleFocus}
         onBlur={handleBlur}
         className={cn(
-          "peer h-9 w-full rounded-md border border-input bg-transparent px-3 text-sm",
-          "placeholder-transparent focus-visible:border-border focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring/20",
+          "peer border-input h-9 w-full rounded-md border bg-transparent px-3 text-sm",
+          "focus-visible:border-border focus-visible:ring-ring/20 placeholder-transparent focus-visible:ring-2 focus-visible:outline-hidden",
         )}
         placeholder=" "
       />
       <Label
         htmlFor="float-input"
         className={cn(
-          "origin-start absolute left-2 top-2 z-10 scale-100 transform px-1 text-sm text-foreground/40 transition-all",
+          "origin-start text-foreground/40 absolute top-2 left-2 z-10 scale-100 transform px-1 text-sm transition-all",
           (isFocused || hasValue) &&
-            "-translate-y-[18px] bg-background text-xs font-medium text-foreground",
+            "bg-background text-foreground -translate-y-[18px] text-xs font-medium",
         )}
       >
         Float Input

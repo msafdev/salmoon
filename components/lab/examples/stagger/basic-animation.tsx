@@ -19,7 +19,7 @@ export const BasicAnimation = () => {
       >
         {Array.from({ length: 3 }, (_, index) => (
           <div
-            className="flex aspect-video w-16 items-center gap-2 rounded border bg-accent p-2 sm:w-24"
+            className="bg-accent flex aspect-video w-16 items-center gap-2 rounded border p-2 sm:w-24"
             key={index}
           />
         ))}

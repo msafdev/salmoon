@@ -15,11 +15,7 @@ const Scribble = ({
   className?: string;
   children: React.ReactNode;
 }) => {
-  return (
-    <span className={cn(caveat.className, className)}>
-      {children}
-    </span>
-  );
+  return <span className={cn(caveat.className, className)}>{children}</span>;
 };
 
 export default Scribble;

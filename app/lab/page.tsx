@@ -38,7 +38,7 @@ export default function Page() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="shadcn"
-              className="font-medium text-foreground"
+              className="text-foreground font-medium"
             >
               shadcn
             </Link>
@@ -48,7 +48,7 @@ export default function Page() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="frame-motion"
-              className="font-medium text-foreground"
+              className="text-foreground font-medium"
             >
               framer-motion
             </Link>
@@ -58,7 +58,7 @@ export default function Page() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="react-icons"
-              className="font-medium text-foreground"
+              className="text-foreground font-medium"
             >
               react-icons
             </Link>{" "}

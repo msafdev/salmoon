@@ -60,7 +60,7 @@ export const ValidateInput = () => {
         />
 
         <Button
-          className="absolute inset-y-0 end-0 h-9 text-muted-foreground hover:bg-transparent hover:text-foreground"
+          className="text-muted-foreground hover:text-foreground absolute inset-y-0 end-0 h-9 hover:bg-transparent"
           size="icon"
           type="button"
           onClick={() => setShow((prev) => !prev)}
@@ -78,7 +78,7 @@ export const ValidateInput = () => {
         {validations.map(({ key, label, valid }) => (
           <li
             key={key}
-            className="flex items-center gap-1 text-xs text-muted-foreground"
+            className="text-muted-foreground flex items-center gap-1 text-xs"
           >
             {valid ? (
               <PiCheckBold className="size-3 text-green-500" />

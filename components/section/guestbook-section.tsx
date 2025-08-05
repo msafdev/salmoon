@@ -49,12 +49,7 @@ const GuestbookSection = ({ user }: { user: User | null }) => {
   return (
     <div className="w-full space-y-4">
       {guestbookData.map((data, index) => (
-        <GuestbookCard
-          key={data.id}
-          entry={data}
-          index={index}
-          user={user}
-        />
+        <GuestbookCard key={data.id} entry={data} index={index} user={user} />
       ))}
     </div>
   );

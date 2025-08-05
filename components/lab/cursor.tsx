@@ -141,9 +141,9 @@ const CursorBody = forwardRef<HTMLDivElement, CursorBodyProps>(
       <motion.div
         ref={ref}
         className={cn(
-          "absolute flex flex-col whitespace-nowrap text-xs font-medium",
+          "absolute flex flex-col text-xs font-medium whitespace-nowrap",
           Children.count(children) > 1
-            ? "rounded-xl rounded-tl pb-1.5 pl-2.5 pr-3 pt-1 [&>:first-child]:opacity-70"
+            ? "rounded-xl rounded-tl pt-1 pr-3 pb-1.5 pl-2.5 [&>:first-child]:opacity-70"
             : "rounded-full px-2.5 py-1.5",
           "bg-primary text-primary-foreground",
           className,

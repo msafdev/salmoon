@@ -22,7 +22,7 @@ const PostCard = ({
       href={`/${slug}`}
       className={cn("group/blog w-full space-y-1.5", className)}
     >
-      <div className="relative aspect-video w-auto overflow-hidden rounded-[2px] bg-muted">
+      <div className="bg-muted relative aspect-video w-auto overflow-hidden rounded-[2px]">
         <Image
           src={image}
           alt={`Thumbnail of ${title}`}
@@ -34,10 +34,10 @@ const PostCard = ({
         />
       </div>
       <div className="space-y-0.5">
-        <h3 className="line-clamp-1 text-base font-semibold text-foreground">
+        <h3 className="text-foreground line-clamp-1 text-base font-semibold">
           {title}
         </h3>
-        <p className="text-pretty text-xs font-medium text-muted-foreground sm:text-sm">
+        <p className="text-muted-foreground text-xs font-medium text-pretty sm:text-sm">
           {formatDate(date, "long")}
         </p>
       </div>

@@ -78,10 +78,10 @@ export const VariantAnimation = () => {
       >
         {Array.from({ length: 3 }, (_, index) => (
           <div className="flex items-center gap-2" key={index}>
-            <div className="size-10 rounded-full bg-muted" />
+            <div className="bg-muted size-10 rounded-full" />
             <div className="flex flex-col">
-              <div className="mb-1 h-3.5 w-16 rounded bg-muted" />
-              <div className="h-3 w-9 rounded bg-muted" />
+              <div className="bg-muted mb-1 h-3.5 w-16 rounded" />
+              <div className="bg-muted h-3 w-9 rounded" />
             </div>
           </div>
         ))}

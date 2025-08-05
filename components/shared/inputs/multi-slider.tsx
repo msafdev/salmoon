@@ -79,11 +79,11 @@ export default function MultiSlider({
     <div className={`w-full space-y-3 ${className}`}>
       <div className="relative h-4 w-full">
         {/* Track */}
-        <div className="absolute top-1/2 h-2 w-full -translate-y-1/2 transform rounded bg-accent" />
+        <div className="bg-accent absolute top-1/2 h-2 w-full -translate-y-1/2 transform rounded" />
 
         {/* Active range */}
         <div
-          className="pointer-events-none absolute top-1/2 h-2 -translate-y-1/2 transform rounded bg-primary"
+          className="bg-primary pointer-events-none absolute top-1/2 h-2 -translate-y-1/2 transform rounded"
           style={{
             left: `${percentage(range[0])}%`,
             width: `${percentage(range[1]) - percentage(range[0])}%`,
@@ -122,7 +122,7 @@ export default function MultiSlider({
       </div>
 
       {/* Labels */}
-      <div className="flex justify-between text-xs text-muted-foreground">
+      <div className="text-muted-foreground flex justify-between text-xs">
         {mode === "currency" ? (
           <>
             <span>{formatCurrency(range[0])}</span>

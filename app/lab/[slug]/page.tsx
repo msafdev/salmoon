@@ -1,6 +1,7 @@
 import {
   PiArrowLeftBold,
   PiCodeBlockDuotone,
+  PiGitBranchDuotone,
   PiGithubLogoDuotone,
   PiGridFourDuotone,
   PiShareNetworkDuotone,
@@ -81,7 +82,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
   if (!item) {
     return (
       <section className="pad-x flex h-auto w-full grow flex-col items-center justify-center">
-        <h2 className="text-center text-lg font-semibold text-accent-foreground">
+        <h2 className="text-accent-foreground text-center text-lg font-semibold">
           Component Not Found
         </h2>
       </section>
@@ -101,7 +102,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             href={`/lab`}
             scroll={true}
             aria-label={`Go back to /lab`}
-            className="anim flex items-center gap-x-2 text-muted-foreground hover:text-foreground"
+            className="anim text-muted-foreground hover:text-foreground flex items-center gap-x-2"
           >
             <PiArrowLeftBold className="size-4" />
             <p className="text-sm font-medium">Go back</p>
@@ -110,7 +111,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             variant="ghost"
             size="icon"
             asChild
-            className="h-9 w-9 text-muted-foreground"
+            className="text-muted-foreground h-9 w-9"
           >
             <Link
               href={`https://x.com/intent/tweet?text=${item?.name}&url=https://salmoon.vercel.app/lab/${item?.slug}`}
@@ -132,7 +133,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
                 href={`https://github.com/msafdev/salmoon/tree/main/components/lab/${item.slug}.tsx`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="anim inline-flex w-fit items-center gap-2 text-sm font-medium hover:text-foreground"
+                className="anim hover:text-foreground inline-flex w-fit items-center gap-2 text-sm font-medium"
                 aria-label="Star the repository"
               >
                 <PiStarDuotone />
@@ -142,12 +143,24 @@ export default async function Page({ params }: { params: { slug: string } }) {
                 href={`https://github.com/msafdev/salmoon/tree/main/lib/utils.ts`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="anim inline-flex w-fit items-center gap-2 text-sm font-medium hover:text-foreground"
+                className="anim hover:text-foreground inline-flex w-fit items-center gap-2 text-sm font-medium"
                 aria-label="Util files"
               >
                 <PiGithubLogoDuotone />
                 Utils
               </Link>
+              {item.credit && (
+                <Link
+                  href={item.credit.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Credit link"
+                  className="anim hover:text-foreground inline-flex w-fit items-center gap-2 text-sm font-medium"
+                >
+                  <PiGitBranchDuotone />
+                  {item.credit.name}
+                </Link>
+              )}
             </div>
           </Paragraph>
 

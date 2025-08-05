@@ -40,7 +40,7 @@ const PostGroup = ({ items, tags }: { items: Array<Post>; tags: string[] }) => {
     <div className="flex flex-col gap-y-4">
       {/* Filter Tags */}
       <div className="flex flex-col gap-y-2">
-        <p className="text-sm font-semibold text-foreground md:text-base">
+        <p className="text-foreground text-sm font-semibold md:text-base">
           Filter by
         </p>
         <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
@@ -66,7 +66,7 @@ const PostGroup = ({ items, tags }: { items: Array<Post>; tags: string[] }) => {
               {selectedTag === tag && (
                 <motion.div
                   layoutId="activeFilter"
-                  className="absolute -inset-0 -inset-y-1 -z-10 border-b-2 border-primary"
+                  className="border-primary absolute -inset-0 -inset-y-1 -z-10 border-b-2"
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.9 }}
@@ -106,10 +106,10 @@ const PostGroup = ({ items, tags }: { items: Array<Post>; tags: string[] }) => {
                   prefetch={false}
                   aria-label={`Go to ${item.title}`}
                 >
-                  <h3 className="text-sm font-semibold text-foreground">
+                  <h3 className="text-foreground text-sm font-semibold">
                     {item.title}
                   </h3>
-                  <p className="text-xs text-muted-foreground">
+                  <p className="text-muted-foreground text-xs">
                     {formatDate(item.date, "long")}
                   </p>
                 </Link>

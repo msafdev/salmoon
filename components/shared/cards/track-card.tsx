@@ -12,7 +12,7 @@ const TrackCard = ({ track }: { track: Track }) => {
       rel="noopener noreferrer"
       className="flex items-center gap-x-3"
     >
-      <div className="relative size-12 shrink-0 overflow-hidden rounded-[2px] bg-muted">
+      <div className="bg-muted relative size-12 shrink-0 overflow-hidden rounded-[2px]">
         <Image
           src={track.album.images[0].url}
           alt={track.album.name}
@@ -24,7 +24,7 @@ const TrackCard = ({ track }: { track: Track }) => {
       </div>
       <div className="flex flex-col gap-y-0.5">
         <h3 className="line-clamp-1 text-sm font-semibold">{track.name}</h3>
-        <p className="line-clamp-1 text-sm font-medium text-muted-foreground">
+        <p className="text-muted-foreground line-clamp-1 text-sm font-medium">
           {track.artists[0].name}
         </p>
       </div>

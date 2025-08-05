@@ -42,7 +42,7 @@ export const AvatarSelect = () => {
               <SelectItem
                 key={item.id}
                 value={item.name}
-                className="h-9 pl-2 [&>span]:left-auto [&>span]:right-2"
+                className="h-9 pl-2 [&>span]:right-2 [&>span]:left-auto"
               >
                 <div className="flex items-center justify-start gap-2">
                   <img

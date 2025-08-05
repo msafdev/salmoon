@@ -35,14 +35,14 @@ const BucketCard = ({ index, title, description, done }: BucketCardProps) => {
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}
       variants={containerVariants}
-      className={`group flex w-full items-start gap-x-3 rounded-md bg-background px-2 py-2 text-sm ${
+      className={`group bg-background flex w-full items-start gap-x-3 rounded-md px-2 py-2 text-sm ${
         done ? "opacity-50" : ""
       }`}
     >
       {done ? (
-        <PiCheckSquareDuotone className="mt-0.5 size-4 shrink-0 text-foreground" />
+        <PiCheckSquareDuotone className="text-foreground mt-0.5 size-4 shrink-0" />
       ) : (
-        <PiSquareDuotone className="mt-0.5 size-4 shrink-0 text-muted-foreground" />
+        <PiSquareDuotone className="text-muted-foreground mt-0.5 size-4 shrink-0" />
       )}
 
       <div className="space-y-0.5">
@@ -57,7 +57,7 @@ const BucketCard = ({ index, title, description, done }: BucketCardProps) => {
           </h3>
         </div>
         {description && (
-          <p className="line-clamp-1 text-sm text-muted-foreground">
+          <p className="text-muted-foreground line-clamp-1 text-sm">
             {description}
           </p>
         )}

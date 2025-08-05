@@ -30,10 +30,10 @@ const Paragraph = ({
   className?: string;
 }) => {
   return (
-    <div className={cn("space-y-1 max-w-lg", className)}>
+    <div className={cn("max-w-lg space-y-1", className)}>
       <div className="flex w-full flex-col">
         <div className="flex h-8 w-full items-center justify-between gap-x-4">
-          <h2 className="text-sm font-bold uppercase leading-none text-foreground">
+          <h2 className="text-foreground text-sm leading-none font-bold uppercase">
             {title}
           </h2>
           {link && (
@@ -58,18 +58,18 @@ const Paragraph = ({
           )}
         </div>
         {from && to && (
-          <code className="flex items-center text-sm text-muted-foreground">
+          <code className="text-muted-foreground flex items-center text-sm">
             {from}
             <PiArrowRightBold
               size={12}
-              className="mx-2 inline-block text-foreground"
+              className="text-foreground mx-2 inline-block"
             />
             {to}
           </code>
         )}
       </div>
       {children && (
-        <div className="flex flex-col gap-y-4 text-sm text-muted-foreground md:text-base">
+        <div className="text-muted-foreground flex flex-col gap-y-4 text-sm md:text-base">
           {children}
         </div>
       )}

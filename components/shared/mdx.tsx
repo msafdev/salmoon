@@ -50,33 +50,33 @@ export const globalComponents = {
     <ActivityWidget className={cn("mb-4", className)} user={user} {...props} />
   ),
   h1: ({ className, ...props }: ComponentsProps) => (
-    <h1 className={cn("mb-4 mt-6 text-2xl font-bold", className)} {...props} />
+    <h1 className={cn("mt-6 mb-4 text-2xl font-bold", className)} {...props} />
   ),
   h2: ({ className, ...props }: ComponentsProps) => (
-    <h2 className={cn("mb-4 mt-6 text-xl font-bold", className)} {...props} />
+    <h2 className={cn("mt-6 mb-4 text-xl font-bold", className)} {...props} />
   ),
   h3: ({ className, ...props }: ComponentsProps) => (
-    <h3 className={cn("mb-4 mt-6 text-base font-bold", className)} {...props} />
+    <h3 className={cn("mt-6 mb-4 text-base font-bold", className)} {...props} />
   ),
   h4: ({ className, ...props }: ComponentsProps) => (
     <h4
-      className={cn("mb-4 mt-6 text-base font-semibold", className)}
+      className={cn("mt-6 mb-4 text-base font-semibold", className)}
       {...props}
     />
   ),
   h5: ({ className, ...props }: ComponentsProps) => (
     <h5
-      className={cn("mb-4 mt-5 text-base font-semibold", className)}
+      className={cn("mt-5 mb-4 text-base font-semibold", className)}
       {...props}
     />
   ),
   h6: ({ className, ...props }: ComponentsProps) => (
-    <h6 className={cn("mb-4 mt-5 text-sm font-medium", className)} {...props} />
+    <h6 className={cn("mt-5 mb-4 text-sm font-medium", className)} {...props} />
   ),
   p: ({ className, ...props }: ComponentsProps) => (
     <p
       className={cn(
-        "mb-4 text-sm text-muted-foreground md:text-base",
+        "text-muted-foreground mb-4 text-sm md:text-base",
         className,
       )}
       {...props}
@@ -102,7 +102,7 @@ export const globalComponents = {
   blockquote: ({ className, ...props }: ComponentsProps) => (
     <blockquote
       className={cn(
-        "mdx mb-4 border-s-2 border-zinc-500 bg-linear-to-r from-zinc-500/20 to-transparent px-4 py-2 text-sm text-zinc-600 dark:text-zinc-400 md:text-base [&>p]:mb-0",
+        "mdx mb-4 border-s-2 border-zinc-500 bg-linear-to-r from-zinc-500/20 to-transparent px-4 py-2 text-sm text-zinc-600 md:text-base dark:text-zinc-400 [&>p]:mb-0",
         className,
       )}
       {...props}
@@ -111,7 +111,7 @@ export const globalComponents = {
   code: ({ className, children, ...props }: ComponentsProps) => (
     <code
       className={cn(
-        "rounded-md border border-border bg-muted px-1.5 py-0.5 font-mono text-sm text-foreground",
+        "border-border bg-muted text-foreground rounded-md border px-1.5 py-0.5 font-mono text-sm",
         className,
       )}
       {...props}
@@ -134,14 +134,14 @@ export const globalComponents = {
   },
   ul: ({ className, ...props }: React.HTMLAttributes<HTMLUListElement>) => (
     <ul
-      className={cn("my-4 list-none [&_li]:text-muted-foreground", className)}
+      className={cn("[&_li]:text-muted-foreground my-4 list-none", className)}
       {...props}
     />
   ),
   ol: ({ className, ...props }: React.HTMLAttributes<HTMLOListElement>) => (
     <ol
       className={cn(
-        "my-4 list-decimal pl-5 [&_li]:pl-2 [&_li]:text-muted-foreground [&_svg]:hidden",
+        "[&_li]:text-muted-foreground my-4 list-decimal pl-5 [&_li]:pl-2 [&_svg]:hidden",
         className,
       )}
       {...props}
@@ -151,7 +151,7 @@ export const globalComponents = {
     <li className="mt-2 flex items-start gap-2">
       <PiArrowRightBold
         size={12}
-        className="mt-[5px] shrink-0 text-foreground!"
+        className="text-foreground! mt-[5px] shrink-0"
       />
       <span
         className={cn("text-sm [&>p]:mb-0 [&>p]:text-sm", className)}
@@ -161,12 +161,12 @@ export const globalComponents = {
   ),
   strong: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => (
     <strong
-      className={cn("font-semibold text-foreground", className)}
+      className={cn("text-foreground font-semibold", className)}
       {...props}
     />
   ),
   em: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => (
-    <em className={cn("italic text-muted-foreground", className)} {...props} />
+    <em className={cn("text-muted-foreground italic", className)} {...props} />
   ),
   u: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => (
     <u
@@ -199,7 +199,7 @@ export const globalComponents = {
     ...props
   }: React.ThHTMLAttributes<HTMLTableCellElement>) => (
     <TableHead
-      className={cn("h-fit py-2 text-muted-foreground", className)}
+      className={cn("text-muted-foreground h-fit py-2", className)}
       {...props}
     />
   ),

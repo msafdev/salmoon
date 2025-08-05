@@ -66,7 +66,7 @@ export const BasicToolbar = () => {
           <PiArrowLeftBold size={16} />
         </ToolbarButton>
         <div className="flex min-w-36 flex-1 items-center px-2 md:min-w-48">
-          <span className="mr-auto text-nowrap text-sm font-medium text-muted-foreground">
+          <span className="text-muted-foreground mr-auto text-sm font-medium text-nowrap">
             John's Birthday
           </span>
         </div>

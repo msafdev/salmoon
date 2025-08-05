@@ -190,7 +190,7 @@ export default function CalInput({
           disabled={isDisabled}
           className={cn(
             "aspect-square w-full rounded text-xs font-medium",
-            "outline-hidden hover:bg-primary/10 hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring/40",
+            "hover:bg-primary/10 hover:text-foreground focus-visible:ring-ring/40 outline-hidden focus-visible:ring-2",
             isDisabled && "text-muted-foreground",
             isSelected && "bg-primary/10 text-foreground",
             !isSelected && !isDisabled && "text-foreground",
@@ -217,7 +217,7 @@ export default function CalInput({
 
     if (availableSlots.length === 0) {
       return (
-        <p className="text-sm text-muted-foreground">No available slots</p>
+        <p className="text-muted-foreground text-sm">No available slots</p>
       );
     }
 
@@ -231,7 +231,7 @@ export default function CalInput({
             size="sm"
             onClick={() => handleTimeSelect(time)}
             className={cn(
-              "anim text-xs hover:bg-primary/10 dark:hover:bg-primary/20",
+              "anim hover:bg-primary/10 dark:hover:bg-primary/20 text-xs",
               selectedTime === time &&
                 "bg-primary/10 text-foreground hover:bg-primary/10 dark:bg-primary/20 dark:hover:bg-primary/20",
             )}
@@ -256,7 +256,7 @@ export default function CalInput({
             className="space-y-2"
           >
             <div className="flex items-center justify-between">
-              <h3 className="font-semibold text-foreground">
+              <h3 className="text-foreground font-semibold">
                 {monthNames[currentDate.getMonth()]}{" "}
                 <span className="text-muted-foreground">
                   {currentDate.getFullYear()}
@@ -284,14 +284,14 @@ export default function CalInput({
               </div>
             </div>
 
-            <div className="space-y-3 sm:rounded sm:bg-muted">
+            <div className="sm:bg-muted space-y-3 sm:rounded">
               <div className="grid grid-cols-7 sm:gap-1 sm:px-2 sm:pt-4">
                 {dayNames.map((day) => (
                   <div
                     key={day}
                     className="flex h-6 w-full items-center justify-center"
                   >
-                    <span className="text-xs font-medium uppercase text-muted-foreground">
+                    <span className="text-muted-foreground text-xs font-medium uppercase">
                       {day}
                     </span>
                   </div>
@@ -312,7 +312,7 @@ export default function CalInput({
             className="space-y-2"
           >
             <div className="flex items-center justify-between">
-              <h3 className="font-semibold text-foreground">Select Time</h3>
+              <h3 className="text-foreground font-semibold">Select Time</h3>
               <Button
                 type="button"
                 variant="ghost"

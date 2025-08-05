@@ -22,7 +22,7 @@ blockquote.mdx.dangerous {
 }
 
 blockquote.mdx p {
-  @apply !mb-0 text-inherit text-sm;
+  @apply !mb-0 text-sm text-inherit;
 }
 
 iframe {
@@ -35,5 +35,5 @@ hr {
 
 hr::after {
   content: "︵︵﹆ . ⁺ . ✦ ﹒₊˚𓂃 ★﹒₊‧";
-  @apply h-8 font-mono !text-sm tracking-normal text-muted-foreground/60;
+  @apply text-muted-foreground/60 h-8 font-mono !text-sm tracking-normal;
 }

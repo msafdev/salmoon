@@ -34,7 +34,7 @@ const spinnerVariants: Record<SpinnerVariant, string> = {
 };
 
 const shimmerOverlay = (
-  <span className="pointer-events-none absolute inset-0 animate-shimmer bg-linear-to-r from-transparent via-primary/5 to-transparent" />
+  <span className="animate-shimmer via-primary/5 pointer-events-none absolute inset-0 bg-linear-to-r from-transparent to-transparent" />
 );
 
 const LoaderText = React.forwardRef<HTMLSpanElement, LoaderTextProps>(
@@ -49,7 +49,7 @@ const LoaderText = React.forwardRef<HTMLSpanElement, LoaderTextProps>(
         <span
           ref={ref}
           className={cn(
-            "inline-block text-sm text-muted-foreground",
+            "text-muted-foreground inline-block text-sm",
             className,
           )}
           {...props}
@@ -57,7 +57,7 @@ const LoaderText = React.forwardRef<HTMLSpanElement, LoaderTextProps>(
           {content.split("").map((char, index) => (
             <span
               key={index}
-              className="inline-block animate-wave"
+              className="animate-wave inline-block"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               {char === " " ? "\u00A0" : char}
@@ -73,9 +73,9 @@ const LoaderText = React.forwardRef<HTMLSpanElement, LoaderTextProps>(
           ref={ref}
           style={{ "--shimmer-width": `${width}px` } as React.CSSProperties}
           className={cn(
-            "mx-auto animate-text-shimmer text-sm text-zinc-600/40 dark:text-zinc-400/40",
-            "bg-clip-text bg-no-repeat bg-position-[0_0] bg-size-[var(--shimmer-width)_100%] [transition:background-position_1s_cubic-bezier(.6,.6,0,1)_infinite]",
-            "bg-linear-to-r from-transparent via-primary via-50% to-transparent",
+            "animate-text-shimmer mx-auto text-sm text-zinc-600/40 dark:text-zinc-400/40",
+            "bg-size-[var(--shimmer-width)_100%] bg-clip-text bg-position-[0_0] bg-no-repeat [transition:background-position_1s_cubic-bezier(.6,.6,0,1)_infinite]",
+            "via-primary bg-linear-to-r from-transparent via-50% to-transparent",
             className,
           )}
           {...props}
@@ -89,7 +89,7 @@ const LoaderText = React.forwardRef<HTMLSpanElement, LoaderTextProps>(
       <span
         ref={ref}
         className={cn(
-          "inline-block text-sm text-muted-foreground",
+          "text-muted-foreground inline-block text-sm",
           textVariants[variant],
           variant === "shimmer" && "relative",
           className,
@@ -116,7 +116,7 @@ const LoaderIcon = React.forwardRef<HTMLDivElement, LoaderIconProps>(
         )}
         {...props}
       >
-        {children ?? <PiSpinnerGapBold className="size-4 text-foreground" />}
+        {children ?? <PiSpinnerGapBold className="text-foreground size-4" />}
       </div>
     );
   },

@@ -97,7 +97,7 @@ export default async function PostPage({ params }: PostPageProps) {
             href={`/post`}
             scroll={true}
             aria-label={`Go back to /post`}
-            className="anim flex items-center gap-x-2 text-muted-foreground hover:text-foreground"
+            className="anim text-muted-foreground hover:text-foreground flex items-center gap-x-2"
           >
             <PiArrowLeftBold className="size-4" />
             <p className="text-sm font-medium">Go back</p>
@@ -106,7 +106,7 @@ export default async function PostPage({ params }: PostPageProps) {
             variant="ghost"
             size="icon"
             asChild
-            className="h-9 w-9 text-muted-foreground"
+            className="text-muted-foreground h-9 w-9"
           >
             <Link
               href={`https://x.com/intent/tweet?text=${post?.title}&url=https://salmoon.vercel.app/${post?.slug}`}
@@ -123,7 +123,7 @@ export default async function PostPage({ params }: PostPageProps) {
         <div className="flex w-full flex-col">
           <div className="mb-4 space-y-1 sm:mb-6">
             <h1 className="text-xl font-bold sm:text-2xl">{post.title}</h1>
-            <p className="text-sm font-medium text-muted-foreground md:text-base">
+            <p className="text-muted-foreground text-sm font-medium md:text-base">
               {formatDate(post.date, "mid")}
             </p>
           </div>
@@ -144,21 +144,21 @@ export default async function PostPage({ params }: PostPageProps) {
                   src="https://github.com/msafdev.png"
                   alt="@msafdev"
                 />
-                <AvatarFallback className="rounded-md text-muted-foreground">
+                <AvatarFallback className="text-muted-foreground rounded-md">
                   MS
                 </AvatarFallback>
               </Avatar>
 
               <LuBadgeCheck
                 size={20}
-                className="absolute -bottom-1 -right-1 fill-green-500 text-background"
+                className="text-background absolute -right-1 -bottom-1 fill-green-500"
               />
             </div>
             <div className="flex flex-col">
-              <p className="text-sm font-semibold text-foreground">
+              <p className="text-foreground text-sm font-semibold">
                 {siteItems.name}
               </p>
-              <p className="text-xs font-medium text-muted-foreground">
+              <p className="text-muted-foreground text-xs font-medium">
                 {siteItems.role}
               </p>
             </div>
