@@ -8,7 +8,7 @@ const BucketGroup = () => {
   );
 
   return (
-    <div className="flex w-full flex-col gap-y-4">
+    <div className="flex w-full flex-col gap-y-2">
       {sortedItems.map((item, index) => (
         <BucketCard key={index} index={index} {...item} />
       ))}
