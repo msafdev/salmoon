@@ -19,5 +19,8 @@ export default {
         "./hooks/**/*",
       ],
     },
+    outputFileTracingExcludes: {
+      "*": ["**/*.mdx", "**/*.json"],
+    },
   },
 };
