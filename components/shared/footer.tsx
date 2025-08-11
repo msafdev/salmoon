@@ -88,21 +88,28 @@ const Footer = () => {
               </h2>
               <div className="text-foreground/60 flex flex-col gap-y-2 text-center text-sm font-medium md:gap-y-1 md:text-left">
                 <Link
-                  href={"/"}
+                  href={"https://snipplet.vercel.app"}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Snipplet"
                   className="anim hover:text-foreground"
                   prefetch={false}
                 >
-                  Notion
+                  Snipplet
                 </Link>
                 <Link
                   href={"/api/feed"}
+                  aria-label="RSS feed"
                   className="anim hover:text-foreground"
                   prefetch={false}
                 >
                   RSS
                 </Link>
                 <Link
-                  href={"/"}
+                  href={"https://github.com/msafdev?tab=repositories&q=starter"}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Starter repositories"
                   className="anim hover:text-foreground"
                   prefetch={false}
                 >
@@ -110,10 +117,13 @@ const Footer = () => {
                 </Link>
                 <Link
                   href={"/"}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Linkly"
                   className="anim hover:text-foreground"
                   prefetch={false}
                 >
-                  Link
+                  Linkly
                 </Link>
               </div>
             </div>
@@ -123,9 +133,6 @@ const Footer = () => {
                 Website
               </h2>
               <div className="text-foreground/60 flex flex-col gap-y-2 text-center text-sm font-medium md:gap-y-1 md:text-left">
-                <Link href={"/learn"} className="anim hover:text-foreground">
-                  Learn
-                </Link>
                 <Link
                   href={"/bucket-list"}
                   className="anim hover:text-foreground"
@@ -140,6 +147,9 @@ const Footer = () => {
                   className="anim hover:text-foreground"
                 >
                   Mentorship
+                </Link>
+                <Link href={"/404"} className="anim hover:text-foreground">
+                  Not Found
                 </Link>
               </div>
             </div>
