@@ -50,6 +50,7 @@ import {
   SiVercel,
   SiVuedotjs,
   SiWebflow,
+  SiZod
 } from "react-icons/si";
 
 import type { FC } from "react";
@@ -96,6 +97,7 @@ const techMap: Record<string, JSX.Element> = {
   table: <SiReacttable className="text-[#FF4154]" />,
   jira: <SiJira />,
   webflow: <SiWebflow />,
+  zod: <SiZod className="text-[#72bcf0]"/>,
 };
 
 const generalMap: Record<string, JSX.Element> = {

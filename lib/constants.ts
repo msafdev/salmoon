@@ -39,32 +39,47 @@ export const processItems = [
 ];
 
 export const techItems = [
-  { id: "javascript", name: "JavaScript" },
+  // Programming Languages
+  { id: "go", name: "Go Lang" },
+  { id: "python", name: "Python" },
   { id: "typescript", name: "TypeScript" },
-  { id: "python", name: "Python" },
-  { id: "golang", name: "Go Lang" },
-  { id: "python", name: "Python" },
-  { id: "html", name: "HTML" },
-  { id: "css", name: "CSS" },
+  { id: "javascript", name: "JavaScript" },
+
+  // Frontend Frameworks & Libraries
+  { id: "react", name: "React" },
   { id: "next", name: "Next" },
   { id: "vue", name: "Vue" },
-  { id: "laravel", name: "Laravel" },
-  { id: "nodemon", name: "Nodemon" },
-  { id: "express", name: "Express" },
-  { id: "react", name: "React" },
-  { id: "table", name: "Tanstack Table" },
+  { id: "angular", name: "Angular" },
+  { id: "astro", name: "Astro" },
   { id: "router", name: "Tanstack Router" },
   { id: "query", name: "Tanstack Query" },
   { id: "motion", name: "Framer Motion" },
+  { id: "tailwindcss", name: "Tailwind" },
+
+  // Backend Frameworks & Libraries
+  { id: "node", name: "Node" },
+  { id: "express", name: "Express" },
+  { id: "laravel", name: "Laravel" },
+  { id: "convex", name: "Convex" },
+
+  // Databases & ORM
   { id: "mongo", name: "MongoDB" },
   { id: "supabase", name: "Supabase" },
   { id: "prisma", name: "Prisma" },
-  { id: "tailwind", name: "Tailwind" },
-  { id: "figma", name: "Figma" },
-  { id: "postman", name: "Postman" },
-  { id: "github", name: "GitHub" },
+  { id: "drizzle", name: "Drizzle" },
+  { id: "redis", name: "Redis" },
+  { id: "upstash", name: "Upstash" },
+
+  // DevOps & Cloud
+  { id: "docker", name: "Docker" },
   { id: "vercel", name: "Vercel" },
   { id: "cloudflare", name: "Cloudflare" },
+  { id: "github", name: "GitHub" },
+
+  // Tools & Design
+  { id: "figma", name: "Figma" },
+  { id: "postman", name: "Postman" },
+  { id: "webflow", name: "Webflow" },
 ];
 
 export const socialItems = [

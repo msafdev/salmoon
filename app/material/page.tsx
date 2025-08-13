@@ -7,6 +7,7 @@ import Link from "next/link";
 
 import { Icon } from "@/components/shared/icon";
 import Paragraph from "@/components/shared/paragraph";
+import { Svg } from "@/components/shared/svg";
 
 import { Badge } from "@/components/ui/badge";
 
@@ -65,7 +66,7 @@ const Page = () => {
               className="flex h-6 items-center gap-2 border px-2 font-medium capitalize [&>svg]:size-3"
               variant="secondary"
             >
-              <Icon name={item.id} type="tech" />
+              <Svg name={item.id} />
               {item.name}
             </Badge>
           ))}

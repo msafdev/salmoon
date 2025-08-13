@@ -12,6 +12,8 @@ import ContentForm from "@/components/form/content-form";
 
 import authMutation from "@/mutation/auth.mutation";
 
+import { Svg } from "../shared/svg";
+
 const GuestbookForm = ({ user }: { user: User | null }) => {
   const { githubMutation, googleMutation } = authMutation();
 
@@ -56,12 +58,7 @@ const GuestbookForm = ({ user }: { user: User | null }) => {
                 {mutation.isPending ? (
                   <PiArrowClockwiseBold className="size-4 animate-spin" />
                 ) : (
-                  <Image
-                    src={`/icons/${provider}.png`}
-                    alt={`${provider} Logo`}
-                    width={16}
-                    height={16}
-                  />
+                  <Svg name={provider} className="size-3" />
                 )}
                 {mutation.isPending ? "Signing in..." : label}
               </Button>
