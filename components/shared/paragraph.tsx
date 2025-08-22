@@ -21,7 +21,7 @@ const Paragraph = ({
   href = "/",
   className,
 }: {
-  title: string;
+  title?: string;
   from?: string;
   to?: string;
   children?: React.ReactNode;
@@ -32,31 +32,33 @@ const Paragraph = ({
   return (
     <div className={cn("max-w-lg space-y-1", className)}>
       <div className="flex w-full flex-col">
-        <div className="flex h-8 w-full items-center justify-between gap-x-4">
-          <h2 className="text-foreground text-sm leading-none font-bold uppercase">
-            {title}
-          </h2>
-          {link && (
-            <TooltipProvider delayDuration={0}>
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <Button size={"icon"} variant={"ghost"} className="size-7">
-                    <Link
-                      href={href}
-                      aria-label={`Go to ${href}`}
-                      className="h-full w-full p-1.5"
-                    >
-                      <PiArrowRightBold className="h-full w-full" />
-                    </Link>
-                  </Button>
-                </TooltipTrigger>
-                <TooltipContent className="px-2 py-1">
-                  <p className="text-xs font-medium">More</p>
-                </TooltipContent>
-              </Tooltip>
-            </TooltipProvider>
-          )}
-        </div>
+        {title && (
+          <div className="flex h-8 w-full items-center justify-between gap-x-4">
+            <h2 className="text-foreground text-sm leading-none font-bold uppercase">
+              {title}
+            </h2>
+            {link && (
+              <TooltipProvider delayDuration={0}>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <Button size={"icon"} variant={"ghost"} className="size-7">
+                      <Link
+                        href={href}
+                        aria-label={`Go to ${href}`}
+                        className="h-full w-full p-1.5"
+                      >
+                        <PiArrowRightBold className="h-full w-full" />
+                      </Link>
+                    </Button>
+                  </TooltipTrigger>
+                  <TooltipContent className="px-2 py-1">
+                    <p className="text-xs font-medium">More</p>
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
+            )}
+          </div>
+        )}
         {from && to && (
           <code className="text-muted-foreground flex items-center text-sm">
             {from}

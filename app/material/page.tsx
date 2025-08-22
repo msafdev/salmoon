@@ -63,7 +63,7 @@ const Page = () => {
           {techItems.map((item, index) => (
             <Badge
               key={index}
-              className="flex h-6 items-center gap-2 border px-2 font-medium capitalize [&>svg]:size-3"
+              className="flex h-6 items-center gap-2 border px-2 font-medium [&>svg]:size-3"
               variant="secondary"
             >
               <Svg name={item.id} />

@@ -1,9 +1,8 @@
 import {
+  PiChatCircleTextDuotone,
   PiGithubLogoDuotone,
   PiInstagramLogoDuotone,
   PiLinkedinLogoDuotone,
-  PiReadCvLogoDuotone,
-  PiRocketLaunchDuotone,
   PiTwitterLogoDuotone,
 } from "react-icons/pi";
 
@@ -49,6 +48,7 @@ export const techItems = [
   { id: "react", name: "React" },
   { id: "next", name: "Next" },
   { id: "vue", name: "Vue" },
+  { id: "nuxt", name: "Nuxt" },
   { id: "angular", name: "Angular" },
   { id: "astro", name: "Astro" },
   { id: "router", name: "Tanstack Router" },
@@ -61,6 +61,7 @@ export const techItems = [
   { id: "express", name: "Express" },
   { id: "laravel", name: "Laravel" },
   { id: "convex", name: "Convex" },
+  { id: "trpc", name: "tRPC" },
 
   // Databases & ORM
   { id: "mongo", name: "MongoDB" },
@@ -83,7 +84,7 @@ export const techItems = [
 ];
 
 export const socialItems = [
-  { name: "mail", href: "/contact", icon: PiRocketLaunchDuotone },
+  { name: "mail", href: "/contact", icon: PiChatCircleTextDuotone },
   {
     name: "twitter",
     href: "https://twitter.com/msafdev",
@@ -109,13 +110,6 @@ export const socialItems = [
     name: "linkedin",
     href: "https://linkedin.com/in/msafdev",
     icon: PiLinkedinLogoDuotone,
-    target: "_blank",
-    rel: "noopener noreferrer",
-  },
-  {
-    name: "readcv",
-    href: "https://read.cv/msafdev",
-    icon: PiReadCvLogoDuotone,
     target: "_blank",
     rel: "noopener noreferrer",
   },
