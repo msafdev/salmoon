@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   description: "My personal guestbook, leave me a trace of your visit.",
 };
 
-const Page = async () => {
+export default async function Page() {
   const supabase = createClient();
   const { data: userData } = await supabase.auth.getUser();
 
@@ -36,6 +36,4 @@ const Page = async () => {
       <GuestbookSection user={userData.user} />
     </SectionWrapper>
   );
-};
-
-export default Page;
+}

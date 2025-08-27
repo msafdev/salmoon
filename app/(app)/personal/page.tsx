@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   description: "Get to know me a little bit more (just enough).",
 };
 
-export default async function Page() {
+export default function Page() {
   return (
     <SectionWrapper
       id="personal"

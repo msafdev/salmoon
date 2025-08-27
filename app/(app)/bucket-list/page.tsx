@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     "My bucket list, a collection of things I want to do before I kick the bucket.",
 };
 
-export default async function Page() {
+export default function Page() {
   return (
     <SectionWrapper
       id="bucket-list"

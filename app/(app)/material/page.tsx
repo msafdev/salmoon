@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   description: "My most trusted people, tools, bookmarks, this and that.",
 };
 
-const Page = () => {
+export default function Page() {
   return (
     <SectionWrapper
       id="material"
@@ -134,6 +134,4 @@ const Page = () => {
       </div>
     </SectionWrapper>
   );
-};
-
-export default Page;
+}

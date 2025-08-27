@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     "An archive of my own, filled with my writings and happy memories.",
 };
 
-export default async function Page() {
+export default function Page() {
   const featuredPosts = getFeaturedPosts(
     posts.filter((post) => post.published),
   );

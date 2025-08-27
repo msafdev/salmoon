@@ -7,9 +7,9 @@ export type UserProfile = {
 export type GuestbookWithUser = {
   id: string;
   content: string;
-  created_at: string;
   user: UserProfile | null;
   parent_id: string | null;
+  created_at: string;
 };
 
 export type GuestbookWithReplies = GuestbookWithUser & {

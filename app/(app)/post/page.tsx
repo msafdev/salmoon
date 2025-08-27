@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   description: "My journals. I talk about codes, designs, and jobs.",
 };
 
-export default async function Page() {
+export default function Page() {
   const sortedPosts = sortPosts(posts);
   const tags = getAllTags(posts);
   const sortedTags = sortTagsByCount(tags);

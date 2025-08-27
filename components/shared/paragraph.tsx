@@ -30,7 +30,7 @@ const Paragraph = ({
   className?: string;
 }) => {
   return (
-    <div className={cn("max-w-lg space-y-1", className)}>
+    <div className={cn("w-full max-w-lg space-y-1", className)}>
       <div className="flex w-full flex-col">
         {title && (
           <div className="flex h-8 w-full items-center justify-between gap-x-4">

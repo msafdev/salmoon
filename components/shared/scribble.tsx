@@ -3,7 +3,7 @@ import { Caveat } from "next/font/google";
 import { cn } from "@/lib/utils";
 
 const caveat = Caveat({
-  subsets: ["latin-ext"],
+  subsets: ["latin"],
   display: "swap",
   weight: ["500"],
 });
