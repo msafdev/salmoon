@@ -10,9 +10,11 @@ import { useMutation } from "@tanstack/react-query";
 
 import { githubSignIn, googleSignIn, signOut } from "@/action/auth";
 
+type NextVar = { next?: string };
+
 const authMutation = () => {
   const githubMutation = useMutation({
-    mutationFn: githubSignIn,
+    mutationFn: ({ next }: NextVar) => githubSignIn(next),
     onSuccess: (response) => {
       if ("error" in response) {
         toast("GitHub Login Failed", {
@@ -41,7 +43,7 @@ const authMutation = () => {
   });
 
   const googleMutation = useMutation({
-    mutationFn: googleSignIn,
+    mutationFn: ({ next }: NextVar) => googleSignIn(next),
     onSuccess: (response) => {
       if ("error" in response) {
         toast("Google Login Failed", {

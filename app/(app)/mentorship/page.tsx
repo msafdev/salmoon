@@ -1,6 +1,13 @@
+import { Metadata } from "next";
+
 import MentorSection from "@/components/section/mentor-section";
 
 import SectionWrapper from "@/components/motion/section-wrapper";
+
+export const metadata: Metadata = {
+  title: "Mentorship",
+  description: "Tailored guidance to help you grow your skills and career.",
+};
 
 export default function Page() {
   return (

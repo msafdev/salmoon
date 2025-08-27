@@ -14,7 +14,7 @@ import { Button } from "@/components/ui/button";
 
 import { copyToClipboard } from "@/lib/functions";
 
-const CopyButton = ({
+const Clipboard = ({
   className,
   string,
 }: {
@@ -54,4 +54,4 @@ const CopyButton = ({
   );
 };
 
-export default CopyButton;
+export default Clipboard;

@@ -1,17 +1,53 @@
 "use client";
 
-import { PiPlusBold } from "react-icons/pi";
+import {
+  PiArrowClockwiseBold,
+  PiPlusBold,
+  PiSignOutDuotone,
+  PiUserDuotone,
+} from "react-icons/pi";
 
 import { useState } from "react";
 
+import { User } from "@supabase/supabase-js";
+
+import Paragraph from "@/components/shared/paragraph";
+import { Svg } from "@/components/shared/svg";
+
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Button } from "@/components/ui/button";
 import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer";
 
 import NoteForm from "@/components/form/note-form";
 
-import Paragraph from "../paragraph";
+import authMutation from "@/mutation/auth.mutation";
 
-export default function NoteDrawer() {
-  const [open, setOpen] = useState(false);
+export default function NoteDrawer({ user }: { user: User | null }) {
+  const [open, setOpen] = useState<boolean>(false);
+
+  const { githubMutation, googleMutation } = authMutation();
+  const { signOutMutation } = authMutation();
+
+  const authProviders = [
+    {
+      provider: "github" as const,
+      label: "Sign in with GitHub",
+      mutation: githubMutation,
+    },
+    {
+      provider: "google" as const,
+      label: "Sign in with Google",
+      mutation: googleMutation,
+    },
+  ];
+
+  const handleSignIn = (provider: "github" | "google") => {
+    if (provider === "github") {
+      githubMutation.mutate({ next: "/note" });
+    } else if (provider === "google") {
+      googleMutation.mutate({ next: "/note" });
+    }
+  };
 
   return (
     <Drawer open={open} onOpenChange={setOpen}>
@@ -38,54 +74,60 @@ export default function NoteDrawer() {
           <NoteForm onClose={() => setOpen(false)} />
         </div>
 
-        <div className="mt-auto border-t border-gray-200 bg-gray-100 p-4">
-          <div className="mx-auto flex max-w-md justify-end gap-6">
-            <a
-              className="flex items-center gap-0.25 text-xs text-gray-600"
-              href="https://github.com/emilkowalski/vaul"
-              target="_blank"
-            >
-              GitHub
-              <svg
-                fill="none"
-                height="16"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                viewBox="0 0 24 24"
-                width="16"
-                aria-hidden="true"
-                className="ml-1 h-3 w-3"
-              >
-                <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
-                <path d="M15 3h6v6"></path>
-                <path d="M10 14L21 3"></path>
-              </svg>
-            </a>
-            <a
-              className="flex items-center gap-0.25 text-xs text-gray-600"
-              href="https://twitter.com/emilkowalski_"
-              target="_blank"
-            >
-              Twitter
-              <svg
-                fill="none"
-                height="16"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                viewBox="0 0 24 24"
-                width="16"
-                aria-hidden="true"
-                className="ml-1 h-3 w-3"
-              >
-                <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
-                <path d="M15 3h6v6"></path>
-                <path d="M10 14L21 3"></path>
-              </svg>
-            </a>
+        <div className="bg-accent mt-auto border-t p-4">
+          <div className="mx-auto flex max-w-lg">
+            {user ? (
+              <div className="flex w-full flex-wrap items-center justify-between gap-4">
+                <div className="flex items-center gap-2">
+                  <Avatar className="size-5 rounded">
+                    <AvatarImage src={user.user_metadata.avatar_url} />
+                    <AvatarFallback className="size-5 rounded">
+                      <PiUserDuotone />
+                    </AvatarFallback>
+                  </Avatar>
+
+                  <p className="text-accent-foreground text-sm font-medium">
+                    {user.user_metadata.preferred_username ||
+                      user.user_metadata.full_name}
+                  </p>
+                </div>
+
+                <Button
+                  className="size-9"
+                  variant="secondary"
+                  aria-label="Sign out"
+                  onClick={() => signOutMutation.mutate()}
+                  disabled={signOutMutation.isPending}
+                  size="icon"
+                >
+                  {signOutMutation.isPending ? (
+                    <PiArrowClockwiseBold className="size-4 animate-spin" />
+                  ) : (
+                    <PiSignOutDuotone className="size-4" />
+                  )}
+                </Button>
+              </div>
+            ) : (
+              <div className="flex w-full flex-wrap items-center justify-center gap-2">
+                {authProviders.map(({ provider, label, mutation }) => (
+                  <Button
+                    key={provider}
+                    className="size-9"
+                    variant="secondary"
+                    aria-label={label}
+                    onClick={() => handleSignIn(provider)}
+                    disabled={mutation.isPending}
+                    size="icon"
+                  >
+                    {mutation.isPending ? (
+                      <PiArrowClockwiseBold className="size-4 animate-spin" />
+                    ) : (
+                      <Svg name={provider} className="size-4" />
+                    )}
+                  </Button>
+                ))}
+              </div>
+            )}
           </div>
         </div>
       </DrawerContent>

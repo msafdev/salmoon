@@ -45,7 +45,7 @@ const Footer = () => {
       >
         <div className="grid w-full grid-cols-1 gap-x-8 gap-y-12 md:grid-cols-3">
           <p className="text-foreground/60 col-span-full pb-4 text-center text-base md:pb-8">
-            ⊹ ࣪ ﹏𓊝﹏𓂁﹏⊹ ࣪ ˖
+            ﹏𓊝﹏𓂁﹏
           </p>
 
           <div className="text-foreground flex w-full flex-col items-center md:items-start">
@@ -106,6 +106,16 @@ const Footer = () => {
                   RSS
                 </Link>
                 <Link
+                  href={"/note"}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Note"
+                  className="anim hover:text-foreground"
+                  prefetch={false}
+                >
+                  Note
+                </Link>
+                <Link
                   href={"https://github.com/msafdev?tab=repositories&q=starter"}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -114,16 +124,6 @@ const Footer = () => {
                   prefetch={false}
                 >
                   Starter Kit
-                </Link>
-                <Link
-                  href={"/"}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Linkly"
-                  className="anim hover:text-foreground"
-                  prefetch={false}
-                >
-                  Linkly
                 </Link>
               </div>
             </div>

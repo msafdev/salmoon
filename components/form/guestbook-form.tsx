@@ -2,17 +2,15 @@
 
 import { PiArrowClockwiseBold } from "react-icons/pi";
 
-import Image from "next/image";
-
 import { User } from "@supabase/supabase-js";
+
+import { Svg } from "@/components/shared/svg";
 
 import { Button } from "@/components/ui/button";
 
 import ContentForm from "@/components/form/content-form";
 
 import authMutation from "@/mutation/auth.mutation";
-
-import { Svg } from "../shared/svg";
 
 const GuestbookForm = ({ user }: { user: User | null }) => {
   const { githubMutation, googleMutation } = authMutation();
@@ -32,9 +30,9 @@ const GuestbookForm = ({ user }: { user: User | null }) => {
 
   const handleSignIn = (provider: "github" | "google") => {
     if (provider === "github") {
-      githubMutation.mutate();
+      githubMutation.mutate({ next: "/guestbook" });
     } else if (provider === "google") {
-      googleMutation.mutate();
+      googleMutation.mutate({ next: "/guestbook" });
     }
   };
 

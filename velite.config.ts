@@ -70,7 +70,7 @@ export default defineConfig({
             light: "github-light",
           },
           keepBackground: false,
-          onVisitLine(node: { children: { type: string; value: string; }[]; }) {
+          onVisitLine(node: { children: { type: string; value: string }[] }) {
             if (node.children.length === 0) {
               node.children.push({ type: "text", value: " " });
             }

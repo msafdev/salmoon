@@ -7,7 +7,7 @@ const ActionSection = () => {
   return (
     <div className="w-full space-y-4">
       <Paragraph title="Let's connect" />
-      <div className="sm:grid-cols-5 grid w-full grid-cols-3 gap-2">
+      <div className="grid w-full grid-cols-3 gap-2 sm:grid-cols-5">
         {socialItems.map((item) => (
           <SocialCard
             key={item.name}

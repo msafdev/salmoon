@@ -6,14 +6,28 @@ type AuthResult = { data: string } | { error: string };
 
 const signInWithProvider = async (
   provider: "github" | "google",
+  next?: string,
 ): Promise<AuthResult> => {
   const supabase = createClient();
 
+  const nextPath =
+    (typeof next === "string" && next.startsWith("/") && !next.startsWith("//")
+      ? next
+      : typeof window !== "undefined"
+        ? window.location.pathname
+        : "/") || "/";
+
+  if (typeof document !== "undefined") {
+    document.cookie = `next=${encodeURIComponent(nextPath)}; Path=/; Max-Age=600; SameSite=Lax`;
+  }
+
+  const redirectTo = `${location.origin}/auth/callback?next=${encodeURIComponent(
+    nextPath,
+  )}`;
+
   const { error } = await supabase.auth.signInWithOAuth({
     provider,
-    options: {
-      redirectTo: `${location.origin}/auth/callback`,
-    },
+    options: { redirectTo },
   });
 
   if (error) {
@@ -24,8 +38,10 @@ const signInWithProvider = async (
   return { data: `Login successful` };
 };
 
-export const githubSignIn = () => signInWithProvider("github");
-export const googleSignIn = () => signInWithProvider("google");
+export const githubSignIn = (next?: string) =>
+  signInWithProvider("github", next);
+export const googleSignIn = (next?: string) =>
+  signInWithProvider("google", next);
 
 export const signOut = async (): Promise<AuthResult> => {
   const supabase = createClient();

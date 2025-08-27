@@ -9,7 +9,7 @@ import {
   transformerRemoveNotationEscape,
 } from "@shikijs/transformers";
 
-import CopyButton from "@/components/shared/copy-button";
+import Clipboard from "@/components/shared/clipboard";
 
 import { cn } from "@/lib/utils";
 import "@/styles/shiki.css";
@@ -59,7 +59,7 @@ export default async function Code({
 
       <div className="pointer-events-none absolute top-0 right-0 z-0 h-full w-6 bg-linear-to-r from-transparent to-[#f7f7f7] dark:to-[#101010]" />
 
-      <CopyButton
+      <Clipboard
         string={code}
         className="absolute top-1 right-1 size-8 sm:top-2 sm:right-2"
       />

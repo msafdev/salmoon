@@ -1,7 +1,7 @@
 import fs from "fs/promises";
 import path from "path";
 
-import { COMPONENTS } from "../lib/data";
+import { COMPONENTS } from "@/lib/data";
 
 const ROOT = process.cwd();
 const outputPath = path.join(ROOT, "lib", "component-source.json");

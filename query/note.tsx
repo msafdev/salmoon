@@ -7,7 +7,6 @@ import {
   SupabaseNote,
   generateGridPositions,
 } from "@/hooks/use-note";
-
 import { createClient } from "@/supabase/client";
 import { Note } from "@/types/note.types";
 

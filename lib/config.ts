@@ -4,7 +4,6 @@ import {
   PiDatabaseDuotone,
   PiHouseDuotone,
   PiLightningDuotone,
-  PiNoteDuotone,
 } from "react-icons/pi";
 
 export const siteItems = {
@@ -50,12 +49,6 @@ export const navItems = [
   },
   {
     id: 5,
-    label: "Note",
-    href: "/note",
-    icon: PiNoteDuotone,
-  },
-  {
-    id: 6,
     label: "Theme",
     function: "toggle-theme",
     icon: PiCircleDuotone,

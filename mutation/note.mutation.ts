@@ -1,3 +1,9 @@
+import { toast } from "sonner";
+
+import { LuBadgeCheck, LuBadgeX } from "react-icons/lu";
+
+import { createElement } from "react";
+
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 import { createClient } from "@/supabase/client";
@@ -59,11 +65,25 @@ const noteMutation = () => {
 
       return { previousNotes };
     },
-    onError: (err, newNote, context) => {
-      queryClient.setQueryData(["notes"], context?.previousNotes);
-    },
-    onSettled: () => {
+    onSuccess: () => {
+      toast("Message added successfully", {
+        duration: 2000,
+        icon: createElement(LuBadgeCheck, {
+          className: "size-5 success",
+        }),
+      });
+
       queryClient.invalidateQueries({ queryKey: ["notes"] });
+    },
+    onError: (err, newNote, context) => {
+      toast("Something went wrong", {
+        duration: 2000,
+        icon: createElement(LuBadgeX, {
+          className: "size-5 destructive",
+        }),
+      });
+
+      queryClient.setQueryData(["notes"], context?.previousNotes);
     },
   });
 

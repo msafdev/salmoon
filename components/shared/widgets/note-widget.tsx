@@ -2,9 +2,11 @@ import { PiArrowArcLeftBold } from "react-icons/pi";
 
 import Link from "next/link";
 
-import NoteDrawer from "./drawers/note-drawer";
+import { User } from "@supabase/supabase-js";
 
-const NoteNav = () => {
+import NoteDrawer from "@/components/shared/drawers/note-drawer";
+
+const NoteWidget = ({ user }: { user: User | null }) => {
   return (
     <div className="absolute top-4 left-4 z-50 space-y-4">
       <Link
@@ -15,9 +17,9 @@ const NoteNav = () => {
         <PiArrowArcLeftBold size={20} />
       </Link>
 
-      <NoteDrawer />
+      <NoteDrawer user={user} />
     </div>
   );
 };
 
-export default NoteNav;
+export default NoteWidget;

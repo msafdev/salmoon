@@ -1,16 +1,13 @@
 import {
-  PiBugDuotone,
   PiBuildingsDuotone,
   PiChatsDuotone,
   PiCheckCircleDuotone,
-  PiCircuitryDuotone,
   PiCodeDuotone,
   PiCompassToolDuotone,
   PiDatabaseDuotone,
   PiDesktopDuotone,
   PiDotDuotone,
   PiFlaskDuotone,
-  PiGitBranchDuotone,
   PiGridFourDuotone,
   PiHeartFill,
   PiLightningDuotone,
@@ -117,7 +114,7 @@ const MentorSection = () => {
         </p>
 
         {/* Features */}
-        <div className="mb-6 grid max-w-56 sm:max-w-fit gap-3 sm:grid-cols-2 md:mb-8 md:gap-4">
+        <div className="mb-6 grid max-w-56 gap-3 sm:max-w-fit sm:grid-cols-2 md:mb-8 md:gap-4">
           {mentoringItems.map((item, index) => (
             <div
               key={index}

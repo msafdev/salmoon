@@ -44,7 +44,7 @@ const SocialCard = ({
       className={cn(
         "anim group bg-muted text-muted-foreground xs:aspect-square xs:min-w-16 flex h-12 w-full flex-1 cursor-pointer items-center justify-center rounded-[2px]",
         colorVariant[name],
-        className
+        className,
       )}
       target={target}
       rel={rel}

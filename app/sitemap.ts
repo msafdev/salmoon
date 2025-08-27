@@ -20,6 +20,7 @@ export default async function sitemap() {
     "/material",
     "/personal",
     "/guestbook",
+    "/note",
     "/learn",
   ];
 

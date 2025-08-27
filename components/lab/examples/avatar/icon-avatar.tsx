@@ -6,9 +6,7 @@ export const IconAvatar = () => {
   return (
     <Avatar>
       <AvatarImage src="" alt="Error Avatar" />
-      <AvatarFallback>
-        <PiUserDuotone />
-      </AvatarFallback>
+      <AvatarFallback>a</AvatarFallback>
     </Avatar>
   );
 };
