@@ -2,8 +2,6 @@ import { posts } from "#site/content";
 
 import { Metadata } from "next";
 
-import ActionSection from "@/components/section/cta-section";
-
 import PostCard from "@/components/shared/cards/post-card";
 import TemplateCard from "@/components/shared/cards/template-card";
 import WorkCard from "@/components/shared/cards/work-card";
@@ -83,8 +81,6 @@ export default function Page() {
           ))}
         </div>
       </div>
-
-      <ActionSection />
     </SectionWrapper>
   );
 }

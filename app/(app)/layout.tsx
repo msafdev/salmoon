@@ -2,6 +2,7 @@ import dynamic from "next/dynamic";
 import NextTopLoader from "nextjs-toploader";
 
 import Dock from "@/components/shared/dock";
+import Command from "@/components/shared/command";
 
 const Footer = dynamic(() => import("@/components/shared/footer"), {
   ssr: false,
@@ -29,6 +30,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
         <Dock />
       </div>
       <Footer />
+      <Command />
     </>
   );
 }

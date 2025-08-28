@@ -21,7 +21,6 @@ export default async function sitemap() {
     "/personal",
     "/guestbook",
     "/note",
-    "/learn",
   ];
 
   const staticEntries = staticRoutes.map((route) => ({

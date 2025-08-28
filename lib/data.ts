@@ -1,6 +1,3 @@
-// Table of Contents
-import { TocItem } from "@/components/shared/toc";
-
 // Avatar
 import { BasicAvatar } from "@/components/lab/examples/avatar/basic-avatar";
 import { IconAvatar } from "@/components/lab/examples/avatar/icon-avatar";

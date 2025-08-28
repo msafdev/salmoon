@@ -1,3 +1,4 @@
+import Paragraph from "@/components/shared/paragraph";
 import Places from "@/components/shared/places";
 
 const ProfileSection = () => {
@@ -16,13 +17,16 @@ const ProfileSection = () => {
         </p>
       </div>
 
-      <p className="text-muted-foreground w-full max-w-lg pb-4 text-sm md:text-base">
-        I am a product engineer based in{" "}
-        <span className="text-foreground font-medium">Indonesia</span>,
-        specifically in Semarang. In my free time, I enjoy listening to music
-        and exploring new places.
-      </p>
-
+      <Paragraph>
+        <p>
+          I'm a product engineer from{" "}
+          <span className="text-foreground font-medium">
+            Semarang, Indonesia
+          </span>
+          . A sucker for minimalist design. In my free time, I love exploring
+          new places and diving into alternative music.
+        </p>
+      </Paragraph>
       <Places />
     </div>
   );

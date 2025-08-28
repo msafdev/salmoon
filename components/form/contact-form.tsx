@@ -164,7 +164,7 @@ const ContactForm = () => {
                     onClick={() =>
                       formik.setFieldValue("user_type", type.value)
                     }
-                    className={`anim ring-ring/40 flex w-full flex-col justify-center rounded p-3 ring-0 outline-hidden focus-visible:ring-2 focus-visible:ring-offset-2 ${
+                    className={`anim ring-ring/40 flex w-full cursor-pointer flex-col justify-center rounded p-3 ring-0 outline-hidden focus-visible:ring-2 focus-visible:ring-offset-2 ${
                       formik.values.user_type === type.value
                         ? "bg-primary text-primary-foreground"
                         : "bg-accent"
@@ -234,7 +234,7 @@ const ContactForm = () => {
                     key={type.label}
                     type="button"
                     onClick={toggleSelection}
-                    className={`anim ring-ring/40 flex w-full items-center gap-x-3 rounded px-3 py-4 ring-0 outline-hidden focus-visible:ring-2 focus-visible:ring-offset-2 ${
+                    className={`anim ring-ring/40 flex w-full cursor-pointer items-center gap-x-3 rounded px-3 py-4 ring-0 outline-hidden focus-visible:ring-2 focus-visible:ring-offset-2 ${
                       isSelected
                         ? "bg-primary text-primary-foreground"
                         : "bg-accent"

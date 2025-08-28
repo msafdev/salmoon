@@ -202,7 +202,7 @@ export const workItems = [
   },
   {
     title: "Frontend Developer",
-    company: "Fndigitalcode",
+    company: "FN Digital",
     duration: "Oct 23 - Apr 24",
   },
   {

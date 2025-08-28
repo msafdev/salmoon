@@ -1,6 +1,22 @@
 import { Post } from "#site/content";
 import { slug } from "github-slugger";
 
+export type PostSimplified = {
+  slug: string;
+  title: string;
+  description?: string;
+  image?: string;
+};
+
+export function simplifyPosts(all: Array<Post>): Array<PostSimplified> {
+  return all.map((p) => ({
+    slug: p.slug,
+    title: p.title,
+    description: p.description,
+    image: (p as any).image,
+  }));
+}
+
 export function sortPosts(posts: Array<Post>) {
   return posts
     .filter((post) => post.published)
