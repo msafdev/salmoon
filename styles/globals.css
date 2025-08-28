@@ -280,6 +280,11 @@
 }
 
 @layer components {
+  button,
+  a {
+    @apply focus-visible:ring-ring/40 ring-offset-background focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-hidden;
+  }
+
   ::selection {
     background: hsl(var(--accent));
     color: hsl(var(--tertiary));
