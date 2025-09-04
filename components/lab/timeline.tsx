@@ -22,13 +22,9 @@ type TimelineContextValue = {
   orientation: "horizontal" | "vertical";
 };
 
-const TimelineContext = createContext<TimelineContextValue | null>(null);
-
-const useTimeline = () => {
-  const ctx = useContext(TimelineContext);
-  if (!ctx) throw new Error("useTimeline must be used within a Timeline");
-  return ctx;
-};
+interface TimelineDateProps extends React.HTMLAttributes<HTMLTimeElement> {
+  asChild?: boolean;
+}
 
 interface TimelineProps extends HTMLMotionProps<"div"> {
   defaultValue?: number;
@@ -36,6 +32,24 @@ interface TimelineProps extends HTMLMotionProps<"div"> {
   onValueChange?: (val: number) => void;
   orientation?: "horizontal" | "vertical";
 }
+
+interface TimelineIndicatorProps extends HTMLMotionProps<"div"> {}
+
+interface TimelineItemProps extends HTMLMotionProps<"div"> {
+  step: number;
+}
+
+interface TimelineSeparatorProps extends HTMLMotionProps<"div"> {
+  variant?: "solid" | "dashed" | "dotted";
+}
+
+const TimelineContext = createContext<TimelineContextValue | null>(null);
+
+const useTimeline = () => {
+  const ctx = useContext(TimelineContext);
+  if (!ctx) throw new Error("useTimeline must be used within a Timeline");
+  return ctx;
+};
 
 const Timeline = ({
   defaultValue = 1,
@@ -98,10 +112,6 @@ const TimelineContent = ({ className, ...rest }: HTMLMotionProps<"div">) => {
   );
 };
 
-interface TimelineDateProps extends React.HTMLAttributes<HTMLTimeElement> {
-  asChild?: boolean;
-}
-
 const TimelineDate = ({
   asChild = false,
   className,
@@ -135,8 +145,6 @@ const TimelineHeader = ({
   <div data-slot="timeline-header" className={cn(className)} {...rest} />
 );
 
-interface TimelineIndicatorProps extends HTMLMotionProps<"div"> {}
-
 const TimelineIndicator = ({
   className,
   children,
@@ -165,10 +173,6 @@ const TimelineIndicator = ({
     </motion.div>
   );
 };
-
-interface TimelineItemProps extends HTMLMotionProps<"div"> {
-  step: number;
-}
 
 const TimelineItem = ({
   step,
@@ -221,10 +225,6 @@ const TimelineItem = ({
     </motion.div>
   );
 };
-
-interface TimelineSeparatorProps extends HTMLMotionProps<"div"> {
-  variant?: "solid" | "dashed" | "dotted";
-}
 
 const TimelineSeparator = ({
   className,

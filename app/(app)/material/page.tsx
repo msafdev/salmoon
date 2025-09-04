@@ -5,7 +5,6 @@ import React from "react";
 import { Metadata } from "next";
 import Link from "next/link";
 
-import { Icon } from "@/components/shared/icon";
 import Paragraph from "@/components/shared/paragraph";
 import { Svg } from "@/components/shared/svg";
 

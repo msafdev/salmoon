@@ -43,6 +43,10 @@ import { VerticalTimeline } from "@/components/lab/examples/timeline/vertical-ti
 import { AdvancedToolbar } from "@/components/lab/examples/toolbar/advanced-toolbar";
 import { BasicToolbar } from "@/components/lab/examples/toolbar/basic-toolbar";
 import { DynamicToolbar } from "@/components/lab/examples/toolbar/dynamic-toolbar";
+// Tree
+import { DefaultTree } from "@/components/lab/examples/tree/default-tree";
+import { IconTree } from "@/components/lab/examples/tree/icon-tree";
+import { LinedTree } from "@/components/lab/examples/tree/lined-tree";
 
 export type ComponentType = {
   name: string;
@@ -69,7 +73,7 @@ export const COMPONENTS: ComponentType[] = [
     slug: "stagger",
     primitive: true,
     description:
-      "Orchestrate animations with staggered timing for smooth sequential motion.",
+      "Orchestrate staggered entrances for lists or groups with per-item delays and direction control.",
     example: [
       {
         child: BasicAnimation,
@@ -90,7 +94,7 @@ export const COMPONENTS: ComponentType[] = [
     slug: "badge",
     primitive: false,
     description:
-      "Compact visual indicators for statuses, categories, or actions.",
+      "Compact, themeable indicators for status, category, or quick actions. Supports icons and variants.",
     example: [
       { child: BasicBadge, name: "Basic Badge", path: "basic-badge" },
       { child: IconBadge, name: "Icon Badge", path: "icon-badge" },
@@ -109,7 +113,8 @@ export const COMPONENTS: ComponentType[] = [
     name: "Avatar",
     slug: "avatar",
     primitive: false,
-    description: "Display user identity with images, initials, or icons.",
+    description:
+      "Display user identity with images, fallbacks, badges, and stacked groups.",
     example: [
       { child: BasicAvatar, name: "Basic Avatar", path: "basic-avatar" },
       { child: StatusAvatar, name: "Status Avatar", path: "status-avatar" },
@@ -125,7 +130,7 @@ export const COMPONENTS: ComponentType[] = [
     slug: "toolbar",
     primitive: true,
     description:
-      "Flexible toolbar component with animated layout transitions and mode switching.",
+      "Flexible toolbar with animated layout transitions and mode switching.",
     example: [
       { child: BasicToolbar, name: "Basic Toolbar", path: "basic-toolbar" },
       {
@@ -148,7 +153,7 @@ export const COMPONENTS: ComponentType[] = [
     slug: "input",
     primitive: false,
     description:
-      "Enhanced form inputs including password, float, number, and OTP fields.",
+      "Accessible input set (password, float, number, OTP) with validation and clear affordances.",
     example: [
       { child: BasicInput, name: "Basic Input", path: "basic-input" },
       { child: NoteInput, name: "Note Input", path: "note-input" },
@@ -167,7 +172,7 @@ export const COMPONENTS: ComponentType[] = [
     slug: "select",
     primitive: false,
     description:
-      "Advanced select components with grouping, avatars, and dynamic options.",
+      "Shadcn select with grouping, avatars, async or dynamic sources, and full keyboard navigation.",
     example: [
       { child: BasicSelect, name: "Basic Select", path: "basic-select" },
       { child: GroupedSelect, name: "Grouped Select", path: "grouped-select" },
@@ -182,7 +187,7 @@ export const COMPONENTS: ComponentType[] = [
     slug: "cursor",
     primitive: true,
     description:
-      "Create custom animated cursors with interactive motion effects.",
+      "Animated cursors that react to target refs using springs and custom icons.",
     example: [
       { child: BasicCursor, name: "Basic Cursor", path: "basic-cursor" },
       {
@@ -200,7 +205,7 @@ export const COMPONENTS: ComponentType[] = [
     slug: "file",
     primitive: false,
     description:
-      "Flexible file upload components with avatar and multiple file support.",
+      "File upload primitives with avatar drop zones, multi-file queues, drag & drop, and previews.",
     example: [
       { child: BasicFile, name: "Basic File", path: "basic-file" },
       { child: AvatarFile, name: "Avatar File", path: "avatar-file" },
@@ -216,7 +221,7 @@ export const COMPONENTS: ComponentType[] = [
     slug: "loader",
     primitive: true,
     description:
-      "Animated loaders including text shimmer, wave, hourglass, and icons.",
+      "Lightweight animated loaders with multiple variations and minimal configuration.",
     example: [
       { child: IconLoader, name: "Icon Loader", path: "icon-loader" },
       { child: TextLoader, name: "Text Loader", path: "text-loader" },
@@ -269,7 +274,8 @@ export const COMPONENTS: ComponentType[] = [
     name: "Timeline",
     slug: "timeline",
     primitive: true,
-    description: "Timeline with proper lines, variations, and asChild support.",
+    description:
+      "Simple timeline with clean connectors, multiple variants, and asChild support for custom elements.",
     example: [
       {
         child: VerticalTimeline,
@@ -289,5 +295,19 @@ export const COMPONENTS: ComponentType[] = [
     ],
     gridClass: "large-card",
     uiLibrary: "npm install @radix-ui/react-slot",
+  },
+  {
+    name: "Tree",
+    slug: "tree",
+    primitive: true,
+    description:
+      "Composable file tree component with customizable icons and multiple line variants.",
+    example: [
+      { child: DefaultTree, name: "Default Tree", path: "default-tree" },
+      { child: IconTree, name: "Icon Tree", path: "icon-tree" },
+      { child: LinedTree, name: "Lined Tree", path: "lined-tree" },
+    ],
+    thumbnail: 0,
+    gridClass: "large-card",
   },
 ];
