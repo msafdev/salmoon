@@ -18,12 +18,12 @@ const GuestbookForm = ({ user }: { user: User | null }) => {
   const authProviders = [
     {
       provider: "github" as const,
-      label: "Sign in with GitHub",
+      label: "Login with GitHub",
       mutation: githubMutation,
     },
     {
       provider: "google" as const,
-      label: "Sign in with Google",
+      label: "Login with Google",
       mutation: googleMutation,
     },
   ];

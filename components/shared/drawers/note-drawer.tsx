@@ -31,12 +31,12 @@ export default function NoteDrawer({ user }: { user: User | null }) {
   const authProviders = [
     {
       provider: "github" as const,
-      label: "Sign in with GitHub",
+      label: "Login with GitHub",
       mutation: githubMutation,
     },
     {
       provider: "google" as const,
-      label: "Sign in with Google",
+      label: "Login with Google",
       mutation: googleMutation,
     },
   ];
@@ -95,7 +95,7 @@ export default function NoteDrawer({ user }: { user: User | null }) {
                 <Button
                   className="size-9"
                   variant="secondary"
-                  aria-label="Sign out"
+                  aria-label="Logout"
                   onClick={() => signOutMutation.mutate()}
                   disabled={signOutMutation.isPending}
                   size="icon"
@@ -134,3 +134,4 @@ export default function NoteDrawer({ user }: { user: User | null }) {
     </Drawer>
   );
 }
+

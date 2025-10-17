@@ -1,22 +1,8 @@
 import { PiAsteriskBold } from "react-icons/pi";
 
-import { Tilt } from "@/components/ui/tilt";
-
 const CreditCard = () => {
   return (
-    <Tilt
-      rotationFactor={6}
-      isRevese
-      style={{
-        transformOrigin: "center center",
-      }}
-      springOptions={{
-        stiffness: 12.7,
-        damping: 1.1,
-        mass: 0.4,
-      }}
-      className="flex aspect-[1.586/1] w-full max-w-64 cursor-default flex-col rounded-lg bg-linear-to-br from-zinc-700 from-20% via-rose-500 via-80% to-orange-400 p-3 shadow-xs dark:from-zinc-200 dark:via-violet-500 dark:to-purple-800"
-    >
+    <div className="flex aspect-[1.586/1] w-full max-w-64 cursor-default flex-col rounded-lg bg-linear-to-br from-zinc-700 from-20% via-rose-500 via-80% to-orange-400 p-3 shadow-xs transition-transform duration-300 hover:-translate-y-1 dark:from-zinc-200 dark:via-violet-500 dark:to-purple-800">
       <div className="flex w-full items-center justify-between">
         <PiAsteriskBold className="text-primary-foreground size-5 text-orange-600 dark:text-violet-600" />
         <Visa />
@@ -36,7 +22,7 @@ const CreditCard = () => {
           09/25
         </p>
       </div>
-    </Tilt>
+    </div>
   );
 };
 

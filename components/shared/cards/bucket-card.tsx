@@ -10,6 +10,7 @@ type BucketCardProps = {
   index: number;
   title: string;
   description?: string;
+  year?: number;
   done: boolean;
 };
 
@@ -26,7 +27,13 @@ const containerVariants: Variants = {
   }),
 };
 
-const BucketCard = ({ index, title, description, done }: BucketCardProps) => {
+const BucketCard = ({
+  index,
+  title,
+  description,
+  year,
+  done,
+}: BucketCardProps) => {
   return (
     <motion.div
       custom={index}
@@ -56,8 +63,15 @@ const BucketCard = ({ index, title, description, done }: BucketCardProps) => {
             {title}
           </h3>
         </div>
-        {description && (
-          <p className="text-muted-foreground line-clamp-1 text-sm">
+        {(year !== undefined || description) && (
+          <p
+            className={cn(
+              "line-clamp-1 text-sm font-medium",
+              done ? "text-foreground" : "text-muted-foreground",
+            )}
+          >
+            {year !== undefined && year}
+            {year !== undefined && description && ", "}
             {description}
           </p>
         )}

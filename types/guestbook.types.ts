@@ -13,5 +13,5 @@ export type GuestbookWithUser = {
 };
 
 export type GuestbookWithReplies = GuestbookWithUser & {
-  replies?: GuestbookWithUser[];
+  replies: GuestbookWithUser[];
 };

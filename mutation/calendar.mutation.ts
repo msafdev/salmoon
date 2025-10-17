@@ -1,52 +1,33 @@
 "use client";
 
-import { toast } from "sonner";
-
-import { LuBadgeCheck, LuBadgeX } from "react-icons/lu";
-
-import { createElement } from "react";
-
 import { useRouter } from "next/navigation";
 
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 import { createMeeting } from "@/action/calendar";
+import { hasActionError, showMutationToast } from "@/mutation/mutation.utils";
 import { Contact } from "@/types/contact.types";
+
+type CalendarResult = Awaited<ReturnType<typeof createMeeting>>;
 
 const calendarMutation = () => {
   const router = useRouter();
   const queryClient = useQueryClient();
 
-  const addCalendarMutation = useMutation({
-    mutationFn: async (contact: Contact) => createMeeting(contact),
+  const addCalendarMutation = useMutation<CalendarResult, unknown, Contact>({
+    mutationFn: (contact: Contact) => createMeeting(contact),
     onSuccess: (response) => {
-      if (response?.error) {
-        toast("Something went wrong", {
-          duration: 2000,
-          icon: createElement(LuBadgeX, {
-            className: "size-5 destructive",
-          }),
-        });
-      } else if (response?.data) {
-        router.push("/contact/success");
-
-        toast("Meet booked successfully", {
-          duration: 2000,
-          icon: createElement(LuBadgeCheck, {
-            className: "size-5 success",
-          }),
-        });
-
-        queryClient.invalidateQueries({ queryKey: ["meetings"] });
+      if (hasActionError(response)) {
+        showMutationToast(response?.error ?? "Something went wrong", "error");
+        return;
       }
+
+      router.push("/contact/success");
+      showMutationToast("Meet booked successfully", "success");
+      queryClient.invalidateQueries({ queryKey: ["meetings"] });
     },
     onError: () => {
-      toast("Something went wrong", {
-        duration: 2000,
-        icon: createElement(LuBadgeX, {
-          className: "size-5 destructive",
-        }),
-      });
+      showMutationToast("Something went wrong", "error");
     },
   });
 

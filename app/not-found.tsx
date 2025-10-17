@@ -8,12 +8,12 @@ import Line from "@/public/static/line.webp";
 const NotFound = () => {
   return (
     <div className="m-auto grid min-h-svh w-fit place-items-center gap-2 px-4 font-mono text-xs font-medium sm:text-sm">
-      <Scribble className="text-center text-2xl">
+      <Scribble className="text-muted-foreground text-center text-2xl">
         Nothing here,{" "}
         <Link
           href="/"
           aria-label="Go back home"
-          className="relative cursor-pointer"
+          className="text-foreground relative cursor-pointer"
         >
           go back
           <Image

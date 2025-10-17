@@ -307,22 +307,25 @@ export const bookmarkItems = [
 export const bucketItems = [
   {
     title: "Cook something new",
-    description: "2025, Learned to cook soto betawi.",
+    year: 2025,
+    description: "Learned to cook soto betawi.",
+    done: true,
+  },
+  {
+    title: "Travel alone",
+    year: 2025,
+    description: "Traveled to Bali alone.",
     done: true,
   },
   {
     title: "Go hiking",
-    description: "2024, Hiked and camped at Mount Semeru.",
+    year: 2024,
+    description: "Hiked and camped at Mount Semeru.",
     done: true,
   },
   {
     title: "Speak at a conference",
     done: false,
-  },
-  {
-    title: "Travel alone",
-    description: "2025, Traveled to Bali alone.",
-    done: true,
   },
   {
     title: "Volunteer for a cause",

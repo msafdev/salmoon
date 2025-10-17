@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Label } from "@/components/ui/label";
 import {
   Select,
@@ -45,11 +46,13 @@ export const AvatarSelect = () => {
                 className="h-9 pl-2 [&>span]:right-2 [&>span]:left-auto"
               >
                 <div className="flex items-center justify-start gap-2">
-                  <img
+                  <Image
                     src={item.avatarUrl}
-                    aria-label={`Select ${item.name}`}
-                    className="size-6 rounded"
-                    aria-hidden={true}
+                    alt={`${item.name} avatar`}
+                    width={24}
+                    height={24}
+                    className="rounded"
+                    unoptimized
                   />
 
                   <span className="">{item.name}</span>
@@ -62,3 +65,6 @@ export const AvatarSelect = () => {
     </div>
   );
 };
+
+
+

@@ -3,11 +3,7 @@
 import { useInView } from "motion/react";
 import { toast } from "sonner";
 
-import {
-  PiArrowUpBold,
-  PiAtBold,
-  PiAtDuotone,
-} from "react-icons/pi";
+import { PiArrowUpBold, PiAtBold, PiAtDuotone } from "react-icons/pi";
 
 import { useRef } from "react";
 
@@ -55,7 +51,7 @@ const Footer = () => {
 
             <div className="flex flex-row items-center gap-x-6 gap-y-2 text-sm md:flex-col md:items-start">
               <button
-                className="anim text-foreground hover:text-foreground/80 cursor-pointer"
+                className="anim text-foreground hover:text-foreground/80 cursor-pointer font-medium"
                 aria-label="Back on top"
                 onClick={scrollToTop}
               >
@@ -63,7 +59,7 @@ const Footer = () => {
                 top
               </button>
               <button
-                className="anim text-foreground hover:text-foreground/80 cursor-pointer"
+                className="anim text-foreground hover:text-foreground/80 cursor-pointer font-medium"
                 aria-label="Copy my email"
                 onClick={() => {
                   copyToClipboard("salmanalfarisi261002@gmail.com");

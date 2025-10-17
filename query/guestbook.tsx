@@ -9,88 +9,105 @@ import {
   UserProfile,
 } from "@/types/guestbook.types";
 
+type GuestbookRow = {
+  id: number | string;
+  content: string;
+  created_at: string;
+  user_id: string | null;
+  parent_id: number | string | null;
+};
+
+const GUESTBOOK_FIELDS = "id, content, created_at, user_id, parent_id";
+const PROFILE_FIELDS = "id, name, avatar_url";
+
+const buildUserMap = (users: UserProfile[] | null) => {
+  if (!users?.length) return {} as Record<string, UserProfile>;
+
+  return users.reduce<Record<string, UserProfile>>((acc, user) => {
+    acc[user.id] = user;
+    return acc;
+  }, {});
+};
+
+const mapGuestbookEntry = (
+  entry: GuestbookRow,
+  userMap: Record<string, UserProfile>,
+): GuestbookWithUser => ({
+  id: String(entry.id),
+  content: entry.content,
+  created_at: entry.created_at,
+  user: entry.user_id ? userMap[entry.user_id] ?? null : null,
+  parent_id: entry.parent_id ? String(entry.parent_id) : null,
+});
+
+const attachReplies = (
+  entries: GuestbookWithUser[],
+): GuestbookWithReplies[] => {
+  const parents = new Map<string, GuestbookWithReplies>();
+  const replies: GuestbookWithUser[] = [];
+
+  for (const entry of entries) {
+    if (!entry.parent_id) {
+      parents.set(entry.id, { ...entry, replies: [] });
+      continue;
+    }
+
+    replies.push(entry);
+  }
+
+  if (!parents.size) return [];
+
+  for (const reply of replies) {
+    const parent = parents.get(reply.parent_id!);
+    if (!parent) continue;
+
+    parent.replies.push(reply);
+  }
+
+  for (const parent of parents.values()) {
+    if (parent.replies.length > 1) {
+      parent.replies.sort((a, b) => a.created_at.localeCompare(b.created_at));
+    }
+  }
+
+  return Array.from(parents.values());
+};
+
 const fetchGuestbook = async (): Promise<GuestbookWithReplies[]> => {
   const supabase = createClient();
-  const { data: guestbook, error: guestbookError } = await supabase
+  const { data, error } = await supabase
     .from("guestbook")
-    .select("*")
+    .select(GUESTBOOK_FIELDS)
     .order("created_at", { ascending: false })
     .limit(50);
 
-  if (guestbookError) throw guestbookError;
-  if (!guestbook?.length) return [];
+  if (error) throw error;
+  if (!data?.length) return [];
 
-  const userIds: string[] = Array.from(
+  const userIds = Array.from(
     new Set(
-      guestbook
+      (data as GuestbookRow[])
         .map((item) => item.user_id)
         .filter((id): id is string => Boolean(id)),
     ),
   );
 
-  if (!userIds || userIds.length === 0) {
-    return guestbook.map((item) => ({
-      id: String(item.id),
-      content: item.content,
-      created_at: item.created_at,
-      user: null,
-      parent_id: item.parent_id ? String(item.parent_id) : null,
-      replies: [],
-    }));
+  let userMap: Record<string, UserProfile> = {};
+  if (userIds.length) {
+    const { data: users, error: profileError } = await supabase
+      .from("profile")
+      .select(PROFILE_FIELDS)
+      .in("id", userIds);
+
+    if (profileError) throw profileError;
+    userMap = buildUserMap(users ?? []);
   }
 
-  const { data: users, error: usersError } = await supabase
-    .from("profile")
-    .select("id, name, avatar_url")
-    .in("id", userIds);
+  const enriched = (data as GuestbookRow[]).map((entry) =>
+    mapGuestbookEntry(entry, userMap),
+  );
 
-  if (usersError) throw usersError;
-
-  const userMap =
-    users?.reduce(
-      (acc, user) => ({ ...acc, [user.id]: user }),
-      {} as Record<string, UserProfile>,
-    ) || {};
-
-  const guestbookWithUsers: GuestbookWithUser[] = guestbook.map((item) => ({
-    id: String(item.id),
-    content: item.content,
-    created_at: item.created_at,
-    user: item.user_id ? userMap[item.user_id] || null : null,
-    parent_id: item.parent_id ? String(item.parent_id) : null,
-  }));
-
-  const parentComments: GuestbookWithReplies[] = [];
-  const replies: GuestbookWithUser[] = [];
-
-  guestbookWithUsers.forEach((item) => {
-    if (item.parent_id) {
-      replies.push(item);
-    } else {
-      parentComments.push({ ...item, replies: [] });
-    }
-  });
-
-  replies.forEach((reply) => {
-    const parentComment = parentComments.find(
-      (parent) => parent.id === reply.parent_id,
-    );
-    if (parentComment) {
-      parentComment.replies = parentComment.replies || [];
-      parentComment.replies.push(reply);
-    }
-  });
-
-  parentComments.forEach((parent) => {
-    if (parent.replies && parent.replies.length > 0) {
-      parent.replies.sort(
-        (a, b) =>
-          new Date(a.created_at).getTime() - new Date(b.created_at).getTime(),
-      );
-    }
-  });
-
-  return parentComments;
+  return attachReplies(enriched);
 };
 
 export const useGuestbook = () => {

@@ -6,6 +6,8 @@ import {
   PiXCircleFill,
 } from "react-icons/pi";
 
+import Image from "next/image";
+
 import { useFile } from "@/hooks/use-file";
 import { cn } from "@/lib/utils";
 
@@ -60,10 +62,13 @@ export const AvatarFile = () => {
 
         {previewUrl ? (
           <div className="absolute inset-0 size-full">
-            <img
+            <Image
               src={previewUrl}
               alt={files[0]?.name || "Uploaded image"}
-              className="size-full object-cover"
+              fill
+              sizes="(max-width: 64px) 100vw, 64px"
+              className="object-cover"
+              unoptimized
             />
           </div>
         ) : errors.length > 0 ? (
@@ -86,3 +91,6 @@ export const AvatarFile = () => {
     </div>
   );
 };
+
+
+

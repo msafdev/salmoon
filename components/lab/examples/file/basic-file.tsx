@@ -6,6 +6,8 @@ import {
   PiTrashDuotone,
 } from "react-icons/pi";
 
+import Image from "next/image";
+
 import { useFile } from "@/hooks/use-file";
 import { cn } from "@/lib/utils";
 
@@ -57,10 +59,13 @@ export const BasicFile = () => {
 
         {previewUrl ? (
           <div className="absolute inset-0 size-full">
-            <img
+            <Image
               src={previewUrl}
               alt={files[0]?.name || "Uploaded image"}
-              className="size-full object-cover"
+              fill
+              sizes="(max-width: 384px) 100vw, 384px"
+              className="object-cover"
+              unoptimized
             />
           </div>
         ) : (
@@ -100,3 +105,6 @@ export const BasicFile = () => {
     </div>
   );
 };
+
+
+

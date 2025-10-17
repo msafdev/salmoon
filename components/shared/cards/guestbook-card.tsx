@@ -77,7 +77,6 @@ const UserAvatar = ({ user, size = "md" }: UserAvatarProps) => {
 
 const GuestbookCard = ({ user, entry, index }: GuestbookCardProps) => {
   const delay = index * 0.05;
-
   return (
     <motion.article
       initial={{ opacity: 0, filter: "blur(6px)" }}
@@ -101,8 +100,8 @@ const GuestbookEntry = ({ user, entry }: GuestbookEntryProps) => {
   const [showReplyForm, setShowReplyForm] = useState(false);
   const [showReplies, setShowReplies] = useState(false);
 
-  const hasReplies = entry.replies && entry.replies.length > 0;
-  const replyCount = entry.replies?.length || 0;
+  const hasReplies = entry.replies.length > 0;
+  const replyCount = entry.replies.length;
   const replyText = replyCount === 1 ? "reply" : "replies";
 
   const handleReplyClick = () => {
@@ -181,7 +180,7 @@ const GuestbookEntry = ({ user, entry }: GuestbookEntryProps) => {
       {hasReplies && showReplies && (
         <div className="mt-4 ml-12">
           <div className="space-y-3">
-            {entry.replies!.map((reply) => (
+            {entry.replies.map((reply) => (
               <GuestbookReply key={reply.id} reply={reply} />
             ))}
           </div>

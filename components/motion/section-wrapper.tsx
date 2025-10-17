@@ -1,114 +1,40 @@
-"use client";
-
-import { easeInOut, motion } from "motion/react";
-
 import clsx from "clsx";
-import { Children, type ReactNode, useMemo } from "react";
+import { Children, type ReactNode } from "react";
 
 interface SectionWrapperProps {
   children: ReactNode;
   className?: string;
-  staggerDelay?: number;
-  duration?: number;
   id?: string;
+  itemClassName?: string;
 }
 
-const DISABLE_ANIMATION = process.env.NEXT_PUBLIC_DISABLE_ANIMATION === "true";
+const DEFAULT_SECTION_CLASS = "flex h-auto w-full grow flex-col";
+const DEFAULT_ITEM_CLASS = "flex w-full max-w-lg flex-col items-center";
 
 const SectionWrapper = ({
   id,
   children,
-  className = "flex h-auto w-full grow flex-col",
-  staggerDelay = 0.2,
-  duration = 0.4,
+  className,
+  itemClassName,
 }: SectionWrapperProps) => {
   const childrenArray = Children.toArray(children);
-  const isMultipleChildren = childrenArray.length > 1;
 
-  const sharedVariants = useMemo(
-    () => ({
-      initial: {
-        opacity: DISABLE_ANIMATION ? 1 : 0,
-        filter: DISABLE_ANIMATION ? "none" : "blur(4px)",
-      },
-      animate: {
-        opacity: 1,
-        filter: "blur(0px)",
-        transition: DISABLE_ANIMATION
-          ? { duration: 0 }
-          : {
-              ease: easeInOut,
-              duration: duration,
-            },
-      },
-      exit: {
-        opacity: DISABLE_ANIMATION ? 1 : 0,
-        filter: DISABLE_ANIMATION ? "none" : "blur(4px)",
-        transition: DISABLE_ANIMATION
-          ? { duration: 0 }
-          : {
-              ease: easeInOut,
-              duration: duration * 0.3,
-            },
-      },
-    }),
-    [duration],
-  );
-
-  const containerVariants = useMemo(
-    () => ({
-      initial: {},
-      animate: {
-        transition: DISABLE_ANIMATION
-          ? { duration: 0 }
-          : { staggerChildren: staggerDelay },
-      },
-      exit: {
-        transition: DISABLE_ANIMATION
-          ? { duration: 0 }
-          : {
-              staggerChildren: staggerDelay,
-              staggerDirection: -1,
-            },
-      },
-    }),
-    [staggerDelay],
-  );
-
-  if (!isMultipleChildren) {
+  if (childrenArray.length <= 1) {
     return (
-      <motion.section
-        initial="initial"
-        animate="animate"
-        exit="exit"
-        variants={sharedVariants}
-        className={className}
-        id={id}
-      >
+      <section id={id} className={clsx(DEFAULT_SECTION_CLASS, className)}>
         {children}
-      </motion.section>
+      </section>
     );
   }
 
   return (
-    <motion.section
-      initial="initial"
-      animate="animate"
-      exit="exit"
-      variants={containerVariants}
-      className={className}
-      id={id}
-    >
+    <section id={id} className={clsx(DEFAULT_SECTION_CLASS, className)}>
       {childrenArray.map((child, index) => (
-        <motion.div
-          key={index}
-          variants={sharedVariants}
-          className="flex w-full max-w-lg flex-col items-center"
-        >
+        <div key={index} className={clsx(DEFAULT_ITEM_CLASS, itemClassName)}>
           {child}
-        </motion.div>
+        </div>
       ))}
-    </motion.section>
+    </section>
   );
 };
 

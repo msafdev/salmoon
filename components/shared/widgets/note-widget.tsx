@@ -1,10 +1,15 @@
+"use client";
+
 import { PiArrowArcLeftBold } from "react-icons/pi";
 
+import dynamic from "next/dynamic";
 import Link from "next/link";
 
 import { User } from "@supabase/supabase-js";
 
-import NoteDrawer from "@/components/shared/drawers/note-drawer";
+const NoteDrawer = dynamic(() => import("@/components/shared/drawers/note-drawer"), {
+  ssr: false,
+});
 
 const NoteWidget = ({ user }: { user: User | null }) => {
   return (
