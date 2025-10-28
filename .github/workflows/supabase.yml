@@ -18,7 +18,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: "18" # Use Node.js 18
+          node-version: "20" # Use Node.js 18
 
       # Step 3: Install Supabase Client
       - name: Install Supabase Client
