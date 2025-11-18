@@ -12,17 +12,17 @@ jobs:
     steps:
       # Step 1: Checkout the repository
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       # Step 2: Set up Node.js
       - name: Set up Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: "20" # Use Node.js 18
+          node-version: "20"
 
       # Step 3: Install Supabase Client
       - name: Install Supabase Client
-        run: npm install @supabase/supabase-js --force
+        run: npm install --no-save @supabase/supabase-js
 
       # Step 4: Ping Supabase
       - name: Ping Supabase
@@ -30,29 +30,26 @@ jobs:
           SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }} # Supabase project URL
           SUPABASE_KEY: ${{ secrets.NEXT_SERVICE_ROLE_KEY }} # Supabase service role key
         run: |
-          node -e "
-          (async () => {
-            try {
-              // Debugging: Log environment variables (optional)
-              console.log('Supabase URL:', process.env.SUPABASE_URL);
-              console.log('Supabase Key:', process.env.SUPABASE_KEY);
+          node --input-type=module <<'EOF'
+          import { createClient } from '@supabase/supabase-js';
 
-              // Import Supabase client
-              const { createClient } = require('@supabase/supabase-js');
-              const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_KEY);
+          const supabaseUrl = process.env.SUPABASE_URL;
+          const supabaseKey = process.env.SUPABASE_KEY;
 
-              // Ping Supabase by querying a table (e.g., 'guestbook')
-              const { data, error } = await supabase.from('guestbook').select('*').limit(5);
+          if (!supabaseUrl || !supabaseKey) {
+            console.error('Missing SUPABASE_URL or SUPABASE_KEY');
+            process.exit(1);
+          }
 
-              // Handle errors
-              if (error) throw error;
+          const supabase = createClient(supabaseUrl, supabaseKey);
 
-              // Log success
-              console.log('Ping successful:', data);
-            } catch (err) {
-              // Log and exit with error
-              console.error('Error pinging Supabase:', err.message);
-              process.exit(1);
-            }
-          })();
-          "
+          // Light-weight select to keep the project warm.
+          const { error } = await supabase.from('guestbook').select('id').limit(1);
+
+          if (error) {
+            console.error('Error pinging Supabase:', error.message);
+            process.exit(1);
+          }
+
+          console.log('Ping successful');
+          EOF
