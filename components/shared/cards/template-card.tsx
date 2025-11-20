@@ -1,25 +1,38 @@
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 
+type TemplateCardProps = {
+  slug: string;
+  title: string;
+  image: StaticImageData;
+  github?: string;
+  demo?: string;
+  detail?: boolean;
+};
+
 const TemplateCard = ({
+  slug,
   title,
   demo,
   image,
   github,
-}: {
-  title: string;
-  demo?: string;
-  github: string;
-  image: StaticImageData;
-}) => {
+  detail,
+}: TemplateCardProps) => {
+  const hasDetailPage = Boolean(detail);
+  const externalHref = demo ?? github;
+  const href = hasDetailPage ? `/project/${slug}` : externalHref ?? "#";
+  const ariaLabel = hasDetailPage
+    ? `Read more about ${title}`
+    : `Visit ${title} ${demo ? "demo" : "repository"}`;
+
   return (
     <Link
-      href={demo ? demo : github}
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label={`Go to ${title} demo`}
+      href={href}
+      target={hasDetailPage ? undefined : "_blank"}
+      rel={hasDetailPage ? undefined : "noopener noreferrer"}
+      aria-label={ariaLabel}
       className="group/card w-full space-y-1.5"
-      prefetch={false}
+      prefetch={hasDetailPage ? true : false}
     >
       <div className="bg-muted overflow-hidden rounded-[2px]">
         <Image

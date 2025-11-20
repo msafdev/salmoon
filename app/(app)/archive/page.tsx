@@ -9,7 +9,7 @@ import Paragraph from "@/components/shared/paragraph";
 
 import SectionWrapper from "@/components/motion/section-wrapper";
 
-import { templateItems } from "@/lib/assets";
+import { projectItems } from "@/lib/assets";
 import { workItems } from "@/lib/constants";
 import { getFeaturedPosts } from "@/velite/post";
 
@@ -76,7 +76,7 @@ export default function Page() {
       <div className="w-full space-y-4">
         <Paragraph title="Side projects" />
         <div className="xs:grid-cols-2 grid w-full grid-cols-1 gap-4">
-          {templateItems.map((item, index) => (
+          {projectItems.map((item, index) => (
             <TemplateCard {...item} key={index} />
           ))}
         </div>

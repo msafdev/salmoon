@@ -1,0 +1,44 @@
+---
+title: Pagespeed
+description: A Node.js CLI and library for auditing website performance using the Google PageSpeed Insights API.
+date: 2025-01-05
+stack: ["node", "typescript"]
+published: true
+---
+
+## Overview
+
+**Pagespeed** is a command-line tool and programmatic library that lets developers audit website performance via the PageSpeed Insights API.
+
+Built with **TypeScript** and designed for both CLI and library use, it supports running audits across many URLs, in different strategies (mobile/desktop), and exporting results in useful formats.
+
+It can be found on npm as `@msafdev/pagespeed`.
+
+## Highlights
+
+### Core features
+
+- Wraps the PageSpeed Insights API for auditing site performance
+- Supports mobile and desktop strategies
+- Displays or exports metrics like LCP, CLS, TBT, and Lighthouse category scores
+- Serves both as an npm library and as a CLI tool
+
+### Configuration & performance
+
+- Uses environment variables for API key and auth settings
+- Minimal dependencies for fast install and execution
+- Optimized for repeated use in scripts or automated workflows
+
+## Learnings
+
+- Automating performance audits improves consistency in development
+- Supporting both CLI and library API increases flexibility
+- Managing API rate-limits and batching requests is key for large-scale audits
+
+## Next steps
+
+- Add support for concurrent requests and caching of previous results
+- Improve report formats (e.g., HTML dashboards, more data visualizations)
+- Extend configuration for thresholds and pass/fail criteria
+
+**Pagespeed** is built to make performance auditing a regular part of your workflow — fast, scriptable, and easy to integrate.

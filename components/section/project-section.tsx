@@ -1,7 +1,7 @@
 import TemplateCard from "@/components/shared/cards/template-card";
 import Paragraph from "@/components/shared/paragraph";
 
-import { templateItems } from "@/lib/assets";
+import { projectItems } from "@/lib/assets";
 
 const ProjectSection = () => {
   return (
@@ -15,7 +15,7 @@ const ProjectSection = () => {
       </Paragraph>
 
       <div className="grid w-full grid-cols-1 gap-4 md:grid-cols-2">
-        {templateItems.slice(0, 2).map((item, index) => (
+        {projectItems.slice(0, 2).map((item, index) => (
           <TemplateCard key={index} {...item} />
         ))}
       </div>
