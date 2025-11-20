@@ -59,6 +59,8 @@
   --animate-text-shimmer: text-shimmer 6.4s infinite;
   --animate-scale-up-down: scale-up-down 1.2s ease-in-out infinite;
 
+  --color-selection: var(--selection);
+
   @keyframes accordion-down {
     from {
       height: 0;
@@ -129,6 +131,48 @@
     30%,
     60% {
       background-position: calc(100% + var(--shimmer-width)) 0;
+    }
+  }
+
+  @keyframes highlight-sequence {
+    0% {
+      opacity: 0.6;
+      background-color: transparent;
+      color: currentColor;
+      filter: blur(1.5px);
+      transform: scale(1.02);
+    }
+    50% {
+      opacity: 0.9;
+      filter: blur(0.5px);
+    }
+    100% {
+      opacity: 1;
+      background-color: var(--highlight-color, #fef08a);
+      color: var(--highlight-foreground, currentColor);
+      filter: blur(0px);
+      transform: scale(1);
+    }
+  }
+
+  @keyframes highlight-restore {
+    0% {
+      opacity: 0.6;
+      background-color: var(--highlight-color, #fef08a);
+      color: var(--highlight-foreground, currentColor);
+      filter: blur(1.5px);
+      transform: scale(1.02);
+    }
+    50% {
+      opacity: 0.9;
+      filter: blur(0.5px);
+    }
+    100% {
+      opacity: 1;
+      background-color: transparent;
+      color: currentColor;
+      filter: blur(0px);
+      transform: scale(1);
     }
   }
 }
@@ -340,5 +384,27 @@
     border-color: var(--color-border);
     cursor: pointer;
     transition: color 0.2s ease-in-out;
+  }
+}
+
+@layer components {
+  .text-highlight {
+    background-color: var(--highlight-color, #fef08a);
+    color: var(--highlight-foreground, currentColor);
+    border-radius: 0;
+    padding: 0;
+    cursor: pointer;
+    transition:
+      background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+      color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: none;
+  }
+
+  .text-highlight[data-highlight-state="user"] {
+    animation: highlight-sequence 0.35s cubic-bezier(0.4, 0, 0.2, 1) both;
+  }
+
+  .text-highlight[data-highlight-state="removing"] {
+    animation: highlight-restore 0.35s cubic-bezier(0.4, 0, 0.2, 1) both;
   }
 }

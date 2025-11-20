@@ -10,6 +10,7 @@ import { notFound } from "next/navigation";
 
 import { MDXToC, Mdx } from "@/components/shared/mdx";
 import TableOfContents from "@/components/shared/toc";
+import { TextHighlighter } from "@/components/shared/highlighter";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
@@ -164,7 +165,9 @@ export default async function PostPage({ params }: PostPageProps) {
             </div>
           </div>
 
-          <Mdx code={post.body} />
+          <TextHighlighter slug={post.slug}>
+            <Mdx code={post.body} />
+          </TextHighlighter>
         </div>
       </div>
     </article>
