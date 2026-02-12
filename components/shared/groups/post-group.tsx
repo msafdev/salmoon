@@ -1,7 +1,12 @@
 "use client";
 
 import type { Post } from "#site/content";
-import { AnimatePresence, motion } from "motion/react";
+import {
+  AnimatePresence,
+  type Variants,
+  easeInOut,
+  motion,
+} from "motion/react";
 
 import { useState } from "react";
 
@@ -10,7 +15,7 @@ import Link from "next/link";
 import { formatDate } from "@/lib/functions";
 import { cn } from "@/lib/utils";
 
-const containerVariants = {
+const containerVariants: Variants = {
   initial: {},
   animate: {
     transition: {
@@ -19,9 +24,17 @@ const containerVariants = {
   },
 };
 
-const itemVariants = {
-  initial: { opacity: 0, x: 10, filter: "blur(2px)" },
-  animate: { opacity: 1, x: 0, filter: "blur(0px)" },
+const itemVariants: Variants = {
+  initial: { opacity: 0, y: 10, filter: "blur(4px)" },
+  animate: {
+    opacity: 1,
+    y: 0,
+    filter: "blur(0px)",
+    transition: {
+      duration: 0.5,
+      ease: easeInOut,
+    },
+  },
 };
 
 const PostGroup = ({ items, tags }: { items: Array<Post>; tags: string[] }) => {

@@ -2,7 +2,7 @@
 
 import { easeInOut, motion } from "motion/react";
 
-import { useEffect, useState } from "react";
+import { useMemo } from "react";
 
 import { useTheme } from "next-themes";
 import Link from "next/link";
@@ -14,13 +14,10 @@ const Dock = () => {
   const pathname = usePathname();
   const { theme, setTheme } = useTheme();
 
-  const [activeTab, setActiveTab] = useState<number | null>(
-    navItems.find((item) => item.href === pathname)?.id || null,
+  const activeTab = useMemo(
+    () => navItems.find((item) => item.href === pathname)?.id || null,
+    [pathname],
   );
-
-  useEffect(() => {
-    setActiveTab(navItems.find((item) => item.href === pathname)?.id || null);
-  }, [pathname]);
 
   const duration = 0.4;
 
@@ -85,7 +82,6 @@ const Dock = () => {
                 key={item.id}
                 href={item.href}
                 scroll={true}
-                onClick={() => setActiveTab(item.id)}
                 className={`${commonClass} ${
                   isActive ? "text-foreground" : "text-muted-foreground"
                 }`}

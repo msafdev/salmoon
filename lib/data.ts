@@ -1,52 +1,55 @@
+import dynamic from "next/dynamic";
+
 // Avatar
-import { BasicAvatar } from "@/components/lab/examples/avatar/basic-avatar";
-import { IconAvatar } from "@/components/lab/examples/avatar/icon-avatar";
-import { StackAvatar } from "@/components/lab/examples/avatar/stack-avatar";
-import { StatusAvatar } from "@/components/lab/examples/avatar/status-avatar";
+const BasicAvatar = dynamic(() => import("@/components/lab/examples/avatar/basic-avatar").then(mod => mod.BasicAvatar));
+const IconAvatar = dynamic(() => import("@/components/lab/examples/avatar/icon-avatar").then(mod => mod.IconAvatar));
+const StackAvatar = dynamic(() => import("@/components/lab/examples/avatar/stack-avatar").then(mod => mod.StackAvatar));
+const StatusAvatar = dynamic(() => import("@/components/lab/examples/avatar/status-avatar").then(mod => mod.StatusAvatar));
 // Badge
-import { BasicBadge } from "@/components/lab/examples/badge/basic-badge";
-import { IconBadge } from "@/components/lab/examples/badge/icon-badge";
-import { SeparatedBadge } from "@/components/lab/examples/badge/separated-badge";
-import { StatusBadge } from "@/components/lab/examples/badge/status-badge";
+const BasicBadge = dynamic(() => import("@/components/lab/examples/badge/basic-badge").then(mod => mod.BasicBadge));
+const IconBadge = dynamic(() => import("@/components/lab/examples/badge/icon-badge").then(mod => mod.IconBadge));
+const SeparatedBadge = dynamic(() => import("@/components/lab/examples/badge/separated-badge").then(mod => mod.SeparatedBadge));
+const StatusBadge = dynamic(() => import("@/components/lab/examples/badge/status-badge").then(mod => mod.StatusBadge));
 // Cursor
-import { AdvancedCursor } from "@/components/lab/examples/cursor/advanced-cursor";
-import { BasicCursor } from "@/components/lab/examples/cursor/basic-cursor";
-import { SpringCursor } from "@/components/lab/examples/cursor/spring-cursor";
+const AdvancedCursor = dynamic(() => import("@/components/lab/examples/cursor/advanced-cursor").then(mod => mod.AdvancedCursor));
+const BasicCursor = dynamic(() => import("@/components/lab/examples/cursor/basic-cursor").then(mod => mod.BasicCursor));
+const SpringCursor = dynamic(() => import("@/components/lab/examples/cursor/spring-cursor").then(mod => mod.SpringCursor));
 // File
-import { AvatarFile } from "@/components/lab/examples/file/avatar-file";
-import { BasicFile } from "@/components/lab/examples/file/basic-file";
-import { MultipleFiles } from "@/components/lab/examples/file/multiple-file";
+const AvatarFile = dynamic(() => import("@/components/lab/examples/file/avatar-file").then(mod => mod.AvatarFile));
+const BasicFile = dynamic(() => import("@/components/lab/examples/file/basic-file").then(mod => mod.BasicFile));
+const MultipleFiles = dynamic(() => import("@/components/lab/examples/file/multiple-file").then(mod => mod.MultipleFiles));
 // Input
-import { BasicInput } from "@/components/lab/examples/input/basic-input";
-import { FloatInput } from "@/components/lab/examples/input/float-input";
-import { NoteInput } from "@/components/lab/examples/input/note-input";
-import { NumberInput } from "@/components/lab/examples/input/number-input";
-import { OtpInput } from "@/components/lab/examples/input/otp-input";
-import { PasswordInput } from "@/components/lab/examples/input/password-input";
-import { ValidateInput } from "@/components/lab/examples/input/validate-input";
+const BasicInput = dynamic(() => import("@/components/lab/examples/input/basic-input").then(mod => mod.BasicInput));
+const FloatInput = dynamic(() => import("@/components/lab/examples/input/float-input").then(mod => mod.FloatInput));
+const NoteInput = dynamic(() => import("@/components/lab/examples/input/note-input").then(mod => mod.NoteInput));
+const NumberInput = dynamic(() => import("@/components/lab/examples/input/number-input").then(mod => mod.NumberInput));
+const OtpInput = dynamic(() => import("@/components/lab/examples/input/otp-input").then(mod => mod.OtpInput));
+const PasswordInput = dynamic(() => import("@/components/lab/examples/input/password-input").then(mod => mod.PasswordInput));
+const ValidateInput = dynamic(() => import("@/components/lab/examples/input/validate-input").then(mod => mod.ValidateInput));
 // Loader
-import { IconLoader } from "@/components/lab/examples/loader/icon-loader";
-import { TextLoader } from "@/components/lab/examples/loader/text-loader";
+const IconLoader = dynamic(() => import("@/components/lab/examples/loader/icon-loader").then(mod => mod.IconLoader));
+const TextLoader = dynamic(() => import("@/components/lab/examples/loader/text-loader").then(mod => mod.TextLoader));
+const BasicPixel = dynamic(() => import("@/components/lab/examples/pixel/basic-pixel").then(mod => mod.BasicPixel));
 // Select
-import { AvatarSelect } from "@/components/lab/examples/select/avatar-select";
-import { BasicSelect } from "@/components/lab/examples/select/basic-select";
-import { GroupedSelect } from "@/components/lab/examples/select/grouped-select";
+const AvatarSelect = dynamic(() => import("@/components/lab/examples/select/avatar-select").then(mod => mod.AvatarSelect));
+const BasicSelect = dynamic(() => import("@/components/lab/examples/select/basic-select").then(mod => mod.BasicSelect));
+const GroupedSelect = dynamic(() => import("@/components/lab/examples/select/grouped-select").then(mod => mod.GroupedSelect));
 // Stagger
-import { BasicAnimation } from "@/components/lab/examples/stagger/basic-animation";
-import { VariantAnimation } from "@/components/lab/examples/stagger/variant-animation";
-import { ViewAnimation } from "@/components/lab/examples/stagger/view-animation";
+const BasicAnimation = dynamic(() => import("@/components/lab/examples/stagger/basic-animation").then(mod => mod.BasicAnimation));
+const VariantAnimation = dynamic(() => import("@/components/lab/examples/stagger/variant-animation").then(mod => mod.VariantAnimation));
+const ViewAnimation = dynamic(() => import("@/components/lab/examples/stagger/view-animation").then(mod => mod.ViewAnimation));
 // Timeline
-import { HorizontalTimeline } from "@/components/lab/examples/timeline/horizontal-timeline";
-import { ResponsiveTimeline } from "@/components/lab/examples/timeline/responsive-timeline";
-import { VerticalTimeline } from "@/components/lab/examples/timeline/vertical-timeline";
+const HorizontalTimeline = dynamic(() => import("@/components/lab/examples/timeline/horizontal-timeline").then(mod => mod.HorizontalTimeline));
+const ResponsiveTimeline = dynamic(() => import("@/components/lab/examples/timeline/responsive-timeline").then(mod => mod.ResponsiveTimeline));
+const VerticalTimeline = dynamic(() => import("@/components/lab/examples/timeline/vertical-timeline").then(mod => mod.VerticalTimeline));
 // Toolbar
-import { AdvancedToolbar } from "@/components/lab/examples/toolbar/advanced-toolbar";
-import { BasicToolbar } from "@/components/lab/examples/toolbar/basic-toolbar";
-import { DynamicToolbar } from "@/components/lab/examples/toolbar/dynamic-toolbar";
+const AdvancedToolbar = dynamic(() => import("@/components/lab/examples/toolbar/advanced-toolbar").then(mod => mod.AdvancedToolbar));
+const BasicToolbar = dynamic(() => import("@/components/lab/examples/toolbar/basic-toolbar").then(mod => mod.BasicToolbar));
+const DynamicToolbar = dynamic(() => import("@/components/lab/examples/toolbar/dynamic-toolbar").then(mod => mod.DynamicToolbar));
 // Tree
-import { DefaultTree } from "@/components/lab/examples/tree/default-tree";
-import { IconTree } from "@/components/lab/examples/tree/icon-tree";
-import { LinedTree } from "@/components/lab/examples/tree/lined-tree";
+const DefaultTree = dynamic(() => import("@/components/lab/examples/tree/default-tree").then(mod => mod.DefaultTree));
+const IconTree = dynamic(() => import("@/components/lab/examples/tree/icon-tree").then(mod => mod.IconTree));
+const LinedTree = dynamic(() => import("@/components/lab/examples/tree/lined-tree").then(mod => mod.LinedTree));
 
 export type ComponentType = {
   name: string;
@@ -307,6 +310,16 @@ export const COMPONENTS: ComponentType[] = [
       { child: IconTree, name: "Icon Tree", path: "icon-tree" },
       { child: LinedTree, name: "Lined Tree", path: "lined-tree" },
     ],
+    thumbnail: 0,
+    gridClass: "large-card",
+  },
+  {
+    name: "Pixel",
+    slug: "pixel",
+    primitive: true,
+    description:
+      "Image primitive that renders a pixelated placeholder while the actual image loads.",
+    example: [{ child: BasicPixel, name: "Basic Pixel", path: "basic-pixel" }],
     thumbnail: 0,
     gridClass: "large-card",
   },
