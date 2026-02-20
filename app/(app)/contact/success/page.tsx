@@ -11,7 +11,7 @@ export default function ContactSuccessPage() {
 
   useEffect(() => {
     const timeout = setTimeout(() => {
-      router.push("/");
+      router.push("/", { scroll: false });
     }, 5000);
 
     return () => clearTimeout(timeout);

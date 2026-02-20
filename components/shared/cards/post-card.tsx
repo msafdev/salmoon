@@ -20,6 +20,7 @@ const PostCard = ({
   return (
     <Link
       href={`/${slug}`}
+      scroll={false}
       className={cn("group/blog w-full space-y-1.5", className)}
     >
       <div className="bg-muted relative aspect-video w-auto overflow-hidden rounded-[2px]">

@@ -133,7 +133,7 @@ export default function Command() {
 
   const go = React.useCallback(
     (href: string) => {
-      router.push(href);
+      router.push(href, { scroll: false });
       setOpen(false);
     },
     [router],

@@ -7,6 +7,7 @@ const TrackCard = ({ track }: { track: Track }) => {
   return (
     <Link
       href={track.external_urls.spotify}
+      scroll={false}
       aria-label={track.name}
       target="_blank"
       rel="noopener noreferrer"

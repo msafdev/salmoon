@@ -44,6 +44,7 @@ const Paragraph = ({
                     <Button size={"icon"} variant={"ghost"} className="size-7">
                       <Link
                         href={href}
+                        scroll={false}
                         aria-label={`Go to ${href}`}
                         className="h-full w-full p-1.5"
                       >

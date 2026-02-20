@@ -16,6 +16,7 @@ const ProjectCard = ({
   return (
     <Link
       href={href}
+      scroll={false}
       target="_blank"
       rel="noopener noreferrer"
       aria-label={title}

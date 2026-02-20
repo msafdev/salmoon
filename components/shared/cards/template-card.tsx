@@ -20,7 +20,7 @@ const TemplateCard = ({
 }: TemplateCardProps) => {
   const hasDetailPage = Boolean(detail);
   const externalHref = demo ?? github;
-  const href = hasDetailPage ? `/project/${slug}` : externalHref ?? "#";
+  const href = hasDetailPage ? `/project/${slug}` : (externalHref ?? "#");
   const ariaLabel = hasDetailPage
     ? `Read more about ${title}`
     : `Visit ${title} ${demo ? "demo" : "repository"}`;
@@ -28,6 +28,7 @@ const TemplateCard = ({
   return (
     <Link
       href={href}
+      scroll={false}
       target={hasDetailPage ? undefined : "_blank"}
       rel={hasDetailPage ? undefined : "noopener noreferrer"}
       aria-label={ariaLabel}

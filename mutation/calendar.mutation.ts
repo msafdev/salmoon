@@ -22,7 +22,7 @@ const calendarMutation = () => {
         return;
       }
 
-      router.push("/contact/success");
+      router.push("/contact/success", { scroll: false });
       showMutationToast("Meet booked successfully", "success");
       queryClient.invalidateQueries({ queryKey: ["meetings"] });
     },

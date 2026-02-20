@@ -68,6 +68,7 @@ const LearnGroup = () => {
               return (
                 <Link
                   href={item.slug}
+                  scroll={false}
                   key={item.slug}
                   className="group/item flex w-fit items-center gap-x-3 py-2 pl-11"
                   aria-label={`Go to ${item.slug}`}

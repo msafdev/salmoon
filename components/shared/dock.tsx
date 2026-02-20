@@ -84,7 +84,7 @@ const Dock = () => {
               <Link
                 key={item.id}
                 href={item.href}
-                scroll={true}
+                scroll={false}
                 onClick={() => setActiveTab(item.id)}
                 className={`${commonClass} ${
                   isActive ? "text-foreground" : "text-muted-foreground"

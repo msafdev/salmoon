@@ -52,7 +52,7 @@ const LabCard = ({
         >
           <Link
             href={`/lab/${slug}`}
-            scroll={true}
+            scroll={false}
             aria-label={`Go to /lab/${slug}`}
           >
             <PiArrowRightBold className="h-4 w-4" />
