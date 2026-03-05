@@ -27,7 +27,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
       <div className="relative flex min-h-svh flex-col items-center justify-center">
         <div className="from-background pointer-events-none fixed top-0 left-0 z-50 h-8 w-full bg-linear-to-b to-transparent md:h-10 lg:h-12" />
         <main className="flex h-auto w-full grow flex-col py-16 md:py-20 lg:py-24">
-          <PageTransition>{children}</PageTransition>
+          {children}
         </main>
         <Dock />
       </div>
