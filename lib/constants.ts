@@ -215,23 +215,23 @@ export const workItems = [
 export const toolItems = [
   {
     category: "OS",
-    items: ["Windows", "Linux"],
+    items: ["Windows", "Linux", "MacOS"],
   },
   {
     category: "Device",
-    items: ["iPhone XR", "Macbook M1 Pro"],
+    items: ["Macbook Pro M5", "Iphone 17",],
   },
   {
     category: "Shell",
-    items: ["Powershell", "Bash"],
+    items: ["Powershell", "Bash", "Zsh"],
   },
   {
     category: "Browser",
-    items: ["Firefox", "Arc"],
+    items: ["Firefox", "Safari", "Arc"],
   },
   {
     category: "Development",
-    items: ["Code", "Vim"],
+    items: ["Code", "Antigravity"],
   },
   {
     category: "Productivity",
