@@ -55,7 +55,7 @@ export default function ProcessGroup() {
   return (
     <div ref={containerRef} className="relative flex w-full max-w-lg flex-col">
       {/* Connecting Line - Desktop Only */}
-      {isMounted && isDesktop && (
+      {isDesktop && (
         <motion.div
           initial={{ scaleY: 0 }}
           animate={{

@@ -8,12 +8,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import { TextHighlighter } from "@/components/shared/highlighter";
 import { MDXToC, Mdx } from "@/components/shared/mdx";
 import TableOfContents from "@/components/shared/toc";
-import { TextHighlighter } from "@/components/shared/highlighter";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
+
+import SectionWrapper from "@/components/motion/section-wrapper";
 
 import { siteItems } from "@/lib/config";
 import { formatDate } from "@/lib/functions";
@@ -92,7 +94,10 @@ export default async function PostPage({ params }: PostPageProps) {
     <article id={post.slug} className="relative flex h-auto w-full grow px-4">
       <TableOfContents toc={tableOfContents} />
 
-      <div className="mx-auto w-full max-w-lg space-y-10 md:max-w-md md:space-y-12 lg:max-w-lg lg:space-y-16">
+      <SectionWrapper
+        disableAnimation={false}
+        className="mx-auto w-full max-w-lg space-y-10 md:max-w-md md:space-y-12 lg:max-w-lg lg:space-y-16"
+      >
         <div className="flex w-full items-center justify-between">
           <Link
             href={`/post`}
@@ -135,6 +140,7 @@ export default async function PostPage({ params }: PostPageProps) {
               alt={`${post.title} cover image.`}
               fill
               className="object-cover"
+              priority
             />
           </div>
 
@@ -169,7 +175,7 @@ export default async function PostPage({ params }: PostPageProps) {
             <Mdx code={post.body} />
           </TextHighlighter>
         </div>
-      </div>
+      </SectionWrapper>
     </article>
   );
 }

@@ -12,6 +12,7 @@ export default {
   experimental: {
     optimizeCss: true,
     swcMinify: true,
+    optimizePackageImports: ["lucide-react", "react-icons", "motion"],
     outputFileTracingIncludes: {
       "/lab/[slug]": [
         "./components/lab/**/*",

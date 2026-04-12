@@ -7,6 +7,7 @@ import Image, { ImageProps } from "next/image";
 
 import { Toc } from "@stefanprobst/rehype-extract-toc";
 
+import Clipboard from "@/components/shared/clipboard";
 import Code from "@/components/shared/code";
 import ActivityWidget from "@/components/shared/widgets/activity-widget";
 import RepoWidget from "@/components/shared/widgets/repo-widget";
@@ -124,11 +125,24 @@ export const globalComponents = {
 
     const rawCode = extractCode((codeElement as any)?.props?.children);
 
-    const lang = (props as any)?.["data-language"];
-
     return (
-      <div className="mb-4 h-fit w-full max-w-lg rounded border-2 border-dashed p-1 sm:p-2">
-        <Code code={rawCode} lang={lang} lineNumber lineShine {...props} />
+      <div className="group relative mb-4 h-fit w-full max-w-lg overflow-hidden rounded border-2 border-dashed bg-[#f7f7f7]! p-1 sm:p-2 dark:bg-[#101010]!">
+        <pre
+          className={cn(
+            "no-scrollbar min-h-8 w-full min-w-0 overflow-x-auto rounded-xl text-sm [&_code]:block [&_code]:w-fit [&_code]:min-w-full",
+            className,
+          )}
+          {...props}
+        >
+          {children}
+        </pre>
+
+        <div className="pointer-events-none absolute top-0 right-0 z-0 h-full w-6 bg-linear-to-r from-transparent to-[#f7f7f7] dark:to-[#101010]" />
+
+        <Clipboard
+          string={rawCode}
+          className="absolute top-1 right-1 size-8 opacity-0 transition-opacity group-hover:opacity-100 sm:top-2 sm:right-2"
+        />
       </div>
     );
   },

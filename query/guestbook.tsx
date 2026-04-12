@@ -9,37 +9,6 @@ import {
   UserProfile,
 } from "@/types/guestbook.types";
 
-type GuestbookRow = {
-  id: number | string;
-  content: string;
-  created_at: string;
-  user_id: string | null;
-  parent_id: number | string | null;
-};
-
-const GUESTBOOK_FIELDS = "id, content, created_at, user_id, parent_id";
-const PROFILE_FIELDS = "id, name, avatar_url";
-
-const buildUserMap = (users: UserProfile[] | null) => {
-  if (!users?.length) return {} as Record<string, UserProfile>;
-
-  return users.reduce<Record<string, UserProfile>>((acc, user) => {
-    acc[user.id] = user;
-    return acc;
-  }, {});
-};
-
-const mapGuestbookEntry = (
-  entry: GuestbookRow,
-  userMap: Record<string, UserProfile>,
-): GuestbookWithUser => ({
-  id: String(entry.id),
-  content: entry.content,
-  created_at: entry.created_at,
-  user: entry.user_id ? userMap[entry.user_id] ?? null : null,
-  parent_id: entry.parent_id ? String(entry.parent_id) : null,
-});
-
 const attachReplies = (
   entries: GuestbookWithUser[],
 ): GuestbookWithReplies[] => {
@@ -77,35 +46,20 @@ const fetchGuestbook = async (): Promise<GuestbookWithReplies[]> => {
   const supabase = createClient();
   const { data, error } = await supabase
     .from("guestbook")
-    .select(GUESTBOOK_FIELDS)
+    .select("id, content, created_at, user_id, parent_id, profile(id, name, avatar_url)")
     .order("created_at", { ascending: false })
-    .limit(50);
+    .limit(100);
 
   if (error) throw error;
   if (!data?.length) return [];
 
-  const userIds = Array.from(
-    new Set(
-      (data as GuestbookRow[])
-        .map((item) => item.user_id)
-        .filter((id): id is string => Boolean(id)),
-    ),
-  );
-
-  let userMap: Record<string, UserProfile> = {};
-  if (userIds.length) {
-    const { data: users, error: profileError } = await supabase
-      .from("profile")
-      .select(PROFILE_FIELDS)
-      .in("id", userIds);
-
-    if (profileError) throw profileError;
-    userMap = buildUserMap(users ?? []);
-  }
-
-  const enriched = (data as GuestbookRow[]).map((entry) =>
-    mapGuestbookEntry(entry, userMap),
-  );
+  const enriched: GuestbookWithUser[] = data.map((entry: any) => ({
+    id: String(entry.id),
+    content: entry.content,
+    created_at: entry.created_at,
+    user: entry.profile ?? null,
+    parent_id: entry.parent_id ? String(entry.parent_id) : null,
+  }));
 
   return attachReplies(enriched);
 };

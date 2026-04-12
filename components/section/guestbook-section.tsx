@@ -1,5 +1,7 @@
 "use client";
 
+import { AnimatePresence, motion } from "motion/react";
+
 import { User } from "@supabase/supabase-js";
 
 import GuestbookCard from "@/components/shared/cards/guestbook-card";
@@ -49,7 +51,9 @@ const GuestbookSection = ({ user }: { user: User | null }) => {
   return (
     <div className="w-full space-y-4">
       {guestbookData.map((data, index) => (
-        <GuestbookCard key={data.id} entry={data} index={index} user={user} />
+        <motion.div key={data.id}>
+          <GuestbookCard entry={data} index={index} user={user} />
+        </motion.div>
       ))}
     </div>
   );
