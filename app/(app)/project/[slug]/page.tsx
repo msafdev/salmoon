@@ -18,9 +18,10 @@ import TableOfContents from "@/components/shared/toc";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 
+import SectionWrapper from "@/components/motion/section-wrapper";
+
 import { projectItems } from "@/lib/assets";
 import { siteItems } from "@/lib/config";
-import { formatDate } from "@/lib/functions";
 
 interface ProjectPageProps {
   params: {
@@ -105,7 +106,10 @@ export default function ProjectPage({ params }: ProjectPageProps) {
     >
       <TableOfContents toc={tableOfContents} />
 
-      <div className="mx-auto w-full max-w-lg space-y-10 md:max-w-md md:space-y-12 lg:max-w-lg lg:space-y-16">
+      <SectionWrapper
+        disableAnimation={false}
+        className="mx-auto w-full max-w-lg space-y-10 md:max-w-md md:space-y-12 lg:max-w-lg lg:space-y-16"
+      >
         <div className="flex w-full items-center justify-between">
           <Link
             href="/archive"
@@ -218,7 +222,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
 
           <Mdx code={project.body} />
         </div>
-      </div>
+      </SectionWrapper>
     </article>
   );
 }

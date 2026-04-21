@@ -1,3 +1,7 @@
+"use client";
+
+import { motion } from "motion/react";
+
 import Image from "next/image";
 
 import Paragraph from "@/components/shared/paragraph";
@@ -22,7 +26,7 @@ const ClientSection = () => {
 
       <div className="flex w-full flex-wrap items-center justify-center gap-x-12">
         {clientItems.map((item, index) => (
-          <div
+          <motion.div
             key={index}
             className="dark: relative size-16 grayscale md:size-20 dark:invert"
           >
@@ -35,7 +39,7 @@ const ClientSection = () => {
               sizes="(max-width: 640px) 25vw, (max-width: 1024px) 12vw, 6vw"
               className="object-contain"
             />
-          </div>
+          </motion.div>
         ))}
       </div>
     </div>

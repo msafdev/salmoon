@@ -15,6 +15,7 @@ export default function Page() {
   return (
     <SectionWrapper
       id="bucket-list"
+      disableAnimation
       className="flex h-auto grow flex-col items-center gap-y-16 px-4 md:gap-y-20 lg:gap-y-24"
     >
       <div className="w-full max-w-lg space-y-4">

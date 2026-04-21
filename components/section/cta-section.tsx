@@ -1,3 +1,7 @@
+"use client";
+
+import { motion } from "motion/react";
+
 import SocialCard, { Name } from "@/components/shared/cards/social-card";
 import Paragraph from "@/components/shared/paragraph";
 
@@ -9,15 +13,15 @@ const ActionSection = () => {
       <Paragraph title="Let's connect" />
       <div className="grid w-full grid-cols-3 gap-2 sm:grid-cols-5">
         {socialItems.map((item) => (
-          <SocialCard
-            key={item.name}
-            href={item.href}
-            target={item.target}
-            rel={item.rel}
-            icon={item.icon}
-            name={item.name as Name}
-            className="not-sm:first:col-span-2"
-          />
+          <motion.div key={item.name} className="not-sm:first:col-span-2">
+            <SocialCard
+              href={item.href}
+              target={item.target}
+              rel={item.rel}
+              icon={item.icon}
+              name={item.name as Name}
+            />
+          </motion.div>
         ))}
       </div>
     </div>

@@ -68,7 +68,7 @@ export default function Page() {
         </Paragraph>
         <div className="flex w-full flex-col">
           {workItems.map((item, index) => (
-            <WorkCard {...item} key={index} />
+            <WorkCard key={index} {...item} />
           ))}
         </div>
       </div>
@@ -77,7 +77,7 @@ export default function Page() {
         <Paragraph title="Side projects" />
         <div className="xs:grid-cols-2 grid w-full grid-cols-1 gap-4">
           {projectItems.map((item, index) => (
-            <TemplateCard {...item} key={index} />
+            <TemplateCard key={index} {...item} />
           ))}
         </div>
       </div>

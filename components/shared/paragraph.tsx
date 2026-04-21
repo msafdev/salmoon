@@ -1,3 +1,7 @@
+"use client";
+
+import { motion } from "motion/react";
+
 import { PiArrowRightBold } from "react-icons/pi";
 
 import Link from "next/link";
@@ -6,7 +10,6 @@ import { Button } from "@/components/ui/button";
 import {
   Tooltip,
   TooltipContent,
-  TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 
@@ -31,7 +34,7 @@ const Paragraph = ({
 }) => {
   return (
     <div className={cn("w-full max-w-lg space-y-1", className)}>
-      <div className="flex w-full flex-col">
+      <motion.div className="flex w-full flex-col">
         {title && (
           <div className="flex h-8 w-full items-center justify-between gap-x-4">
             <h2 className="text-foreground text-sm leading-none font-bold uppercase">
@@ -70,11 +73,11 @@ const Paragraph = ({
             {to}
           </code>
         )}
-      </div>
+      </motion.div>
       {children && (
-        <div className="text-muted-foreground flex flex-col gap-y-4 text-sm md:text-base">
+        <motion.div className="text-muted-foreground flex flex-col gap-y-4 text-sm md:text-base">
           {children}
-        </div>
+        </motion.div>
       )}
     </div>
   );

@@ -1,4 +1,3 @@
-import validator from "validator";
 import { z } from "zod";
 
 import {
@@ -77,7 +76,12 @@ export const serviceType = [
 
 export const typeSchema = z.object({
   user_type: z.enum(["business", "individual", "non-profit", "other"]),
-  budget: z.array(z.string().refine(validator.isCurrency)),
+  budget: z.array(
+    z.string().refine((val) => {
+      // Basic currency validation: allow numbers, commas, periods, and currency symbols
+      return /^[0-9,.\s$€£Rp]+$/.test(val);
+    }),
+  ),
 });
 
 export const serviceSchema = z.object({
@@ -87,9 +91,13 @@ export const serviceSchema = z.object({
 export const basicSchema = z.object({
   name: z.string().min(3),
   email: z.string().email(),
-  phone: z
-    .string()
-    .refine(validator.isMobilePhone, { message: "Invalid phone number" }),
+  phone: z.string().refine(
+    (val) => {
+      // Basic mobile phone validation regex
+      return /^\+?[1-9]\d{1,14}$/.test(val.replace(/[\s-()]/g, ""));
+    },
+    { message: "Invalid phone number" },
+  ),
   message: z.string().min(10),
 });
 

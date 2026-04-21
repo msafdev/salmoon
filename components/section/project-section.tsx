@@ -1,3 +1,7 @@
+"use client";
+
+import { motion } from "motion/react";
+
 import TemplateCard from "@/components/shared/cards/template-card";
 import Paragraph from "@/components/shared/paragraph";
 
@@ -16,7 +20,9 @@ const ProjectSection = () => {
 
       <div className="grid w-full grid-cols-1 gap-4 md:grid-cols-2">
         {projectItems.slice(0, 2).map((item, index) => (
-          <TemplateCard key={index} {...item} />
+          <motion.div key={index}>
+            <TemplateCard {...item} />
+          </motion.div>
         ))}
       </div>
     </div>

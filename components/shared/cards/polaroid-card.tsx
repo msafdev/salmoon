@@ -9,9 +9,16 @@ type PostcardProps = {
   alt: string;
   title: string;
   className?: string;
+  priority?: boolean;
 };
 
-export const PolaroidCard = ({ src, alt, className, title }: PostcardProps) => {
+export const PolaroidCard = ({
+  src,
+  alt,
+  className,
+  title,
+  priority,
+}: PostcardProps) => {
   return (
     <div
       className={cn(
@@ -26,6 +33,7 @@ export const PolaroidCard = ({ src, alt, className, title }: PostcardProps) => {
         sizes="(max-width: 640px) 30vw, (max-width: 1024px) 20vw, 10vw"
         aria-hidden="true"
         placeholder="blur"
+        priority={priority}
       />
       <Scribble className="text-sm text-nowrap md:text-base">{title}</Scribble>
     </div>

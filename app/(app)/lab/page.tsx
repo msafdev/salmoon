@@ -9,6 +9,7 @@ import Paragraph from "@/components/shared/paragraph";
 import SectionWrapper from "@/components/motion/section-wrapper";
 
 import { COMPONENTS } from "@/lib/data";
+import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "Lab",
@@ -75,7 +76,10 @@ export default function Page() {
               slug={component.slug}
               gridClass={component.gridClass}
               name={component.name}
-              className="rounded"
+              className={cn(
+                "h-full rounded",
+                component.gridClass === "large-card" ? "sm:col-span-2" : "",
+              )}
             >
               {component.example &&
                 Array.isArray(component.example) &&

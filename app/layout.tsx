@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/sonner";
 
 import QueryProvider from "@/components/query-provider";
 import { ThemeProvider } from "@/components/theme-provider";
+import { TooltipProvider } from "@/components/ui/tooltip";
 
 import { siteItems } from "@/lib/config";
 import "@/styles/globals.css";
@@ -90,8 +91,10 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <QueryProvider>
-            {children}
-            <Toaster />
+            <TooltipProvider>
+              {children}
+              <Toaster />
+            </TooltipProvider>
           </QueryProvider>
         </ThemeProvider>
       </body>
