@@ -219,7 +219,7 @@ export const toolItems = [
   },
   {
     category: "Device",
-    items: ["Macbook Pro M5", "Iphone 17",],
+    items: ["Macbook Pro M5", "Iphone 17"],
   },
   {
     category: "Shell",
@@ -342,5 +342,87 @@ export const bucketItems = [
   {
     title: "Get a piercing",
     done: false,
+  },
+];
+export const trackItems = [
+  {
+    id: "1",
+    name: "diary",
+    external_urls: {
+      spotify: "https://open.spotify.com/track/5306fi3kSJ1Y9pis6F0xwN",
+    },
+    album: {
+      name: "Solitude",
+      images: [
+        {
+          url: "https://i.scdn.co/image/ab67616d00001e024b9c78424d942ac78f9f3bbb",
+        },
+      ],
+    },
+    artists: [{ name: "Elsaint" }],
+  },
+  {
+    id: "2",
+    name: "Melina",
+    external_urls: {
+      spotify: "https://open.spotify.com/track/2B532Che7lto9xWZM8JK9q",
+    },
+    album: {
+      name: "Melina",
+      images: [
+        {
+          url: "https://i.scdn.co/image/ab67616d0000b2739d2c94851f76777be07525a9",
+        },
+      ],
+    },
+    artists: [{ name: "Elsaint" }],
+  },
+  {
+    id: "3",
+    name: "Hälla",
+    external_urls: {
+      spotify: "https://open.spotify.com/track/1JTzM0r0R2kMWVC7J15nRP",
+    },
+    album: {
+      name: "Paranoia",
+      images: [
+        {
+          url: "https://i.scdn.co/image/ab67616d00001e02c3ba2eeeaa7274253d6f5f95",
+        },
+      ],
+    },
+    artists: [{ name: "Crawla" }],
+  },
+  {
+    id: "4",
+    name: "100 Songs",
+    external_urls: {
+      spotify: "https://open.spotify.com/track/1uSThg7PneMquCxn5gjVMd",
+    },
+    album: {
+      name: "Miquella",
+      images: [
+        {
+          url: "https://i.scdn.co/image/ab67616d0000b273cd86238df4316a93d3fa716d",
+        },
+      ],
+    },
+    artists: [{ name: "Crawla" }],
+  },
+  {
+    id: "5",
+    name: "Kurang Riset",
+    external_urls: {
+      spotify: "https://open.spotify.com/track/1zMMbqCKauYOPNxGegA0VV",
+    },
+    album: {
+      name: "MIMPI CINTA & RAPMUZIK",
+      images: [
+        {
+          url: "https://i.scdn.co/image/ab67616d00001e021c1d68bf43083e241ac66456",
+        },
+      ],
+    },
+    artists: [{ name: "Quest*" }],
   },
 ];

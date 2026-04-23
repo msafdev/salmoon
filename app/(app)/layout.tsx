@@ -4,8 +4,6 @@ import NextTopLoader from "nextjs-toploader";
 import Command from "@/components/shared/command";
 import Dock from "@/components/shared/dock";
 
-import PageTransition from "@/components/motion/page-transition";
-
 const Footer = dynamic(() => import("@/components/shared/footer"), {
   ssr: false,
 });
