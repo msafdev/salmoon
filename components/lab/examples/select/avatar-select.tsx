@@ -1,4 +1,5 @@
 import Image from "next/image";
+
 import { Label } from "@/components/ui/label";
 import {
   Select,
@@ -65,6 +66,3 @@ export const AvatarSelect = () => {
     </div>
   );
 };
-
-
-

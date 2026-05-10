@@ -91,6 +91,3 @@ export const AvatarFile = () => {
     </div>
   );
 };
-
-
-

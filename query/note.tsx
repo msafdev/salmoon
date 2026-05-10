@@ -61,10 +61,3 @@ export const useNote = () => {
     refetchOnWindowFocus: false,
   });
 };
-
-
-
-
-
-
-

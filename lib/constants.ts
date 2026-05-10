@@ -314,7 +314,8 @@ export const bookmarkItems = [
   {
     title: "Shadcn UI",
     href: "https://ui.shadcn.com/",
-    description: "Beautifully designed components built with Radix UI and Tailwind CSS.",
+    description:
+      "Beautifully designed components built with Radix UI and Tailwind CSS.",
   },
   {
     title: "Framer Motion",

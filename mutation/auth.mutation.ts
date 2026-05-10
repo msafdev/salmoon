@@ -3,10 +3,7 @@
 import { useMutation } from "@tanstack/react-query";
 
 import { githubSignIn, googleSignIn, signOut } from "@/action/auth";
-import {
-  hasActionError,
-  showMutationToast,
-} from "@/mutation/mutation.utils";
+import { hasActionError, showMutationToast } from "@/mutation/mutation.utils";
 
 type NextVar = { next?: string };
 

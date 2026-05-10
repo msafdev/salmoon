@@ -105,7 +105,7 @@ export default function Page() {
         </ul>
       </div>
 
-      <div className="w-full space-y-4 relative">
+      <div className="relative w-full space-y-4">
         <h2 className="text-base font-semibold">Bookmarks</h2>
         <BookmarkGroup items={bookmarkItems} />
       </div>

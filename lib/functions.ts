@@ -1,4 +1,5 @@
 import { TocItem } from "@/components/shared/toc";
+
 import { ComponentType } from "@/lib/data";
 
 export function slugify(text: string): string {

@@ -8,9 +8,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import { TextHighlighter } from "@/components/shared/highlighter";
 import { MDXToC, Mdx } from "@/components/shared/mdx";
 import TableOfContents from "@/components/shared/toc";
-import { TextHighlighter } from "@/components/shared/highlighter";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";

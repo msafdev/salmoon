@@ -3,9 +3,9 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 import { generateGridPositions } from "@/hooks/use-note";
+import { showMutationToast } from "@/mutation/mutation.utils";
 import { createClient } from "@/supabase/client";
 import type { DatabaseColor, Note, SupabaseNote } from "@/types/note.types";
-import { showMutationToast } from "@/mutation/mutation.utils";
 
 type NoteRequest = {
   note: string;
@@ -18,7 +18,7 @@ type MutationContext = {
 
 const NOTES_QUERY_KEY = ["notes"] as const;
 
-const COLOR_OPTION_MAP: Record<DatabaseColor, SupabaseNote['color']> = {
+const COLOR_OPTION_MAP: Record<DatabaseColor, SupabaseNote["color"]> = {
   red: "bg-red-200",
   pink: "bg-pink-200",
   blue: "bg-blue-200",
@@ -55,7 +55,10 @@ const AUTH_ERROR_CODES = new Set([
 const isAuthRelatedNoteError = (error: unknown) => {
   if (!error || typeof error !== "object") return false;
 
-  const { code, message } = error as { code?: string | number; message?: string };
+  const { code, message } = error as {
+    code?: string | number;
+    message?: string;
+  };
 
   const normalizedCode = typeof code === "number" ? String(code) : code;
   const normalizedMessage =
@@ -76,15 +79,18 @@ const isAuthRelatedNoteError = (error: unknown) => {
 };
 
 const getNoteErrorMessage = (error: unknown) =>
-  isAuthRelatedNoteError(error)
-    ? "Please login first"
-    : "Something went wrong";
+  isAuthRelatedNoteError(error) ? "Please login first" : "Something went wrong";
 
 const noteMutation = () => {
   const supabase = createClient();
   const queryClient = useQueryClient();
 
-  const addNoteMutation = useMutation<unknown, unknown, NoteRequest, MutationContext>({
+  const addNoteMutation = useMutation<
+    unknown,
+    unknown,
+    NoteRequest,
+    MutationContext
+  >({
     mutationFn: async ({ note, color }: NoteRequest) => {
       const { data, error } = await supabase
         .from("note")
@@ -139,9 +145,3 @@ const noteMutation = () => {
 };
 
 export default noteMutation;
-
-
-
-
-
-

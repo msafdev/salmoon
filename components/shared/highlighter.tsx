@@ -357,7 +357,7 @@ function ColorPalette({
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.92, y: exitYOffset }}
         transition={{ type: "spring", stiffness: 360, damping: 26 }}
-        className="text-foreground/80 highlight-palette bg-card/90 backdrop-blur-xs pointer-events-auto flex items-center gap-1 rounded border px-1 py-1 shadow-xs"
+        className="text-foreground/80 highlight-palette bg-card/90 pointer-events-auto flex items-center gap-1 rounded border px-1 py-1 shadow-xs backdrop-blur-xs"
         onPointerDown={(event) => {
           event.preventDefault();
           event.stopPropagation();

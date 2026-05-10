@@ -28,7 +28,7 @@ const NoteCard = ({
 
   return (
     <div
-      className={`absolute h-28 w-32 ${note.color} pointer-events-none z-10 select-none px-3 py-2 shadow-md transition-transform duration-200`}
+      className={`absolute h-28 w-32 ${note.color} pointer-events-none z-10 px-3 py-2 shadow-md transition-transform duration-200 select-none`}
       style={{
         left: pixelX,
         top: pixelY,

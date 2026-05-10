@@ -6,6 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { simplifySwifts, sortSwifts } from "@/velite/swift";
+
 import Scribble from "../scribble";
 
 const SwiftGroup = () => {

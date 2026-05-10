@@ -134,4 +134,3 @@ export default function NoteDrawer({ user }: { user: User | null }) {
     </Drawer>
   );
 }
-

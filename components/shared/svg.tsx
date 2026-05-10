@@ -38,7 +38,7 @@ export const Svg: FC<IconProps> = ({ name, className = "", size = 12 }) => {
       "shadcn",
       "go",
       "express",
-      "sketch"
+      "sketch",
     ].includes(key);
 
     return hasThemedVersion ? themedPath : defaultPath;

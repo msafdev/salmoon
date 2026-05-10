@@ -10,8 +10,8 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 
-import { cn } from "@/lib/utils";
 import { slugify } from "@/lib/functions";
+import { cn } from "@/lib/utils";
 
 const Paragraph = ({
   title,

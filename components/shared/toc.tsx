@@ -5,8 +5,8 @@ import { useIsClient, useMediaQuery } from "usehooks-ts";
 
 import { useEffect, useState } from "react";
 
-import { cn } from "@/lib/utils";
 import { slugify } from "@/lib/functions";
+import { cn } from "@/lib/utils";
 
 export type TocItem = {
   depth: number;
@@ -53,7 +53,6 @@ const TableOfContents = ({
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
 
   const getHeadingElements = () =>
     Array.from(

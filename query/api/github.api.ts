@@ -67,7 +67,9 @@ const normalizeContributions = (days: ContributionDay[]): Activity[] => {
   }));
 };
 
-const extractContributionDays = (payload: ContributionResponse): ContributionDay[] => {
+const extractContributionDays = (
+  payload: ContributionResponse,
+): ContributionDay[] => {
   const weeks =
     payload?.data?.user?.contributionsCollection?.contributionCalendar?.weeks;
 

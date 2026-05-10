@@ -1,7 +1,7 @@
 import TrackCard from "@/components/shared/cards/track-card";
 
-import { topTracks } from "@/lib/spotify";
 import { trackItems } from "@/lib/constants";
+import { topTracks } from "@/lib/spotify";
 
 const TrackGroup = async () => {
   try {

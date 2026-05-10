@@ -36,7 +36,7 @@ const mapGuestbookEntry = (
   id: String(entry.id),
   content: entry.content,
   created_at: entry.created_at,
-  user: entry.user_id ? userMap[entry.user_id] ?? null : null,
+  user: entry.user_id ? (userMap[entry.user_id] ?? null) : null,
   parent_id: entry.parent_id ? String(entry.parent_id) : null,
 });
 

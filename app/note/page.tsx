@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 
 import NoteSection from "@/components/section/note-section";
+
 import { createClient } from "@/supabase/server";
 
 export const metadata: Metadata = {
@@ -16,4 +17,3 @@ export default async function Page() {
 
   return <NoteSection initialUser={user ?? null} />;
 }
-

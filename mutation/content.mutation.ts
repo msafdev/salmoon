@@ -34,7 +34,8 @@ const contentMutation = () => {
   const queryClient = useQueryClient();
 
   const addContentMutation = useMutation<ContentResult, unknown, string>({
-    mutationFn: async (content: string) => addContent(buildContentFormData(content)),
+    mutationFn: async (content: string) =>
+      addContent(buildContentFormData(content)),
     onSuccess: (response) => {
       if (hasActionError(response)) {
         showMutationToast(response?.error ?? "Something went wrong", "error");
@@ -50,7 +51,8 @@ const contentMutation = () => {
   });
 
   const addReplyMutation = useMutation<ReplyResult, unknown, ReplyVariables>({
-    mutationFn: async (variables: ReplyVariables) => addReply(buildReplyFormData(variables)),
+    mutationFn: async (variables: ReplyVariables) =>
+      addReply(buildReplyFormData(variables)),
     onSuccess: (response) => {
       if (hasActionError(response)) {
         showMutationToast(response?.error ?? "Something went wrong", "error");

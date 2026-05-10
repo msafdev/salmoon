@@ -3,7 +3,7 @@ import Image from "next/image";
 const MovieCard = ({ title, url }: { title: string; url: string }) => {
   return (
     <div className="group flex w-full flex-col gap-y-1.5">
-      <div className="relative aspect-video w-full overflow-hidden rounded-[2px] transform-gpu transition-transform duration-300 group-hover:-translate-y-1 group-hover:rotate-1">
+      <div className="relative aspect-video w-full transform-gpu overflow-hidden rounded-[2px] transition-transform duration-300 group-hover:-translate-y-1 group-hover:rotate-1">
         <Image
           src={url}
           alt={title}

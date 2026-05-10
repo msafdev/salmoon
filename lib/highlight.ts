@@ -24,7 +24,10 @@ export const HIGHLIGHT_SWATCHES: readonly HighlightSwatch[] = [
 ] as const;
 
 export function getPalettePlacement(): "above" | "below" {
-  if (typeof window === "undefined" || typeof window.matchMedia !== "function") {
+  if (
+    typeof window === "undefined" ||
+    typeof window.matchMedia !== "function"
+  ) {
     return "above";
   }
 
@@ -131,16 +134,21 @@ export function unwrapHighlight(container: HTMLElement, highlightId: string) {
 export function resetHighlights(container: HTMLElement) {
   const seen = new Set<string>();
 
-  container.querySelectorAll<HTMLElement>("[data-highlight-id]").forEach((node) => {
-    const id = node.dataset.highlightId;
-    if (id && !seen.has(id)) {
-      unwrapHighlight(container, id);
-      seen.add(id);
-    }
-  });
+  container
+    .querySelectorAll<HTMLElement>("[data-highlight-id]")
+    .forEach((node) => {
+      const id = node.dataset.highlightId;
+      if (id && !seen.has(id)) {
+        unwrapHighlight(container, id);
+        seen.add(id);
+      }
+    });
 }
 
-export function applyHighlight(container: HTMLElement, highlight: StoredHighlight) {
+export function applyHighlight(
+  container: HTMLElement,
+  highlight: StoredHighlight,
+) {
   const range = createRangeFromOffsets(
     container,
     highlight.start,

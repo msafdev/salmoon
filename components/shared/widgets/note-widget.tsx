@@ -7,9 +7,12 @@ import Link from "next/link";
 
 import { User } from "@supabase/supabase-js";
 
-const NoteDrawer = dynamic(() => import("@/components/shared/drawers/note-drawer"), {
-  ssr: false,
-});
+const NoteDrawer = dynamic(
+  () => import("@/components/shared/drawers/note-drawer"),
+  {
+    ssr: false,
+  },
+);
 
 const NoteWidget = ({ user }: { user: User | null }) => {
   return (
