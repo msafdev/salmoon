@@ -1,0 +1,45 @@
+---
+title: Header
+description: A premium, glassmorphic header component for SwiftUI with dynamic scroll effects.
+date: 2026-04-29
+published: true
+image: "/swift/header.webp"
+components:
+  - name: Basic Header
+    code: |
+      struct GlassHeader: View {
+          var body: some View {
+              HStack {
+                  Text("Salmoon").font(.title2).fontWeight(.bold)
+                  Spacer()
+                  Image(systemName: "person.circle").font(.title2)
+              }
+              .padding()
+              .background(.ultraThinMaterial)
+              .cornerRadius(15)
+          }
+      }
+    implementation: |
+      struct FunctionalHeader: View {
+          var body: some View {
+              HStack {
+                  VStack(alignment: .leading, spacing: 4) {
+                      Text("Good Morning").font(.caption).foregroundColor(.secondary)
+                      Text("Alex Rivers").font(.headline)
+                  }
+                  Spacer()
+                  HStack(spacing: 16) {
+                      Button(action: {}) { Image(systemName: "magnifyingglass") }
+                      Button(action: {}) { Image(systemName: "bell.badge") }
+                      Image("profile").resizable().frame(width: 36, height: 36).clipShape(Circle())
+                  }
+                  .foregroundColor(.primary)
+              }
+              .padding()
+              .background(RoundedRectangle(cornerRadius: 20).fill(.ultraThinMaterial))
+          }
+      }
+    image: "/static/swift/header-preview.png"
+---
+
+In SwiftUI, a header is more than just a title. It's the first thing users interact with. This component demonstrates how to build a modern, glassmorphic header that feels native to iOS.

@@ -1,0 +1,57 @@
+---
+title: Bottom Bar
+description: A custom, animated bottom navigation bar with a floating effect and haptic feedback.
+date: 2026-04-30
+published: true
+image: "/swift/bottom-bar.webp"
+components:
+  - name: Floating Tab Bar
+    code: |
+      struct FloatingTabBar: View {
+          @Binding var selectedTab: Int
+          
+          var body: some View {
+              HStack(spacing: 40) {
+                  TabButton(image: "house.fill", isSelected: selectedTab == 0) { selectedTab = 0 }
+                  TabButton(image: "magnifyingglass", isSelected: selectedTab == 1) { selectedTab = 1 }
+                  TabButton(image: "plus.circle.fill", isSelected: selectedTab == 2) { selectedTab = 2 }
+                  TabButton(image: "bell.fill", isSelected: selectedTab == 3) { selectedTab = 3 }
+                  TabButton(image: "person.fill", isSelected: selectedTab == 4) { selectedTab = 4 }
+              }
+              .padding(.horizontal, 25)
+              .padding(.vertical, 15)
+              .background(
+                  Capsule()
+                      .fill(Color.black)
+                      .shadow(color: .black.opacity(0.15), radius: 10, x: 0, y: 10)
+              )
+          }
+      }
+    implementation: |
+      struct CustomTabBar: View {
+          @State private var activeTab: Int = 0
+          
+          var body: some View {
+              HStack(spacing: 0) {
+                  ForEach(0..<4) { index in
+                      Button {
+                          withAnimation(.spring()) { activeTab = index }
+                      } label: {
+                          VStack(spacing: 4) {
+                              Image(systemName: "house.fill")
+                                  .font(.title3)
+                                  .scaleEffect(activeTab == index ? 1.2 : 1.0)
+                          }
+                          .frame(maxWidth: .infinity)
+                          .foregroundColor(activeTab == index ? .white : .white.opacity(0.5))
+                      }
+                  }
+              }
+              .padding(.vertical, 12).padding(.horizontal, 20)
+              .background(Capsule().fill(.black).padding(.horizontal))
+          }
+      }
+    image: "/static/swift/bottom-bar-preview.png"
+---
+
+Standard tab bars can sometimes feel restrictive. A floating bottom bar provides a more modern feel and can be positioned anywhere on the screen, often improving reachability on larger devices.

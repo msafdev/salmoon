@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/tooltip";
 
 import { cn } from "@/lib/utils";
+import { slugify } from "@/lib/functions";
 
 const Paragraph = ({
   title,
@@ -34,7 +35,10 @@ const Paragraph = ({
       <div className="flex w-full flex-col">
         {title && (
           <div className="flex h-8 w-full items-center justify-between gap-x-4">
-            <h2 className="text-foreground text-sm leading-none font-bold uppercase">
+            <h2
+              id={slugify(title)}
+              className="text-foreground text-sm leading-none font-bold uppercase"
+            >
               {title}
             </h2>
             {link && (

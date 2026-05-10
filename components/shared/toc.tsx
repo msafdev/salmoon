@@ -6,6 +6,7 @@ import { useIsClient, useMediaQuery } from "usehooks-ts";
 import { useEffect, useState } from "react";
 
 import { cn } from "@/lib/utils";
+import { slugify } from "@/lib/functions";
 
 export type TocItem = {
   depth: number;
@@ -53,12 +54,6 @@ const TableOfContents = ({
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const generateId = (value: string): string => {
-    return value
-      .toLowerCase()
-      .replace(/[^a-z0-9]+/g, "-")
-      .replace(/(^-|-$)/g, "");
-  };
 
   const getHeadingElements = () =>
     Array.from(
@@ -86,7 +81,7 @@ const TableOfContents = ({
 
   const renderTocItems = (items: TocItem[]) =>
     items.map((item) => {
-      const id = generateId(item.value);
+      const id = slugify(item.value);
       const isActive = activeId === id;
 
       return (

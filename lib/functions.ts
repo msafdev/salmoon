@@ -1,6 +1,12 @@
 import { TocItem } from "@/components/shared/toc";
-
 import { ComponentType } from "@/lib/data";
+
+export function slugify(text: string): string {
+  return text
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
+}
 
 export function copyToClipboard(text: string) {
   navigator.clipboard.writeText(text);

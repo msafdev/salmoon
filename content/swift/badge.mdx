@@ -1,0 +1,72 @@
+---
+title: Badge
+description: Versatile badge components for status indicators, notifications, and labels with various styles.
+date: 2026-05-04
+published: true
+image: "/swift/badge.webp"
+components:
+  - name: Status Badge
+    code: |
+      struct StatusBadge: View {
+          let title: String
+          @Binding var isSelected: Bool
+          
+          var body: some View {
+              Button(action: { isSelected.toggle() }) {
+                  HStack(spacing: 8) {
+                      Text(title)
+                          .font(.subheadline)
+                          .fontWeight(.medium)
+                      
+                      if isSelected {
+                          Image(systemName: "checkmark")
+                              .font(.caption.bold())
+                      }
+                  }
+                  .padding(.horizontal, 16)
+                  .padding(.vertical, 8)
+                  .background(isSelected ? Color.blue : Color.secondary.opacity(0.1))
+                  .foregroundColor(isSelected ? .white : .primary)
+                  .clipShape(Capsule())
+                  .animation(.spring(response: 0.3), value: isSelected)
+              }
+          }
+      }
+    implementation: |
+      struct BadgeGallery: View {
+          let categories = ["Design", "Development", "Product", "Marketing", "Sales"]
+          @State private var selectedCategories: Set<String> = []
+          
+          var body: some View {
+              VStack(alignment: .leading, spacing: 16) {
+                  Text("Categories")
+                      .font(.headline)
+                  
+                  ScrollView(.horizontal, showsIndicators: false) {
+                      HStack(spacing: 12) {
+                          ForEach(categories, id: \.self) { category in
+                              StatusBadge(
+                                  title: category,
+                                  isSelected: Binding(
+                                      get: { selectedCategories.contains(category) },
+                                      set: { isSelected in
+                                          if isSelected {
+                                              selectedCategories.insert(category)
+                                          } else {
+                                              selectedCategories.remove(category)
+                                          }
+                                      }
+                                  )
+                              )
+                          }
+                      }
+                      .padding(.horizontal, 4)
+                  }
+              }
+              .padding()
+          }
+      }
+    image: "/swift/badge-status.webp"
+---
+
+Badges are compact indicators used to communicate status, highlight attributes, or show counts. They should be distinct but unobtrusive, providing clear visual cues at a glance.

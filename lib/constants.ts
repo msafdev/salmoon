@@ -43,6 +43,7 @@ export const techItems = [
   { id: "python", name: "Python" },
   { id: "typescript", name: "TypeScript" },
   { id: "javascript", name: "JavaScript" },
+  { id: "swift", name: "Swift" },
 
   // Frontend Frameworks & Libraries
   { id: "react", name: "React" },
@@ -79,6 +80,10 @@ export const techItems = [
 
   // Tools & Design
   { id: "figma", name: "Figma" },
+  { id: "sketch", name: "Sketch" },
+  { id: "antigravity", name: "Antigravity" },
+  { id: "code", name: "VSCode" },
+  { id: "xcode", name: "Xcode" },
   { id: "postman", name: "Postman" },
   { id: "webflow", name: "Webflow" },
 ];
@@ -231,7 +236,11 @@ export const toolItems = [
   },
   {
     category: "Development",
-    items: ["Code", "Antigravity"],
+    items: ["Antigravity", "Xcode"],
+  },
+  {
+    category: "Design",
+    items: ["Figma", "Sketch", "Webflow"],
   },
   {
     category: "Productivity",
@@ -239,7 +248,7 @@ export const toolItems = [
   },
   {
     category: "Others",
-    items: ["Jira", "ClickUp"],
+    items: ["Jira", "ClickUp", "Miro"],
   },
 ];
 
@@ -301,6 +310,21 @@ export const bookmarkItems = [
     title: "Fancy Components",
     href: "https://fancycomponents.dev/",
     description: "A collection of beautiful and animated components.",
+  },
+  {
+    title: "Shadcn UI",
+    href: "https://ui.shadcn.com/",
+    description: "Beautifully designed components built with Radix UI and Tailwind CSS.",
+  },
+  {
+    title: "Framer Motion",
+    href: "https://www.framer.com/motion/",
+    description: "A production-ready motion library for React.",
+  },
+  {
+    title: "Raycast Store",
+    href: "https://www.raycast.com/store",
+    description: "A collection of extensions and themes for Raycast.",
   },
 ];
 

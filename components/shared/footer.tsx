@@ -136,11 +136,8 @@ const Footer = () => {
                 <Link href={"/personal"} className="anim hover:text-foreground">
                   Personal
                 </Link>
-                <Link
-                  href={"/mentorship"}
-                  className="anim hover:text-foreground"
-                >
-                  Mentorship
+                <Link href={"/swift"} className="anim hover:text-foreground">
+                  Swift UI
                 </Link>
                 <Link href={"/404"} className="anim hover:text-foreground">
                   Not Found

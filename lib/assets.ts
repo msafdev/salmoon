@@ -1,8 +1,8 @@
 // Places
-import Place1 from "@/public/images/places/place-1.avif";
-import Place2 from "@/public/images/places/place-2.avif";
-import Place3 from "@/public/images/places/place-3.avif";
-import Place4 from "@/public/images/places/place-4.avif";
+import Place1 from "@/public/images/places/place-1.webp";
+import Place2 from "@/public/images/places/place-2.webp";
+import Place3 from "@/public/images/places/place-3.webp";
+import Place4 from "@/public/images/places/place-4.webp";
 import Elite from "@/public/images/projects/elite.webp";
 import Kodeify from "@/public/images/projects/kodeify.webp";
 // Projects

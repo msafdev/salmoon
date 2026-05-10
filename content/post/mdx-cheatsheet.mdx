@@ -1,80 +1,66 @@
 ---
 title: MDX Cheatsheet
-description: How to customize typography, add custom components, and syntax highlighting within MDX files.
+description: A comprehensive reference for the MDX setup in this project, covering typography, custom components, and rich media embeds.
 date: 2025-05-14
-tags: ["code", "mdx"]
+tags: ["code", "mdx", "tutorial"]
 published: true
 featured: true
 image: "/post/hand.webp"
 ---
 
-## What is MDX?
+## The Purpose of This Reference
 
-**MDX** lets you write JSX in Markdown. It blends the simplicity of Markdown with the power of React components. You can embed custom UI, interactivity, and dynamic content directly inside your `.mdx` files.
+I created this document as a central repository for everything related to the MDX configuration used in this project. When building a content heavy site, it is easy to forget the specific syntax for a custom component or the exact annotation needed for a code block. This cheatsheet serves as a quick lookup for anyone wanting to use or understand the existing setup.
 
-MDX is great for:
+### Why MDX?
 
-- Documentation
-- Developer blogs
-- Component previews
-- Interactive examples
+The decision to use MDX was driven by the need for more than just static text. I wanted the ability to intersperse technical documentation with interactive elements, live previews, and rich media without sacrificing the readability of standard Markdown. By merging these two worlds, we get a powerful system that feels native to both developers and writers.
 
----
+## Basic Markdown Syntax
 
-## Basic Syntax
+MDX supports all standard Markdown features out of the box. You can use these to structure your thoughts quickly before adding more complex components.
 
-MDX supports standard Markdown:
+### Typography and Lists
 
-```md
-# Heading 1
+You can create headers, lists, and basic text formatting with simple symbols:
 
-## Heading 2
+*   **Bold text** for emphasis
+*   *Italic text* for subtle highlights
+*   `Inline code` for variables or short snippets
 
-- Lists
-- Like
-- These
+Quoteblocks are also supported for highlighting important thoughts or advice:
 
-**Bold**, _Italic_, and `Inline code`
+> Markdown is the foundation, but MDX is the architecture that lets us build something more interactive.
 
-> Blockquotes work too
-```
+## Managing Metadata with Frontmatter
 
----
-
-## Frontmatter
-
-MDX supports YAML frontmatter at the top of the file for metadata:
+Every MDX file in this project requires a YAML frontmatter block at the very top. This is used by the build system to generate page titles, descriptions, and thumbnails.
 
 ```yaml
 ---
-title: My Post
-description: This is a description.
-tags: ["mdx", "blog"]
+title: My Post Title
+description: A brief summary of the content.
+tags: ["example", "tag"]
 published: true
 date: 2025-07-16
 ---
 ```
 
-This is often used in blogs or documentation systems to generate pages with dynamic content.
+This metadata is crucial for SEO and for the automatic generation of the blog index and navigation links.
 
----
+## Syntax Highlighting with Rehype Pretty Code
 
-## Rehype Pretty Code
+To make code blocks readable, I use a plugin called **rehype-pretty-code**. This tool handles syntax highlighting during the build process, which means the user does not have to download a large library just to see colorized text.
 
-[`rehype-pretty-code`](https://github.com/atomiks/rehype-pretty-code) is a Rehype plugin powered by [`shiki`](https://github.com/shikijs/shiki). It enables syntax highlighting at **build time**, resulting in faster page loads and consistent styles across themes.
+### Highlighting Features
 
-```bash
-npm install rehype-pretty-code
-```
+The plugin supports several powerful annotations that go beyond standard colorization:
 
-### Features
+1.  **Line Highlighting**: Use `// [!code highlight]` to draw attention to specific lines.
+2.  **Diff Indicators**: Use `// [!code ++]` or `// [!code --]` to show code changes.
+3.  **Word Highlighting**: Use `// [!code word:X]` to highlight every instance of a specific word.
 
-- VS Code theme support (dark/light mode aware)
-- Line highlighting and line numbers
-- Word-level highlights
-- Diff indicators (`++`, `--`)
-
-### Code Highlights
+### Example Code Block
 
 ```tsx
 import { useFloating } from "@floating-ui/react";
@@ -84,7 +70,6 @@ function MyComponent() {
 
   return (
     <>
-      // [!code highlight:2]
       <div ref={refs.setReference} />
       <div ref={refs.setFloating} style={floatingStyles} />
     </>
@@ -92,117 +77,85 @@ function MyComponent() {
 }
 ```
 
-### Code Diffs
-
-```py
-radius = 2 # [!code --]
-radius = 5 # [!code ++]
-area = math.pi * radius**2
-print(area)
-```
-
-### Word Highlights
-
-```js
-// [!code word:console:2]
-console.log("1");
-console.log("2");
-console.log("3");
-console.log("4");
-```
-
----
-
-## Code Block Annotations
-
-With `rehype-pretty-code`, you can annotate code in several ways:
-
-| Syntax                | Effect                            |
-| --------------------- | --------------------------------- |
-| `[!code highlight]`   | Highlights a line                 |
-| `[!code highlight:n]` | Highlights a line in range(n)     |
-| `[!code ++]`          | Shows as added in diff mode       |
-| `[!code --]`          | Shows as removed in diff mode     |
-| `[!code word:X]`      | Highlights the word X             |
-| `[!code word:X:n]`    | Highlights the word X in range(n) |
-
-You can also combine multiple annotations into 1 (one).
-
----
-
 ## Custom Components
 
-MDX allows embedding React components directly:
+One of the main reasons for using MDX is the ability to embed React components directly into the content. This is useful for building reusable UI patterns for documentation.
+
+### Alert Components
+
+You can use an `Alert` component to call out specific information:
 
 ```mdx
-import Alert from "@/components/Alert";
-
 <Alert type="info">This is an info alert with **markdown** inside!</Alert>
 ```
 
-Use this to create reusable UI for documentation:
+These components are great for notes, warnings, or callouts that need to stand out from the rest of the text.
 
-- `Note`, `Warning`, `Callout`
-- `Tabs`, `Accordion`, `VideoPlayer`, etc.
-- Interactive playgrounds with live code
+## Embedding Rich Media
 
----
+Beyond simple text and code, MDX allows for the integration of third party content using iframes and custom widgets.
 
-## Custom Styling
+### Music and Audio
 
-Tailwind CSS or any other CSS framework can be applied by wrapping content in styled components or using `prose` classes.
+You can embed music players from Spotify or Apple Music to add a soundtrack to your posts or to share specific tracks. 
 
-Example with a custom `Note`:
-
-```mdx
-<Note title="Heads up!">
-  You can use `rehype-pretty-code` for beautiful code blocks.
-</Note>
-```
-
-Or wrap content with Tailwind's typography styles:
-
-```jsx
-<div className="prose prose-zinc dark:prose-invert">{children}</div>
-```
-
----
-
-## Embedding Media
-
-You can embed images, iframes, and videos like normal HTML:
-
-```mdx
-<img src="/images/demo.png" alt="Demo" width="600" />
+**Spotify Track**
 
 <iframe
-  allow="accelerometer *; camera *; encrypted-media *; geolocation *; microphone *"
-  style={{ width: "100%", height: 400 }}
-  src="https://codesandbox.io/embed/new"
+  allow="autoplay *; clipboard-write *; encrypted-media *; fullscreen *; picture-in-picture *"
+  style={{ borderRadius: 12, border: 0, width: "100%", height: 152 }}
+  src="https://open.spotify.com/embed/track/5WOSNVChcadlsCRiqXE45K?utm_source=generator&theme=0"
+  loading="lazy"
+  allowFullScreen
 />
-```
+
+**Spotify Album**
+
+<iframe
+  allow="autoplay *; clipboard-write *; encrypted-media *; fullscreen *; picture-in-picture *"
+  style={{ borderRadius: 12, border: 0, width: "100%", height: 352 }}
+  src="https://open.spotify.com/embed/album/7Heaa0B4KOxdWhSICTR2wE?utm_source=generator"
+  loading="lazy"
+  allowFullScreen
+/>
+
+### Video Content
+
+YouTube videos can be embedded with a simple iframe. I recommend using an aspect ratio of sixteen by nine to ensure the video scales correctly on all screen sizes.
+
+<iframe
+  allowFullScreen
+  style={{ aspectRatio: 16 / 9, width: "100%", borderRadius: 4, border: 0 }}
+  src="https://www.youtube.com/embed/tgbNymZ7vqY"
+  loading="lazy"
+/>
+
+### GitHub Widgets
+
+You can showcase repositories and user activity using custom React components designed for GitHub integration.
+
+**Repository Widget**
+
+<RepoWidget repo="msafdev/salmoon" />
+
+**Activity Widget**
+
+<ActivityWidget user="msafdev" />
+
+## Technical Integration with Velite
+
+Under the hood, this project uses **Velite** to manage the collection of MDX files. Velite treats your content like a database, allowing us to query for posts, sort them by date, and automatically validate the frontmatter.
+
+### The Benefits of Velite
+
+*   **Type Safety**: Every post is validated against a schema.
+*   **Performance**: Content is processed and optimized at build time.
+*   **Flexibility**: It allows us to easily add new rehype or remark plugins to extend the capabilities of the MDX system.
+
+## Final Thoughts
+
+This cheatsheet will evolve as the project grows. It is the first place you should check when you are unsure about how to implement a specific feature in your writing. By following these patterns, we ensure that the entire site remains consistent and performant.
 
 ---
 
-## `Velite` Collections
-
-For complex MDX systems, consider using:
-
-- **[Velite](https://velite.js.org)** - Type-safe content system for Next.js
-- **[Remark](https://npmjs.com/package/rehype-remark)** - Plugin that turn your HTML into Markdown
-
-These tools let you:
-
-- Query MDX content like a database
-- Add custom rehype/remark plugins
-- Automatically type MDX frontmatter and metadata
-
----
-
-## Summary
-
-MDX lets you write Markdown with embedded components, code highlighting, and React interactivity — all while maintaining readability and performance. Whether you're building a blog, docs site, or design system, MDX gives you the tools to scale content and code together.
-
----
-
-- Image by **Nahid Hatami**
+Image by Camila Q. Franco

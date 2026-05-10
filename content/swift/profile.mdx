@@ -1,0 +1,53 @@
+---
+title: Profile
+description: A clean user profile card with avatar, name, and bio, designed for a social media interface.
+date: 2026-05-01
+published: true
+image: "/swift/profile.webp"
+components:
+  - name: Basic Profile
+    code: |
+      struct ProfileCard: View {
+          var body: some View {
+              VStack(spacing: 16) {
+                  Image("avatar")
+                      .resizable()
+                      .aspectRatio(contentMode: .fill)
+                      .frame(width: 100, height: 100)
+                      .clipShape(Circle())
+                      .overlay(Circle().stroke(Color.white, lineWidth: 4))
+                  VStack(spacing: 4) {
+                      Text("Salmoon").font(.title).fontWeight(.bold)
+                      Text("@msafdev").font(.subheadline).foregroundColor(.secondary)
+                  }
+                  Text("iOS Developer & UI Enthusiast. Building premium experiences with SwiftUI.")
+                      .font(.body).multilineTextAlignment(.center).padding(.horizontal)
+              }
+              .padding()
+              .background(RoundedRectangle(cornerRadius: 25).fill(Color(.systemBackground)))
+              .shadow(color: Color.black.opacity(0.1), radius: 20, x: 0, y: 10)
+          }
+      }
+    implementation: |
+      struct DetailedProfile: View {
+          var body: some View {
+              VStack(spacing: 16) {
+                  ZStack(alignment: .bottomTrailing) {
+                      Image("avatar").resizable().aspectRatio(contentMode: .fill)
+                          .frame(width: 120, height: 120).clipShape(Circle())
+                      Circle().fill(Color.green).frame(width: 20, height: 20)
+                          .overlay(Circle().stroke(Color.white, lineWidth: 3)).offset(x: -5, y: -5)
+                  }
+                  VStack(spacing: 8) {
+                      Text("Alex Rivers").font(.system(size: 24, weight: .bold, design: .rounded))
+                      Text("Product Designer").font(.subheadline).fontWeight(.medium)
+                          .foregroundColor(.blue).padding(.horizontal, 12).padding(.vertical, 4)
+                          .background(Color.blue.opacity(0.1)).clipShape(Capsule())
+                  }
+              }
+          }
+      }
+    image: "/static/swift/profile-preview.png"
+---
+
+A profile card is a fundamental UI element for any social or personal application. This example focuses on clean typography and a centered layout that emphasizes the user's avatar.

@@ -30,23 +30,6 @@ const posts = defineCollection({
     .transform(computedFields),
 });
 
-const learns = defineCollection({
-  name: "Learn",
-  pattern: "learn/**/*.mdx",
-  schema: s
-    .object({
-      slug: s.path(),
-      title: s.string().max(99),
-      description: s.string().max(999),
-      chapter: s.number().min(1),
-      published: s.boolean().default(true),
-      tags: s.array(s.string()).optional(),
-      last: s.boolean().default(false),
-      body: s.mdx(),
-    })
-    .transform(computedFields),
-});
-
 const projects = defineCollection({
   name: "Project",
   pattern: "project/**/*.mdx",
@@ -63,6 +46,32 @@ const projects = defineCollection({
     .transform(computedFields),
 });
 
+const swifts = defineCollection({
+  name: "Swift",
+  pattern: "swift/**/*.mdx",
+  schema: s
+    .object({
+      slug: s.path(),
+      title: s.string().max(99),
+      description: s.string().max(999),
+      date: s.isodate(),
+      published: s.boolean().default(true),
+      image: s.string().max(99),
+      components: s
+        .array(
+          s.object({
+            name: s.string(),
+            code: s.string(),
+            implementation: s.string().optional(),
+            image: s.string(),
+          }),
+        )
+        .optional(),
+      body: s.mdx(),
+    })
+    .transform(computedFields),
+});
+
 export default defineConfig({
   root: "content",
   output: {
@@ -72,7 +81,7 @@ export default defineConfig({
     name: "[name]-[hash:6].[ext]",
     clean: true,
   },
-  collections: { posts, learns, projects },
+  collections: { posts, projects, swifts },
   mdx: {
     rehypePlugins: [
       rehypeToc,

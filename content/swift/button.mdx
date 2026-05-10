@@ -1,0 +1,70 @@
+---
+title: Button
+description: A collection of customizable SwiftUI buttons with glassmorphic effects, haptic feedback, and smooth animations.
+date: 2026-05-04
+published: true
+image: "/swift/button.webp"
+components:
+  - name: Glassmorphic Button
+    code: |
+      struct GlassButton: View {
+          var title: String
+          var action: () -> Void
+          
+          var body: some View {
+              Button(action: action) {
+                  Text(title)
+                      .font(.headline)
+                      .foregroundColor(.white)
+                      .padding(.horizontal, 40)
+                      .padding(.vertical, 16)
+                      .background {
+                          RoundedRectangle(cornerRadius: 16)
+                              .fill(.white.opacity(0.1))
+                              .background(
+                                  RoundedRectangle(cornerRadius: 16)
+                                      .stroke(.white.opacity(0.2), lineWidth: 1)
+                              )
+                      }
+                      .background(RoundedRectangle(cornerRadius: 16).fill(.ultraThinMaterial))
+                      .shadow(color: .black.opacity(0.1), radius: 10, x: 0, y: 5)
+              }
+              .buttonStyle(ScaleButtonStyle())
+          }
+      }
+
+      struct ScaleButtonStyle: ButtonStyle {
+          func makeBody(configuration: Configuration) -> some View {
+              configuration.label
+                  .scaleEffect(configuration.isPressed ? 0.95 : 1)
+                  .animation(.spring(response: 0.3, dampingFraction: 0.6), value: configuration.isPressed)
+          }
+      }
+    implementation: |
+      struct InteractiveButton: View {
+          @State private var isLoading = false
+          
+          var body: some View {
+              Button(action: {
+                  isLoading.toggle()
+                  let impact = UIImpactFeedbackGenerator(style: .medium)
+                  impact.impactOccurred()
+              }) {
+                  HStack(spacing: 12) {
+                      if isLoading { ProgressView().tint(.white) }
+                      Text(isLoading ? "Processing..." : "Get Started")
+                          .fontWeight(.semibold)
+                  }
+                  .frame(maxWidth: .infinity)
+                  .padding(.vertical, 18)
+                  .background(Color.blue)
+                  .foregroundColor(.white)
+                  .cornerRadius(12)
+              }
+              .disabled(isLoading)
+          }
+      }
+    image: "/swift/button-glass.webp"
+---
+
+Buttons are the primary interaction point for users. In SwiftUI, we can move beyond the default system styling to create buttons that feel tactile, responsive, and aligned with a premium design system.

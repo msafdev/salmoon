@@ -1,0 +1,62 @@
+---
+title: List
+description: A dynamic list component featuring swipe actions, custom row styling, and smooth transitions.
+date: 2026-05-01
+published: true
+image: "/swift/list.webp"
+components:
+  - name: Styled List
+    code: |
+      struct StyledList: View {
+          let items = ["Design System", "SwiftUI Layout", "Animation", "Networking", "Persistence"]
+          
+          var body: some View {
+              List {
+                  ForEach(items, id: \.self) { item in
+                      HStack {
+                          Image(systemName: "folder.fill")
+                              .foregroundColor(.blue)
+                          Text(item)
+                              .font(.body)
+                              .fontWeight(.medium)
+                          Spacer()
+                          Image(systemName: "chevron.right")
+                              .font(.caption)
+                              .foregroundColor(.secondary)
+                      }
+                      .padding(.vertical, 8)
+                  }
+                  .onDelete { _ in }
+              }
+              .listStyle(.insetGrouped)
+          }
+      }
+    implementation: |
+      struct TaskList: View {
+          @State private var tasks = [
+              Task(title: "Update Portfolio", category: "Design", isCompleted: false),
+              Task(title: "SwiftUI Refactor", category: "Code", isCompleted: true)
+          ]
+          
+          var body: some View {
+              List {
+                  ForEach(tasks) { task in
+                      HStack(spacing: 16) {
+                          Image(systemName: task.isCompleted ? "checkmark.circle.fill" : "circle")
+                              .foregroundColor(task.isCompleted ? .green : .secondary)
+                          VStack(alignment: .leading, spacing: 4) {
+                              Text(task.title).font(.headline)
+                              Text(task.category).font(.caption).foregroundColor(.secondary)
+                          }
+                      }
+                      .swipeActions(edge: .trailing) {
+                          Button(role: .destructive) { } label: { Label("Delete", systemName: "trash") }
+                      }
+                  }
+              }
+          }
+      }
+    image: "/static/swift/list-preview.png"
+---
+
+Lists are the backbone of data-heavy applications. SwiftUI's `List` is incredibly powerful, but styling it to feel custom and premium requires attention to row layout and separators.

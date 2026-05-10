@@ -1,10 +1,9 @@
 import { PiArrowRightBold } from "react-icons/pi";
 
-import React from "react";
-
 import { Metadata } from "next";
 import Link from "next/link";
 
+import BookmarkGroup from "@/components/shared/groups/bookmark-group";
 import Paragraph from "@/components/shared/paragraph";
 import { Svg } from "@/components/shared/svg";
 
@@ -106,30 +105,9 @@ export default function Page() {
         </ul>
       </div>
 
-      <div className="w-full space-y-4">
+      <div className="w-full space-y-4 relative">
         <h2 className="text-base font-semibold">Bookmarks</h2>
-        <div className="group/book space-y-2">
-          {bookmarkItems.map((item, index) => (
-            <Link
-              key={index}
-              href={item.href}
-              aria-label={`Link to ${item.title}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group/mark text-foreground hover:text-foreground! group-hover/book:text-muted-foreground flex w-fit items-start gap-x-3 py-1"
-            >
-              <PiArrowRightBold className="mt-[5px] shrink-0" size={12} />
-              <div className="space-y-0.5">
-                <p className="anim w-full pr-5 text-sm font-semibold">
-                  {item.title}
-                </p>
-                <p className="text-muted-foreground text-xs">
-                  {item.description}
-                </p>
-              </div>
-            </Link>
-          ))}
-        </div>
+        <BookmarkGroup items={bookmarkItems} />
       </div>
     </SectionWrapper>
   );
