@@ -1,8 +1,6 @@
 "use client";
 
-import { type Variants, easeInOut, motion } from "motion/react";
-
-import { Children, type ReactNode } from "react";
+import { Children, type ReactNode, useEffect, useRef, useState } from "react";
 
 import { cn } from "@/lib/utils";
 
@@ -17,43 +15,6 @@ interface SectionWrapperProps {
 const DEFAULT_SECTION_CLASS = "flex h-auto w-full grow flex-col";
 const DEFAULT_ITEM_CLASS = "flex w-full max-w-lg flex-col items-center";
 
-const containerVariants: Variants = {
-  initial: {},
-  animate: {
-    transition: {
-      staggerChildren: 0.08,
-      delayChildren: 0.1,
-    },
-  },
-  exit: {
-    transition: {
-      staggerChildren: 0.05,
-      staggerDirection: -1,
-    },
-  },
-};
-
-const itemVariants: Variants = {
-  initial: { opacity: 0, y: 16, filter: "blur(4px)" },
-  animate: {
-    opacity: 1,
-    y: 0,
-    filter: "blur(0px)",
-    transition: {
-      duration: 0.4,
-      ease: easeInOut,
-    },
-  },
-  exit: {
-    opacity: 0,
-    y: 16,
-    filter: "blur(4px)",
-    transition: {
-      duration: 0.2,
-    },
-  },
-};
-
 const SectionWrapper = ({
   id,
   children,
@@ -62,27 +23,76 @@ const SectionWrapper = ({
   disableAnimation = false,
 }: SectionWrapperProps) => {
   const childrenArray = Children.toArray(children);
+  const [isInView, setIsInView] = useState(disableAnimation);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    if (disableAnimation) return;
+
+    // Disable animation on mobile viewports for performance
+    const isMobile = window.matchMedia("(max-width: 768px)").matches;
+    if (isMobile) {
+      setIsInView(true);
+      return;
+    }
+
+    const currentSection = sectionRef.current;
+    if (!currentSection) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsInView(true);
+          observer.disconnect();
+        }
+      },
+      {
+        rootMargin: "-50px",
+        threshold: 0,
+      },
+    );
+
+    observer.observe(currentSection);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [disableAnimation]);
 
   return (
-    <motion.section
+    <section
+      ref={sectionRef}
       id={id}
-      variants={disableAnimation ? undefined : containerVariants}
-      initial={disableAnimation ? undefined : "initial"}
-      animate={disableAnimation ? undefined : "animate"}
-      viewport={disableAnimation ? undefined : { once: true, margin: "-50px" }}
-      exit={disableAnimation ? undefined : "exit"}
       className={cn(DEFAULT_SECTION_CLASS, className)}
     >
-      {childrenArray.map((child, index) => (
-        <motion.div
-          key={index}
-          variants={disableAnimation ? undefined : itemVariants}
-          className={cn(DEFAULT_ITEM_CLASS, itemClassName)}
-        >
-          {child}
-        </motion.div>
-      ))}
-    </motion.section>
+      {childrenArray.map((child, index) => {
+        const delay = 0.1 + index * 0.08;
+        return (
+          <div
+            key={index}
+            style={
+              !disableAnimation
+                ? {
+                    transitionDelay: `${delay}s`,
+                  }
+                : undefined
+            }
+            className={cn(
+              DEFAULT_ITEM_CLASS,
+              itemClassName,
+              !disableAnimation &&
+                "md:transition-all md:duration-400 md:ease-in-out",
+              !disableAnimation &&
+                (isInView
+                  ? "md:translate-y-0 md:opacity-100 md:blur-none"
+                  : "translate-y-0 opacity-100 blur-none md:translate-y-4 md:opacity-0 md:blur-[4px]"),
+            )}
+          >
+            {child}
+          </div>
+        );
+      })}
+    </section>
   );
 };
 
