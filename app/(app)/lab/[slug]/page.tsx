@@ -11,6 +11,7 @@ import {
 import { Metadata } from "next";
 import Link from "next/link";
 
+import ApiTable from "@/components/shared/api-table";
 import LabCard from "@/components/shared/cards/lab-card";
 import Code from "@/components/shared/code";
 import Paragraph from "@/components/shared/paragraph";
@@ -21,6 +22,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 import CodeWrapper from "@/components/motion/code-wrapper";
 
+import { API_REFERENCES } from "@/lib/api-reference";
 import { COMPONENTS } from "@/lib/data";
 import { mapComponentToToc } from "@/lib/functions";
 import { getFilePathAndConfig } from "@/lib/read-file";
@@ -265,6 +267,15 @@ export default async function Page({ params }: { params: { slug: string } }) {
               <CodeWrapper>
                 <Code code={code} lang="tsx" />
               </CodeWrapper>
+            </div>
+          </div>
+        )}
+
+        {API_REFERENCES[item.slug] && (
+          <div className="w-full space-y-4">
+            <Paragraph title="API Reference" />
+            <div id="api-reference" className="w-full max-w-lg">
+              <ApiTable data={API_REFERENCES[item.slug]} />
             </div>
           </div>
         )}
