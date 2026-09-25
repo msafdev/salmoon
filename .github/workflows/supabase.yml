@@ -2,54 +2,75 @@ name: Ping Supabase to Prevent Pausing
 
 on:
   schedule:
-    - cron: "0 9 * * 1,4" # Runs at 9:00 AM UTC every Monday and Thursday
-  workflow_dispatch: # Allows manual triggering from the GitHub UI
+    # Runs at 06:30 UTC every 2 days (off-peak minute to avoid GitHub Actions queue delays)
+    - cron: "30 6 */2 * *"
+  workflow_dispatch: # Allows manual triggering from the GitHub UI Actions tab
+  push:
+    paths:
+      - ".github/workflows/supabase.yml" # Automatically test when workflow is updated
 
 jobs:
   ping:
+    name: Ping Supabase Database
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Checkout the repository
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # Step 2: Set up Node.js
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: "20"
 
-      # Step 3: Install Supabase Client
-      - name: Install Supabase Client
-        run: npm install --no-save @supabase/supabase-js
-
-      # Step 4: Ping Supabase
-      - name: Ping Supabase
+      - name: Ping Supabase Database & Auth
         env:
-          SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }} # Supabase project URL
-          SUPABASE_KEY: ${{ secrets.NEXT_SERVICE_ROLE_KEY }} # Supabase service role key
+          SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL || secrets.SUPABASE_URL }}
+          SUPABASE_KEY: ${{ secrets.NEXT_SERVICE_ROLE_KEY || secrets.SUPABASE_SERVICE_ROLE_KEY || secrets.NEXT_PUBLIC_SUPABASE_SERVICE_ROLE || secrets.SUPABASE_KEY || secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY || secrets.SUPABASE_ANON_KEY }}
         run: |
           node --input-type=module <<'EOF'
-          import { createClient } from '@supabase/supabase-js';
+          const rawUrl = process.env.SUPABASE_URL;
+          const key = process.env.SUPABASE_KEY;
 
-          const supabaseUrl = process.env.SUPABASE_URL;
-          const supabaseKey = process.env.SUPABASE_KEY;
-
-          if (!supabaseUrl || !supabaseKey) {
-            console.error('Missing SUPABASE_URL or SUPABASE_KEY');
+          if (!rawUrl || !key) {
+            console.error('❌ Error: Missing Supabase credentials in GitHub Secrets.');
+            console.error('Please configure at least one of the following secrets in GitHub Repository Settings -> Secrets and variables -> Actions:');
+            console.error('  - SUPABASE_URL (or NEXT_PUBLIC_SUPABASE_URL)');
+            console.error('  - SUPABASE_KEY (or NEXT_PUBLIC_SUPABASE_ANON_KEY, NEXT_SERVICE_ROLE_KEY, SUPABASE_SERVICE_ROLE_KEY)');
             process.exit(1);
           }
 
-          const supabase = createClient(supabaseUrl, supabaseKey);
+          const baseUrl = rawUrl.replace(/\/+$/, '');
+          const endpoint = `${baseUrl}/rest/v1/guestbook?select=id&limit=1`;
 
-          // Light-weight select to keep the project warm.
-          const { error } = await supabase.from('guestbook').select('id').limit(1);
+          console.log(`📡 Pinging Supabase endpoint: ${endpoint}`);
+          const startTime = Date.now();
 
-          if (error) {
-            console.error('Error pinging Supabase:', error.message);
+          try {
+            const response = await fetch(endpoint, {
+              method: 'GET',
+              headers: {
+                'apikey': key,
+                'Authorization': `Bearer ${key}`,
+                'Content-Type': 'application/json',
+                'User-Agent': 'GitHub-Actions-KeepAlive/1.0'
+              }
+            });
+
+            const duration = Date.now() - startTime;
+
+            if (!response.ok) {
+              const errorText = await response.text();
+              console.error(`❌ Supabase returned HTTP ${response.status} ${response.statusText} (${duration}ms)`);
+              console.error(`Response details: ${errorText}`);
+              process.exit(1);
+            }
+
+            const data = await response.json();
+            console.log(`✅ Supabase ping successful! HTTP ${response.status} OK (${duration}ms)`);
+            console.log(`📊 Records retrieved: ${Array.isArray(data) ? data.length : 1}`);
+          } catch (err) {
+            console.error(`❌ Network or fetch error: ${err.message}`);
             process.exit(1);
           }
-
-          console.log('Ping successful');
           EOF
