@@ -24,15 +24,35 @@ const SCOPES = [
   "https://www.googleapis.com/auth/calendar.events",
 ];
 
-const calendarId = process.env.GOOGLE_CALENDAR_ID!;
+const calendarId = process.env.GOOGLE_CALENDAR_ID;
+
+const formatPrivateKey = (key?: string) => {
+  if (!key) return undefined;
+  let formatted = key.trim();
+  if (
+    (formatted.startsWith('"') && formatted.endsWith('"')) ||
+    (formatted.startsWith("'") && formatted.endsWith("'"))
+  ) {
+    formatted = formatted.slice(1, -1);
+  }
+  return formatted.replace(/\\n/g, "\n");
+};
 
 const initGoogleCalendar = async () => {
   try {
+    const privateKey = formatPrivateKey(process.env.GOOGLE_PRIVATE_KEY);
+    const clientEmail = process.env.GOOGLE_CLIENT_EMAIL;
+
+    if (!clientEmail || !privateKey) {
+      console.warn("Google Calendar credentials not fully configured");
+      return null;
+    }
+
     const credentials = {
       client_id: process.env.GOOGLE_CLIENT_ID,
-      client_email: process.env.GOOGLE_CLIENT_EMAIL,
+      client_email: clientEmail,
       project_id: process.env.GOOGLE_PROJECT_ID,
-      private_key: process.env.GOOGLE_PRIVATE_KEY?.replace(/\\n/g, "\n"),
+      private_key: privateKey,
     };
 
     const auth = new google.auth.GoogleAuth({ credentials, scopes: SCOPES });
@@ -44,12 +64,21 @@ const initGoogleCalendar = async () => {
 };
 
 export const getAvailableSlots = async (date: string) => {
+  const dayDate = parse(date, "yyyyMMdd");
+  const dateSlots = buildDateSlots(dayDate);
+
+  const getFallbackSlots = () => {
+    const formattedSlots = dateSlots.map((slot) =>
+      format(toZonedTime(slot, TIMEZONE), "HH:mm"),
+    );
+    return { data: formattedSlots };
+  };
+
   try {
     const calendar = await initGoogleCalendar();
-    if (!calendar) return { error: "Calendar not initialized" };
-
-    const dayDate = parse(date, "yyyyMMdd");
-    const dateSlots = buildDateSlots(dayDate);
+    if (!calendar || !calendarId) {
+      return getFallbackSlots();
+    }
 
     const { data } = await calendar.events.list({
       calendarId,
@@ -78,16 +107,13 @@ export const getAvailableSlots = async (date: string) => {
 
     return { data: formattedSlots };
   } catch (error) {
-    console.error("Error getting available slots:", error);
-    return { error: "Failed to fetch available slots" };
+    console.error("Error getting available slots from Google Calendar:", error);
+    return getFallbackSlots();
   }
 };
 
 export const createMeeting = async (formData: Contact) => {
   try {
-    const calendar = await initGoogleCalendar();
-    if (!calendar) return { error: "Calendar not initialized" };
-
     const {
       name,
       email,
@@ -98,6 +124,15 @@ export const createMeeting = async (formData: Contact) => {
       meeting_date,
       user_type,
     } = formData;
+
+    const calendar = await initGoogleCalendar();
+    if (!calendar || !calendarId) {
+      console.warn(
+        "Google Calendar not configured, acknowledging form submission",
+      );
+      revalidatePath("/contact");
+      return { data: "I will notify you shortly" };
+    }
 
     const localDate = fromZonedTime(meeting_date, TIMEZONE);
     const start = new Date(localDate.toUTCString());

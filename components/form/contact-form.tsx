@@ -369,9 +369,7 @@ const ContactForm = () => {
                 <PiArrowElbowDownLeftBold className="size-4" />
               )
             ) : (
-              <>
-                <PiArrowRightBold className="size-4" />
-              </>
+              <PiArrowRightBold className="size-4" />
             )}
           </Button>
         </div>

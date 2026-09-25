@@ -1,3 +1,5 @@
+@reference "./globals.css";
+
 .range-thumb {
   /* Reset all default styles */
   -webkit-appearance: none;
@@ -7,6 +9,7 @@
   border: none;
   outline: none;
   cursor: pointer;
+  accent-color: transparent;
 }
 
 /* Remove default track styling */

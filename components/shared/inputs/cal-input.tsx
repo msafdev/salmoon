@@ -50,14 +50,29 @@ export default function CalInput({
   const [slotCache, setSlotCache] = useState<Record<string, string[]>>({});
   const [loadingSlots, setLoadingSlots] = useState(false);
 
-  const { daysInMonth, firstDayOfMonth, today } = useMemo(() => {
+  const { daysInMonth, firstDayOfMonth, startOfToday } = useMemo(() => {
     const year = currentDate.getFullYear();
     const month = currentDate.getMonth();
     const daysInMonth = new Date(year, month + 1, 0).getDate();
     const firstDayOfMonth = new Date(year, month, 1).getDay();
-    const today = new Date();
-    return { daysInMonth, firstDayOfMonth, today };
+
+    const startOfToday = new Date();
+    startOfToday.setHours(0, 0, 0, 0);
+
+    return { daysInMonth, firstDayOfMonth, startOfToday };
   }, [currentDate]);
+
+  const isCurrentMonthOrPast = useMemo(() => {
+    const currentYear = currentDate.getFullYear();
+    const currentMonth = currentDate.getMonth();
+    const todayYear = startOfToday.getFullYear();
+    const todayMonth = startOfToday.getMonth();
+
+    return (
+      currentYear < todayYear ||
+      (currentYear === todayYear && currentMonth <= todayMonth)
+    );
+  }, [currentDate, startOfToday]);
 
   useEffect(() => {
     if (!value) return;
@@ -155,22 +170,20 @@ export default function CalInput({
     if (onChange) onChange("");
   };
 
-  const isDateDisabled = (day: number) => {
+  const getDateMeta = (day: number) => {
     const date = new Date(
       currentDate.getFullYear(),
       currentDate.getMonth(),
       day,
     );
-    return date < today || date.getDay() === 0 || date.getDay() === 6;
-  };
+    date.setHours(0, 0, 0, 0);
 
-  const isDateSelected = (day: number) => {
-    if (!selectedDate) return false;
-    return (
-      selectedDate.getDate() === day &&
-      selectedDate.getMonth() === currentDate.getMonth() &&
-      selectedDate.getFullYear() === currentDate.getFullYear()
-    );
+    const isToday = date.getTime() === startOfToday.getTime();
+    const isPast = date.getTime() < startOfToday.getTime();
+    const isWeekend = date.getDay() === 0 || date.getDay() === 6;
+    const isDisabled = isPast || isWeekend;
+
+    return { isToday, isPast, isWeekend, isDisabled };
   };
 
   const renderCalendarDays = () => {
@@ -180,8 +193,8 @@ export default function CalInput({
     }
 
     for (let day = 1; day <= daysInMonth; day++) {
-      const isDisabled = isDateDisabled(day);
-      const isSelected = isDateSelected(day);
+      const { isToday, isPast, isWeekend, isDisabled } = getDateMeta(day);
+
       days.push(
         <button
           type="button"
@@ -189,14 +202,37 @@ export default function CalInput({
           onClick={() => !isDisabled && handleDateSelect(day)}
           disabled={isDisabled}
           className={cn(
-            "aspect-square w-full rounded text-xs font-medium",
-            "hover:bg-primary/10 hover:text-foreground focus-visible:ring-ring/40 outline-hidden focus-visible:ring-2",
-            isDisabled && "text-muted-foreground",
-            isSelected && "bg-primary/10 text-foreground",
-            !isSelected && !isDisabled && "text-foreground",
+            "relative flex aspect-square w-full flex-col items-center justify-center rounded text-xs transition-all duration-150",
+            "focus-visible:ring-ring/40 outline-hidden focus-visible:ring-2",
+            // Past dates: clearly faded
+            isPast && "text-muted-foreground/25 cursor-default select-none",
+            // Weekend dates: soft muted
+
+            isWeekend && "text-destructive/35 cursor-default select-none",
+            // Future available dates: crisp and clickable
+            !isDisabled &&
+              "text-foreground hover:bg-primary/10 cursor-pointer font-medium active:scale-95",
           )}
         >
-          {day}
+          <span className="relative inline-flex flex-col items-center justify-center">
+            <span>{day}</span>
+            {/* Subtle red wavy indicator for Today (Now) */}
+            {isToday && (
+              <svg
+                className="absolute -bottom-2 h-1 w-6 overflow-visible text-red-500 dark:text-red-400"
+                viewBox="0 0 24 6"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M 0 3 Q 3 0, 6 3 T 12 3 T 18 3 T 24 3"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                />
+              </svg>
+            )}
+          </span>
         </button>,
       );
     }
@@ -207,7 +243,7 @@ export default function CalInput({
   const renderTimeSlots = () => {
     if (loadingSlots) {
       return (
-        <div className="grid grid-cols-2 gap-2 md:grid-cols-4">
+        <div className="grid min-h-[140px] grid-cols-2 gap-2 md:grid-cols-4">
           {Array.from({ length: 12 }).map((_, i) => (
             <Skeleton key={i} className="h-9 rounded" />
           ))}
@@ -217,42 +253,47 @@ export default function CalInput({
 
     if (availableSlots.length === 0) {
       return (
-        <p className="text-muted-foreground text-sm">No available slots</p>
+        <div className="flex min-h-[140px] items-center justify-center">
+          <p className="text-muted-foreground text-sm">No available slots</p>
+        </div>
       );
     }
 
     return (
-      <div className="grid grid-cols-2 gap-2 md:grid-cols-4">
-        {availableSlots.map((time) => (
-          <Button
-            type="button"
-            key={time}
-            variant="secondary"
-            size="sm"
-            onClick={() => handleTimeSelect(time)}
-            className={cn(
-              "anim hover:bg-primary/10 dark:hover:bg-primary/20 text-xs",
-              selectedTime === time &&
-                "bg-primary/10 text-foreground hover:bg-primary/10 dark:bg-primary/20 dark:hover:bg-primary/20",
-            )}
-          >
-            {time}
-          </Button>
-        ))}
+      <div className="grid min-h-fit grid-cols-2 gap-2 md:grid-cols-4">
+        {availableSlots.map((time) => {
+          const isSelected = selectedTime === time;
+          return (
+            <button
+              type="button"
+              key={time}
+              onClick={() => handleTimeSelect(time)}
+              className={cn(
+                "anim h-9 w-full cursor-pointer rounded px-3 py-2 text-xs font-semibold transition-all duration-200",
+                "focus-visible:ring-ring/40 outline-hidden focus-visible:ring-2",
+                isSelected
+                  ? "bg-primary/10 text-foreground scale-[1.02] shadow-xs"
+                  : "bg-secondary/70 text-secondary-foreground hover:bg-secondary hover:text-foreground active:scale-95",
+              )}
+            >
+              {time}
+            </button>
+          );
+        })}
       </div>
     );
   };
 
   return (
     <div className={cn("w-full", className)}>
-      <AnimatePresence mode="wait">
+      <AnimatePresence mode="wait" initial={false}>
         {!selectedDate ? (
           <motion.div
             key="calendar"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
+            initial={{ opacity: 0, y: 4 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -4 }}
+            transition={{ duration: 0.15, ease: "easeOut" }}
             className="space-y-2"
           >
             <div className="flex items-center justify-between">
@@ -268,7 +309,9 @@ export default function CalInput({
                   variant="ghost"
                   size="icon"
                   onClick={() => navigateMonth("prev")}
-                  className="size-8 p-0"
+                  disabled={isCurrentMonthOrPast}
+                  className="size-8 p-0 disabled:opacity-30"
+                  aria-label="Previous month"
                 >
                   <PiArrowLeftBold className="size-4" />
                 </Button>
@@ -278,6 +321,7 @@ export default function CalInput({
                   size="icon"
                   onClick={() => navigateMonth("next")}
                   className="size-8 p-0"
+                  aria-label="Next month"
                 >
                   <PiArrowRightBold className="size-4" />
                 </Button>
@@ -305,20 +349,28 @@ export default function CalInput({
         ) : (
           <motion.div
             key="time-selection"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
+            initial={{ opacity: 0, y: 4 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -4 }}
+            transition={{ duration: 0.15, ease: "easeOut" }}
             className="space-y-2"
           >
             <div className="flex items-center justify-between">
-              <h3 className="text-foreground font-semibold">Select Time</h3>
+              <div className="flex items-center gap-x-2">
+                <h3 className="text-foreground leading-none font-semibold">
+                  Select Time
+                </h3>
+                <span className="text-muted-foreground text-xs leading-none">
+                  GMT+7
+                </span>
+              </div>
               <Button
                 type="button"
                 variant="ghost"
                 size="icon"
                 onClick={handleReset}
                 className="size-8 p-0"
+                aria-label="Back to calendar"
               >
                 <PiArrowLeftBold className="size-4" />
               </Button>
